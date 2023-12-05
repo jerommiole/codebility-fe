@@ -77,7 +77,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="flex items-center justify-center bg-black text-slate-100">
+    <footer className="flex items-center justify-center bg-backgroundColor text-primaryColor">
       <div className="w-screen mt-28">
         {/* TOP */}
         <div className="max-w-7xl w-90 mx-5 lg:mx-10 xl:mx-auto grid grid-cols-1 place-items-center  gap-16
@@ -114,7 +114,7 @@ const Footer = () => {
                 <Image src="/companyLogo.png" alt="Codebility" width={250} height={30} />
               </Link>
             </div>
-            <div className="max-w-xs text-sm text-gray-400">
+            <div className="max-w-xs text-sm text-secondaryColor">
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s,
@@ -128,11 +128,11 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="Email Address..."
-                className="h-10 w-80 rounded-full bg-slate-800 px-7 text-sm focus:border-none"
+                className="h-10 w-80 rounded-full bg-inputColor px-7 text-sm focus:border-none"
               />
                <Image src="/send.svg" alt="send" width={53} height={53} className="absolute -right-3 hover:cursor-pointer" />
             </div>
-            <p className="text-sm text-gray-400">Lorem Ipsum is simply dummy text of the printing</p>
+            <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text of the printing</p>
             <h2 className="text-md font-semibold">Follow us</h2>
             <div className="flex gap-5">
               {socials.map((social) => (
@@ -147,7 +147,7 @@ const Footer = () => {
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
             <div className="grid grid-cols-2 gap-x-10 gap-y-3">
               {footerLinks.map((footerLink, index) => (
-                <Link href={footerLink.footerUrl} key={index} className="text-sm text-gray-400">
+                <Link href={footerLink.footerUrl} key={index} className="text-sm text-secondaryColor">
                   {footerLink.name}
                 </Link>
               ))}
@@ -156,9 +156,9 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM */}
-        <div className="h-20 flex justify-center items-center bg-gray-900">
-          <p className="text-sm text-gray-400">
-            Copyright &copy; All Right Reserved <Link href="/"><span className="text-slate-100 font-bold hover:underline">CODEBILITY</span></Link>
+        <div className="h-20 flex justify-center items-center bg-footerColor">
+          <p className="text-sm text-secondaryColor">
+            Copyright &copy; All Right Reserved <Link href="/"><span className="text-primaryColor font-bold hover:underline">CODEBILITY</span></Link>
           </p>
         </div>
       </div>
