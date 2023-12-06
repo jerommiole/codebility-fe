@@ -5,7 +5,8 @@ import { ThemeModeToggle } from "@/components/ui/thememodetoggle"
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body><ThemeProvider
+      <body  >
+            <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
