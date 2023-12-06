@@ -1,7 +1,6 @@
 import React from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Image from "next/image"
-import Avatars from "./Assets/image18.svg"
 import { Avatar1,Arrow } from "./Assets/exports"
 import Link from 'next/link';
 
