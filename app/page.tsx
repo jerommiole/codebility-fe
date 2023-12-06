@@ -1,9 +1,16 @@
-import { Button } from "@/components/ui/button"
+import Footer from "./Footer/page";
+
 
 export default function Web() {
   return (
     <>
-      <h1>Hello World!</h1>
+
+    <div className="w-full h-screen flex flex-col ">
+          {/* LANDING PAGE */}
+        <Footer />
+
+
+    </div>
     </>
   )
 }

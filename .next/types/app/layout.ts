@@ -1,4 +1,4 @@
-// File: /home/kopimi/Desktop/codebilityproject/client/codebility-fe/app/layout.tsx
+// File: D:\XAAMP\htdocs\Codibility\codebility-fe\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
