@@ -10,6 +10,14 @@
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+<<<<<<< HEAD
+=======
+    ],
+    "/CoDevs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/CoDevs/page.js"
+>>>>>>> c7351a4 (CODE-5)
     ]
   }
 }

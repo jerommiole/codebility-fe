@@ -2,7 +2,7 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./styles/tailwind.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************/
 /*
-! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -106,8 +106,10 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font family by default.
-2. Correct the odd `em` font sizing in all browsers.
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
@@ -115,7 +117,9 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
 }
 
 /*
@@ -488,6 +492,7 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+<<<<<<< HEAD
 .sr-only {
   position: absolute;
   width: 1px;
@@ -551,14 +556,24 @@ video {
 .mt-28 {
   margin-top: 7rem;
 }
+=======
+.relative {
+  position: relative;
+}
+>>>>>>> c7351a4 (CODE-5)
 .flex {
   display: flex;
 }
 .inline-flex {
   display: inline-flex;
 }
+<<<<<<< HEAD
 .grid {
   display: grid;
+=======
+.aspect-square {
+  aspect-ratio: 1 / 1;
+>>>>>>> c7351a4 (CODE-5)
 }
 .h-10 {
   height: 2.5rem;
@@ -566,8 +581,13 @@ video {
 .h-11 {
   height: 2.75rem;
 }
+<<<<<<< HEAD
 .h-2 {
   height: 0.5rem;
+=======
+.h-9 {
+  height: 2.25rem;
+>>>>>>> c7351a4 (CODE-5)
 }
 .h-20 {
   height: 5rem;
@@ -595,6 +615,7 @@ video {
 }
 .w-10 {
   width: 2.5rem;
+<<<<<<< HEAD
 }
 .w-2 {
   width: 0.5rem;
@@ -607,6 +628,8 @@ video {
 }
 .w-4 {
   width: 1rem;
+=======
+>>>>>>> c7351a4 (CODE-5)
 }
 .w-80 {
   width: 20rem;
@@ -617,6 +640,7 @@ video {
 .w-full {
   width: 100%;
 }
+<<<<<<< HEAD
 .w-screen {
   width: 100vw;
 }
@@ -663,6 +687,10 @@ video {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+=======
+.shrink-0 {
+  flex-shrink: 0;
+>>>>>>> c7351a4 (CODE-5)
 }
 .flex-col {
   flex-direction: column;
@@ -676,6 +704,7 @@ video {
 .justify-center {
   justify-content: center;
 }
+<<<<<<< HEAD
 .gap-16 {
   gap: 4rem;
 }
@@ -698,6 +727,8 @@ video {
 .self-center {
   align-self: center;
 }
+=======
+>>>>>>> c7351a4 (CODE-5)
 .overflow-hidden {
   overflow: hidden;
 }
@@ -709,9 +740,12 @@ video {
 }
 .rounded-md {
   border-radius: calc(var(--radius) - 2px);
+<<<<<<< HEAD
 }
 .rounded-sm {
   border-radius: calc(var(--radius) - 4px);
+=======
+>>>>>>> c7351a4 (CODE-5)
 }
 .border {
   border-width: 1px;
@@ -721,14 +755,18 @@ video {
 }
 .bg-background {
   background-color: hsl(var(--background));
+<<<<<<< HEAD
 }
 .bg-backgroundColor {
   --tw-bg-opacity: 1;
   background-color: rgb(3 3 3 / var(--tw-bg-opacity));
+=======
+>>>>>>> c7351a4 (CODE-5)
 }
 .bg-destructive {
   background-color: hsl(var(--destructive));
 }
+<<<<<<< HEAD
 .bg-footerColor {
   --tw-bg-opacity: 1;
   background-color: rgb(10 10 10 / var(--tw-bg-opacity));
@@ -759,6 +797,17 @@ video {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+=======
+.bg-muted {
+  background-color: hsl(var(--muted));
+}
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+.bg-secondary {
+  background-color: hsl(var(--secondary));
+}
+>>>>>>> c7351a4 (CODE-5)
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -767,6 +816,7 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+<<<<<<< HEAD
 .px-7 {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
@@ -782,21 +832,30 @@ video {
 .py-1\.5 {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
+=======
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+>>>>>>> c7351a4 (CODE-5)
 }
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+<<<<<<< HEAD
 .pl-8 {
   padding-left: 2rem;
 }
 .pr-2 {
   padding-right: 0.5rem;
 }
+=======
+>>>>>>> c7351a4 (CODE-5)
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+<<<<<<< HEAD
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -823,12 +882,21 @@ video {
 .text-popover-foreground {
   color: hsl(var(--popover-foreground));
 }
+=======
+.font-medium {
+  font-weight: 500;
+}
+.text-destructive-foreground {
+  color: hsl(var(--destructive-foreground));
+}
+>>>>>>> c7351a4 (CODE-5)
 .text-primary {
   color: hsl(var(--primary));
 }
 .text-primary-foreground {
   color: hsl(var(--primary-foreground));
 }
+<<<<<<< HEAD
 .text-primaryColor {
   --tw-text-opacity: 1;
   color: rgb(217 217 217 / var(--tw-text-opacity));
@@ -862,6 +930,13 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+=======
+.text-secondary-foreground {
+  color: hsl(var(--secondary-foreground));
+}
+.underline-offset-4 {
+  text-underline-offset: 4px;
+>>>>>>> c7351a4 (CODE-5)
 }
 .outline {
   outline-style: solid;
@@ -869,11 +944,14 @@ video {
 .ring-offset-background {
   --tw-ring-offset-color: hsl(var(--background));
 }
+<<<<<<< HEAD
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+=======
+>>>>>>> c7351a4 (CODE-5)
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -893,6 +971,7 @@ video {
     transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
   }
 }
+<<<<<<< HEAD
 .hover\:cursor-pointer:hover {
   cursor: pointer;
 }
@@ -902,6 +981,14 @@ video {
 .hover\:bg-destructive\/90:hover {
   background-color: hsl(var(--destructive) / 0.9);
 }
+=======
+.hover\:bg-accent:hover {
+  background-color: hsl(var(--accent));
+}
+.hover\:bg-destructive\/90:hover {
+  background-color: hsl(var(--destructive) / 0.9);
+}
+>>>>>>> c7351a4 (CODE-5)
 .hover\:bg-primary\/90:hover {
   background-color: hsl(var(--primary) / 0.9);
 }
@@ -914,6 +1001,7 @@ video {
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+<<<<<<< HEAD
 .focus\:border-none:focus {
   border-style: none;
 }
@@ -923,6 +1011,8 @@ video {
 .focus\:text-accent-foreground:focus {
   color: hsl(var(--accent-foreground));
 }
+=======
+>>>>>>> c7351a4 (CODE-5)
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -943,6 +1033,7 @@ video {
 }
 .disabled\:opacity-50:disabled {
   opacity: 0.5;
+<<<<<<< HEAD
 }
 .data-\[disabled\]\:pointer-events-none[data-disabled] {
   pointer-events: none;
@@ -1030,5 +1121,7 @@ video {
     margin-left: auto;
     margin-right: auto;
   }
+=======
+>>>>>>> c7351a4 (CODE-5)
 }
 
