@@ -1475,9 +1475,5 @@ video {
   .tablet\:w-full {
     width: 100%;
   }
-
-  .tablet\:transition-none {
-    transition-property: none;
-  }
 }
 
