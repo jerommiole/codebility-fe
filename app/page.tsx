@@ -1,16 +1,16 @@
-import Footer from "./Footer/page";
-
+import Sidebar from "Components/sidebar"
+import Footer from "./Footer/page"
+import ToggleMenu from "Components/toggleMenu"
 
 export default function Web() {
   return (
     <>
-
-    <div className="w-full h-screen flex flex-col ">
-          {/* LANDING PAGE */}
+      <div className="flex h-screen w-full flex-col ">
+        <Sidebar />
+        <ToggleMenu />
+        {/* LANDING PAGE */}
         <Footer />
-
-
-    </div>
+      </div>
     </>
   )
 }
