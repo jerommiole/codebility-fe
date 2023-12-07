@@ -26,9 +26,7 @@ const Sidebar = () => {
     <>
       <Blinds />
       <nav
-        className={`nav tablet:transition-none ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
-          activeNav ? "w-[310px]" : "w-[103px]"
-        } `}
+        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${activeNav ? "w-[310px]" : "w-[103px]"} `}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
