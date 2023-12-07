@@ -4,6 +4,9 @@ import React from "react"
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
+import logoPic from "public/Logo.png"
+import logoChar from "public/logoChar.png"
+
 import {
   DashboardSVG,
   TimeTrackerSVG,
@@ -31,7 +34,7 @@ const Sidebar = () => {
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
             <Image
-              src="/Logo.png"
+              src={logoPic}
               width={147}
               height={30}
               alt="logo"
@@ -41,7 +44,7 @@ const Sidebar = () => {
 
           <Image
             onClick={() => toggleNav()}
-            src="/logoChar.png"
+            src={logoChar}
             width={30}
             height={40}
             alt="logo"
