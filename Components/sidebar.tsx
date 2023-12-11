@@ -18,7 +18,6 @@ import {
   LogoutSVG,
 } from "Components/logos"
 
-import { ModeToggle } from "@/components/ui/toggle-mode"
 import Image from "next/image"
 import { useNavStore } from "store/Post"
 
@@ -64,9 +63,6 @@ const Sidebar = () => {
           <SidebarItems passedComponent={<InternSVG />}>Interns</SidebarItems>
           <SidebarItems passedComponent={<ClientSVG />}>Clients</SidebarItems>
           <div className="mt-auto flex flex-col">
-            <span className="tablet:flex hidden self-baseline">
-              <ModeToggle />
-            </span>
             <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out
             </SidebarItems>
@@ -118,7 +114,7 @@ const Blinds = () => {
   return (
     <div
       onClick={() => toggleNav()}
-      className={`blinds  ${activeNav ? "tablet:w-full opacity-100" : "tablet:w-0 opacity-0"}`}
+      className={`blinds  ${activeNav ? "opacity-100 tablet:w-full" : "opacity-0 tablet:w-0"}`}
     ></div>
   )
 }
