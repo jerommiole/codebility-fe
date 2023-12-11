@@ -1,3 +1,5 @@
 
 /.npm-only-allow
 node_modules
+.next
+
