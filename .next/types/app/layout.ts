@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // File: /home/kopimi/Desktop/codebilityproject/client/codebility-fe/app/layout.tsx
+=======
+// File: C:\Users\David\OneDrive\Desktop\Projects\Compile\Finished\Example\codebility-fe\app\layout.tsx
+>>>>>>> dec248b980e56477f41f4045ec8f24c3b886ce76
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
