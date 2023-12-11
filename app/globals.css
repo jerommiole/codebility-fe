@@ -56,6 +56,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
   .nav {
     @apply fixed z-20 flex h-screen flex-col overflow-y-auto overflow-x-hidden bg-background;
     transition: width 0.2s ease-in-out;
