@@ -47,10 +47,10 @@ const Hero = () => {
       </div>
 
       <div className="flex h-screen flex-col items-center justify-center gap-6">
-        <p className="text-center">Unlocking Potential: Code is a Universal Language</p>
-        <Image src="/CODEBILITY.png" alt="CODEBILITY" width={906} height={133} />
-        <p className="text-center">“Everyone has the ability to code”</p>
-        <Button className="mt-6 border-2 border-blue-600">Get Started</Button>
+        <p className="text-center text-white">Unlocking Potential: Code is a Universal Language</p>
+        <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={906} height={133} />
+        <p className="text-center text-white">“Everyone has the ability to code”</p>
+        <Button className="mt-6 border-2 border-blue-600 text-white">Get Started</Button>
         <div className="mt-32 flex gap-5">
           {socials.map((social) => (
             <Link href={social.socialUrl}>

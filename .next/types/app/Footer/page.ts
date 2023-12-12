@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 // File: C:\Users\Admin\OneDrive\Desktop\codebility-fe\app\Footer\page.tsx
-=======
-<<<<<<< HEAD
-// File: /home/kopimi/Desktop/codebilityproject/client/codebility-fe/app/Footer/page.tsx
-=======
-// File: C:\Users\David\OneDrive\Desktop\Projects\Compile\Finished\Example\codebility-fe\app\Footer\page.tsx
->>>>>>> dec248b980e56477f41f4045ec8f24c3b886ce76
->>>>>>> 4fc66f3dddd074db67a4076a653f60fcf186e2f0
 import * as entry from '../../../../app/Footer/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
