@@ -2610,6 +2610,7 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
+<<<<<<< HEAD
 "@radix-ui/react-dialog@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-dialog/-/react-dialog-1.0.5.tgz#71657b1b116de6c7a0b03242d7d43e01062c7300"
@@ -2631,6 +2632,8 @@
     aria-hidden "^1.1.1"
     react-remove-scroll "2.5.5"
 
+=======
+>>>>>>> 4fc66f3dddd074db67a4076a653f60fcf186e2f0
 "@radix-ui/react-direction@1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@radix-ui/react-direction/-/react-direction-1.0.1.tgz"
