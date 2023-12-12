@@ -27,6 +27,9 @@ module.exports = {
         desktop: { max: "1280px" },
         // => @media (min-width: 1280px) { ... }
       },
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(169.40% 89.55% at 94.76% 6.29%, rgba(0, 0, 0, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
+      },
       colors: {
         primaryColor: "#D9D9D9",
         secondaryColor: "#8E8E8E",

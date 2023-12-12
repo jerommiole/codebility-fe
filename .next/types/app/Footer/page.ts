@@ -1,4 +1,4 @@
-// File: C:\Users\David\OneDrive\Desktop\Projects\Compile\Finished\Example\codebility-fe\app\Footer\page.tsx
+// File: D:\XAAMP\htdocs\Codibility\codebility-fe\app\Footer\page.tsx
 import * as entry from '../../../../app/Footer/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
