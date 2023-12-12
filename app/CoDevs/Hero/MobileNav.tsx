@@ -41,7 +41,7 @@ const MobileNav = () => {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <nav className=" flex h-screen flex-col items-center justify-start gap-11">
+            <nav className=" flex h-screen flex-col items-center justify-center gap-11">
               {links.map((link, idx) => (
                 <div key={idx}>
                   {pathname === link.href ? (
