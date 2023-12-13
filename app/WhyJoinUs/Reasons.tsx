@@ -13,13 +13,13 @@ const Reasons = ({title, reasonNumber, description} : ReasonProps) => {
       </h1>
       <div className="flex max-w-sm gap-3 p-4">
         <div className="flex h-48 w-28 items-center justify-center ">
-          <h1 className="text-3xl font-semibold text-slate-400">0{reasonNumber}</h1>
+          <h1 className="text-3xl font-semibold text-secondaryColor">0{reasonNumber}</h1>
         </div>
         <div className="flex flex-1 flex-col justify-between p-1">
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-secondaryColor">
             {description}
           </p>
-          <div className="flex justify-between text-sm text-slate-400">
+          <div className="flex justify-between text-sm text-secondaryColor">
             <p>Lorem</p>
             <p>Lorem Ipsum</p>
           </div>
