@@ -16,6 +16,7 @@ import Image from "next/image"
 // } from "@/components/ui/ThemeToggler (unused)/dropdown-menu"
 
 import Hero from "public/hero.png"
+import { useNavStore } from "store/Post"
 
 type ContainProps = {
   children: React.ReactNode
@@ -25,6 +26,8 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
   useEffect(() => {
     //Fetch Data
   }, [])
+  const { activeNav } = useNavStore()
+
   return (
     <div className="ml-[103px] flex h-screen flex-col bg-background tablet:ml-0">
       <div className="flex items-center justify-between px-4 py-2 lg:pr-20 tablet:pr-5">
@@ -65,7 +68,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className="flex-grow lg:overflow-hidden lg:p-[19px]">{children}</div>
+      <div className={`flex-grow ${activeNav && "overflow-hidden"} lg:overflow-hidden lg:p-[19px]`}>{children}</div>
     </div>
   )
 }
