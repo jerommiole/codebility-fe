@@ -7,10 +7,10 @@ export default function Web() {
     <>
       <div className="flex flex-col w-full h-screen ">
         
-        <ToggleMenu />
+        
         {/* LANDING PAGE */}
         <Services/>
-        
+        <Footer/>
       </div>
     </>
   )
