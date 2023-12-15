@@ -3,7 +3,7 @@ import Image from 'next/image'; // Import the next/image component
 import Card from '../../Components/Card';
 
 const Services = () => {
-  
+
   //dummy
   const Text = [
     {
@@ -24,11 +24,10 @@ const Services = () => {
     },
   ];
 
-
-
   return (
     <div className='flex flex-col items-center justify-center px-5 my-auto xl:px-56 bg-backgroundColor lg:pt-48 '>
-      <div className=''>
+     {/*Moon Image*/}
+     <div className=''>
         <Image
           src="/Moon.png"
           alt="Moon"
@@ -36,20 +35,19 @@ const Services = () => {
           width={200}
           height={200}
         />
-
       </div>
       <div className='flex flex-col justify-center mt-32 lg:gap-16 lg:mt-0 lg:flex-row'>
+        {/*What We Do Column*/}
         <div className='xl:w-1/2'>
           <p className=' text-primaryColor'>Our Services</p>
           <h1 className='text-5xl font-semibold'>What We Do</h1>
           <p className='mt-2 text-secondaryColor'> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-
+            {/* Hover Text */}
           <div className='flex flex-col gap-3 mt-10' >
-            
             {Text.map((item, index) => (
-              <div key={index} className='flex justify-end gap-5 duration-500 hover:gap-10 w-[180px] hover:w-[250px] '>
+              <div key={index} className='flex justify-end gap-5 duration-300  w-[180px] hover:w-[200px]'>
                 <p className='font-semibold hover:text-primaryColor'>{item.num}</p>
-                <div className='w-[25px] -translate-y-2 border-b-2 border-white'></div>
+                <div className='w-[25px] -translate-y-2 border-b-2 hover:w-[50px] border-white'></div>
                 <p>{item.title}</p>
               </div>
             ))}
@@ -58,6 +56,7 @@ const Services = () => {
         </div>
 
         <div className="flex gap-2 mt-32 md:gap-3 lg:mt-0 ">
+          {/* Cards Column */}
           <div className='flex flex-col gap-2 md:gap-3'>
             <Card
               title="Skill Mastery"
@@ -77,6 +76,7 @@ const Services = () => {
 
             />
           </div>
+          {/* Cards Column Translate-y*/}
           <div className='flex flex-col gap-2 -translate-y-10 md:gap-3'>
             <Card
               title="Innovation"
@@ -107,7 +107,7 @@ const Services = () => {
 
           <p className='text-center text-secondaryColor '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
         </div>
-
+        {/* Services Cards */}
         <div className='flex flex-col justify-center gap-5 px-20 bg-backgroundColor lg:mt-10 md:mx-0 md:gap-20 md:flex-row'>
           <Card
             title="Web Design"
@@ -115,7 +115,7 @@ const Services = () => {
             imageUrl="WebIcon.png"
             link='Read More'
             icon='Arrow.png'
-            CardColor =''
+            CardColor=''
 
           />
           <Card
@@ -124,7 +124,7 @@ const Services = () => {
             imageUrl="SharpIcon.png"
             link='Read More'
             icon='Arrow.png'
-            CardColor =''
+            CardColor=''
 
 
           /><Card
@@ -133,13 +133,13 @@ const Services = () => {
             imageUrl="Cms.png"
             link='Read More'
             icon='Arrow.png'
-            CardColor =''
+            CardColor=''
 
           />
-        </div>    
-          <p className='text-sm md:text-center text-secondaryColor'> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
+        </div>
+        <p className='mt-10 text-sm md:text-center max-w-[550px] mx-auto text-secondaryColor'> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
       </div>
-      
+
 
 
     </div>
