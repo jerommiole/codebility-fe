@@ -1,5 +1,5 @@
 import Sidebar from "Components/sidebar"
-import Footer from "../Components/Footer"
+import Footer from "../Components/Footer/index"
 import ToggleMenu from "Components/toggleMenu"
 import WhyJoinUs from "./WhyJoinUs/page"
 
