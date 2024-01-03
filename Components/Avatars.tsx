@@ -1,7 +1,7 @@
 import React from "react"
-import { Avatar } from "@/components/ui/avatar"
+import Avatar from "@/components/ui/avatar"
 // import { Arrow } from "/app/CoDevs/Assets/exports"
-import { Arrow } from "app/(landing)/CoDevs/Assets/exports"
+import { Arrow } from "app/CoDevs/Assets/exports"
 import Image from "next/image"
 import Link from "next/link"
 interface props {
