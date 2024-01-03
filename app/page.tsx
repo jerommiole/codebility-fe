@@ -7,8 +7,6 @@ export default function Web() {
   return (
     <>
       <div className="flex h-screen w-full flex-col ">
-        <Sidebar />
-        <ToggleMenu />
         {/* LANDING PAGE */}
         <WhyJoinUs />
         <Footer />
