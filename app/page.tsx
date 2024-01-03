@@ -1,5 +1,5 @@
 import Sidebar from "Components/sidebar"
-import Footer from "./Footer/page"
+import Footer from "../Components/Footer"
 import ToggleMenu from "Components/toggleMenu"
 import WhyJoinUs from "./WhyJoinUs/page"
 
@@ -8,7 +8,7 @@ export default function Web() {
     <>
       <div className="flex h-screen w-full flex-col ">
         {/* LANDING PAGE */}
-        <WhyJoinUs />
+        {/* <WhyJoinUs /> */}
         <Footer />
       </div>
     </>
