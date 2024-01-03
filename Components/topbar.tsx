@@ -1,5 +1,5 @@
 const Topbar = () => {
-  return <div className=" w-screen">TopBar</div>
+  return <div className="">TopBar</div>
 }
 
 export default Topbar
