@@ -27,20 +27,26 @@ module.exports = {
         desktop: { max: "1280px" },
         // => @media (min-width: 1280px) { ... }
       },
+      boxShadow: {
+        stiglitz: "rgba(50,50,93,0.25) 0px 6px 12px -2px, rgba(0,0,0,0.3) 0px 3px 7px -3px",
+      },
       colors: {
         primaryColor: "#D9D9D9",
         secondaryColor: "#8E8E8E",
         inputColor: "#282828",
         backgroundColor: "#030303",
         footerColor: "#0A0A0A",
-
+        text1: "rgba(var(--text-color-1))",
+        text2: "hsl(var(--text-color-2))",
+        text3: "hsl(var(--text-color-3))",
+        text4: "hsl(var(--text-color-4))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "rgba(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -55,6 +61,9 @@ module.exports = {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
+        figmamuted: {
+          DEFAULT: "rgba(var(--muted-figma))",
+        },
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
@@ -66,6 +75,7 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          client: "rgba(var(--card-clients))",
         },
       },
       borderRadius: {
