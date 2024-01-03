@@ -14,9 +14,9 @@ const Id = ({ params }: any) => {
   const projectData = projects.find((data) => data.projectId === parseInt(id))
 
   return (
-    <div>
-      <div className="mx-5 lg:mx-auto my-10 flex max-w-7xl flex-col items-center justify-center gap-5">
-        <div className="md:px-10 md:self-start">
+    <>
+      <div className="mx-5 my-10 flex max-w-7xl flex-col items-center justify-center gap-5 lg:mx-auto">
+        <div className="md:self-start md:px-10">
           <h1 className={`text-6xl font-semibold uppercase ${iceland.className}`}>{projectData?.projectName}</h1>
           <p className="max-w-[250px] text-xs text-secondaryColor">{projectData?.projectDesc}</p>
         </div>
@@ -32,7 +32,7 @@ const Id = ({ params }: any) => {
           />
         </div>
 
-        <div className="mx-auto w-80 md:w-full md:px-10 self-start space-y-10">
+        <div className="mx-auto w-80 space-y-10 self-start md:w-full md:px-10">
           <h2 className="text-2xl">Contributors</h2>
           <div className="grid grid-cols-2 place-items-center gap-y-10 transition-transform md:grid-cols-4 lg:grid-cols-5 lg:gap-y-7 xl:grid-cols-7">
             {projectData?.contributors.map((intern) => (
@@ -49,7 +49,7 @@ const Id = ({ params }: any) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
