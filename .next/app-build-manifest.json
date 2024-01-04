@@ -1,16 +1,15 @@
 {
   "pages": {
+    "/CoDevs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/CoDevs/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/UserDashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/UserDashboard/page.css",
-      "static/chunks/app/UserDashboard/page.js"
     ]
   }
 }
