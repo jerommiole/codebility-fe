@@ -1,5 +1,5 @@
 import React from "react"
-import Avatar from "@/components/ui/avatar"
+import Avatar from "Components/ui/avatar"
 // import { Arrow } from "/app/CoDevs/Assets/exports"
 import { Arrow } from "app/CoDevs/Assets/exports"
 import Image from "next/image"

@@ -1,5 +1,7 @@
 import Hero from "./CoDevs/Hero/Hero"
-import Footer from "./Footer/page"
+import Footer from "../Components/Footer";
+import WhyJoinUs from "./WhyJoinUs/page";
+import CoDevs from "./CoDevs/page";
 
 export default function Web() {
   return (
@@ -9,7 +11,8 @@ export default function Web() {
       </div>
       <div className="flex h-screen w-full flex-col ">
         {/* LANDING PAGE */}
-
+          <WhyJoinUs />
+          <CoDevs />
         <Footer />
       </div>
     </>
