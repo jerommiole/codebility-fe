@@ -2,7 +2,7 @@
 
 import React from "react"
 import { HamburgSVG } from "Components/logos"
-import { Toggle } from "@/components/ui/toggle"
+import { Toggle } from "Components/ui/toggle"
 import { useNavStore } from "store/Post"
 
 const ToggleMenu = () => {
