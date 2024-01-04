@@ -1,18 +1,15 @@
 import React from "react"
-import { Avatar } from "@/components/ui/avatar"
-import { Arrow } from "../app/CoDevs/Assets/exports"
-import Image from 'next/image'
-import Link from 'next/link'
-interface props{
-  Position?:string;
-  Honorifics?:string;
-  Name?:string;
-  Avatarimg?:any;
-  Avatarbg?:string;
-  custmwdt?:any;
-  custmhgt?:any;
-  className?:string;
-  linkHref?:string;
+import Avatar from "@/components/ui/avatar"
+// import { Arrow } from "/app/CoDevs/Assets/exports"
+import { Arrow } from "app/CoDevs/Assets/exports"
+import Image from "next/image"
+import Link from "next/link"
+interface props {
+  Position: string
+  Honorifics: string
+  Name: string
+  Avatarimg: string
+  Avatarbg: string
 }
 const Avatars = ({Position,Honorifics,Name,Avatarimg,custmwdt,custmhgt,className,linkHref}:props) => {
   return (

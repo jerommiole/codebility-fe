@@ -8,11 +8,7 @@ import { useNavStore } from "store/Post"
 const ToggleMenu = () => {
   const { activeNav, toggleNav } = useNavStore()
   return (
-    <Toggle
-      pressed={activeNav ? true : false}
-      onClick={() => toggleNav()}
-      className="z-5 fixed right-10 top-0 hidden tablet:block"
-    >
+    <Toggle pressed={activeNav ? true : false} onClick={() => toggleNav()} className="hidden tablet:block">
       <HamburgSVG />
     </Toggle>
   )
