@@ -7,22 +7,22 @@ import React from "react"
 const links = [
   {
     name: "HOME",
-    href: "/Home",
+    href: "#",
   },
 
   {
-    name: "ABOUT",
-    href: "/About",
+    name: "SERVICES",
+    href: "#services",
   },
 
   {
-    name: "WORK",
-    href: "/Work",
+    name: "TEAM",
+    href: "#team",
   },
 
   {
     name: "CONTACT",
-    href: "/Contact",
+    href: "#Contact",
   },
 ]
 
