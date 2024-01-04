@@ -1,7 +1,7 @@
 import "styles/tailwind.css"
-import { ThemeProvider } from "@/components/ui/theme-provider"
-import { ThemeModeToggle } from "@/components/ui/thememodetoggle"
-import Hero from "./CoDevs/Hero/Hero"
+
+import {ThemeProvider} from "../Components/theme-provider";
+import {ThemeModeToggle} from "../Components/thememodetoggle";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

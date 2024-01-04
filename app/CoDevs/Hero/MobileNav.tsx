@@ -1,6 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet"
+import { Button } from "Components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
 import { MenuIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
