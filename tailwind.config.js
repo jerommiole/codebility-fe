@@ -50,6 +50,7 @@ module.exports = {
         text2: "hsl(var(--text-color-2))",
         text3: "hsl(var(--text-color-3))",
         text4: "hsl(var(--text-color-4))",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
