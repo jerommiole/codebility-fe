@@ -100,3 +100,6 @@
     @apply relative mx-[24px] mb-[75px] mt-[35px] flex items-center justify-center;
   }
 }
+html {
+  scroll-behavior: smooth;
+}

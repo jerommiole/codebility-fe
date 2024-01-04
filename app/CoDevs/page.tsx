@@ -1,8 +1,11 @@
 import React from "react"
 import { Sec1, Sec2, Sec3 } from "./Section/index"
-export default function page() {
+const CoDevs = () => {
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center space-y-[15px] md:px-[200px] px-[50px] py-[30px] bg-[#0E0E0E] text-white">
+    <div
+      id="team"
+      className="flex h-screen w-full flex-col items-center justify-center space-y-[15px] bg-backgroundColor px-[50px] py-[30px] text-primaryColor md:px-[200px]"
+    >
       {/* Column1 */}
       <Sec1 />
       {/* Column 2 */}
@@ -12,3 +15,5 @@ export default function page() {
     </div>
   )
 }
+
+export default CoDevs
