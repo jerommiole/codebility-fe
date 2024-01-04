@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 import logoPic from "public/Logo.png"
 import logoChar from "public/logoChar.png"
+import logoDark from "public/logoBlack.png"
 
 import {
   DashboardSVG,
@@ -28,7 +29,9 @@ const Sidebar = () => {
     <>
       <Blinds />
       <nav
-        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${activeNav ? "w-[310px]" : "w-[103px]"} `}
+        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
+          activeNav ? "w-[310px]" : "w-[103px]"
+        } shadow-stiglitz border dark:border-none dark:shadow-none `}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
@@ -37,7 +40,14 @@ const Sidebar = () => {
               width={147}
               height={30}
               alt="logo"
-              className={`h-[30px] transition-all ${!activeNav && "w-0"}`}
+              className={`hidden h-[30px] transition-all dark:block ${!activeNav && "w-0"}`}
+            />
+            <Image
+              src={logoDark}
+              width={147}
+              height={30}
+              alt="logo"
+              className={`h-[40px] transition-all dark:hidden ${!activeNav && "w-0"}`}
             />
           </div>
 
@@ -52,7 +62,6 @@ const Sidebar = () => {
         </div>
 
         <div className="navigation">
-          {/* className={""} can be removed. Typescript strictmode kind of thing */}
           <SidebarItems active passedComponent={<DashboardSVG />}>
             Dashboard
           </SidebarItems>

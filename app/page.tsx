@@ -1,16 +1,19 @@
-import Sidebar from "Components/sidebar"
-import Footer from "./Footer/page"
-import ToggleMenu from "Components/toggleMenu"
-import Services from "./Services/Services"
+import Hero from "./CoDevs/Hero/Hero"
+import Footer from "../Components/Footer";
+import WhyJoinUs from "./WhyJoinUs/page";
+import CoDevs from "./CoDevs/page";
+
 export default function Web() {
   return (
     <>
-      <div className="flex flex-col w-full h-screen ">
-        
-        
+      <div className="flex h-screen w-full">
+        <Hero />
+      </div>
+      <div className="flex h-screen w-full flex-col ">
         {/* LANDING PAGE */}
-        <Services/>
-        <Footer/>
+          <WhyJoinUs />
+          <CoDevs />
+        <Footer />
       </div>
     </>
   )

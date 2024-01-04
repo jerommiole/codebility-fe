@@ -128,7 +128,7 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="Email Address..."
-                className="h-10 w-80 rounded-full bg-inputColor px-7 text-sm focus:border-none"
+                className="h-10 w-80 rounded-full pr-14 bg-inputColor px-7 text-sm focus:outline-none"
               />
                <Image src="/send.svg" alt="send" width={53} height={53} className="absolute -right-3 hover:cursor-pointer" />
             </div>
