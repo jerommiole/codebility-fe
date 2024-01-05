@@ -1,7 +1,6 @@
 "use client"
 import React from "react"
-import MobileNav from "./MobileNav"
-import { Button } from "Components/ui/button"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import Navbar from "./Navbar"
@@ -39,19 +38,14 @@ const Hero = () => {
       className=" h-screen w-screen overflow-hidden bg-cover bg-no-repeat "
       style={{ backgroundImage: "url('/HEROBG.png')" }}
     >
-      <div className="hidden lg:block">
-        <Navbar />
-      </div>
-      <div className="block lg:hidden">
-        <MobileNav />
-      </div>
+      <Navbar />
 
-      <div className="flex h-screen flex-col items-center justify-center gap-6">
+      <div className=" flex h-5/6 flex-col items-center justify-center gap-6 md:h-full ">
         <p className="text-center text-white">Unlocking Potential: Code is a Universal Language</p>
         <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={906} height={133} />
         <p className="text-center text-white">“Everyone has the ability to code”</p>
-        <Button className="mt-6 border-2 border-blue-600 text-white">Get Started</Button>
-        <div className="mt-32 flex gap-5">
+        <Button className=" border-2 border-blue-600  bg-transparent text-white">Get Started</Button>
+        <div className="flex gap-5 pt-16 md:mt-16">
           {socials.map((social) => (
             <Link href={social.socialUrl}>
               <Image src={social.icon} alt={social.alt} width={30} height={30} />
