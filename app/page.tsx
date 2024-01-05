@@ -1,7 +1,8 @@
-import Sidebar from "Components/sidebar"
-import Footer from "../Components/Footer/index"
-import ToggleMenu from "Components/toggleMenu"
+import Footer from "../Components/Footer"
 import WhyJoinUs from "./WhyJoinUs/page"
+
+import CoDevs from "./CoDevs/page"
+import Services from "./Services/Services"
 import Hero from "./Hero/Hero"
 
 export default function Web() {
@@ -12,6 +13,10 @@ export default function Web() {
         {/* LANDING PAGE */}
         {/* <WhyJoinUs /> */}
         {/* <Footer /> */}
+        <Services />
+        <WhyJoinUs />
+        <CoDevs />
+        <Footer />
       </div>
     </>
   )

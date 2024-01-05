@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
 import logoPic from "public/Logo.png"
 import logoChar from "public/logoChar.png"
@@ -31,7 +31,7 @@ const Sidebar = () => {
       <nav
         className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
           activeNav ? "w-[310px]" : "w-[103px]"
-        } shadow-stiglitz border dark:border-none dark:shadow-none `}
+        } border shadow-stiglitz dark:border-none dark:shadow-none `}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
