@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import React, { useState } from "react"
 import { Menu, MenuIcon, X } from "lucide-react"
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
+import { Button } from "Components/ui/button"
 
 const links = [
   {
