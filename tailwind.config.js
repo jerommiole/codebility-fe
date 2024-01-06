@@ -36,10 +36,21 @@ module.exports = {
         inputColor: "#282828",
         backgroundColor: "#030303",
         footerColor: "#0A0A0A",
+        
+        // Interns Page
+        tealColor: "#02FFE2",
+        lightPinkColor: "#FDB7D0",
+        darkBlueColor: "#6A78F2",
+        magentaColor: "#C108FE",
+        darkBlueBgColor: "#6A78F2",
+        redBgColor: "#FF0000",
+        greenBgColor: "#02FFE2",
+        violetBgColor: "#C108FE",
         text1: "rgba(var(--text-color-1))",
         text2: "hsl(var(--text-color-2))",
         text3: "hsl(var(--text-color-3))",
         text4: "hsl(var(--text-color-4))",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
