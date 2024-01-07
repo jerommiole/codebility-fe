@@ -1,4 +1,4 @@
-import "styles/tailwind.css"
+import "./globals.css"
 
 import { ThemeProvider } from "../Components/theme-provider"
 import { ThemeModeToggle } from "../Components/thememodetoggle"

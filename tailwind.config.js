@@ -3,7 +3,7 @@ module.exports = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
+    "./Components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
     "./@/**/*.{ts,tsx}",
@@ -36,7 +36,7 @@ module.exports = {
         inputColor: "#282828",
         backgroundColor: "#030303",
         footerColor: "#0A0A0A",
-        
+
         // Interns Page
         tealColor: "#02FFE2",
         lightPinkColor: "#FDB7D0",

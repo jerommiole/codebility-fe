@@ -46,8 +46,8 @@ const Hero = () => {
         <p className="text-center text-white">“Everyone has the ability to code”</p>
         <Button className=" border-2 border-blue-600  bg-transparent text-white">Get Started</Button>
         <div className="flex gap-5 pt-16 md:mt-16">
-          {socials.map((social) => (
-            <Link href={social.socialUrl}>
+          {socials.map((social, index) => (
+            <Link key={`social-${index}`} href={social.socialUrl}>
               <Image src={social.icon} alt={social.alt} width={30} height={30} />
             </Link>
           ))}
