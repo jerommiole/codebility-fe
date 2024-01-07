@@ -64,7 +64,7 @@ const Navbar = () => {
           <Sheet>
             <SheetTrigger asChild>
               <Button className="bg-transparent">
-                <MenuIcon />
+                <MenuIcon className="text-gray-300" />
               </Button>
             </SheetTrigger>
             <SheetContent className="flex h-screen flex-col items-center justify-center bg-transparent  backdrop-blur-sm ">
