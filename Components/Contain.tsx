@@ -2,18 +2,8 @@
 
 import React, { useEffect } from "react"
 import { BellSVG } from "./logos"
-// import { ModeToggle } from "@/components/ui/toggle-mode"
 import ToggleMenu from "Components/toggleMenu"
 import Image from "next/image"
-
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/ThemeToggler (unused)/dropdown-menu"
 
 import Hero from "public/hero.png"
 import { useNavStore } from "store/Post"

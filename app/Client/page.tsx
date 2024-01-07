@@ -11,7 +11,7 @@ export default function Web() {
     <>
       <Sidebar />
       <Contain>
-        <div className="shadow-stiglitz w-[100%] overflow-x-hidden rounded-md border bg-figmamuted dark:border-none dark:shadow-none lg:h-[100%] lg:overflow-y-hidden lg:px-[17px] lg:py-[51px]">
+        <div className="w-[100%] overflow-x-hidden rounded-md border bg-figmamuted shadow-stiglitz dark:border-none dark:shadow-none lg:h-[100%] lg:overflow-y-hidden lg:px-[17px] lg:py-[51px]">
           <div className="h-[100%] w-[100%] flex-col gap-2 p-3 lg:p-0">
             <div className="flex flex-col lg:flex-row lg:px-10">
               <Title
