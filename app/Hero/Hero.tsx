@@ -16,7 +16,7 @@ const socials = [
     icon: "mdi_twitter.svg",
   },
   {
-    socialUrl: "#github",
+    socialUrl: "https://github.com/Zeff01/codebility-fe/tree/main",
     alt: "github",
     icon: "mdi_github.svg",
   },
@@ -35,19 +35,24 @@ const socials = [
 const Hero = () => {
   return (
     <div
-      className=" h-screen w-screen overflow-hidden bg-cover bg-no-repeat "
+      className=" relative min-h-screen w-screen bg-cover bg-no-repeat "
       style={{ backgroundImage: "url('/HEROBG.png')" }}
     >
       <Navbar />
 
       <div className=" flex h-5/6 flex-col items-center justify-center gap-6 md:h-full ">
         <p className="text-center text-white">Unlocking Potential: Code is a Universal Language</p>
-        <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={906} height={133} />
+        <div className="block md:hidden ">
+          <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={485} height={133} />
+        </div>
+        <div className="hidden md:block">
+          <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={906} height={133} />
+        </div>
         <p className="text-center text-white">“Everyone has the ability to code”</p>
         <Button className=" border-2 border-blue-600  bg-transparent text-white">Get Started</Button>
         <div className="flex gap-5 pt-16 md:mt-16">
-          {socials.map((social, index) => (
-            <Link key={`social-${index}`} href={social.socialUrl}>
+          {socials.map((social) => (
+            <Link href={social.socialUrl} target="_blank" rel="noopener noreferrer">
               <Image src={social.icon} alt={social.alt} width={30} height={30} />
             </Link>
           ))}
