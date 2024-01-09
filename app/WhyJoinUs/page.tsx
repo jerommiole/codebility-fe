@@ -2,7 +2,7 @@ import Reasons from "./Reasons"
 
 const WhyJoinUs = () => {
   return (
-    <section className="bg-backgroundColor py-20 text-primaryColor">
+    <section className="bg-backgroundColor flex flex-col gap-10 py-20 text-primaryColor">
       <div className="mx-5 max-w-7xl md:mx-16 xl:w-[70%] xl:mx-auto">
         <p className="xl:ml-11 w-max">Codebility</p>
         <div className="mt-7 flex flex-col gap-12 md:gap-6 lg:flex-row lg:justify-between xl:justify-evenly">
@@ -13,7 +13,7 @@ const WhyJoinUs = () => {
           </p>
         </div>
       </div>
-      <div className="mx-5 my-5 flex max-w-7xl flex-col gap-5 md:mx-16  xl:w-[70%] xl:mx-auto">
+      <div className="mx-5 my-5 py-10 flex max-w-7xl flex-col gap-5 md:mx-16  xl:w-[70%] xl:mx-auto">
         <Reasons
           title="LOREM IPSUM"
           reasonNumber={1}
