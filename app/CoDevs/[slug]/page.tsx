@@ -3,6 +3,8 @@ import Link from "next/link"
 import Image from "next/image"
 import SvgFooterCodebility from "../../../Components/logos/footerCodebility"
 import Navbar from "../../Hero/Navbar"
+import SvgClipboardDocument from "../../../Components/logos/clipboardDocument"
+import CopyToClipboardButton from "../../../lib/helpers/copytoClipboard"
 
 const Page = () => {
   const socials = [
@@ -121,7 +123,13 @@ const Page = () => {
               <div className="flex gap-5 pb-4">
                 {socials.map((social) => (
                   <Link href={social.socialUrl}>
-                    <Image src={social.icon} alt={social.alt} width={20} height={20} />
+                    <Image
+                      src={social.icon}
+                      alt={social.alt}
+                      width={20}
+                      height={20}
+                      className="transition duration-300 hover:-translate-y-0.5"
+                    />
                   </Link>
                 ))}
               </div>
@@ -151,7 +159,9 @@ const Page = () => {
                       <p className="text-xs">{contact.name}</p>
                     </li>
                     <li className="flex w-full capitalize">
-                      <p className="text-xs">{contact.details}</p>
+                      <div className="flex items-center gap-2.5 text-xs">
+                        {contact.details} <CopyToClipboardButton value={contact.details} />
+                      </div>
                     </li>
                   </div>
                 ))}
@@ -178,7 +188,13 @@ const Page = () => {
               <ul className="flex w-full items-center gap-3">
                 {skillList.map((skill) => (
                   <li>
-                    <Image src={skill.icon} alt={skill.name} width={20} height={20} />
+                    <Image
+                      src={skill.icon}
+                      alt={skill.name}
+                      width={20}
+                      height={20}
+                      className=" transition duration-300 hover:-translate-y-0.5"
+                    />
                   </li>
                 ))}
               </ul>
@@ -208,18 +224,36 @@ const Page = () => {
               <div className="flex w-full gap-10">
                 <div>
                   <div className="flex gap-3">
-                    <Image src="/sampleproject/codebility.png" height="142" width="203" alt="codebility" />
+                    <Image
+                      src="/sampleproject/codebility.png"
+                      height="142"
+                      width="203"
+                      alt="codebility"
+                      className="transition duration-300 hover:scale-105"
+                    />
 
                     <div className="flex  flex-col justify-between">
-                      <Image src="/sampleproject/codebility.png" height="80" width="87" alt="codebility" />
-                      <Image src="/sampleproject/codebility.png" height="80" width="87" alt="codebility" />
+                      <Image
+                        src="/sampleproject/codebility.png"
+                        height="80"
+                        width="87"
+                        alt="codebility"
+                        className="transition duration-300 hover:scale-105"
+                      />
+                      <Image
+                        src="/sampleproject/codebility.png"
+                        height="80"
+                        width="87"
+                        alt="codebility"
+                        className="transition duration-300 hover:scale-105"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="flex max-w-md flex-col justify-between">
                   <p className="text-xs text-secondaryColor">April 2023</p>
                   <h4 className="text-base">CODEBILITY </h4>
-                  <a className="text-base" href="#">
+                  <a className="text-base hover:underline" href="#">
                     Link: https//codebility.com{" "}
                   </a>
                   <p className="h-12 truncate text-wrap text-xs">
