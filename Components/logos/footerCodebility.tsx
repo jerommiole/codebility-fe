@@ -1,5 +1,6 @@
 import * as React from "react"
-const SvgFooterCodebility = (props) => (
+import { SVGProps } from "react"
+const SvgFooterCodebility = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={70} height={10} fill="none" {...props}>
     <g
       filter="url(#a)"
