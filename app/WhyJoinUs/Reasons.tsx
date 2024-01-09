@@ -16,7 +16,7 @@ const Reasons = ({title, reasonNumber, description} : ReasonProps) => {
           <h1 className="text-3xl font-semibold text-secondaryColor">0{reasonNumber}</h1>
         </div>
         <div className="flex flex-1 flex-col justify-between p-1">
-          <p className="text-sm text-secondaryColor">
+          <p className="text-sm text-justify text-secondaryColor">
             {description}
           </p>
           <div className="flex justify-between text-sm text-secondaryColor">

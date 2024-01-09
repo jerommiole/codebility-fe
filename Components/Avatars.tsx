@@ -1,9 +1,13 @@
+"use client"
+
 import React from "react"
 import Avatar from "Components/ui/avatar"
 // import { Arrow } from "/app/CoDevs/Assets/exports"
 import { Arrow, Waves } from "app/CoDevs/Assets/exports"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+
 interface props {
   Position?: string
   Honorifics?: string
@@ -14,6 +18,7 @@ interface props {
   linkHref?: any
 }
 const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt, linkHref }: props) => {
+  const router = useRouter()
   return (
 
       <div className=" flex w-32 flex-col items-center justify-center ">
