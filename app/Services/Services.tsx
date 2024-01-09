@@ -1,4 +1,4 @@
-import Image from "next/image" // Import the next/image component
+import Image from "next/image"
 import Card from "../../Components/Card"
 
 const Services = () => {
@@ -25,7 +25,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="my-auto flex flex-col items-center justify-center bg-backgroundColor px-5 lg:pt-48 xl:px-56 "
+      className="relative flex flex-col items-center justify-center px-5 my-auto bg-backgroundColor lg:pt-48 xl:px-56 "
     >
       {/*Moon Image*/}
       <div className="">
@@ -37,7 +37,7 @@ const Services = () => {
           height={200}
         />
       </div>
-      <div className="mt-32 flex flex-col justify-center lg:mt-0 lg:flex-row lg:gap-16">
+      <div className="flex flex-col justify-center mt-32 lg:mt-0 lg:flex-row lg:gap-16">
         {/*What We Do Column*/}
         <div className="xl:w-1/2">
           <p className=" text-primaryColor">Our Services</p>
@@ -48,11 +48,11 @@ const Services = () => {
             industry's standard dummy text ever since the 1500s,
           </p>
           {/* Hover Text */}
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="flex flex-col gap-3 mt-10">
             {Text.map((item, index) => (
-              <div key={index} className="flex w-[180px] justify-end gap-5  duration-300 hover:w-[200px]">
+              <div key={index} className="flex w-[180px] justify-end gap-5  duration-500 hover:w-[200px]">
                 <p className="font-semibold hover:text-primaryColor">{item.num}</p>
-                <div className="w-[25px] -translate-y-2 border-b-2 border-white hover:w-[50px]"></div>
+                <div className="w-[25px] -translate-y-2 border-b-2 border-white "></div>
                 <p>{item.title}</p>
               </div>
             ))}
@@ -62,7 +62,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="mt-32 flex gap-2 md:gap-3 lg:mt-0 ">
+        <div className="flex gap-2 mt-32 md:gap-3 lg:mt-0 ">
           {/* Cards Column */}
           <div className="flex flex-col gap-2 md:gap-3">
             <Card
@@ -82,7 +82,7 @@ const Services = () => {
             />
           </div>
           {/* Cards Column Translate-y*/}
-          <div className="flex -translate-y-10 flex-col gap-2 md:gap-3">
+          <div className="flex flex-col gap-2 -translate-y-10 md:gap-3">
             <Card
               title="Innovation"
               description="We serve as a dynamic hub for innovation, fostering a creative environment "
@@ -102,10 +102,10 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="mb-16 mt-32 flex w-full flex-col gap-10 md:mt-56 ">
+      <div className="flex flex-col w-full gap-10 mt-32 mb-16 md:mt-56 ">
         <div>
           <div className="">
-            <h1 className="services z-10 text-center text-4xl font-bold tracking-wider md:text-5xl">SERVICES</h1>
+            <h1 className="z-10 text-4xl font-bold tracking-wider text-center services md:text-5xl">SERVICES</h1>
             <h1 className="services -translate-y-[50px] text-center text-6xl font-bold tracking-wider opacity-5 md:-translate-y-[75px] md:text-8xl">
               SERVICES
             </h1>
@@ -116,7 +116,7 @@ const Services = () => {
           </p>
         </div>
         {/* Services Cards */}
-        <div className="flex flex-col justify-center gap-5 bg-backgroundColor px-20 md:mx-0 md:flex-row md:gap-20 lg:mt-10">
+        <div className="flex flex-col justify-center gap-5 px-20 bg-backgroundColor md:mx-0 md:flex-row md:gap-20 lg:mt-10">
           <Card
             title="Web Design"
             description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
