@@ -1,29 +1,36 @@
 import Image from "next/image"
 import { interns } from "./DummyData"
+import InternCard from "./InternCard"
 
 interface InternProps {
   isSearching: string
   byCategory: string
 }
 
-interface Interns {
-  name: string
-  position: string
-}
-
-const fakePagination = ["<", "1", "2", "3", "...", "10", ">"]
+const fakePaginationSm = ["<", "1", "2", "3", "...", "10", ">"]
+const fakePaginationMd = ["1", "2", "3", "...", "10"]
 
 const Intern = ({ isSearching, byCategory }: InternProps) => {
-  const fields: (keyof Interns)[] = ["name", "position"]
-
   const filteredData = interns.filter((intern) => {
     if (isSearching) {
-      return fields.some((data) => intern[data].toLowerCase().includes(isSearching.toLowerCase()))
+      switch (isSearching.toLowerCase()) {
+        case "fs":
+          return intern.position.some((pos) => pos === "Full Stack Developer")
+        case "fe":
+          return intern.position.some((pos) => pos === "Frontend Developer")
+        case "be":
+          return intern.position.some((pos) => pos === "Backend Developer")
+        default:
+          return (
+            intern.name.toLowerCase().includes(isSearching.toLowerCase()) ||
+            intern.position.some((pos) => pos.toLowerCase().includes(isSearching.toLowerCase()))
+          )
+      }
     } else if (byCategory) {
       if (byCategory === "All") {
         return intern
       } else {
-        return intern.position === byCategory
+        return intern.position.includes(byCategory)
       }
     } else {
       return intern
@@ -33,34 +40,48 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
   return (
     <div className="relative mx-5 mt-5">
       {/* Avatars */}
-      <div className="grid grid-cols-2 place-items-center gap-y-10 md:grid-cols-4 lg:grid-cols-5 lg:gap-y-7 xl:grid-cols-7 transition-transform">
+      <div className="grid grid-cols-2 place-items-center gap-y-20 gap-x-5 transition-transform  md:grid-cols-4 lg:grid-cols-5">
         {filteredData.map((intern) => (
-          <div key={intern.id} className="flex w-28 flex-col gap-1">
-            <div className={`mx-auto rounded-full ${intern.backgroundColor} bg-opacity-30`}>
-              <Image src={intern.imageUrl} alt={intern.name} width={80} height={80} className="w-32" />
-            </div>
-            <div className="text-center text-xs">
-              <h1>{intern.name}</h1>
-              <p className="text-secondaryColor">{intern.position}</p>
-            </div>
-          </div>
+         <InternCard key={intern.id} image={intern.imageUrl} name={intern.name} position="Full Stack Developer" roles={intern.position} bgColor={intern.backgroundColor} />
         ))}
       </div>
 
-      <div className="w-full mb-10 mt-8 flex items-center justify-center gap-2 md:hidden">
-        {fakePagination.map((page) => (
-          <p key={page} className="flex h-8 w-8 items-center justify-center rounded-xl text-xs text-white">{page}</p>
+      <div className="my-10 flex w-full items-center justify-center gap-2 lg:hidden">
+        {fakePaginationSm.map((page, i) => (
+          <p
+            key={i}
+            className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-slate-400 bg-opacity-20 text-xs font-semibold text-black dark:bg-[#181818] dark:text-white"
+          >
+            {page}
+          </p>
         ))}
       </div>
 
       {/* Arrow */}
       <div>
         <Image
-          src="/Arrow.svg"
-          alt="arrow"
-          width={80}
-          height={80}
-          className="z-10 hidden hover:cursor-pointer xl:absolute xl:inset-y-48 xl:-right-20 xl:flex"
+          src="/RightArrow.svg"
+          alt="right arrow"
+          width={15}
+          height={15}
+          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-32 xl:-right-10 xl:flex"
+        />
+        <div className="mt-14 hidden w-full items-center justify-center gap-2 lg:flex">
+          {fakePaginationMd.map((page, i) => (
+            <p
+              key={i}
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-slate-400 bg-opacity-20 text-xs font-semibold text-black dark:bg-[#181818] dark:text-white"
+            >
+              {page}
+            </p>
+          ))}
+        </div>
+        <Image
+          src="/LeftArrow.svg"
+          alt="left arrow"
+          width={15}
+          height={15}
+          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-32 xl:-left-10 xl:flex"
         />
       </div>
     </div>
