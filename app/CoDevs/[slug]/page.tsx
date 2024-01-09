@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import SvgFooterCodebility from "../../../Components/logos/footerCodebility"
+import Navbar from "../../Hero/Navbar"
 
 const Page = () => {
   const socials = [
@@ -102,6 +103,7 @@ const Page = () => {
 
   return (
     <>
+      <Navbar />
       <section className="container mx-auto max-w-5xl text-gray01">
         <div className="grid h-[30rem] grid-cols-6 grid-rows-3 pt-[6.3rem]">
           <div className="col-span-2 border-b border-b-tealColor">
@@ -138,7 +140,7 @@ const Page = () => {
         </div>
 
         <p className="text-center text-base text-tealColor">Work Experience</p>
-        <section className="grid-row-4 grid grid-cols-6">
+        <section className="grid-row-4 mb-5 grid grid-cols-6">
           <div className="col-span-2 pb-14">
             <p className="text-base text-tealColor">Contacts</p>
             <div className="pl-4 pt-5 text-xs">
@@ -185,42 +187,17 @@ const Page = () => {
 
           <div className="col-span-2 row-span-10 mt-10">
             <div className="flex flex-col">
-              <div className="relative border-l border-tealColor pb-6 pl-10">
-                <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
-                <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
-                <p className="text-xs text-gray01">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                </p>
-                <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
-              </div>
-              <div className="relative border-l border-tealColor pb-6 pl-10">
-                <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
-                <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
-                <p className="text-xs text-gray01">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                </p>
-                <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
-              </div>
-              <div className="relative border-l border-tealColor pb-6 pl-10">
-                <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
-                <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
-                <p className="text-xs text-gray01">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                </p>
-                <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
-              </div>{" "}
-              <div className="relative border-l border-tealColor pb-6 pl-10">
-                <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
-                <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
-                <p className="text-xs text-gray01">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                </p>
-                <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
-              </div>
+              {[1, 2, 3, 4, 5].map((skill) => (
+                <div className="relative border-l border-tealColor pb-6 pl-10">
+                  <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
+                  <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
+                  <p className="text-xs text-gray01">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s,
+                  </p>
+                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
