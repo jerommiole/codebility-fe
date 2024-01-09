@@ -6,12 +6,14 @@ const CoDevs = () => {
       id="team"
       className="flex h-screen w-full flex-col items-center justify-center space-y-[15px] bg-backgroundColor px-[50px] py-[30px] text-primaryColor md:px-[200px]"
     >
-      {/* Column1 */}
-      <Sec1 />
-      {/* Column 2 */}
-      <Sec2 />
-      {/* Column 3 */}
-      <Sec3 />
+      <div className="container mx-auto">
+        {/* Column1 */}
+        <Sec1 />
+        {/* Column 2 */}
+        <Sec2 />
+        {/* Column 3 */}
+        <Sec3 />
+      </div>
     </div>
   )
 }
