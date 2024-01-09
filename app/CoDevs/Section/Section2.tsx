@@ -22,7 +22,7 @@ const Section2 = () => {
       <div className="flex flex-col space-y-4  w-full text-center text-[#8E8E8E]">
         <div className="flex flex-col items-center">
           <span>MEET OUR</span>
-          <span className="text-3xl text-white">TEAM</span>
+          <span className="text-3xl text-white">CO DEVS</span>
           <span>Lorem Ipsum is simply dummy text </span>
         </div>
         <div className="flex md:justify-end justify-center space-x-6 w-full  md:pr-10 pr-0">
