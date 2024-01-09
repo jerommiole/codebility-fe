@@ -9,16 +9,15 @@ interface props {
   Honorifics?: string
   Name?: string
   Avatarimg: any
-  Avatarbg?: string
   custmwdt?: number
   custmhgt?: number
   linkHref?: any
 }
 const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt, linkHref }: props) => {
   return (
-    <div className="h-[180px] w-[180px] bg-[#C108FE]">
-      <div className=" flex h-[218px] w-32 flex-col items-center justify-center ">
-        <div className="relative flex h-32 w-32 items-end justify-center">
+
+      <div className=" flex w-32 flex-col items-center justify-center ">
+        <div className="relative flex items-end justify-center">
           <div className="z-10 flex w-full justify-center">
             <Image className="object-center" alt="dp" width={custmwdt} height={custmhgt} src={Avatarimg} />
           </div>
@@ -50,7 +49,7 @@ const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt, li
           </Link>
         </div>
       </div>
-    </div>
+
   )
 }
 
