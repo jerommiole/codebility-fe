@@ -4,6 +4,8 @@ import { Button } from "Components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import Navbar from "./Navbar"
+import { Inter, Rowdies, Iceland } from "next/font/google"
+
 const socials = [
   {
     socialUrl: "#facebook",
@@ -31,6 +33,19 @@ const socials = [
     icon: "ri_slack-fill.svg",
   },
 ]
+const inter = Inter({
+  weight: "400",
+  subsets: ["latin"],
+})
+const rowdies = Rowdies({
+  weight: "400",
+  subsets: ["latin"],
+})
+
+const iceland = Iceland({
+  weight: "400",
+  subsets: ["latin"],
+})
 
 const Hero = () => {
   return (
@@ -40,16 +55,31 @@ const Hero = () => {
     >
       <Navbar />
 
-      <div className=" flex h-5/6 flex-col items-center justify-center gap-6 md:h-full ">
-        <p className="text-center text-white">Unlocking Potential: Code is a Universal Language</p>
-        <div className="block md:hidden ">
-          <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={485} height={133} />
+      <div className=" flex h-5/6 flex-col items-center justify-center  md:h-full ">
+        <p className={`text-center font-extralight text-gray-400 ${inter.className}`}>
+          Unlocking Potential: Code is a Universal Language
+        </p>
+        <h1 className={` text-8xl text-gray-100 md:text-[8rem] ${iceland.className}`}>CODEBILITY</h1>
+
+        <p className={`text-center font-extralight text-white ${inter.className}`}>
+          “Everyone has the ability to code”
+        </p>
+        <div className="mt-14 md:mt-16">
+          <Button
+            className="h-12 w-44 items-center justify-center rounded-sm bg-gradient-to-r from-green-400 to-purple-700 p-1 md:h-14 md:w-52
+             "
+          >
+            <div
+              className={` flex h-full w-full items-center justify-center bg-zinc-950 text-base text-white ${inter.className}`}
+            >
+              Get Starded
+            </div>
+          </Button>
+
+          {/* <Button className={` h-14 w-44 items-center justify-center rounded-sm bg-gradient-to-r from-green-400 to-purple-700  text-white ${inter.className}`}>
+            Get Started
+          </Button> */}
         </div>
-        <div className="hidden md:block">
-          <Image src="/CODEBILITY.svg" alt="CODEBILITY" width={906} height={133} />
-        </div>
-        <p className="text-center text-white">“Everyone has the ability to code”</p>
-        <Button className=" border-2 border-blue-600  bg-transparent text-white">Get Started</Button>
         <div className="flex gap-5 pt-16 md:mt-16">
           {socials.map((social) => (
             <Link href={social.socialUrl} target="_blank" rel="noopener noreferrer">
