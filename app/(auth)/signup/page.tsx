@@ -10,7 +10,15 @@ const SignUp = () => {
     <div className="flex h-screen">
       <div className="relative hidden flex-1 justify-between lg:flex lg:flex-col">
         <div className="absolute inset-0">
-          <Image src="/signup-splash.png" alt="splash-signup" fill className="object-cover" />
+          <Image
+            src="/signup-splash.png"
+            sizes="100%"
+            priority
+            quality={80}
+            alt="splash-signup"
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="z-10 ml-20 mt-32 w-[24rem]">
           <p>

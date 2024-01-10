@@ -29,7 +29,15 @@ const Sign = () => {
       </div>
       <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">
         <div className="absolute inset-0 ">
-          <Image src="/SigninSplash.png" alt="splash-signin" fill className="object-cover" />
+          <Image
+            src="/SigninSplash.png"
+            sizes="100%"
+            priority
+            quality={80}
+            alt="splash-signin"
+            fill
+            className="object-cover"
+          />
         </div>
 
         <div className="z-10 mt-32 p-10 text-right">
