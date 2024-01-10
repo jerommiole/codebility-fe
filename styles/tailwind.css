@@ -74,6 +74,9 @@
   .check {
     @apply border-2 border-red-500;
   }
+  .grid-tem {
+    @apply grid grid-cols-4;
+  }
   .nav {
     @apply fixed z-20 flex h-screen flex-col overflow-y-auto overflow-x-hidden bg-background;
     transition: width 0.2s ease-in-out;
