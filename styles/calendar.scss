@@ -7,11 +7,74 @@
     border-left:0px solid;
   }
 .rbc-header{
-    border-left:none;
+
+    border-color: transparent !important;
 }
 
+.rbc-btn-group > button:not(:first-child):not(:last-child){
+    color:#6A78F2;
+    border-color: transparent !important;
+}
+.rbc-btn-group > button:first-child:not(:last-child) {
+    color:#6A78F2;
+    border-color: transparent !important;
+}
+.rbc-btn-group > button:last-child:not(:first-child)  {
+    border-color: transparent !important;
+    color:#6A78F2;
+}
+.rbc-toolbar-label{
+    color:#6A78F2;
+    font-weight:bold;
+}
+
+
+
+
+.rbc-day-bg + .rbc-day-bg {
+    border-color:transparent !important;
+
+}
+
+
+.rbc-month-row{
+    border-color: transparent !important;
+}
+.rbc-day-bg +.rbc-today{
+    background-color: transparent !important;
+    opacity:50%;
+}
+.rbc-date-cell.rbc-now.rbc-current button {
+    color:black;
+    font-weight: bold;
+    background-color:white;
+    border-radius:100%;
+
+    width:30px;
+    height:30px;
+}
+.rbc-date-cell button {
+ 
+    font-weight: 200;
+
+}
+div.rbc-day-bg.rbc-off-range-bg{
+    background-color:transparent !important;
+}
+.rbc-active{
+    background-color:transparent !important;
+    color:#02FFE2;
+}
+div.rbc-row.rbc-month-header span{
+
+
+    font-weight:200;
+}
 
 .rbc-month-view{
 
-    border: 5px solid;
+    border-color: transparent !important;
 }
+.rbc-event {
+    border-color: transparent !important;
+  }

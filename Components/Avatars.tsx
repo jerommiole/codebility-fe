@@ -65,7 +65,7 @@ const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt,FE,
                 </span>
               )}
           </div>
-          {!showLink &&(
+          {showLink &&(
 
             <Link className="flex space-x-4 text-sm font-medium text-[#6A78F2]" href={"#"}>
             <span>Read Bio</span>
