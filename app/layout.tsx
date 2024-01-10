@@ -3,6 +3,7 @@ import "styles/tailwind.css"
 import { ThemeProvider } from "../Components/theme-provider"
 import { ThemeModeToggle } from "../Components/thememodetoggle"
 import { Outfit } from "next/font/google"
+import AuthContext from "./context/AuthContext"
 
 const outfit = Outfit({
   subsets: ["latin"],
