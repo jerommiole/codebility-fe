@@ -1,17 +1,25 @@
+"use client"
+
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const Sign = () => {
+  const router = useRouter()
   return (
-    <div className="flex h-full sm:h-screen">
+    //
+    <div className="flex h-screen">
       <div className="flex flex-1 flex-col justify-center">
-        <div className="p-12 lg:p-20 2xl:p-36">
+        <div className="overflow-y-auto px-12 py-20 lg:px-32 2xl:px-36">
           <Image src="/codebilityLogoBlue.png" width={220} height={50} alt="codebilityLogoBlue" />
           <h1 className="my-5 text-5xl font-semibold">Lorem Ipsum</h1>
           <h2 className="my-14 text-xl">Sign in</h2>
           <AuthForm />
           <div className="my-20 text-center">
-            Have An Account? <span className="text-blue-500">Sign In</span>
+            Don't have an account?{" "}
+            <span onClick={() => router.push("/signup")} className="cursor-pointer text-blue-500 hover:underline">
+              Sign Up
+            </span>
           </div>
           <div className="flex justify-between">
             <span>Privacy Policy</span>
@@ -19,14 +27,16 @@ const Sign = () => {
           </div>
         </div>
       </div>
-      <div className="relative hidden flex-1 flex-col justify-between lg:flex">
+      <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">
         <div className="absolute inset-0 ">
           <Image
             src="/SigninSplash.png"
+            sizes="100%"
+            priority
+            quality={80}
             alt="splash-signin"
             fill
             className="object-cover"
-            // className="z-1 absolute top-0 h-full w-full bg-red-500"
           />
         </div>
 

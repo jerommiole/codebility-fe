@@ -121,8 +121,8 @@ const Page = () => {
           <div className="col-span-2 col-start-4 row-start-2 flex items-end justify-end">
             <div className="pb-5 pl-8">
               <div className="flex gap-5 pb-4">
-                {socials.map((social) => (
-                  <Link href={social.socialUrl}>
+                {socials.map((social, i) => (
+                  <Link key={`link-${i}`} href={social.socialUrl}>
                     <Image
                       src={social.icon}
                       alt={social.alt}
@@ -153,8 +153,8 @@ const Page = () => {
             <p className="text-base text-tealColor">Contacts</p>
             <div className="pl-4 pt-5 text-xs">
               <ul className="flex w-full flex-col gap-3">
-                {contactList.map((contact) => (
-                  <div className="flex">
+                {contactList.map((contact, i) => (
+                  <div key={`contact-${i}`} className="flex">
                     <li className="flex w-20 capitalize">
                       <p className="text-xs">{contact.name}</p>
                     </li>
@@ -172,8 +172,8 @@ const Page = () => {
             <p className="text-base text-tealColor">Education</p>
             <div className="pb-6 pl-4 pt-5 text-xs">
               <ul className="flex w-full flex-col gap-3">
-                {educList.map((educ) => (
-                  <li className="flex flex-col capitalize">
+                {educList.map((educ, i) => (
+                  <li key={`li-${i}`} className="flex flex-col capitalize">
                     <p className="text-xs">{educ.name}</p>
                     <p className="text-xs">{educ.details}</p>
                     <p className="text-xs">{educ.date}</p>
@@ -186,8 +186,8 @@ const Page = () => {
             <p className="text-base text-tealColor">Skills</p>
             <div className="pb-6 pl-4 pt-5 text-xs">
               <ul className="flex w-full items-center gap-3">
-                {skillList.map((skill) => (
-                  <li>
+                {skillList.map((skill, i) => (
+                  <li key={`skill-${i}`}>
                     <Image
                       src={skill.icon}
                       alt={skill.name}
@@ -203,8 +203,8 @@ const Page = () => {
 
           <div className="col-span-2 row-span-10 mt-10">
             <div className="flex flex-col">
-              {[1, 2, 3, 4, 5].map((skill) => (
-                <div className="relative border-l border-tealColor pb-6 pl-10">
+              {[1, 2, 3, 4, 5].map((skill, i) => (
+                <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
                   <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
                   <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
                   <p className="text-xs text-gray01">
@@ -221,7 +221,7 @@ const Page = () => {
           <p className=" text-base">CODEBILITY PROEJCTS</p>
           <div className="mt-7 flex flex-col gap-y-5">
             {[1, 2, 3].map((i, j) => (
-              <div className="flex w-full gap-10">
+              <div key={`div-${j}`} className="flex w-full gap-10">
                 <div>
                   <div className="flex gap-3">
                     <Image
