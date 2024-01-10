@@ -1,8 +1,16 @@
+"use client"
+
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Avatar from "Components/ui/avatar"
 import Hero from "public/hero.png"
 import Image, { StaticImageData } from "next/image"
 import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "./logos"
+import { useModal } from "hooks/use-modal"
+
+interface Description {
+  label: string
+  sublabel: string
+}
 
 interface Props {
   image?: string | StaticImageData
@@ -16,6 +24,8 @@ interface Props {
   linkedin?: string
   email?: string
   address?: string
+  description?: Description[]
+  footerText?: string
 }
 
 const ClientCards = ({
@@ -30,7 +40,56 @@ const ClientCards = ({
   linkedin,
   email,
   address,
+  description,
+  footerText,
 }: Props) => {
+  const { onOpen } = useModal()
+  const data = {
+    image,
+    imgBgColor,
+    name: name ? name : "Lorem Ipsum",
+    time: time ? time : "08:00 am - 02:00 pm",
+    date: date ? date : "11/29/30",
+    company: company ? company : "Company Ipsum",
+    subtext: subtext ? subtext : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, voluptatem.",
+    phonenumber: phonenumber ? phonenumber : "+63238729789",
+    linkedin: linkedin ? linkedin : "Lorem",
+    email: email ? email : "lorem@gmail.com",
+    address: address ? address : "Philippines",
+    description: description
+      ? description
+      : [
+          {
+            label: "Lorem Ipsum",
+            sublabel:
+              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
+          },
+          {
+            label: "Lorem Ipsum",
+            sublabel:
+              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
+          },
+          {
+            label: "Lorem Ipsum",
+            sublabel:
+              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
+          },
+          {
+            label: "Lorem Ipsum",
+            sublabel:
+              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
+          },
+          {
+            label: "Lorem Ipsum",
+            sublabel:
+              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
+          },
+        ],
+    footerText: footerText
+      ? footerText
+      : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, enim ipsa nemo cum labore fugiat quia possimus itaque eligendi tenetur.",
+  }
+  console.log(data)
   return (
     <div className="flex flex-col items-center justify-center rounded-lg border bg-card-client px-2 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
       <div className="flex flex-col items-center md:gap-2">
@@ -67,7 +126,12 @@ const ClientCards = ({
             <p className="ml-[15px] text-ellipsis text-xs lg:ml-2">{address || "Philippines"}</p>
           </div>
         </div>
-        <p className="mt-2 self-center text-xs text-text2 md:mt-10 md:self-end lg:mt-2 lg:self-center xl:mt-10 xl:self-end">
+        <p
+          onClick={() => {
+            onOpen("companyProfile", data)
+          }}
+          className="mt-2 cursor-pointer self-center text-xs text-text2 hover:underline md:mt-10 md:self-end lg:mt-2 lg:self-center xl:mt-10 xl:self-end"
+        >
           View Details
         </p>
       </div>

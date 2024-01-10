@@ -20,7 +20,7 @@ import {
 } from "Components/logos"
 
 import Image from "next/image"
-import { useNavStore } from "store/Post"
+import { useNavStore } from "hooks/use-sidebar"
 
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
