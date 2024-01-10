@@ -48,6 +48,7 @@ const Section2 = () => {
                 FE={"FE"}
                 BE={"BE"}
                 UIUX={"UI/UX"}
+                showFE={true} showBE={true} showUIUX={true} 
                 />
 
 

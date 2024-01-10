@@ -16,7 +16,7 @@ const Dashboard_Avatar = ({ Honorifics, Name, Email, DP,}: props) => {
         <span className="text-[32px] font-semibold">Dashboard</span>
       </div>
       <div className="">
-        <Avatars custmwdt={300} custmhgt={300} Avatarimg={DP} Position={""} Honorifics={""} FE={"FE"} BE={"BE"} UIUX={"UI/UX"} Name={""} Avatarbg={""} FE={""} BE={""} UIUX={""} showFE={true} showBE={true} showUIUX={true} showLink={true}/>
+        <Avatars custmwdt={300} custmhgt={300} Avatarimg={DP} showFE={false} showBE={false} showUIUX={false} showLink={false}/>
       </div>
       <div className="flex flex-col items-center">
         <span className="text-[15px] font-medium">
