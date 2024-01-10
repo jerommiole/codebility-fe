@@ -5,6 +5,11 @@ import { ThemeModeToggle } from "../Components/thememodetoggle"
 import { Outfit } from "next/font/google"
 import AuthContext from "./context/AuthContext"
 
+export const metadata = {
+  title: "Codebility",
+  desciption: "Lorem Ipsum",
+}
+
 const outfit = Outfit({
   subsets: ["latin"],
   // variable: "--font-outfit",
