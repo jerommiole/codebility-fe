@@ -50,8 +50,8 @@ const iceland = Iceland({
 const Hero = () => {
   return (
     <div
-      className=" relative min-h-screen w-screen bg-cover bg-no-repeat "
-      style={{ backgroundImage: "url('/HEROBG.png')" }}
+      className="min-w-screen relative min-h-screen overflow-hidden bg-cover bg-no-repeat"
+      style={{ backgroundImage: "url('/HEROBG.png') " }}
     >
       <Navbar />
 
@@ -66,11 +66,12 @@ const Hero = () => {
         </p>
         <div className="mt-14 md:mt-16">
           <Button
-            className="h-12 w-44 items-center justify-center rounded-sm bg-gradient-to-r from-green-400 to-purple-700 p-1 md:h-14 md:w-52
+            className=" h-12 w-44 items-center justify-center rounded-sm bg-gradient-to-r
+             from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br md:w-52
              "
           >
             <div
-              className={` flex h-full w-full items-center justify-center bg-zinc-950 text-base text-white ${inter.className}`}
+              className={` flex h-full w-full items-center justify-center bg-[#030303] text-base text-white ${inter.className}`}
             >
               Get Starded
             </div>
