@@ -78,11 +78,13 @@ const footerLinks = [
 const Footer = () => {
   return (
     <footer className="flex items-center justify-center bg-backgroundColor text-primaryColor">
-      <div className="w-screen mt-28">
+      <div className="mt-28 w-screen">
         {/* TOP */}
-        <div className="max-w-7xl w-90 mx-5 lg:mx-10 xl:mx-auto grid grid-cols-1 place-items-center  gap-16
-                                        lg:grid-cols-3
-        ">
+        <div
+          className="w-90 mx-5 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10  lg:grid-cols-3
+                                        xl:mx-auto
+        "
+        >
           <Contacts
             imageUrl="/carbon_location-filled.svg"
             alt="Find us"
@@ -102,15 +104,17 @@ const Footer = () => {
             description="Lorem Ipsum is simply dummy text of the printing"
           />
         </div>
-        <hr className="max-w-7xl my-16 mx-5 lg:mx-10 xl:mx-auto opacity-25"/>
+        <hr className="mx-5 my-16 max-w-7xl opacity-25 lg:mx-10 xl:mx-auto" />
 
         {/* MIDDLE */}
-        <div className="max-w-7xl mt-10 mb-28 mx-5 lg:mx-10 xl:mx-auto grid grid-cols-1 place-items-center gap-16
-                                                      lg:grid-cols-3
-        ">
+        <div
+          className="mx-5 mb-28 mt-10 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10 lg:grid-cols-3
+                                                      xl:mx-auto
+        "
+        >
           <div className="flex flex-col gap-2">
             <div>
-              <Link href="/"> 
+              <Link href="/">
                 <Image src="/companyLogo.png" alt="Codebility" width={250} height={30} />
               </Link>
             </div>
@@ -124,19 +128,25 @@ const Footer = () => {
 
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
-            <div className="flex max-w-sm relative">
+            <div className="relative flex max-w-sm">
               <input
                 type="text"
                 placeholder="Email Address..."
-                className="h-10 w-80 rounded-full pr-14 bg-inputColor px-7 text-sm focus:outline-none"
+                className="h-10 w-80 rounded-full bg-inputColor px-7 pr-14 text-sm focus:outline-none"
               />
-               <Image src="/send.svg" alt="send" width={53} height={53} className="absolute -right-3 hover:cursor-pointer" />
+              <Image
+                src="/send.svg"
+                alt="send"
+                width={53}
+                height={53}
+                className="absolute -right-3 hover:cursor-pointer"
+              />
             </div>
             <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text of the printing</p>
             <h2 className="text-md font-semibold">Follow us</h2>
             <div className="flex gap-5">
-              {socials.map((social) => (
-                <Link href={social.socialUrl}>
+              {socials.map((social, i) => (
+                <Link key={`social-${i}`} href={social.socialUrl}>
                   <Image src={social.icon} alt={social.alt} width={30} height={30} />
                 </Link>
               ))}
@@ -156,9 +166,12 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM */}
-        <div className="h-20 flex justify-center items-center bg-footerColor">
+        <div className="flex h-20 items-center justify-center bg-footerColor">
           <p className="text-sm text-secondaryColor">
-            Copyright &copy; All Right Reserved <Link href="/"><span className="text-primaryColor font-bold hover:underline">CODEBILITY</span></Link>
+            Copyright &copy; All Right Reserved{" "}
+            <Link href="/">
+              <span className="font-bold text-primaryColor hover:underline">CODEBILITY</span>
+            </Link>
           </p>
         </div>
       </div>
