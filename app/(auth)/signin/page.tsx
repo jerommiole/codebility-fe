@@ -3,9 +3,10 @@ import Image from "next/image"
 
 const Sign = () => {
   return (
-    <div className="flex h-full sm:h-screen">
+    //
+    <div className="flex h-screen">
       <div className="flex flex-1 flex-col justify-center">
-        <div className="p-12 lg:p-20 2xl:p-36">
+        <div className="overflow-y-auto px-12 py-20 lg:px-32 2xl:px-36">
           <Image src="/codebilityLogoBlue.png" width={220} height={50} alt="codebilityLogoBlue" />
           <h1 className="my-5 text-5xl font-semibold">Lorem Ipsum</h1>
           <h2 className="my-14 text-xl">Sign in</h2>
@@ -19,7 +20,7 @@ const Sign = () => {
           </div>
         </div>
       </div>
-      <div className="relative hidden flex-1 flex-col justify-between lg:flex">
+      <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">
         <div className="absolute inset-0 ">
           <Image
             src="/SigninSplash.png"
