@@ -16,7 +16,7 @@ const CompanyProfileModal = () => {
         <DialogContent className="max-w-2xl px-12 py-16">
           <DialogHeader>
             <DialogTitle className="text-center">
-              <h1 className="text-xl uppercase">Company Profile</h1>
+              <p className="text-xl uppercase">Company Profile</p>
               <p className="mt-2 text-xs font-light text-gray-500">{data?.date}</p>
             </DialogTitle>
           </DialogHeader>
