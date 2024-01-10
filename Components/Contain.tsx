@@ -7,20 +7,27 @@ import Image from "next/image"
 
 import Hero from "public/hero.png"
 import { useNavStore } from "store/Post"
+import { useRouter } from "next/navigation"
 
 type ContainProps = {
   children: React.ReactNode
 }
 
 const Contain: React.FC<ContainProps> = ({ children }) => {
+  const router = useRouter()
+
   useEffect(() => {
     //Fetch Data
   }, [])
   const { activeNav } = useNavStore()
 
+  const goToProfile = () => {
+    router.push("/dashboard/profile")
+  }
+
   return (
     <div className="ml-[103px] flex h-screen flex-col bg-background tablet:ml-0">
-      <div className="flex items-center justify-between px-4 py-2 lg:pr-20 tablet:pr-5">
+      <div className="flex items-center justify-between px-4 py-2 lg:pr-16 tablet:pr-5">
         <div>
           <ToggleMenu />
         </div>
@@ -31,7 +38,10 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
             <ModeToggle />
           </div> */}
           <div className="h-16 border-l border-foreground tablet:hidden" />
-          <div className="flex items-center gap-2 tablet:hidden">
+          <div
+            className="flex cursor-pointer items-center gap-2 px-4 hover:bg-gray-950 tablet:hidden"
+            onClick={goToProfile}
+          >
             <div className="h-14 w-14 overflow-hidden rounded-full bg-violet-500">
               <Image src={Hero} alt="profile-pic" />
             </div>

@@ -121,10 +121,10 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
 const Blinds = () => {
   const { activeNav, toggleNav } = useNavStore()
   return (
-    <div
+    <button
       onClick={() => toggleNav()}
       className={`blinds  ${activeNav ? "opacity-100 tablet:w-full" : "opacity-0 tablet:w-0"}`}
-    ></div>
+    ></button>
   )
 }
 
