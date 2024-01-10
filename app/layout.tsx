@@ -5,6 +5,11 @@ import { ThemeModeToggle } from "../Components/thememodetoggle"
 import { Outfit } from "next/font/google"
 import AuthContext from "./context/AuthContext"
 
+export const metadata = {
+  title: "Codebility",
+  desciption: "Lorem Ipsum",
+}
+
 const outfit = Outfit({
   subsets: ["latin"],
   // variable: "--font-outfit",
@@ -12,10 +17,10 @@ const outfit = Outfit({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={outfit.className}>
+    <html lang="en" className={outfit.className} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ThemeModeToggle />
+          {/* <ThemeModeToggle /> */}
           {children}
         </ThemeProvider>
       </body>
