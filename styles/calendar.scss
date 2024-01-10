@@ -1,2 +1,17 @@
 @import 'react-big-calendar/lib/sass/styles';
 @import 'react-big-calendar/lib/addons/dragAndDrop/styles';
+
+
+.custom-calendar-style {
+    border: none !important;
+    border-left:0px solid;
+  }
+.rbc-header{
+    border-left:none;
+}
+
+
+.rbc-month-view{
+
+    border: 5px solid;
+}
