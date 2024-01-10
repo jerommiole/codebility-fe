@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={outfit.className}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ThemeModeToggle />
+          {/* <ThemeModeToggle /> */}
           {children}
         </ThemeProvider>
       </body>

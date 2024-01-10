@@ -1,7 +1,11 @@
+"use client"
+
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const Sign = () => {
+  const router = useRouter()
   return (
     //
     <div className="flex h-screen">
@@ -12,7 +16,10 @@ const Sign = () => {
           <h2 className="my-14 text-xl">Sign in</h2>
           <AuthForm />
           <div className="my-20 text-center">
-            Have An Account? <span className="text-blue-500">Sign In</span>
+            Don't have an account?{" "}
+            <span onClick={() => router.push("/signup")} className="cursor-pointer text-blue-500 hover:underline">
+              Sign Up
+            </span>
           </div>
           <div className="flex justify-between">
             <span>Privacy Policy</span>
@@ -22,13 +29,7 @@ const Sign = () => {
       </div>
       <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">
         <div className="absolute inset-0 ">
-          <Image
-            src="/SigninSplash.png"
-            alt="splash-signin"
-            fill
-            className="object-cover"
-            // className="z-1 absolute top-0 h-full w-full bg-red-500"
-          />
+          <Image src="/SigninSplash.png" alt="splash-signin" fill className="object-cover" />
         </div>
 
         <div className="z-10 mt-32 p-10 text-right">
