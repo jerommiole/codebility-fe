@@ -49,17 +49,17 @@ const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt,FE,
 
           <span className="text-[12px] text-[#8E8E8E]">{Position}</span>
           <div className="flex w-full items-center space-x-4">
-              {!showFE && (
+              {showFE && (
                 <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#FDB7D0]">
                   {FE}
                 </span>
               )}
-              {!showBE && (
+              {showBE && (
                 <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#02FFE2]">
                   {BE}
                 </span>
               )}
-              {!showUIUX && (
+              {showUIUX && (
                 <span className="h-4 w-[100%] rounded-full bg-[#363636] text-center text-[0.6rem] font-medium text-[#6A78F2]">
                   {UIUX}
                 </span>
