@@ -12,7 +12,7 @@ const outfit = Outfit({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={outfit.className}>
+    <html lang="en" className={outfit.className} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {/* <ThemeModeToggle /> */}
