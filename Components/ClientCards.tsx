@@ -100,14 +100,14 @@ const ClientCards = ({
         <h2 className="text-lg ">{time || "08:00 am - 02:00 pm"}</h2>
       </div>
       <div className="flex flex-1 flex-col md:ml-10 lg:ml-0 xl:ml-10">
-        <p className="self-end text-xs text-muted-foreground">{date || "11/29/30"}</p>
+        <p className="mt-4 self-end text-xs text-muted-foreground sm:my-0">{date || "11/29/30"}</p>
         <h1 className="self-center text-2xl font-bold md:self-start lg:self-center xl:self-start">
           {company || "Company Ipsum"}
         </h1>
         <p className="mt-2  text-center text-muted-foreground md:pr-20 md:text-start lg:pr-0 lg:text-center xl:pr-20 xl:text-start">
           {subtext || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, voluptatem."}
         </p>
-        <div className="mt-10 grid grid-cols-2 gap-2  ">
+        <div className="sm: mt-10 grid grid-cols-2 gap-2">
           <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-muted">
             <CallSVG className="text-text4 dark:text-primary" />
             <p className="ml-[15px] text-xs lg:ml-2">{phonenumber || "+63238729789"}</p>
