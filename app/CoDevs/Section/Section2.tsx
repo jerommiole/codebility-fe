@@ -44,7 +44,11 @@ const Section2 = () => {
                 Name={data.Name}
                 Honorifics={data.Honorifics}
                 Position={data.Position}
-                Avatarimg={data.Avatarimg} />
+                Avatarimg={data.Avatarimg}
+                FE={"FE"}
+                BE={"BE"}
+                UIUX={"UI/UX"}
+                />
 
 
             ))

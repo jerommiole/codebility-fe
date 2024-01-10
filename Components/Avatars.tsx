@@ -16,8 +16,15 @@ interface props {
   custmwdt?: number
   custmhgt?: number
   linkHref?: any
+  FE?:string
+  BE?:string
+  UIUX?:string
+  showFE?:boolean
+  showBE?:boolean
+  showUIUX?:boolean
+  showLink?:boolean
 }
-const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt, linkHref }: props) => {
+const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt,FE,BE,UIUX,showFE,showBE,showUIUX,showLink }: props) => {
   const router = useRouter()
   return (
 
@@ -42,16 +49,30 @@ const Avatars = ({ Position, Honorifics, Name, Avatarimg, custmwdt, custmhgt, li
 
           <span className="text-[12px] text-[#8E8E8E]">{Position}</span>
           <div className="flex w-full items-center space-x-4">
-            <span className="h-4  w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#FDB7D0]">FS</span>
-            <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#02FFE2]">BE</span>
-            <span className="h-4 w-[100%] rounded-full bg-[#363636] text-center text-[0.6rem] font-medium text-[#6A78F2]">
-              UI/UX
-            </span>
+              {!showFE && (
+                <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#FDB7D0]">
+                  {FE}
+                </span>
+              )}
+              {!showBE && (
+                <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#02FFE2]">
+                  {BE}
+                </span>
+              )}
+              {!showUIUX && (
+                <span className="h-4 w-[100%] rounded-full bg-[#363636] text-center text-[0.6rem] font-medium text-[#6A78F2]">
+                  {UIUX}
+                </span>
+              )}
           </div>
-          <Link className="flex space-x-4 text-sm font-medium text-[#6A78F2]" href={"#"}>
+          {!showLink &&(
+
+            <Link className="flex space-x-4 text-sm font-medium text-[#6A78F2]" href={"#"}>
             <span>Read Bio</span>
             <Image alt="arrow" src={Arrow} />
-          </Link>
+            </Link>
+          )}
+
         </div>
       </div>
 

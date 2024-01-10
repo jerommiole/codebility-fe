@@ -1,26 +1,14 @@
 "use client"
-import React from "react"
+import React,{useState} from "react"
 
 import "../../styles/calendar.scss"
-import { Topbar, Avatar_Dashboard, Sidebar } from "Components/exports"
+import { Topbar, Avatar_Dashboard, Sidebar,Dashboard_Card,Dashboard_Card2 } from "Components/exports"
 import images from "./Assets/avt.svg"
 
-import { useState, useCallback } from "react"
-import { Calendar, momentLocalizer, Views } from "react-big-calendar"
-import moment from "moment"
-import "react-big-calendar/lib/css/react-big-calendar.css"
+import CalendarComp from "./Section/CalendarComp"
 
-const localizer = momentLocalizer(moment)
-
-type ViewType = (typeof Views)[keyof typeof Views]
 
 const Page = () => {
-  const [events] = useState([])
-  const [currentDate, setCurrentDate] = useState(new Date())
-  const [defaultView, setDefaultView] = useState<ViewType>(Views.MONTH)
-  const switchToWeekView = () => {
-    setDefaultView(Views.WEEK)
-  }
 
   return (
     <>
@@ -28,13 +16,13 @@ const Page = () => {
         <Sidebar />
 
         <div className="ml-[8%] flex h-full w-full flex-col">
-          <div className="h-[8%] w-full bg-yellow-500">
-            <Topbar />
+          <div className="h-[8%] w-full ">
+              {/* topbar */}
           </div>
 
           <div className="flex h-[92%] w-full space-x-4 p-4">
             {/* r1 */}
-            <div className="flex w-[50%] flex-col space-y-4 rounded-lg bg-[#181818] bg-opacity-50 p-4">
+            <div className="flex w-[70%] flex-col space-y-4 rounded-lg bg-[#181818] bg-opacity-50 p-4">
               {/* col 1 */}
               <div className="flex h-[48%] justify-between rounded-lg bg-[#181818] p-4 text-white">
                 <div className="order-1 flex h-full w-[40%] items-center justify-center">
@@ -71,30 +59,36 @@ const Page = () => {
                 </div>
               </div>
               {/* col2 */}
-              <div className="flex w-full bg-yellow-500">
-                <Calendar
-                  localizer={localizer}
-                  events={events}
-                  startAccessor="start"
-                  endAccessor="end"
-                  views={{
-                    month: true,
-                    week: true,
-                    day: true,
-                    agenda: true,
-                  }}
-                  date={currentDate}
-                  onNavigate={(date) => setCurrentDate(date)}
-                  defaultView={defaultView}
-                  style={{ height: 500 }}
-                />
+              <div className="flex justify-center w-full h-full bg-[#181818] border-none p-4">
+                  <CalendarComp/>
               </div>
             </div>
 
             {/* r2 */}
-            <div className="flex w-[auto] flex-col space-y-4 rounded-lg bg-[#181818]">
-              <div className="bg-[#181818]">TodoList</div>
-              <div className="bg-[#181818]">TodoList2</div>
+            <div className="flex w-[30%] flex-col space-y-4 ">
+
+              <div className="h-[50%] bg-[#181818] bg-opacity-[25%] grid grid-flow-col grid-rows-2 gap-4 justify-items-center  content-center p-4">
+                    <Dashboard_Card
+                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                    />
+                    <Dashboard_Card
+                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                    />
+                    <Dashboard_Card
+                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                    />
+                    <Dashboard_Card
+                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                    />
+
+
+              </div>
+              <div className="bg-[#181818] bg-opacity-[25%] h-[50%]">
+                    <Dashboard_Card2/>
+              </div>
+
+
+
             </div>
           </div>
         </div>
