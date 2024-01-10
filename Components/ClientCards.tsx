@@ -89,7 +89,6 @@ const ClientCards = ({
       ? footerText
       : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, enim ipsa nemo cum labore fugiat quia possimus itaque eligendi tenetur.",
   }
-  console.log(data)
   return (
     <div className="flex flex-col items-center justify-center rounded-lg border bg-card-client px-2 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
       <div className="flex flex-col items-center md:gap-2">
