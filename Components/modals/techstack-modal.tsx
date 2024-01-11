@@ -179,14 +179,14 @@ const TechStackModal = () => {
         <div className="grid grid-cols-4 gap-2">
           {techstack?.map((tech, i) => (
             <div
-              className={`flex cursor-pointer items-center rounded-md p-2 hover:bg-gray-500/40 ${
+              className={`flex cursor-pointer items-center justify-center rounded-md p-2 hover:bg-gray-500/40 sm:justify-normal ${
                 checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-gray-500/40"
               }`}
               key={`tech-item-${i}`}
               onClick={() => addRemoveStack({ name: tech.name, icon: tech.icon, index: i })}
             >
               <Image src={tech.icon} alt={`${tech.name}-icon`} height={30} width={30} />
-              <p className="pl-4">{tech.name}</p>
+              <p className="hidden pl-4 sm:block">{tech.name}</p>
             </div>
           ))}
         </div>
