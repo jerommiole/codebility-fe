@@ -3,9 +3,11 @@
 import Image from "next/image"
 import SignUpForm from "./components/SignUpForm"
 import { useRouter } from "next/navigation"
+import { useModal } from "hooks/use-modal"
 
 const SignUp = () => {
   const router = useRouter()
+  const { onOpen } = useModal()
   return (
     <div className="flex h-screen">
       <div className="relative hidden flex-1 justify-between lg:flex lg:flex-col">
@@ -46,8 +48,12 @@ const SignUp = () => {
             </span>
           </div>
           <div className="flex justify-between">
-            <span>Privacy Policy</span>
-            <span>Terms and Conditions</span>
+            <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer hover:underline">
+              Privacy Policy
+            </span>
+            <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer hover:underline">
+              Terms and Conditions
+            </span>
           </div>
         </div>
       </div>
