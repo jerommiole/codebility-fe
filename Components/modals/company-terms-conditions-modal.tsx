@@ -50,7 +50,7 @@ const CompanyTermsConditionModal = () => {
         <p className="my-2 text-xl font-semibold">Lorem Ipsum has been the industry's</p>
         <div className="flex flex-col gap-y-3">
           {terms?.map((item, i) => (
-            <div className="grid-col-12 grid gap-y-2">
+            <div className="grid-col-12 grid gap-y-2" key={`item-${i}`}>
               <Image
                 className="col-span-1 mr-3 place-self-center"
                 src="/modals/modal-terms-icon.png"
