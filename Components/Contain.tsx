@@ -6,7 +6,7 @@ import ToggleMenu from "Components/toggleMenu"
 import Image from "next/image"
 
 import Hero from "public/hero.png"
-import { useNavStore } from "store/Post"
+import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 
 type ContainProps = {
