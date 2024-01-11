@@ -2,7 +2,7 @@
 
 import { CallSVG, EmailSVG, LinkedinSVG, LocationSVG } from "Components/logos"
 import Avatar from "Components/ui/avatar"
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "Components/ui/dialog"
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import Image from "next/image"
 import Hero from "public/hero.png"
@@ -59,7 +59,7 @@ const CompanyProfileModal = () => {
                   <div className="grid grid-cols-12" key={`Description-${i}`}>
                     <Image
                       className="col-span-1 place-self-center"
-                      src="/bulb.png"
+                      src="/modals/modal-dashboard-definition-policy.png"
                       alt="logo-description"
                       height={10}
                       width={10}
@@ -70,7 +70,7 @@ const CompanyProfileModal = () => {
                 ))}
             </div>
           </div>
-          <DialogFooter className="sm:justify-start">
+          <DialogFooter className="justify-start sm:justify-start">
             <p className="mt-4 text-sm sm:mt-8">{data?.footerText}</p>
           </DialogFooter>
         </DialogContent>
