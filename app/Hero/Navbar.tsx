@@ -6,6 +6,7 @@ import React, { useState } from "react"
 import { Menu, MenuIcon, X } from "lucide-react"
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
 import { Button } from "Components/ui/button"
+import { Inter } from "next/font/google"
 
 const links = [
   {
@@ -28,19 +29,24 @@ const links = [
     href: "/Contact",
   },
 ]
+const inter = Inter({
+  weight: "200",
+  style: "normal",
+  subsets: ["latin"],
+})
 
 const Navbar = () => {
   const pathname = usePathname()
   return (
-    <header className="mb-2  bg-transparent">
+    <header className="mb-2  mt-3 bg-transparent md:container">
       <div className=" z-30 flex items-center justify-between px-16 py-4">
         <div className="hidden lg:block">
           <Link href="/">
-            <Image src="/companyLogo.png" alt="CodebilityLogo" width={260} height={49} />
+            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={220} height={35} />
           </Link>
         </div>
 
-        <ul className="hidden gap-12 lg:flex 2xl:ml-16">
+        <ul className={` hidden gap-12 font-thin lg:flex 2xl:ml-16 ${inter.className}`}>
           {links.map((link, idx) => (
             <div key={idx}>
               {pathname === link.href ? (
@@ -69,7 +75,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent className="flex h-screen flex-col items-center justify-center bg-transparent  backdrop-blur-sm ">
               <SheetHeader>
-                <ul className="space-y-14 ">
+                <ul className={`space-y-14 ${inter.className} `}>
                   {links.map((link, idx) => (
                     <div key={idx}>
                       {pathname === link.href ? (
@@ -92,7 +98,7 @@ const Navbar = () => {
 
         <div className="block lg:hidden">
           <Link href="/">
-            <Image src="/companyLogo.png" alt="CodebilityLogo" width={180} height={49} />
+            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={180} height={49} />
           </Link>
         </div>
         <div className="lg:hidden" />
