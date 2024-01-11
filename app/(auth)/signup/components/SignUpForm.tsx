@@ -13,6 +13,8 @@ import slack from "public/slack-signup.png"
 import facebook from "public/facebook-sign.png"
 import google from "public/google-sign.png"
 import github from "public/github-signup.png"
+import { useModal } from "hooks/use-modal"
+import { useTechStackStore } from "hooks/use-techstack"
 
 const AuthForm = () => {
   const router = useRouter()
@@ -56,6 +58,7 @@ const AuthForm = () => {
   }
 
   useEffect(() => {}, [])
+  const { onOpen } = useModal()
 
   const {
     register,
@@ -83,6 +86,10 @@ const AuthForm = () => {
   const socialAction = (action: string) => {
     console.log(action)
   }
+
+  const { stack } = useTechStackStore()
+
+  const string = stack.map((item, i) => item.name)
 
   return (
     <div className="relative">
@@ -158,14 +165,20 @@ const AuthForm = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <SignInputs
+              onClick={() => onOpen("techStackModal")}
               id="techstacks"
               label="Tech Stacks"
-              placeholder="John Doe"
+              placeholder="Java, Node, Python"
               register={register}
               errors={errors}
               disabled={isLoading}
               type="text"
+              values={string.join(", ")}
+              onChange={() => {
+                console.log("wew")
+              }}
               required
+              readonly
             />
             <SignInputs
               id="password"
