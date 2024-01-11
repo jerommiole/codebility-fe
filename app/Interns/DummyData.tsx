@@ -22,41 +22,41 @@ export const positions = [
 ]
 
 // FOR MOBILE SCREENS
-export const positionsSm = ["All", "Full Stack", "Backend", "Frontend", "UI/UX"]
+export const positionsSm = ["All", "Full Stack Developer", "Backend Developer", "Frontend Developer", "UI/UX Designer", "Video Editor", "Virtual Assistant", "Shopify Developer", "Wordpress Developer", "Human Resource", "Project Manager", "Social Media Manager", "Fb Ads Specialist", "Research Auditor"]
 
 export const interns = [
   {
     id: 1,
     name: "Mr. Lorem1",
-    position: ["Full Stack Developer"],
+    position: ["Full Stack Developer", "Shopify Developer"],
     imageUrl: "/image51.png",
     backgroundColor: "bg-darkBlueBgColor"
   },
   {
     id: 2,
     name: "Mr. Lorem2",
-    position: ["Frontend Developer", "UI/UX Designer"],
+    position: ["Frontend Developer", "Human Resource", "Research Auditor"],
     imageUrl: "/image25.png",
     backgroundColor: "bg-redBgColor"
   },
   {
     id: 3,
     name: "Mr. Lorem3",
-    position: ["UI/UX Designer"],
+    position: ["UI/UX Designer", "Project Manager"],
     imageUrl: "/image33.png",
     backgroundColor: "bg-violetBgColor"
   },
   {
     id: 4,
     name: "Mr. Lorem4",
-    position: ["Frontend Developer"],
+    position: ["Frontend Developer", "Wordpress Developer"],
     imageUrl: "/image32.png",
     backgroundColor: "bg-greenBgColor"
   },
   {
     id: 5,
     name: "Mr. Lorem5",
-    position: ["Full Stack Developer"],
+    position: ["Full Stack Developer", "Fb Ads Specialist"],
     imageUrl: "/image51.png",
     backgroundColor: "bg-darkBlueBgColor"
   },
@@ -70,7 +70,7 @@ export const interns = [
   {
     id: 7,
     name: "Mr. Lorem7",
-    position: ["Backend Developer"],
+    position: ["Virtual Assistant", "Social Media Manager"],
     imageUrl: "/image33.png",
     backgroundColor: "bg-violetBgColor"
   },
@@ -84,7 +84,7 @@ export const interns = [
   {
     id: 9,
     name: "Mr. Lorem9",
-    position: ["Full Stack Developer"],
+    position: ["Full Stack Developer", "Video Editor"],
     imageUrl: "/image51.png",
     backgroundColor: "bg-darkBlueBgColor"
   },
