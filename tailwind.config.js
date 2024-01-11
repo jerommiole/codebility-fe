@@ -47,6 +47,14 @@ module.exports = {
         redBgColor: "#FF0000",
         greenBgColor: "#02FFE2",
         violetBgColor: "#C108FE",
+        // Co Devs
+        greenColor: "#07AC50",
+        redColor: "#D40000",
+        yellowColor: "#FFC107",
+        blueColor: "#066EBD",
+        skyBlueColor: "#61DAFB",
+        orangeColor: "#E76F00",
+
         text1: "rgba(var(--text-color-1))",
         text2: "hsl(var(--text-color-2))",
         text3: "hsl(var(--text-color-3))",
