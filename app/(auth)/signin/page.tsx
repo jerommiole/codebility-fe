@@ -1,11 +1,13 @@
 "use client"
 
+import { useModal } from "hooks/use-modal"
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 const Sign = () => {
   const router = useRouter()
+  const { onOpen } = useModal()
   return (
     //
     <div className="flex h-screen">
@@ -22,8 +24,12 @@ const Sign = () => {
             </span>
           </div>
           <div className="flex justify-between">
-            <span>Privacy Policy</span>
-            <span>Terms and Conditions</span>
+            <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer hover:underline">
+              Privacy Policy
+            </span>
+            <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer hover:underline">
+              Terms and Conditions
+            </span>
           </div>
         </div>
       </div>
