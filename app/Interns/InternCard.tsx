@@ -46,6 +46,51 @@ const InternCard = ({image, name, position, roles, bgColor } : InternCardProps) 
                     FE
                   </p>
                 ) : null}
+                {pos === "Video Editor" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-greenColor dark:bg-[#363636]">
+                    VE
+                  </p>
+                ) : null}
+                {pos === "Virtual Assistant" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-redColor dark:bg-[#363636]">
+                    VA
+                  </p>
+                ) : null}
+                {pos === "Shopify Developer" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-yellowColor dark:bg-[#363636]">
+                    SD
+                  </p>
+                ) : null}
+                {pos === "Wordpress Developer" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-blueColor dark:bg-[#363636]">
+                    WD
+                  </p>
+                ) : null}
+                {pos === "Human Resource" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold dark:text-white dark:bg-[#363636]">
+                    HR
+                  </p>
+                ) : null}
+                {pos === "Project Manager" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-skyBlueColor dark:bg-[#363636]">
+                    PrM
+                  </p>
+                ) : null}
+                {pos === "Social Media Manager" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-orangeColor dark:bg-[#363636]">
+                    SMM
+                  </p>
+                ) : null}
+                {pos === "Fb Ads Specialist" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold text-secondaryColor dark:bg-[#363636]">
+                    Fb Ads
+                  </p>
+                ) : null}
+                {pos === "Research Auditor" ? (
+                  <p className="rounded-lg bg-slate-400 bg-opacity-20 px-2 py-1 text-xs font-semibold dark:text-white dark:bg-[#363636]">
+                    RA
+                  </p>
+                ) : null}
               </div>
             ))}
           </div>
