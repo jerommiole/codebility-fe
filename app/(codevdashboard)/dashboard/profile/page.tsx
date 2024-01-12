@@ -37,17 +37,21 @@ const ProfilePage = () => {
   ]
 
   return (
-    <div className="p-[1.63rem]">
+    <div className="h-full p-[1.63rem]">
       <div className="h-full w-[19.3125rem] border-r">
-        <p className="text-sm font-medium">CODEBILITY ACCOUNT</p>
-        <div className="w-full p-2 py-3">
-          <ul className="">
+        <div className=" w-full p-2 py-3">
+          <p className="mb-[2.5rem] pl-8 text-xl font-medium">CODEBILITY ACCOUNT</p>
+          <ul className="flex flex-col gap-3 px-6">
             {profileMenuList.map((profile) => (
-              <div className="flex w-full gap-10 px-4 py-2">
-                <Image src={profile.icon} alt={profile.title} width="16" height="16" />
+              <div className="hover:bg-gray02 flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2">
+                <div>
+                  <Image src={profile.icon} alt={profile.title} width="14" height="14" />
+                </div>
+
                 <li className="text-left text-sm">{profile.title}</li>
               </div>
             ))}
+            <div className="border-b">&nbsp;</div>
           </ul>
         </div>
       </div>

@@ -37,6 +37,8 @@ module.exports = {
         backgroundColor: "#030303",
         footerColor: "#0A0A0A",
         gray01: "#DCDCDC",
+        gray02: "#1F1F1F",
+        gray03: "#2E2E2E",
 
         // Interns Page
         tealColor: "#02FFE2",
