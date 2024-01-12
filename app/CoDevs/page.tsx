@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
 import { interns, positionsSm, positions } from "../Interns/DummyData"
 import { useState } from "react"
@@ -13,7 +14,7 @@ const CoDevs = () => {
   }
 
   const filteredData = interns.filter((intern) => {
-   if (byCategory) {
+    if (byCategory) {
       if (byCategory === "All") {
         return intern
       } else {
@@ -25,7 +26,7 @@ const CoDevs = () => {
   })
 
   return (
-    <div className="flex w-full py-10 flex-col items-center justify-center bg-backgroundColor text-primaryColor">
+    <div className="flex w-full flex-col items-center justify-center bg-backgroundColor py-10 text-primaryColor">
       {/* TEXT SECTION */}
       <div className="w-80 max-w-7xl md:flex md:w-screen md:items-center md:justify-between md:px-16 lg:w-[90%] xl:w-[80%] xl:px-0">
         <div>
@@ -41,7 +42,7 @@ const CoDevs = () => {
         </div>
       </div>
 
-      <div className="mb-5 mt-7 flex w-80 max-w-7xl rounded-3xl flex-col items-center justify-center gap-1 bg-white bg-opacity-5 p-5 text-center md:w-[85%] lg:w-[90%] xl:w-[80%]">
+      <div className="mb-5 mt-7 flex w-80 max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 text-center md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <h3 className="text-xl uppercase text-secondaryColor">Meet our</h3>
         <h2 className="fw-bold text-3xl uppercase">Co Devs</h2>
         <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text</p>
@@ -52,7 +53,7 @@ const CoDevs = () => {
           <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
 
           {filterToggle && (
-            <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-32 flex-col gap-1 rounded-xl p-3 text-xs bg-[#0E0E0E] md:w-36">
+            <div className="absolute right-16 top-6 z-40 flex h-96 w-32 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs md:w-36">
               <div className="flex w-full justify-end">
                 <Image
                   src="/Close.svg"
@@ -86,33 +87,25 @@ const CoDevs = () => {
             <div key={p.position} onClick={() => setByCategory(p.position)}>
               {p.position === "Full Stack Developer" ? (
                 <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                  <p className="rounded-lg bg-opacity-20 py-0.5 px-1 text-xs text-lightPinkColor bg-[#363636]">
-                    FS
-                  </p>
+                  <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5 text-xs text-lightPinkColor">FS</p>
                   <p className="text-xs">{p.position}</p>
                 </div>
               ) : null}
               {p.position === "UI/UX Designer" ? (
                 <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                  <p className="rounded-lg bg-opacity-20 py-0.5 px-1 text-xs  text-magentaColor bg-[#363636]">
-                    UI/UX
-                  </p>
+                  <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-magentaColor">UI/UX</p>
                   <p className="text-xs">{p.position}</p>
                 </div>
               ) : null}
               {p.position === "Backend Developer" ? (
                 <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                  <p className="rounded-lg bg-opacity-20 py-0.5 px-1 text-xs  text-tealColor bg-[#363636]">
-                    BE
-                  </p>
+                  <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-tealColor">BE</p>
                   <p className="text-xs">{p.position}</p>
                 </div>
               ) : null}
               {p.position === "Frontend Developer" ? (
                 <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                  <p className="rounded-lg bg-opacity-20 py-0.5 px-1 text-xs  text-darkBlueColor bg-[#363636]">
-                    FE
-                  </p>
+                  <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-darkBlueColor">FE</p>
                   <p className="text-xs">{p.position}</p>
                 </div>
               ) : null}
@@ -120,12 +113,16 @@ const CoDevs = () => {
           ))}
 
           {/* FILTER FOR DESKTOP SCREEN */}
-          <div title="Filter" onClick={handelFilterToggle} className="hidden lg:relative lg:flex lg:cursor-pointer lg:gap-4">
+          <div
+            title="Filter"
+            onClick={handelFilterToggle}
+            className="hidden lg:relative lg:flex lg:cursor-pointer lg:gap-4"
+          >
             <p className="text-sm text-primaryColor">Filter</p>
             <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
             {filterToggle && (
-              <div className="scrollCustom absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-28 flex-col gap-1 rounded-xl p-3 text-xs bg-[#0E0E0E] md:w-40">
+              <div className="scrollCustom absolute right-16 top-6 z-40 flex h-96 w-28 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs md:w-40">
                 <div className="flex w-full justify-end">
                   <Image
                     src="/Close.svg"
@@ -155,11 +152,11 @@ const CoDevs = () => {
         </div>
 
         {/* TEAM SECTION */}
-        <div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:grid-cols-5 lg:gap-y-24 lg:gap-x-14 lg:mt-24">
+        <div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
           {/* DEV CARD */}
           {filteredData.map((intern) => (
             <div key={intern.id} className=" flex flex-col items-center justify-center">
-              <div className="flex h-36 w-36 flex-col items-center justify-end gap-1 rounded-3xl bg-opacity-20 pb-3 bg-[#181818]">
+              <div className="flex h-36 w-36 flex-col items-center justify-end gap-1 rounded-3xl bg-[#181818] bg-opacity-20 pb-3">
                 <div className="relative flex flex-col items-center">
                   <Image
                     src={`${intern.imageUrl}`}
@@ -172,13 +169,7 @@ const CoDevs = () => {
                   <div className={`absolute bottom-9 h-16 w-16 ${intern.backgroundColor}`}></div>
 
                   <div className="relative flex w-40 flex-col items-center text-center">
-                    <Image
-                      src={"/Wave.svg"}
-                      alt="wave"
-                      width={95}
-                      height={20}
-                      className="z-20 h-auto border-none"
-                    />
+                    <Image src={"/Wave.svg"} alt="wave" width={95} height={20} className="z-20 h-auto border-none" />
                     <h1 className="absolute bottom-0 z-30 w-full text-base font-bold text-darkBlueColor">
                       {intern.name}
                     </h1>
@@ -190,77 +181,80 @@ const CoDevs = () => {
                   {intern.position.map((pos: any, i) => (
                     <div key={i}>
                       {pos === "Full Stack Developer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-lightPinkColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-lightPinkColor">
                           FS
                         </p>
                       ) : null}
                       {pos === "UI/UX Designer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-magentaColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-magentaColor">
                           UI/UX
                         </p>
                       ) : null}
                       {pos === "Backend Developer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-tealColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-tealColor">
                           BE
                         </p>
                       ) : null}
                       {pos === "Frontend Developer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-darkBlueColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-darkBlueColor">
                           FE
                         </p>
                       ) : null}
                       {pos === "Video Editor" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-greenColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-greenColor">
                           VE
                         </p>
                       ) : null}
                       {pos === "Virtual Assistant" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-redColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-redColor">
                           VA
                         </p>
                       ) : null}
                       {pos === "Shopify Developer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-yellowColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-yellowColor">
                           SD
                         </p>
                       ) : null}
                       {pos === "Wordpress Developer" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-blueColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-blueColor">
                           WD
                         </p>
                       ) : null}
                       {pos === "Human Resource" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-white bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-white">
                           HR
                         </p>
                       ) : null}
                       {pos === "Project Manager" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-skyBlueColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-skyBlueColor">
                           PrM
                         </p>
                       ) : null}
                       {pos === "Social Media Manager" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-orangeColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-orangeColor">
                           SMM
                         </p>
                       ) : null}
                       {pos === "Fb Ads Specialist" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-secondaryColor bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-secondaryColor">
                           Fb Ads
                         </p>
                       ) : null}
                       {pos === "Research Auditor" ? (
-                        <p className="rounded-lg bg-opacity-20 px-2 py-1 text-xs font-semibold text-white bg-[#363636]">
+                        <p className="rounded-lg bg-[#363636] bg-opacity-20 px-2 py-1 text-xs font-semibold text-white">
                           RA
                         </p>
                       ) : null}
                     </div>
                   ))}
                 </div>
-                <div className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer">
+                <Link
+                  className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer"
+                  href={`/CoDevs/${intern.name}`}
+                >
                   <p className="fw-semibold text-xs text-darkBlueColor">Read Bio</p>
                   <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
-                </div>
+                </Link>
               </div>
             </div>
           ))}
