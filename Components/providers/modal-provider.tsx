@@ -3,6 +3,7 @@
 import CompanyPrivacyPolicyModal from "Components/modals/company-privacy-policy-modal"
 import CompanyProfileModal from "Components/modals/company-profile-modal"
 import CompanyTermsConditionModal from "Components/modals/company-terms-conditions-modal"
+import TechStackModal from "Components/modals/techstack-modal"
 import { useEffect, useState } from "react"
 
 export const ModalProvider = () => {
@@ -19,6 +20,7 @@ export const ModalProvider = () => {
       <CompanyProfileModal />
       <CompanyPrivacyPolicyModal />
       <CompanyTermsConditionModal />
+      <TechStackModal />
     </>
   )
 }
