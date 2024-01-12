@@ -15,6 +15,7 @@ import LinkedinSVG from "./linkedin"
 import AddSVG from "./add"
 import ShowSVG from "./show"
 import FilterSVG from "./filter"
+import EyeSVG from "./eye"
 
 export {
   ClientSVG,
@@ -34,4 +35,5 @@ export {
   AddSVG,
   ShowSVG,
   FilterSVG,
+  EyeSVG,
 }
