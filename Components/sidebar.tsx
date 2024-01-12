@@ -21,6 +21,7 @@ import {
 
 import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
+import Link from "next/link"
 
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
@@ -31,7 +32,7 @@ const Sidebar = () => {
       <nav
         className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
           activeNav ? "w-[310px]" : "w-[103px]"
-        } border shadow-stiglitz dark:border-none dark:shadow-none `}
+        } z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
@@ -62,18 +63,80 @@ const Sidebar = () => {
         </div>
 
         <div className="navigation">
-          <SidebarItems active passedComponent={<DashboardSVG />}>
-            Dashboard
+          <SidebarItems
+            active
+            passedComponent={
+              <Link href="/dashboard">
+                <DashboardSVG />
+              </Link>
+            }
+          >
+            <Link href="/dashboard">Dashboard</Link>
           </SidebarItems>
-          <SidebarItems passedComponent={<TimeTrackerSVG />}>Time Tracker</SidebarItems>
-          <SidebarItems passedComponent={<TodoSVG />}>To Do</SidebarItems>
-          <SidebarItems passedComponent={<ProjectsSVG />}>Projects Completed</SidebarItems>
-          <SidebarItems passedComponent={<OrgchartSVG />}>Org Chart</SidebarItems>
-          <SidebarItems passedComponent={<InternSVG />}>Interns</SidebarItems>
-          <SidebarItems passedComponent={<ClientSVG />}>Clients</SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/time-tracker">
+                <TimeTrackerSVG />
+              </Link>
+            }
+          >
+            <Link href="/time-tracker">Time Tracker</Link>
+          </SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/todo">
+                <TodoSVG />
+              </Link>
+            }
+          >
+            <Link href="/todo">To Do</Link>
+          </SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/projects-completed">
+                <ProjectsSVG />
+              </Link>
+            }
+          >
+            <Link href="/projects-completed">Projects Completed</Link>
+          </SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/orgchart">
+                <OrgchartSVG />
+              </Link>
+            }
+          >
+            <Link href="/orgchart">Org Chart</Link>
+          </SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/Interns">
+                <InternSVG />
+              </Link>
+            }
+          >
+            <Link href="/Interns">Interns</Link>
+          </SidebarItems>
+          <SidebarItems
+            passedComponent={
+              <Link href="/clients">
+                <ClientSVG />
+              </Link>
+            }
+          >
+            <Link href="/clients">Clients</Link>
+          </SidebarItems>
           <div className="mt-auto flex flex-col">
-            <SidebarItems lastItem passedComponent={<LogoutSVG />}>
-              Sign Out
+            <SidebarItems
+              lastItem
+              passedComponent={
+                <Link href="/">
+                  <LogoutSVG />
+                </Link>
+              }
+            >
+              <Link href="/">Sign Out</Link>
             </SidebarItems>
           </div>
         </div>
