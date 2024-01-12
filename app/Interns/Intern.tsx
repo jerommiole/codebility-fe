@@ -38,9 +38,9 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
   })
 
   return (
-    <div className="relative mx-5 mt-5">
+    <div className="relative mx-5 mt-5 md:w-[80%] md:self-end lg:mr-12 xl:w-[90%] xl:mx-auto xl:mt-0">
       {/* Avatars */}
-      <div className="grid grid-cols-2 place-items-center gap-y-20 gap-x-5 transition-transform  md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 place-items-center gap-y-20 gap-x-5 transition-transform md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:w-[90%] xl:mx-auto">
         {filteredData.map((intern) => (
          <InternCard key={intern.id} image={intern.imageUrl} name={intern.name} position="Full Stack Developer" roles={intern.position} bgColor={intern.backgroundColor} />
         ))}
@@ -64,7 +64,7 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
           alt="right arrow"
           width={15}
           height={15}
-          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-32 xl:-right-10 xl:flex"
+          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-40 xl:right-0 xl:flex"
         />
         <div className="mt-14 hidden w-full items-center justify-center gap-2 lg:flex">
           {fakePaginationMd.map((page, i) => (
@@ -81,7 +81,7 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
           alt="left arrow"
           width={15}
           height={15}
-          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-32 xl:-left-10 xl:flex"
+          className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-40 xl:left-0 xl:flex"
         />
       </div>
     </div>
