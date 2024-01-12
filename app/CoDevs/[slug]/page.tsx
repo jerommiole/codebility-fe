@@ -1,12 +1,20 @@
+"use client"
+
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
+
 import SvgFooterCodebility from "../../../Components/logos/footerCodebility"
 import Navbar from "../../Hero/Navbar"
 import SvgClipboardDocument from "../../../Components/logos/clipboardDocument"
 import CopyToClipboardButton from "../../../lib/helpers/copytoClipboard"
 
-const Page = () => {
+const Page = ({ params }: { params: { slug: string } }) => {
+  const name = params.slug.replace(/%20/g, " ")
+
+  console.log(name)
+
   const socials = [
     {
       socialUrl: "#facebook",
@@ -109,7 +117,7 @@ const Page = () => {
       <section className="container mx-auto max-w-5xl text-gray01">
         <div className="grid h-[30rem] grid-cols-6 grid-rows-3 pt-[6.3rem]">
           <div className="col-span-2 border-b border-b-tealColor">
-            <h2 className="mb-3 text-2xl font-medium text-white md:text-5xl">LOREM IPSUM</h2>
+            <h2 className="mb-3 text-2xl font-medium text-white md:text-5xl">{name}</h2>
             <p className="max-w-60 text-xs font-normal">Lorem Ipsum is simply dummy text has been the industry's </p>
             <span className="w-full"></span>
           </div>
