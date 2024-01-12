@@ -10,11 +10,28 @@ interface InputProps {
   errors: FieldErrors
   disabled?: boolean
   placeholder?: string
+  values?: string
+  onClick?: () => void
+  onChange?: () => void
+  readonly?: boolean
 }
 
-const SignInputs = ({ label, id, type, required, register, errors, disabled, placeholder }: InputProps) => {
+const SignInputs = ({
+  label,
+  id,
+  type,
+  required,
+  register,
+  errors,
+  disabled,
+  placeholder,
+  onClick,
+  values,
+  onChange,
+  readonly,
+}: InputProps) => {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col" onClick={onClick}>
       <label htmlFor={id} className={clsx("ml-5", errors[id] && "text-red-500")}>
         {label}
       </label>
@@ -27,9 +44,13 @@ const SignInputs = ({ label, id, type, required, register, errors, disabled, pla
         className={clsx(
           "border-b-2 bg-transparent p-5 text-xl placeholder:text-gray-600 focus:outline-none",
           errors[id] ? "border-red-500" : "border-white",
-          disabled && "cursor-default opacity-50"
+          disabled && "cursor-default opacity-50",
+          readonly && "cursor-default"
         )}
         placeholder={placeholder}
+        value={values}
+        onChange={onChange}
+        readOnly={readonly}
       />
     </div>
   )
