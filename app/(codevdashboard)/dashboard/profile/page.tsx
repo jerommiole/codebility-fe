@@ -42,8 +42,8 @@ const ProfilePage = () => {
         <p className="text-sm font-medium">CODEBILITY ACCOUNT</p>
         <div className="w-full p-2 py-3">
           <ul className="">
-            {profileMenuList.map((profile) => (
-              <div className="flex w-full gap-10 px-4 py-2">
+            {profileMenuList.map((profile, i) => (
+              <div className="flex w-full gap-10 px-4 py-2" key={`profile-${i}`}>
                 <Image src={profile.icon} alt={profile.title} width="16" height="16" />
                 <li className="text-left text-sm">{profile.title}</li>
               </div>
