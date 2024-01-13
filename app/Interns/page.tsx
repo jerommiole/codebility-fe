@@ -22,14 +22,13 @@ const Interns = () => {
     setFilterToggle((prev) => !prev)
   }
 
-  // bg-[#0E0E0E]
   return (
-    <div className="flex w-full max-w-7xl mx-auto">
+    <div className="flex w-full xl:h-screen">
       <Sidebar />
-      <div className="flex w-screen flex-col gap-5 py-7 bg-bg-[#0E0E0E] xl:ml-32">
+      <div className="max-w-7xl mx-auto flex w-screen flex-col gap-5 py-7 dark:bg-[#0E0E0E] xl:ml-32">
         <div className="mx-5 mb-10 flex flex-col items-center justify-center gap-5 md:self-end md:mb-2 md:w-[80%] lg:mx-14 lg:flex-row lg:justify-between xl:w-[90%]">
           <div className="flex flex-col items-center justify-center gap-7 md:gap-1">
-            <h1 className={`text-3xl font-semibold uppercase dark:text-[#EAEAEA] lg:self-start xl:text-4xl`}>
+            <h1 className="text-3xl font-semibold uppercase dark:text-[#EAEAEA] lg:self-start xl:text-4xl">
               Interns Page
             </h1>
             <p className="max-w-xs px-2 text-center text-xs text-secondaryColor lg:max-w-lg lg:text-start xl:max-w-xl">
@@ -43,10 +42,10 @@ const Interns = () => {
               className="relative flex cursor-pointer gap-4 self-end bg-inherit md:hidden"
             >
               <p className="text-xs dark:text-primaryColor">Filter</p>
-              <Image src="/Filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
+              <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
 
               {filterToggle && (
-                <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-40 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
+                <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-44 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
                   <div className="flex w-full justify-end">
                     <Image
                       src="/Close.svg"
@@ -64,7 +63,7 @@ const Interns = () => {
                       <p
                         key={position}
                         onClick={() => setByCategory(position)}
-                        className="rounded-md px-2 py-1 hover:bg-[#6A78F2]"
+                        className="rounded-md px-2 py-1 hover:bg-[#6A78F2] hover:text-white"
                       >
                         {position}
                       </p>
@@ -105,7 +104,7 @@ const Interns = () => {
             <Image src="/Filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
             {filterToggle && (
-              <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-40 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E] md:w-44">
+              <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-44 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
                 <div className="flex w-full justify-end">
                   <Image
                     src="/Close.svg"
@@ -123,7 +122,7 @@ const Interns = () => {
                     <p
                       key={position}
                       onClick={() => setByCategory(position)}
-                      className="rounded-md px-2 py-1 hover:bg-[#6A78F2]"
+                      className="rounded-md px-2 py-1 hover:bg-[#6A78F2] hover:text-white"
                     >
                       {position}
                     </p>
