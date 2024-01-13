@@ -5,9 +5,9 @@ import Sidebar from "Components/sidebar"
 
 const ProjectsCompleted = () => {
   return (
-    <div className="flex h-screen w-full bg-[#0E0E0E] ">
+    <div className="flex h-screen w-full">
       <Sidebar />
-      <div className="mx-auto flex w-screen max-w-7xl flex-col gap-5 py-14">
+      <div className="mx-auto flex w-screen max-w-7xl flex-col gap-5 py-14 dark:bg-[#0E0E0E] xl:ml-32">
         {/* ADD, FILTER, AND SEARCH ON TOP FOR TABLET AND DESKTOP SCREEN*/}
         <div className="mx-auto flex w-full flex-row-reverse gap-5 xl:w-[80%]">
           <div className="relative hidden md:flex md:w-60">

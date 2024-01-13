@@ -42,7 +42,7 @@ const CoDevs = () => {
         </div>
       </div>
 
-      <div className="mb-5 mt-7 flex w-80 max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 text-center md:w-[85%] lg:w-[90%] xl:w-[80%]">
+      <div className="mb-5 mt-7 flex w-80 max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <h3 className="text-xl uppercase text-secondaryColor">Meet our</h3>
         <h2 className="fw-bold text-3xl uppercase">Co Devs</h2>
         <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text</p>
@@ -53,7 +53,7 @@ const CoDevs = () => {
           <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
 
           {filterToggle && (
-            <div className="absolute right-16 top-6 z-40 flex h-96 w-32 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs md:w-36">
+            <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
               <div className="flex w-full justify-end">
                 <Image
                   src="/Close.svg"
@@ -122,7 +122,7 @@ const CoDevs = () => {
             <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
             {filterToggle && (
-              <div className="scrollCustom absolute right-16 top-6 z-40 flex h-96 w-28 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs md:w-40">
+              <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
                 <div className="flex w-full justify-end">
                   <Image
                     src="/Close.svg"
