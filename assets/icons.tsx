@@ -16,13 +16,26 @@ export const SvgCamera = (props: SVGProps<SVGSVGElement>) => (
 )
 
 export const SvgEdit = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="#fff" {...props}>
     <path
-      fill="#fff"
+      // fill="#fff"
       d="m12.658 1.342 2 2-1.524 1.525-2-2 1.524-1.525Zm-7.325 9.325h2l4.858-4.858-2-2-4.858 4.858v2Z"
     />
     <path
-      fill="#fff"
+      // fill="#fff"
+      d="M12.667 12.667H5.439c-.018 0-.036.006-.053.006-.022 0-.044-.006-.067-.006H3.333V3.333h4.565L9.231 2H3.333C2.598 2 2 2.597 2 3.333v9.334C2 13.403 2.598 14 3.333 14h9.334A1.334 1.334 0 0 0 14 12.667V6.888l-1.333 1.333v4.446Z"
+    />
+  </svg>
+)
+
+export const SvgEdit2 = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="#363636" {...props}>
+    <path
+      fill="#363636"
+      d="m12.658 1.342 2 2-1.524 1.525-2-2 1.524-1.525Zm-7.325 9.325h2l4.858-4.858-2-2-4.858 4.858v2Z"
+    />
+    <path
+      fill="#363636"
       d="M12.667 12.667H5.439c-.018 0-.036.006-.053.006-.022 0-.044-.006-.067-.006H3.333V3.333h4.565L9.231 2H3.333C2.598 2 2 2.597 2 3.333v9.334C2 13.403 2.598 14 3.333 14h9.334A1.334 1.334 0 0 0 14 12.667V6.888l-1.333 1.333v4.446Z"
     />
   </svg>
@@ -45,6 +58,24 @@ export const SvgPlusCircleBlue = (props: SVGProps<SVGSVGElement>) => (
       strokeLinejoin="round"
       strokeWidth={1.113}
       d="M9.9 18.8c4.896 0 8.9-4.004 8.9-8.9 0-4.895-4.004-8.9-8.9-8.9C5.005 1 1 5.005 1 9.9c0 4.896 4.005 8.9 8.9 8.9ZM6.34 9.9h7.12M9.9 13.46V6.34"
+    />
+  </svg>
+)
+
+export const SvgCheckCircle = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.5}
+    className="h-6 w-6"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
     />
   </svg>
 )

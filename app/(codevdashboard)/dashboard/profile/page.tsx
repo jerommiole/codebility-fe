@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Image from "next/image"
 
@@ -6,7 +8,9 @@ import bellIcon from "public/sampleProfile/settings/bell.png"
 import gearIcon from "public/sampleProfile/settings/gear.png"
 import logIcon from "public/sampleProfile/settings/log.png"
 import infoIcon from "public/sampleProfile/settings/info.png"
-import { SvgBin, SvgCamera, SvgCircleAvatar, SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
+import { SvgBin, SvgCamera, SvgCircleAvatar, SvgEdit, SvgEdit2, SvgPlusCircleBlue } from "../../../../assets/icons"
+import Input from "../../../../Components/ui/forms/input"
+import UserInfoForm from "../../../../Components/profile/UserInfoForm"
 
 const ProfilePage = () => {
   const profileMenuList = [
@@ -39,19 +43,19 @@ const ProfilePage = () => {
 
   const userInfoList = [
     {
-      name: "Name",
+      name: "name",
       description: "Mr.Dummy",
     },
     {
-      name: "Address",
+      name: "address",
       description: "Dummy St. Lorem Ipsum City Philippines",
     },
     {
-      name: "Email",
+      name: "email",
       description: "Dummy@gmail.com",
     },
     {
-      name: "Gender",
+      name: "gender",
       description: "Fe/Male",
     },
   ]
@@ -91,6 +95,14 @@ const ProfilePage = () => {
     },
   ]
 
+  const OutlineButton = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div className="flex items-center gap-2.5 border border-gray03 px-[13px] py-[9px] text-xs text-secondaryColor">
+        {children}
+      </div>
+    )
+  }
+
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="border-box mb-4 w-full rounded-sm border border-gray03 py-11">
@@ -107,7 +119,10 @@ const ProfilePage = () => {
             <p className="mb-[2.5rem] pl-8 text-xl font-medium">CODEBILITY ACCOUNT</p>
             <ul className="flex flex-col gap-3 px-6">
               {profileMenuList.map((profile) => (
-                <div className="flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2 hover:bg-gray02">
+                <div
+                  className="flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2 hover:bg-gray02"
+                  key={profile.title}
+                >
                   <div>
                     <Image src={profile.icon} alt={profile.title} width="14" height="14" />
                   </div>
@@ -149,43 +164,19 @@ const ProfilePage = () => {
                     dummy text of the printing and typesetting industry.{" "}
                   </p>
                   <div className="flex items-center gap-[8px]">
-                    <div className="flex items-center gap-2.5 border border-gray03 px-[13px] py-[9px] text-xs text-secondaryColor">
+                    <OutlineButton>
                       <SvgEdit />
                       Change
-                    </div>
-                    <div className="flex items-center gap-2.5 border border-gray03 px-[13px] py-[9px] text-xs text-secondaryColor">
+                    </OutlineButton>
+                    <OutlineButton>
                       <SvgBin />
                       Remove
-                    </div>
+                    </OutlineButton>
                   </div>
                 </div>
               </div>
               <div className="w-full">
-                <ul>
-                  {userInfoList.map((item) => {
-                    return (
-                      <li
-                        className="flex items-center justify-between border-b border-gray03 py-[19px] pl-[39px]"
-                        key={item.name}
-                      >
-                        <div className="flex items-center">
-                          <p className="w-24 text-xs text-secondaryColor">{item.name}</p>
-                          <p className="text-md text-white">{item.description}</p>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path
-                            d="M12.6583 1.3418L14.6583 3.3418L13.1337 4.86713L11.1337 2.86713L12.6583 1.3418ZM5.33301 10.6671H7.33301L12.191 5.80913L10.191 3.80913L5.33301 8.66713V10.6671Z"
-                            fill="#363636"
-                          />
-                          <path
-                            d="M12.6667 12.6667H5.43867C5.42133 12.6667 5.40333 12.6733 5.386 12.6733C5.364 12.6733 5.342 12.6673 5.31933 12.6667H3.33333V3.33333H7.898L9.23133 2H3.33333C2.598 2 2 2.59733 2 3.33333V12.6667C2 13.4027 2.598 14 3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3594 14 13.0203 14 12.6667V6.888L12.6667 8.22133V12.6667Z"
-                            fill="#363636"
-                          />
-                        </svg>
-                      </li>
-                    )
-                  })}
-                </ul>
+                <UserInfoForm />
               </div>
             </div>
           </ProfileCard>
@@ -216,16 +207,7 @@ const ProfilePage = () => {
                         <p className="w-24 text-xs text-secondaryColor">{item.name}</p>
                         <p className="text-md text-white">{item.description}</p>
                       </div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                          d="M12.6583 1.3418L14.6583 3.3418L13.1337 4.86713L11.1337 2.86713L12.6583 1.3418ZM5.33301 10.6671H7.33301L12.191 5.80913L10.191 3.80913L5.33301 8.66713V10.6671Z"
-                          fill="#363636"
-                        />
-                        <path
-                          d="M12.6667 12.6667H5.43867C5.42133 12.6667 5.40333 12.6733 5.386 12.6733C5.364 12.6733 5.342 12.6673 5.31933 12.6667H3.33333V3.33333H7.898L9.23133 2H3.33333C2.598 2 2 2.59733 2 3.33333V12.6667C2 13.4027 2.598 14 3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3594 14 13.0203 14 12.6667V6.888L12.6667 8.22133V12.6667Z"
-                          fill="#363636"
-                        />
-                      </svg>
+                      <SvgEdit fill="#363636" />
                     </li>
                   )
                 })}
