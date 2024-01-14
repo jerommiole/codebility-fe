@@ -69,7 +69,7 @@ const ProjectsCompleted = () => {
         </div>
 
         {/* COMPLETED PROJECTS */}
-        <div className="mt-5 grid grid-cols-1 place-items-center gap-y-5 overflow-y-scroll text-center lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-0">
+        <div className="mt-5 grid grid-cols-1 place-items-center gap-y-5 overflow-x-hidden overflow-y-scroll text-center lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-0">
           {projects.map((project) => (
             <div
               key={project.projectId}
