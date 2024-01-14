@@ -23,9 +23,9 @@ const Interns = () => {
   }
 
   return (
-    <div className="flex w-full xl:h-screen">
-      <div className="mx-auto flex w-screen max-w-7xl flex-col gap-5 py-7 dark:bg-[#0E0E0E] xl:ml-32">
-        <div className="mx-5 mb-10 flex flex-col items-center justify-center gap-5 md:mb-2 md:w-[80%] md:self-end lg:mx-14 lg:flex-row lg:justify-between xl:w-[90%]">
+    <div className="flex h-full w-full">
+      <div className="flex w-full flex-col gap-5 bg-background">
+        <div className="mb-10 flex flex-col items-center justify-center gap-5 md:mb-2 lg:flex-row lg:justify-between">
           <div className="flex flex-col items-center justify-center gap-7 md:gap-1">
             <h1 className="text-3xl font-semibold uppercase dark:text-[#EAEAEA] lg:self-start xl:text-4xl">
               Interns Page

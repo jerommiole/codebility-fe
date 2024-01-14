@@ -12,9 +12,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <>
       <Sidebar />
       <Contain>
-        <main className="container w-full overflow-hidden rounded-md bg-figmamuted p-4 shadow-stiglitz lg:h-full">
-          {children}
-        </main>
+        <main className="container w-full rounded-md bg-figmamuted p-4 shadow-stiglitz">{children}</main>
       </Contain>
     </>
   )

@@ -38,11 +38,18 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
   })
 
   return (
-    <div className="relative mx-5 mt-5 md:w-[80%] md:self-end lg:mr-12 xl:w-[90%] xl:mx-auto xl:mt-0">
+    <div className="relative mt-5">
       {/* Avatars */}
-      <div className="grid grid-cols-2 place-items-center gap-y-20 gap-x-5 transition-transform md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:w-[90%] xl:mx-auto">
+      <div className="grid grid-cols-2 place-items-center gap-x-5 gap-y-20 transition-transform md:grid-cols-3 lg:grid-cols-4 xl:mx-auto xl:w-[90%] xl:grid-cols-5">
         {filteredData.map((intern) => (
-         <InternCard key={intern.id} image={intern.imageUrl} name={intern.name} position="Full Stack Developer" roles={intern.position} bgColor={intern.backgroundColor} />
+          <InternCard
+            key={intern.id}
+            image={intern.imageUrl}
+            name={intern.name}
+            position="Full Stack Developer"
+            roles={intern.position}
+            bgColor={intern.backgroundColor}
+          />
         ))}
       </div>
 
