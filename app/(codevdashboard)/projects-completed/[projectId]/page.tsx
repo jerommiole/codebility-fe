@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Image from "next/image"
 import { projects } from "../DummyData"
@@ -13,7 +13,7 @@ const iceland = Iceland({
 
 const Id = ({ params }: any) => {
   const id = params.projectId
-  const router = useRouter();
+  const router = useRouter()
 
   const projectData = projects.find((data) => data.projectId === parseInt(id))
 
@@ -21,7 +21,11 @@ const Id = ({ params }: any) => {
     <>
       <div className="mx-5 my-10 flex max-w-7xl flex-col items-center justify-center gap-5 lg:mx-auto">
         <div className="flex w-full flex-col gap-5 md:flex-row-reverse md:items-center md:justify-between md:px-10 ">
-          <div title="Back" onClick={() => router.back()} className="flex h-10 w-16 items-center justify-center rounded-3xl bg-slate-900 dark:bg-[#363636] dark:bg-opacity-20 hover:cursor-pointer">
+          <div
+            title="Back"
+            onClick={() => router.back()}
+            className="flex h-10 w-16 items-center justify-center rounded-3xl bg-slate-900 hover:cursor-pointer dark:bg-[#363636] dark:bg-opacity-20"
+          >
             <Image src="/tdesign_backtop.svg" alt="Go back" width={20} height={20} />
           </div>
           <div className="flex flex-col items-center justify-center md:items-start md:self-start">

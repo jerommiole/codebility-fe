@@ -5,11 +5,10 @@ import Sidebar from "Components/sidebar"
 
 const ProjectsCompleted = () => {
   return (
-    <div className="flex h-screen w-full">
-      <Sidebar />
-      <div className="mx-auto flex w-screen max-w-7xl flex-col gap-5 py-14 dark:bg-[#0E0E0E] xl:ml-32">
+    <div className="flex h-full w-full">
+      <div className="flex w-screen flex-col gap-5 dark:bg-[#0E0E0E]">
         {/* ADD, FILTER, AND SEARCH ON TOP FOR TABLET AND DESKTOP SCREEN*/}
-        <div className="mx-auto flex w-full flex-row-reverse gap-5 xl:w-[80%]">
+        <div className="flex flex-row-reverse gap-5">
           <div className="relative hidden md:flex md:w-60">
             <input
               type="text"
@@ -32,10 +31,10 @@ const ProjectsCompleted = () => {
         </div>
 
         {/* TITLE AND DESCRIPTION */}
-        <div className="flex w-full flex-col items-start justify-center gap-5 md:w-[80%] md:ml-20 md:mt-5 md:justify-start lg:ml-32 xl:mx-auto xl:w-[80%]">
-          <div className="mx-auto flex flex-col items-center justify-center gap-7 md:mx-0 md:items-start md:gap-1 md:px-10 xl:px-0">
+        <div className=" flex flex-col items-center gap-5 md:mt-5 md:items-baseline">
+          <div className=" md:ml-12 ">
             <h1 className={`text-3xl font-semibold uppercase dark:text-[#EAEAEA] xl:text-4xl`}>Projects Completed</h1>
-            <p className="max-w-xs px-2 text-center text-xs dark:text-secondaryColor md:max-w-lg md:text-start xl:max-w-2xl">
+            <p className="max-w-xs text-center text-xs dark:text-secondaryColor md:max-w-lg md:text-start xl:max-w-2xl">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
               text of the printing and typesetting industry.
             </p>
@@ -66,7 +65,7 @@ const ProjectsCompleted = () => {
         </div>
 
         {/* COMPLETED PROJECTS */}
-        <div className="mx-auto mt-5 grid h-96 w-80  grid-cols-1 place-items-center gap-y-5 overflow-y-scroll text-center md:h-[600px] md:w-[80%] md:ml-20 md:p-10 lg:ml-32 lg:grid-cols-2 lg:p-0 xl:grid-cols-3 xl:h-[485px] xl:w-[85%] xl:gap-x-0">
+        <div className="mt-5 grid grid-cols-1 place-items-center gap-y-5 overflow-y-scroll text-center lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-0">
           {projects.map((project) => (
             <div
               key={project.projectId}

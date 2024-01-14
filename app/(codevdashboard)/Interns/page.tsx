@@ -24,9 +24,8 @@ const Interns = () => {
 
   return (
     <div className="flex w-full xl:h-screen">
-      <Sidebar />
-      <div className="max-w-7xl mx-auto flex w-screen flex-col gap-5 py-7 dark:bg-[#0E0E0E] xl:ml-32">
-        <div className="mx-5 mb-10 flex flex-col items-center justify-center gap-5 md:self-end md:mb-2 md:w-[80%] lg:mx-14 lg:flex-row lg:justify-between xl:w-[90%]">
+      <div className="mx-auto flex w-screen max-w-7xl flex-col gap-5 py-7 dark:bg-[#0E0E0E] xl:ml-32">
+        <div className="mx-5 mb-10 flex flex-col items-center justify-center gap-5 md:mb-2 md:w-[80%] md:self-end lg:mx-14 lg:flex-row lg:justify-between xl:w-[90%]">
           <div className="flex flex-col items-center justify-center gap-7 md:gap-1">
             <h1 className="text-3xl font-semibold uppercase dark:text-[#EAEAEA] lg:self-start xl:text-4xl">
               Interns Page
@@ -45,7 +44,7 @@ const Interns = () => {
               <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
 
               {filterToggle && (
-                <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-44 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
+                <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
                   <div className="flex w-full justify-end">
                     <Image
                       src="/Close.svg"
@@ -87,7 +86,7 @@ const Interns = () => {
         </div>
 
         {/* Positions */}
-        <div className="hidden md:w-[80%] md:mr-10 md:mb-12 md:flex md:justify-end md:gap-x-4 md:gap-y-1 lg:mr-14 md:self-end xl:w-[90%] xl:gap-10">
+        <div className="hidden md:mb-12 md:mr-10 md:flex md:w-[80%] md:justify-end md:gap-x-4 md:gap-y-1 md:self-end lg:mr-14 xl:w-[90%] xl:gap-10">
           {/* {positions.map((p) => (
             <p
               key={p.position}
@@ -104,7 +103,7 @@ const Interns = () => {
             <Image src="/Filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
             {filterToggle && (
-              <div className="absolute right-16 top-6 z-40 flex h-96 overflow-y-auto w-44 flex-col gap-1 rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
+              <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
                 <div className="flex w-full justify-end">
                   <Image
                     src="/Close.svg"
@@ -135,9 +134,10 @@ const Interns = () => {
 
         <Intern isSearching={isSearching} byCategory={byCategory} />
 
-        <div className="mx-5 text-center text-xs text-secondaryColor md:self-center md:flex md:max-w-md md:flex-col md:justify-center lg:mx-auto xl:max-w-xl">
+        <div className="mx-5 text-center text-xs text-secondaryColor md:flex md:max-w-md md:flex-col md:justify-center md:self-center lg:mx-auto xl:max-w-xl">
           <p>
-            Lorem Ipsum is simply dummy text for searching interns and their  contributions in the company y text for searching interns and their  contributions in the company
+            Lorem Ipsum is simply dummy text for searching interns and their contributions in the company y text for
+            searching interns and their contributions in the company
           </p>
         </div>
       </div>
