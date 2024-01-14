@@ -6,7 +6,7 @@ import H from "public/hero2.png"
 
 export default function Web() {
   return (
-    <div className="flex h-full w-full flex-col gap-2 overflow-hidden p-3 lg:p-0">
+    <div className="flex w-full flex-col gap-2 p-3 lg:h-full lg:overflow-hidden lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
         <Title
           title="Company Overview"
@@ -36,7 +36,7 @@ and typesetting industry."
           </div>
         </div>
       </div>
-      <div className="flex h-full flex-col overflow-hidden">
+      <div className="flex-col lg:h-full lg:overflow-hidden">
         <div className="start flex items-center justify-end gap-5 py-4">
           <div className="flex items-center gap-1">
             Add <AddSVG className="text-text4" />
@@ -48,7 +48,7 @@ and typesetting industry."
             Show <ShowSVG className="text-text4" />
           </div>
         </div>
-        <div className="grid h-full grid-cols-2 gap-2 overflow-y-auto">
+        <div className="grid gap-2 overflow-y-auto lg:h-full lg:grid-cols-2">
           {/* You can map each client to the ClientCards. To view the props just go to ClientCard Component */}
           <ClientCards image={H} imgBgColor="bg-blue-900" />
           <ClientCards image={H} imgBgColor="bg-blue-900" />
