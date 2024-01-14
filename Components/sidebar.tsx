@@ -32,9 +32,9 @@ const Sidebar = () => {
     <>
       <Blinds />
       <nav
-        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
-          activeNav ? "w-[310px]" : "w-[103px]"
-        } z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
+        className={`nav sm:bg-orange-500 md:bg-green-500 lg:bg-blue-500 xl:bg-red-500 ${
+          activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"
+        } ${activeNav ? "w-[310px]" : "w-[103px]"} z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} flex overflow-hidden`}>
@@ -116,7 +116,7 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
             <Link href={href}>
-              <div className={`nav-items ${isActive && "bg-muted"} `}>
+              <div className={`nav-items ${isActive && "bg-muted"}`}>
                 {Component &&
                   React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
                 {children}
