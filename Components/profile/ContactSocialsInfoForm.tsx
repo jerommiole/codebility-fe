@@ -30,7 +30,8 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
     skype: false,
     linkedIn: false,
   })
-  const [formData, setFormData] = useState<string>(data)
+
+  const [formData, setFormData] = useState<string | any>(data)
 
   const onEdit = (key: string, value: boolean) => {
     setIsEdit((prevIsEdit) => ({ ...prevIsEdit, [key]: value }))
@@ -63,7 +64,7 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
     setFormData(data)
   }
 
-  const renderField = (key: string, value: string) => {
+  const renderField = (key: keyof IFormData | string | any, value: string) => {
     return (
       <FormWrapper key={key}>
         <div className="flex w-full items-center">
