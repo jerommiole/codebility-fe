@@ -11,9 +11,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <>
       <Sidebar />
-      <Contain>
-        <main className="container w-full rounded-md bg-figmamuted p-4 shadow-stiglitz">{children}</main>
-      </Contain>
+      <Contain>{children}</Contain>
     </>
   )
 }

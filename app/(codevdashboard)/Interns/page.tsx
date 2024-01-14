@@ -23,7 +23,7 @@ const Interns = () => {
   }
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex w-full">
       <div className="flex w-full flex-col gap-5 bg-background">
         <div className="mb-10 flex flex-col items-center justify-center gap-5 md:mb-2 lg:flex-row lg:justify-between">
           <div className="flex flex-col items-center justify-center gap-7 md:gap-1">
