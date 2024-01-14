@@ -219,7 +219,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s,
                   </p>
-                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
+                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 animate-ping rounded-full bg-tealColor">
+                    &nbsp;
+                  </span>
+                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor ">&nbsp;</span>
                 </div>
               ))}
             </div>
