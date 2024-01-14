@@ -26,9 +26,9 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
   }
 
   return (
-    <div className="ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
+    <div className="relative ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-2 lg:pr-16 tablet:pr-5">
+      <div className="absolute z-30 flex w-full items-center justify-between bg-background px-4 py-2 lg:pr-16 tablet:pr-5">
         <div>
           <ToggleMenu />
         </div>
@@ -57,7 +57,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
         <div
           className={`flex-1 ${
             !activeNav ? "overflow-y-auto" : "overflow-y-hidden"
-          }   mx-auto max-w-[95rem] p-0 sm:p-4 sm:pb-20`}
+          } mx-auto mt-14 max-w-[95rem] px-4 pb-4 sm:mt-20 sm:p-4 sm:pb-20`}
         >
           {children}
         </div>

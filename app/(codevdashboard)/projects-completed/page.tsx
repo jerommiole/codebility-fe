@@ -33,7 +33,11 @@ const ProjectsCompleted = () => {
         {/* TITLE AND DESCRIPTION */}
         <div className=" flex flex-col items-center gap-5 md:mt-5 md:items-baseline">
           <div className=" md:ml-12 ">
-            <h1 className={`text-3xl font-semibold uppercase dark:text-[#EAEAEA] xl:text-4xl`}>Projects Completed</h1>
+            <h1
+              className={` text-center text-3xl font-semibold uppercase dark:text-[#EAEAEA] sm:text-left xl:text-4xl`}
+            >
+              Projects Completed
+            </h1>
             <p className="max-w-xs text-center text-xs dark:text-secondaryColor md:max-w-lg md:text-start xl:max-w-2xl">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
               text of the printing and typesetting industry.
