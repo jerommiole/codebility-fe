@@ -90,7 +90,7 @@ const ClientCards = ({
       : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, enim ipsa nemo cum labore fugiat quia possimus itaque eligendi tenetur.",
   }
   return (
-    <div className="flex flex-col items-center justify-center rounded-lg border bg-card-client px-2 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
+    <div className="flex flex-col items-center justify-center rounded-lg border bg-card-client px-5 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
       <div className="flex flex-col items-center md:gap-2">
         {/* imgBgColor must follow tailwind coloring system. bg-{color you want}-{shade} */}
         <Avatar className={`h-24 w-24 ${imgBgColor} lg:h-36 lg:w-36 `}>

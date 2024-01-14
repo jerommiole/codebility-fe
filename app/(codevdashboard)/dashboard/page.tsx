@@ -6,7 +6,7 @@ import H from "public/hero2.png"
 
 export default function Web() {
   return (
-    <div className="h-[100%] w-[100%] flex-col gap-2 p-3 lg:p-0">
+    <div className=" flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:overflow-hidden lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
         <Title
           title="Company Overview"
@@ -36,7 +36,7 @@ and typesetting industry."
           </div>
         </div>
       </div>
-      <div className="flex h-[100%] flex-col ">
+      <div className="flex flex-col lg:h-full lg:overflow-hidden">
         <div className="start flex items-center justify-end gap-5 py-4">
           <div className="flex items-center gap-1">
             Add <AddSVG className="text-text4" />
@@ -48,11 +48,11 @@ and typesetting industry."
             Show <ShowSVG className="text-text4" />
           </div>
         </div>
-        <div className="flex w-[100%] auto-rows-max flex-col gap-2 overflow-y-auto overflow-x-hidden rounded-md lg:grid lg:h-[calc(100%-150px)] lg:grid-cols-2">
+        <div className="grid gap-2 overflow-y-auto lg:h-full lg:grid-cols-2">
           {/* You can map each client to the ClientCards. To view the props just go to ClientCard Component */}
           <ClientCards image={H} imgBgColor="bg-blue-900" />
-          <ClientCards imgBgColor="bg-blue-900" />
-          <ClientCards imgBgColor="bg-blue-900" />
+          <ClientCards image={H} imgBgColor="bg-blue-900" />
+          <ClientCards image={H} imgBgColor="bg-blue-900" />
           <ClientCards image={H} imgBgColor="bg-blue-900" />
         </div>
       </div>

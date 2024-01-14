@@ -78,15 +78,15 @@
     @apply grid grid-cols-4;
   }
   .nav {
-    @apply fixed z-20 flex h-screen flex-col overflow-y-auto overflow-x-hidden bg-background;
+    @apply fixed z-20 flex h-[100dvh] flex-col overflow-y-auto overflow-x-hidden bg-background;
     transition: width 0.2s ease-in-out;
   }
   .navigation {
-    @apply mx-[24px] mb-[24px] flex flex-1 flex-col gap-5;
+    @apply mx-[24px] mb-[24px] flex flex-1 flex-col gap-2 sm:gap-5;
     /* height: calc(100% - 10px); */
   }
   .nav-items {
-    @apply flex cursor-pointer items-center gap-[48px] overflow-hidden whitespace-nowrap rounded-md px-[16px] py-[16px];
+    @apply flex cursor-pointer items-center gap-[48px] overflow-hidden whitespace-nowrap rounded-md p-3 text-sm sm:p-[16px];
   }
   .nav-items:hover {
     @apply bg-muted;
@@ -95,7 +95,7 @@
     transform: rotateY(180deg);
   }
   .blinds {
-    @apply fixed left-0 top-0 z-10 h-screen w-0 transition-opacity duration-500;
+    @apply fixed left-0 top-0 z-40 h-screen w-0 transition-opacity duration-500;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(2px);
   }
@@ -103,7 +103,7 @@
     @apply h-[40px] w-[30px] cursor-pointer transition-all;
   }
   .logo-container {
-    @apply relative mx-[24px] mb-[75px] mt-[35px] flex items-center justify-center;
+    @apply relative mx-[24px] mb-10 mt-[35px] flex items-center justify-center sm:mb-[75px];
   }
 }
 html {
