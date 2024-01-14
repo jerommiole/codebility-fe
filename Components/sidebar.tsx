@@ -8,6 +8,8 @@ import logoPic from "public/Logo.png"
 import logoChar from "public/logoChar.png"
 import logoDark from "public/logoBlack.png"
 
+import { usePathname } from "next/navigation"
+
 import {
   DashboardSVG,
   TimeTrackerSVG,
@@ -35,21 +37,23 @@ const Sidebar = () => {
         } z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
       >
         <div className="logo-container">
-          <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} overflow-hidden`}>
-            <Image
-              src={logoPic}
-              width={147}
-              height={30}
-              alt="logo"
-              className={`hidden h-[30px] transition-all dark:block ${!activeNav && "w-0"}`}
-            />
-            <Image
-              src={logoDark}
-              width={147}
-              height={30}
-              alt="logo"
-              className={`h-[40px] transition-all dark:hidden ${!activeNav && "w-0"}`}
-            />
+          <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} flex overflow-hidden`}>
+            <Link href="/">
+              <Image
+                src={logoPic}
+                width={147}
+                height={30}
+                alt="logo"
+                className={`hidden h-[30px] transition-all dark:block ${!activeNav && "w-0"}`}
+              />
+              <Image
+                src={logoDark}
+                width={147}
+                height={30}
+                alt="logo"
+                className={`h-[40px] transition-all dark:hidden ${!activeNav && "w-0"}`}
+              />
+            </Link>
           </div>
 
           <Image
@@ -64,7 +68,7 @@ const Sidebar = () => {
 
         <div className="navigation">
           <SidebarItems
-            active
+            href="/dashboard"
             passedComponent={
               <Link href="/dashboard">
                 <DashboardSVG />
@@ -74,6 +78,7 @@ const Sidebar = () => {
             <Link href="/dashboard">Dashboard</Link>
           </SidebarItems>
           <SidebarItems
+            href="/time-tracker"
             passedComponent={
               <Link href="/time-tracker">
                 <TimeTrackerSVG />
@@ -83,6 +88,7 @@ const Sidebar = () => {
             <Link href="/time-tracker">Time Tracker</Link>
           </SidebarItems>
           <SidebarItems
+            href="/todo"
             passedComponent={
               <Link href="/todo">
                 <TodoSVG />
@@ -92,6 +98,7 @@ const Sidebar = () => {
             <Link href="/todo">To Do</Link>
           </SidebarItems>
           <SidebarItems
+            href="/projects-completed"
             passedComponent={
               <Link href="/projects-completed">
                 <ProjectsSVG />
@@ -101,6 +108,7 @@ const Sidebar = () => {
             <Link href="/projects-completed">Projects Completed</Link>
           </SidebarItems>
           <SidebarItems
+            href="/orgchart"
             passedComponent={
               <Link href="/orgchart">
                 <OrgchartSVG />
@@ -110,6 +118,7 @@ const Sidebar = () => {
             <Link href="/orgchart">Org Chart</Link>
           </SidebarItems>
           <SidebarItems
+            href="/Interns"
             passedComponent={
               <Link href="/Interns">
                 <InternSVG />
@@ -119,6 +128,7 @@ const Sidebar = () => {
             <Link href="/Interns">Interns</Link>
           </SidebarItems>
           <SidebarItems
+            href="/clients"
             passedComponent={
               <Link href="/clients">
                 <ClientSVG />
@@ -147,21 +157,23 @@ const Sidebar = () => {
 
 interface SidebarItemsProps {
   passedComponent: React.ReactElement<any>
-  active?: boolean
   lastItem?: boolean
   children: React.ReactNode
+  href?: string
 }
 
-const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, active, lastItem, children }) => {
+const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, lastItem, children, href = "" }) => {
+  const pathname = usePathname()
   const { activeNav } = useNavStore()
-  if (!active && !activeNav)
+  const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
+  if (!activeNav) {
     return (
       <TooltipProvider>
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
-            <div className={`nav-items ${active && "bg-muted"} `}>
+            <div className={`nav-items ${isActive && "bg-muted"} `}>
               {Component &&
-                React.cloneElement(Component, { className: `${active ? "text-primary" : "text-foreground"}` })}
+                React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
               {children}
             </div>
           </TooltipTrigger>
@@ -172,13 +184,14 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
         </Tooltip>
       </TooltipProvider>
     )
-  else
+  } else {
     return (
-      <div className={`nav-items ${active && "bg-muted"} ${lastItem && "mt-auto"}`}>
-        {Component && React.cloneElement(Component, { className: `${active ? "text-primary" : "text-foreground"}` })}
+      <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`}>
+        {Component && React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
         {children}
       </div>
     )
+  }
 }
 
 const Blinds = () => {
