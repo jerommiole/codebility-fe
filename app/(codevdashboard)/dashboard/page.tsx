@@ -6,7 +6,7 @@ import H from "public/hero2.png"
 
 export default function Web() {
   return (
-    <div className="h-[100%] w-[100%] flex-col gap-2 p-3 lg:p-0">
+    <div className="h-full w-full flex-col gap-2 p-3 lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
         <Title
           title="Company Overview"
