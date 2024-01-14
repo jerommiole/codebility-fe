@@ -67,86 +67,30 @@ const Sidebar = () => {
         </div>
 
         <div className="navigation">
-          <SidebarItems
-            href="/dashboard"
-            passedComponent={
-              <Link href="/dashboard">
-                <DashboardSVG />
-              </Link>
-            }
-          >
-            <Link href="/dashboard">Dashboard</Link>
+          <SidebarItems href="/dashboard" passedComponent={<DashboardSVG />}>
+            Dashboard
           </SidebarItems>
-          <SidebarItems
-            href="/time-tracker"
-            passedComponent={
-              <Link href="/time-tracker">
-                <TimeTrackerSVG />
-              </Link>
-            }
-          >
-            <Link href="/time-tracker">Time Tracker</Link>
+          <SidebarItems href="/time-tracker" passedComponent={<TimeTrackerSVG />}>
+            Time Tracker
           </SidebarItems>
-          <SidebarItems
-            href="/todo"
-            passedComponent={
-              <Link href="/todo">
-                <TodoSVG />
-              </Link>
-            }
-          >
-            <Link href="/todo">To Do</Link>
+          <SidebarItems href="/todo" passedComponent={<TodoSVG />}>
+            To Do
           </SidebarItems>
-          <SidebarItems
-            href="/projects-completed"
-            passedComponent={
-              <Link href="/projects-completed">
-                <ProjectsSVG />
-              </Link>
-            }
-          >
-            <Link href="/projects-completed">Projects Completed</Link>
+          <SidebarItems href="/projects-completed" passedComponent={<ProjectsSVG />}>
+            Projects Completed
           </SidebarItems>
-          <SidebarItems
-            href="/orgchart"
-            passedComponent={
-              <Link href="/orgchart">
-                <OrgchartSVG />
-              </Link>
-            }
-          >
-            <Link href="/orgchart">Org Chart</Link>
+          <SidebarItems href="/orgchart" passedComponent={<OrgchartSVG />}>
+            Org Chart
           </SidebarItems>
-          <SidebarItems
-            href="/Interns"
-            passedComponent={
-              <Link href="/Interns">
-                <InternSVG />
-              </Link>
-            }
-          >
-            <Link href="/Interns">Interns</Link>
+          <SidebarItems href="/Interns" passedComponent={<InternSVG />}>
+            Interns
           </SidebarItems>
-          <SidebarItems
-            href="/clients"
-            passedComponent={
-              <Link href="/clients">
-                <ClientSVG />
-              </Link>
-            }
-          >
-            <Link href="/clients">Clients</Link>
+          <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
+            Clients
           </SidebarItems>
           <div className="mt-auto flex flex-col">
-            <SidebarItems
-              lastItem
-              passedComponent={
-                <Link href="/">
-                  <LogoutSVG />
-                </Link>
-              }
-            >
-              <Link href="/">Sign Out</Link>
+            <SidebarItems href="/" lastItem passedComponent={<LogoutSVG />}>
+              Sign Out
             </SidebarItems>
           </div>
         </div>
@@ -171,11 +115,13 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
       <TooltipProvider>
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
-            <div className={`nav-items ${isActive && "bg-muted"} `}>
-              {Component &&
-                React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
-              {children}
-            </div>
+            <Link href={href}>
+              <div className={`nav-items ${isActive && "bg-muted"} `}>
+                {Component &&
+                  React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
+                {children}
+              </div>
+            </Link>
           </TooltipTrigger>
 
           <TooltipContent side="right">
@@ -186,10 +132,13 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
     )
   } else {
     return (
-      <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`}>
-        {Component && React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
-        {children}
-      </div>
+      <Link href={href}>
+        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`}>
+          {Component &&
+            React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
+          {children}
+        </div>
+      </Link>
     )
   }
 }
