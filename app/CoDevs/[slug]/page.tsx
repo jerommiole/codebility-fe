@@ -219,7 +219,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s,
                   </p>
-                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor">&nbsp;</span>
+                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 animate-ping rounded-full bg-tealColor">
+                    &nbsp;
+                  </span>
+                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor ">&nbsp;</span>
                 </div>
               ))}
             </div>
@@ -229,8 +232,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
           <p className=" text-base">CODEBILITY PROEJCTS</p>
           <div className="mt-7 flex flex-col gap-y-5">
             {[1, 2, 3].map((i, j) => (
-              <div key={`div-${j}`} className="flex w-full gap-10">
-                <div>
+              <div key={`div-${j}`} className="flex gap-10">
+                <div className=" flex-none">
                   <div className="flex gap-3">
                     <Image
                       src="/sampleproject/codebility.png"
@@ -258,7 +261,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex max-w-md flex-col justify-between">
+                <div className="flex w-full flex-grow flex-col justify-between">
                   <p className="text-xs text-secondaryColor">April 2023</p>
                   <h4 className="text-base">CODEBILITY </h4>
                   <a className="text-base hover:underline" href="#">

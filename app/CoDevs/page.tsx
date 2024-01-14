@@ -250,7 +250,7 @@ const CoDevs = () => {
                 </div>
                 <Link
                   className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer"
-                  href={`/CoDevs/${intern.name}`}
+                  href={`/codevs/${intern.name}`}
                 >
                   <p className="fw-semibold text-xs text-darkBlueColor">Read Bio</p>
                   <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
