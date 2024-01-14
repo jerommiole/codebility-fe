@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { interns, positionsSm, positions } from "../Interns/DummyData"
+import { interns, positionsSm, positions } from "../(codevdashboard)/Interns/DummyData"
 import { useState } from "react"
 
 const CoDevs = () => {
