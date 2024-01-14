@@ -54,7 +54,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
       {/* lg:overflow-hidden */}
       {/* ${!activeNav ? "overflow-y-auto" : "overflow-y-hidden"} */}
       <div className={`flex min-h-0 flex-1`}>
-        <div className={`flex-1 overflow-auto p-4`}>{children}</div>
+        <div className={`flex-1 overflow-auto p-4 pb-20`}>{children}</div>
       </div>
     </div>
   )
