@@ -32,9 +32,9 @@ const Sidebar = () => {
     <>
       <Blinds />
       <nav
-        className={`nav sm:bg-orange-500 md:bg-green-500 lg:bg-blue-500 xl:bg-red-500 ${
-          activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"
-        } ${activeNav ? "w-[310px]" : "w-[103px]"} z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
+        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
+          activeNav ? "w-[310px]" : "w-[103px]"
+        } z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} flex overflow-hidden`}>
@@ -108,7 +108,7 @@ interface SidebarItemsProps {
 
 const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, lastItem, children, href = "" }) => {
   const pathname = usePathname()
-  const { activeNav } = useNavStore()
+  const { activeNav, toggleNav } = useNavStore()
   const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
   if (!activeNav) {
     return (
@@ -116,7 +116,7 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
             <Link href={href}>
-              <div className={`nav-items ${isActive && "bg-muted"}`}>
+              <div className={`nav-items ${isActive && "bg-muted"}`} onClick={toggleNav}>
                 {Component &&
                   React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
                 {children}
@@ -133,7 +133,7 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
   } else {
     return (
       <Link href={href}>
-        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`}>
+        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`} onClick={toggleNav}>
           {Component &&
             React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
           {children}
