@@ -108,7 +108,7 @@ interface SidebarItemsProps {
 
 const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, lastItem, children, href = "" }) => {
   const pathname = usePathname()
-  const { activeNav, toggleNav } = useNavStore()
+  const { activeNav, closeNav } = useNavStore()
   const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
   if (!activeNav) {
     return (
@@ -116,7 +116,7 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
             <Link href={href}>
-              <div className={`nav-items ${isActive && "bg-muted"}`} onClick={toggleNav}>
+              <div className={`nav-items ${isActive && "bg-muted"}`} onClick={closeNav}>
                 {Component &&
                   React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
                 {children}
@@ -133,7 +133,7 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
   } else {
     return (
       <Link href={href}>
-        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`} onClick={toggleNav}>
+        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`} onClick={closeNav}>
           {Component &&
             React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
           {children}
