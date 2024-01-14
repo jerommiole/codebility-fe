@@ -80,13 +80,14 @@
   .nav {
     @apply fixed z-20 flex h-screen flex-col overflow-y-auto overflow-x-hidden bg-background;
     transition: width 0.2s ease-in-out;
+    text-size-adjust: none;
   }
   .navigation {
     @apply mx-[24px] mb-[24px] flex flex-1 flex-col gap-5;
     /* height: calc(100% - 10px); */
   }
   .nav-items {
-    @apply flex cursor-pointer items-center gap-[48px] overflow-hidden whitespace-nowrap rounded-md px-[16px] py-[16px];
+    @apply check flex cursor-pointer items-center gap-[48px] overflow-hidden whitespace-nowrap rounded-md p-[14px] text-sm;
   }
   .nav-items:hover {
     @apply bg-muted;
