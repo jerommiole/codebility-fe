@@ -11,13 +11,18 @@ import infoIcon from "public/sampleProfile/settings/info.png"
 import { SvgBin, SvgCamera, SvgCircleAvatar, SvgEdit, SvgEdit2, SvgPlusCircleBlue } from "../../../../assets/icons"
 import Input from "../../../../Components/ui/forms/input"
 import UserInfoForm from "../../../../Components/profile/UserInfoForm"
+import { usePathname } from "next/navigation"
+import { cn } from "../../../../lib/utils"
+import ContactSocialsInfoForm from "../../../../Components/profile/ContactSocialsInfoForm"
 
 const ProfilePage = () => {
+  const pathname = usePathname()
+
   const profileMenuList = [
     {
       title: "Profile Info",
       icon: personIcon,
-      href: "/profile-info",
+      href: "/profile",
     },
     {
       title: "Notifications",
@@ -41,59 +46,15 @@ const ProfilePage = () => {
     },
   ]
 
-  const userInfoList = [
-    {
-      name: "name",
-      description: "Mr.Dummy",
-    },
-    {
-      name: "address",
-      description: "Dummy St. Lorem Ipsum City Philippines",
-    },
-    {
-      name: "email",
-      description: "Dummy@gmail.com",
-    },
-    {
-      name: "gender",
-      description: "Fe/Male",
-    },
-  ]
-
-  const contactInfoList = [
-    {
-      name: "Email",
-      description: "Dummy@gmail.com",
-    },
-    {
-      name: "Phone",
-      description: "+63901234123",
-    },
-    {
-      name: "Github",
-      description: "dummy.github.io",
-    },
-    {
-      name: "Facebook",
-      description: "https://www.facebook.com/",
-    },
-    {
-      name: "WhatsApp",
-      description: "https://www.facebook.com/",
-    },
-    {
-      name: "Telegram",
-      description: "https://www.facebook.com/",
-    },
-    {
-      name: "Skype",
-      description: "https://www.facebook.com/",
-    },
-    {
-      name: "LinkedIn",
-      description: "https://www.facebook.com/",
-    },
-  ]
+  const contactInfoList = {
+    phone: "+63901234123",
+    github: "dummy.github.io",
+    facebook: "https://www.facebook.com",
+    whatsApp: "https://www.facebook.com",
+    telegram: "https://www.facebook.com",
+    skype: "https://www.facebook.com",
+    linkedIn: "https://www.facebook.com",
+  }
 
   const OutlineButton = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -118,18 +79,24 @@ const ProfilePage = () => {
           <div className=" w-full p-2 py-3">
             <p className="mb-[2.5rem] pl-8 text-xl font-medium">CODEBILITY ACCOUNT</p>
             <ul className="flex flex-col gap-3 px-6">
-              {profileMenuList.map((profile) => (
-                <div
-                  className="flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2 hover:bg-gray02"
-                  key={profile.title}
-                >
-                  <div>
-                    <Image src={profile.icon} alt={profile.title} width="14" height="14" />
-                  </div>
+              {profileMenuList.map((profile) => {
+                const active = pathname === `/dashboard${profile.href}` ? "bg-gray02" : null
+                return (
+                  <div
+                    className={cn(
+                      `flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2 hover:bg-gray02`,
+                      `${active}`
+                    )}
+                    key={profile.title}
+                  >
+                    <div>
+                      <Image src={profile.icon} alt={profile.title} width="14" height="14" />
+                    </div>
 
-                  <li className="text-left text-sm">{profile.title}</li>
-                </div>
-              ))}
+                    <li className="text-left text-sm">{profile.title}</li>
+                  </div>
+                )
+              })}
               <div className="border-b">&nbsp;</div>
             </ul>
           </div>
@@ -181,7 +148,11 @@ const ProfilePage = () => {
             </div>
           </ProfileCard>
           <ProfileCard>
-            <h3 className="mb-[17px] text-xl">About Me</h3>
+            <div className="flex items-center justify-between">
+              <h3 className="mb-[17px] text-xl">About Me</h3>
+              <SvgEdit fill="#363636" />
+            </div>
+
             <p className="text-sm text-secondaryColor">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
               text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
@@ -196,7 +167,8 @@ const ProfilePage = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
             <div className="pt-4">
-              <ul>
+              <ContactSocialsInfoForm data={contactInfoList} />
+              {/* <ul>
                 {contactInfoList.map((item) => {
                   return (
                     <li
@@ -211,7 +183,7 @@ const ProfilePage = () => {
                     </li>
                   )
                 })}
-              </ul>
+              </ul>*/}
             </div>
           </ProfileCard>
           <ProfileCard>
