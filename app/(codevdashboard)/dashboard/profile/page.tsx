@@ -31,7 +31,7 @@ const profileMenuList = [
   },
   {
     title: "Change Password",
-    icon: <SvgLock />,
+    icon: personIcon,
     href: "/change-password",
   },
   {
