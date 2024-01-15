@@ -108,21 +108,21 @@ const ClientCards = ({
           {subtext || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, voluptatem."}
         </p>
         <div className="sm: mt-10 grid grid-cols-2 gap-2">
-          <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-muted">
+          <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
             <CallSVG className="text-text4 dark:text-primary" />
-            <p className="ml-[15px] text-xs lg:ml-2">{phonenumber || "+63238729789"}</p>
+            <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{phonenumber || "+63238729789"}</p>
           </div>
-          <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-muted">
+          <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
             <LinkedinSVG className="text-text4 dark:text-primary" />
-            <p className="ml-[15px] text-xs lg:ml-2">{linkedin || "Lorem"}</p>
+            <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{linkedin || "Lorem"}</p>
           </div>
-          <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-muted">
+          <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
             <EmailSVG className="text-text4 dark:text-primary" />
             <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{email || "lorem@gmail.com"}</p>
           </div>
-          <div className="flex items-center rounded-md border py-[18px] pl-4 dark:border-none dark:bg-muted">
+          <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
             <LocationSVG className="text-text4 dark:text-primary" />
-            <p className="ml-[15px] text-ellipsis text-xs lg:ml-2">{address || "Philippines"}</p>
+            <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{address || "Philippines"}</p>
           </div>
         </div>
         <p
