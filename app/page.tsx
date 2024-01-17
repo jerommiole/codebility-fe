@@ -1,7 +1,7 @@
 import Footer from "../Components/Footer"
 import WhyJoinUs from "./WhyJoinUs/page"
 
-import CoDevs from "./CoDevs/page"
+import CoDevs from "./codevs/page"
 import Services from "./Services/Services"
 import Hero from "./Hero/Hero"
 

@@ -10,11 +10,7 @@ import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 
 type ContainProps = {
-  user: {
-    email: string | null | undefined
-    image: string | undefined
-    name: string | null | undefined
-  }
+  user: any
   children: React.ReactNode
 }
 
@@ -43,7 +39,7 @@ const Contain: React.FC<ContainProps> = ({ user, children }) => {
           <div className="h-16 border-l border-foreground tablet:hidden" />
           <div className="flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
             <div className="h-14 w-14 overflow-hidden rounded-full bg-violet-500">
-              <img src={user?.image ? user?.image : Hero} alt="profile-pic" />
+              <img src={user ? user?.image : Hero} alt="profile-pic" />
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
               <p className="font-bold">{user?.name}</p>
