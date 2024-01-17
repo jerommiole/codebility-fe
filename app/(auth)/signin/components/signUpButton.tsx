@@ -6,6 +6,9 @@ import { useModal } from "hooks/use-modal"
 
 const SignUpButton = () => {
   const router = useRouter()
+
+  const { onOpen } = useModal()
+
   return (
     <>
       <div className="my-20 text-center">
