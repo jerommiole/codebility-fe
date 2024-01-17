@@ -1,13 +1,17 @@
-"use client"
-
-import { useModal } from "hooks/use-modal"
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
+import { getServerSession } from "next-auth"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
+import SignUpButton from "./components/signUpButton"
 
-const Sign = () => {
-  const router = useRouter()
-  const { onOpen } = useModal()
+async function Sign() {
+  const session = await getServerSession(authOptions)
+
+  if (session) {
+    return redirect("/dashboard")
+  }
+
   return (
     //
     <div className="flex h-screen">
@@ -17,20 +21,7 @@ const Sign = () => {
           <h1 className="my-5 text-5xl font-semibold">Lorem Ipsum</h1>
           <h2 className="my-14 text-xl">Sign in</h2>
           <AuthForm />
-          <div className="my-20 text-center">
-            Don't have an account?{" "}
-            <span onClick={() => router.push("/signup")} className="cursor-pointer text-blue-500 hover:underline">
-              Sign Up
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer hover:underline">
-              Privacy Policy
-            </span>
-            <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer hover:underline">
-              Terms and Conditions
-            </span>
-          </div>
+          <SignUpButton />
         </div>
       </div>
       <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">
