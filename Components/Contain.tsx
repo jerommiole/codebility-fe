@@ -37,7 +37,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
           <BellSVG />
           <div className="h-16 border-l border-foreground tablet:hidden" />
           <div
-            className="flex cursor-pointer items-center gap-2 px-4 hover:bg-gray-950 tablet:hidden"
+            className="flex cursor-pointer items-center gap-2 px-4 tablet:hidden"
             onClick={goToProfile}
           >
             <div className="h-14 w-14 overflow-hidden rounded-full bg-violet-500">
@@ -57,7 +57,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
         <div
           className={`flex-1 ${
             !activeNav ? "overflow-y-auto" : "overflow-y-hidden"
-          } mx-auto max-w-[95rem] px-2 pb-4 sm:p-4 sm:pb-20`}
+          } mx-auto max-w-[95rem] px-2 pb-4 sm:p-4 sm:pb-20 xl:pb-10`}
         >
           {children}
         </div>
