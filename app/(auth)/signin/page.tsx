@@ -2,8 +2,9 @@ import AuthForm from "./components/AuthForm"
 import Image from "next/image"
 import { redirect, useRouter } from "next/navigation"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../../api/auth/[...nextauth]/route"
+
 import SignUpButton from "./components/signUpButton"
+import { authOptions } from "../../../lib/authOptions"
 
 async function Sign() {
   const session = await getServerSession(authOptions)

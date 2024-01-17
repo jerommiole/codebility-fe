@@ -1,6 +1,7 @@
 import React from "react"
 import Avatars from "Components/Avatars"
-import { Avatar1, Avatar2,Avatar3 } from "../Assets/exports"
+import { Avatar3 } from "../Assets/exports"
+
 
 
 const jsondata = [

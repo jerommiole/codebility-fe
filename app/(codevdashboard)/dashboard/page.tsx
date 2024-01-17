@@ -4,8 +4,8 @@ import Title from "Components/Title"
 import { AddSVG, FilterSVG, ShowSVG } from "Components/logos"
 import H from "public/hero2.png"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../../api/auth/[...nextauth]/route"
 import { redirect } from "next/navigation"
+import { authOptions } from "../../../lib/authOptions"
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
