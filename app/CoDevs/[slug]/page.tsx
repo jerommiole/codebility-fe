@@ -254,7 +254,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               {workExperienceData.map((item, i) => (
                 <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
                   <p className="mb-1 text-xs text-secondaryColor">
-                    {item.fromYear} = {item.toYear}
+                    {item.fromYear} - {item.toYear}
                   </p>
                   <p className="mb-2 text-base text-gray01">{item.position}</p>
                   <p className="text-xs text-gray01">{item.description}</p>
