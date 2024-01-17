@@ -10,10 +10,15 @@ import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 
 type ContainProps = {
+  user: {
+    email: string | null | undefined
+    image: string | undefined
+    name: string | null | undefined
+  }
   children: React.ReactNode
 }
 
-const Contain: React.FC<ContainProps> = ({ children }) => {
+const Contain: React.FC<ContainProps> = ({ user, children }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -36,16 +41,13 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
         <div className="flex items-center gap-4">
           <BellSVG />
           <div className="h-16 border-l border-foreground tablet:hidden" />
-          <div
-            className="flex cursor-pointer items-center gap-2 px-4 tablet:hidden"
-            onClick={goToProfile}
-          >
+          <div className="flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
             <div className="h-14 w-14 overflow-hidden rounded-full bg-violet-500">
-              <Image src={Hero} alt="profile-pic" />
+              <img src={user?.image ? user?.image : Hero} alt="profile-pic" />
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
-              <p className="font-bold">Mr. Lorem</p>
-              <p className="">lorem@gmail.com</p>
+              <p className="font-bold">{user?.name}</p>
+              <p className="">{user?.email}</p>
             </div>
           </div>
         </div>
