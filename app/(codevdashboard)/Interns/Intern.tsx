@@ -38,9 +38,9 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
   })
 
   return (
-    <div className="relative mt-5">
+    <div className="relative mt-5 xl:mt-0">
       {/* Avatars */}
-      <div className="grid grid-cols-2 place-items-center gap-x-5 gap-y-20 transition-transform md:grid-cols-3 lg:grid-cols-4 xl:mx-auto xl:w-[90%] xl:grid-cols-5">
+      <div className="grid grid-cols-2 place-items-center gap-x-5 gap-y-20 transition-transform md:grid-cols-3 lg:grid-cols-4 xl:mx-auto xl:w-[90%] xl:grid-cols-5 xl:gap-y-16">
         {filteredData.map((intern) => (
           <InternCard
             key={intern.id}
@@ -73,7 +73,7 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
           height={15}
           className="z-10 hidden w-auto hover:cursor-pointer xl:absolute xl:inset-y-40 xl:right-0 xl:flex"
         />
-        <div className="mt-14 hidden w-full items-center justify-center gap-2 lg:flex">
+        <div className="mt-5 hidden w-full items-center justify-center gap-2 lg:flex">
           {fakePaginationMd.map((page, i) => (
             <p
               key={i}
