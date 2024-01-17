@@ -155,7 +155,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <section className="mx-auto max-w-5xl px-4 text-gray01 md:container">
-        <div className="mb-8 grid gap-y-5 pt-[6.3rem] lg:h-[30rem] lg:grid-cols-6 lg:grid-rows-3 lg:gap-y-0">
+        <div className="mb-8 grid gap-y-5 pt-8 lg:h-[30rem] lg:grid-cols-6 lg:grid-rows-3 lg:gap-y-0">
           <div className="border-b border-b-tealColor pb-3 lg:col-span-2 lg:pt-0">
             <h2 className="mb-3 text-2xl font-medium text-white md:text-5xl">{name}</h2>
             <p className="max-w-60 text-xs font-normal">Lorem Ipsum is simply dummy text has been the industry's </p>
