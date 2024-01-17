@@ -16,7 +16,7 @@ export default async function Template({ children }: { children: React.ReactNode
 
   return (
     <>
-      <Sidebar user={session.user} />
+      <Sidebar />
       <Contain user={session.user}>{children}</Contain>
     </>
   )

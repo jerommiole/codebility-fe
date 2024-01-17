@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { signOut } from "next-auth/react"
+
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
 import logoPic from "public/Logo.png"
@@ -25,11 +25,7 @@ import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
 import Link from "next/link"
 
-import Blinds from "./blinds"
-
-export async function Sidebar({ user }: any) {
-  console.log(user)
-
+const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
 
   return (
@@ -92,7 +88,7 @@ export async function Sidebar({ user }: any) {
           <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
             Clients
           </SidebarItems>
-          <div className="mt-auto flex flex-col" onClick={() => signOut()}>
+          <div className="mt-auto flex flex-col">
             <SidebarItems href="/" lastItem passedComponent={<LogoutSVG />}>
               Sign Out
             </SidebarItems>
@@ -145,6 +141,16 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
       </Link>
     )
   }
+}
+
+const Blinds = () => {
+  const { activeNav, toggleNav } = useNavStore()
+  return (
+    <button
+      onClick={() => toggleNav()}
+      className={`blinds  ${activeNav ? "opacity-100 tablet:w-full" : "opacity-0 tablet:w-0"}`}
+    ></button>
+  )
 }
 
 export default Sidebar
