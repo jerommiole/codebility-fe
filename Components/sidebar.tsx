@@ -24,8 +24,7 @@ import {
 import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
 import Link from "next/link"
-import { getServerSession } from "next-auth"
-import { authOptions } from "../app/api/auth/[...nextauth]/route"
+
 import Blinds from "./blinds"
 
 export async function Sidebar({ user }: any) {
