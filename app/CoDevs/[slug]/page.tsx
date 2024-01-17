@@ -3,43 +3,39 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 
 import SvgFooterCodebility from "../../../Components/logos/footerCodebility"
 import Navbar from "../../Hero/Navbar"
-import SvgClipboardDocument from "../../../Components/logos/clipboardDocument"
 import CopyToClipboardButton from "../../../lib/helpers/copytoClipboard"
+import { skillList, socialsList } from "../../../lib/statisData"
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const name = params.slug.replace(/%20/g, " ")
 
-  console.log(name)
-
   const socials = [
     {
-      socialUrl: "#facebook",
-      alt: "facebook",
-      icon: "/ri_facebook-fill.svg",
+      name: "facebook",
+      url: "http://facebook.com",
     },
     {
-      socialUrl: "#twitter",
-      alt: "twitter",
-      icon: "/mdi_twitter.svg",
+      name: "github",
+      url: "http://facebook.com",
     },
     {
-      socialUrl: "#github",
-      alt: "github",
-      icon: "/mdi_github.svg",
+      name: "linkedin",
+      url: "http://facebook.com",
     },
     {
-      socialUrl: "#linkedin",
-      alt: "linkedin",
-      icon: "/mdi_linkedin.svg",
+      name: "whatsapp",
+      url: "http://facebook.com",
     },
     {
-      socialUrl: "#slack",
-      alt: "slack",
-      icon: "/ri_slack-fill.svg",
+      name: "skype",
+      url: "http://facebook.com",
+    },
+    {
+      name: "telegram",
+      url: "http://facebook.com",
     },
   ]
 
@@ -80,60 +76,104 @@ const Page = ({ params }: { params: { slug: string } }) => {
     },
   ]
 
-  const skillList = [
+  const skillData = [
     {
-      name: "Angular",
-      icon: "/techStack/angular.png",
+      name: "angular",
     },
     {
-      name: "CSS",
-      icon: "/techStack/css.png",
+      name: "css",
     },
     {
-      name: "Github",
-      icon: "/techStack/mdi_github.png",
+      name: "github",
     },
     {
-      name: "Firebase",
-      icon: "/techStack/firebase.png",
+      name: "firebase",
     },
     {
-      name: "Bootstrap",
-      icon: "/techStack/bootstrap.png",
+      name: "bootstrap",
     },
     {
-      name: "Oracle",
-      icon: "/techStack/oracle.png",
+      name: "oracle",
     },
     {
-      name: "HTML",
-      icon: "/techStack/html.png",
+      name: "html",
+    },
+  ]
+
+  const workExperienceData = [
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
+    },
+    {
+      position: "Senior UI/UX Designer",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      fromYear: "April 2000",
+      toYear: "April 2023",
     },
   ]
 
   return (
     <>
-      <Navbar />
-      <section className="container mx-auto max-w-5xl text-gray01">
-        <div className="grid h-[30rem] grid-cols-6 grid-rows-3 pt-[6.3rem]">
-          <div className="col-span-2 border-b border-b-tealColor">
+      <section className="mx-auto max-w-5xl px-4 text-gray01 md:container">
+        <div className="mb-8 grid gap-y-5 pt-[6.3rem] lg:h-[30rem] lg:grid-cols-6 lg:grid-rows-3 lg:gap-y-0">
+          <div className="border-b border-b-tealColor pb-3 lg:col-span-2 lg:pt-0">
             <h2 className="mb-3 text-2xl font-medium text-white md:text-5xl">{name}</h2>
             <p className="max-w-60 text-xs font-normal">Lorem Ipsum is simply dummy text has been the industry's </p>
             <span className="w-full"></span>
           </div>
-          <div className="row-span-2 flex items-center">
-            <div className="flex h-full w-[10.6875rem] items-center bg-indigo-950">
+          <div className="flex w-full items-center justify-center lg:row-span-2">
+            <div className="flex h-full w-[10.6875rem] items-center bg-indigo-950 pt-3 lg:pt-0">
               <Image src="/sampleProfile/profile.png" width="328" height="390" alt="profile" />
             </div>
           </div>
-          <div className="col-span-2 col-start-4 row-start-2 flex items-end justify-end">
-            <div className="pb-5 pl-8">
+          <div className="flex items-end lg:col-span-2 lg:col-start-4 lg:row-start-2">
+            <div className="lg:pb-5 lg:pl-8">
               <div className="flex gap-5 pb-4">
-                {socials.map((social, i) => (
-                  <Link key={`link-${i}`} href={social.socialUrl}>
+                {socials.map((social: { name: string; url: string }, i) => (
+                  <Link key={`link-${i}`} href={social.url}>
                     <Image
-                      src={social.icon}
-                      alt={social.alt}
+                      src={socialsList[social.name]?.icon!}
+                      alt={social.name}
                       width={20}
                       height={20}
                       className="transition duration-300 hover:-translate-y-0.5"
@@ -144,7 +184,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               <p className="text-xs">Lorem Ipsum is simply dummy text has been the industry's </p>
             </div>
           </div>
-          <div className="col-span-2 row-start-3">
+          <div className="lg:col-span-2 lg:row-start-3">
             <div>
               <p className="text-base text-tealColor">About Me</p>
               <p className="pl-4 pt-4 text-xs">
@@ -154,12 +194,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
         </div>
-
-        <p className="text-center text-base text-tealColor">Work Experience</p>
-        <section className="grid-row-4 mb-5 grid grid-cols-6">
-          <div className="col-span-2 pb-14">
+        <p className="hidden text-center text-base text-tealColor lg:block">Work Experience</p>
+        <section className="lg:grid-rows-0 mb-5 grid grid-cols-1 lg:grid-cols-6">
+          <div className="lg:col-span-2 lg:pb-14">
             <p className="text-base text-tealColor">Contacts</p>
-            <div className="pl-4 pt-5 text-xs">
+            <div className="py-5 pl-4 text-xs">
               <ul className="flex w-full flex-col gap-3">
                 {contactList.map((contact, i) => (
                   <div key={`contact-${i}`} className="flex">
@@ -176,7 +215,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               </ul>
             </div>
           </div>
-          <div className="col-span-2 row-start-2 pb-14">
+          <div className="lg:col-span-2 lg:row-start-2 lg:pb-14">
             <p className="text-base text-tealColor">Education</p>
             <div className="pb-6 pl-4 pt-5 text-xs">
               <ul className="flex w-full flex-col gap-3">
@@ -190,14 +229,14 @@ const Page = ({ params }: { params: { slug: string } }) => {
               </ul>
             </div>
           </div>
-          <div className="col-span-2 row-start-3 pb-14">
+          <div className="lg:col-span-2 lg:row-start-3 lg:pb-14">
             <p className="text-base text-tealColor">Skills</p>
             <div className="pb-6 pl-4 pt-5 text-xs">
               <ul className="flex w-full items-center gap-3">
-                {skillList.map((skill, i) => (
+                {skillData.map((skill, i) => (
                   <li key={`skill-${i}`}>
                     <Image
-                      src={skill.icon}
+                      src={skillList[skill?.name]?.icon!}
                       alt={skill.name}
                       width={20}
                       height={20}
@@ -209,16 +248,16 @@ const Page = ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
 
-          <div className="col-span-2 row-span-10 mt-10">
+          <div className="row-span-10 mt-10 lg:col-span-3">
+            <p className="pb-5 text-center text-base text-tealColor lg:hidden lg:pb-0">Work Experience</p>
             <div className="flex flex-col">
-              {[1, 2, 3, 4, 5].map((skill, i) => (
+              {workExperienceData.map((item, i) => (
                 <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
-                  <p className="mb-1 text-xs text-secondaryColor">April 2023</p>
-                  <p className="mb-2 text-base text-gray01">Senior UI/UX Designer</p>
-                  <p className="text-xs text-gray01">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s,
+                  <p className="mb-1 text-xs text-secondaryColor">
+                    {item.fromYear} = {item.toYear}
                   </p>
+                  <p className="mb-2 text-base text-gray01">{item.position}</p>
+                  <p className="text-xs text-gray01">{item.description}</p>
                   <span className="absolute -left-[4px] bottom-0 h-2 w-2 animate-ping rounded-full bg-tealColor">
                     &nbsp;
                   </span>
@@ -230,37 +269,38 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </section>
         <div>
           <p className=" text-base">CODEBILITY PROEJCTS</p>
-          <div className="mt-7 flex flex-col gap-y-5">
+          <div className="mt-7 flex flex-col gap-y-10 lg:gap-y-5">
             {[1, 2, 3].map((i, j) => (
-              <div key={`div-${j}`} className="flex gap-10">
-                <div className=" flex-none">
-                  <div className="flex gap-3">
+              <div key={`div-${j}`} className="flex flex-col items-center justify-center gap-2 lg:flex-row lg:gap-10">
+                <div className="gap-3 lg:flex">
+                  <div className=" h-full w-[303px] lg:w-[203px]">
                     <Image
                       src="/sampleproject/codebility.png"
-                      height="142"
-                      width="203"
+                      height={142}
+                      width={203}
+                      // fill
                       alt="codebility"
-                      className="transition duration-300 hover:scale-105"
+                      className="aspect-auto h-full w-full rounded transition duration-300 hover:scale-105"
                     />
-
-                    <div className="flex  flex-col justify-between">
-                      <Image
-                        src="/sampleproject/codebility.png"
-                        height="80"
-                        width="87"
-                        alt="codebility"
-                        className="transition duration-300 hover:scale-105"
-                      />
-                      <Image
-                        src="/sampleproject/codebility.png"
-                        height="80"
-                        width="87"
-                        alt="codebility"
-                        className="transition duration-300 hover:scale-105"
-                      />
-                    </div>
+                  </div>
+                  <div className="hidden flex-col justify-between lg:flex">
+                    <Image
+                      src="/sampleproject/codebility.png"
+                      height="80"
+                      width="87"
+                      alt="codebility"
+                      className="rounded transition duration-300 hover:scale-105"
+                    />
+                    <Image
+                      src="/sampleproject/codebility.png"
+                      height="80"
+                      width="87"
+                      alt="codebility"
+                      className="rounded transition duration-300 hover:scale-105"
+                    />
                   </div>
                 </div>
+
                 <div className="flex w-full flex-grow flex-col justify-between">
                   <p className="text-xs text-secondaryColor">April 2023</p>
                   <h4 className="text-base">CODEBILITY </h4>
@@ -283,12 +323,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </div>
       </section>
       <div className="h-20  px-20">
-        <div className="flex h-full w-full items-center justify-between">
+        {/* <div className="flex h-full w-full items-center justify-between">
           <div className="text-xs text-gray01">Lorem Ipsum</div>
           <div>
             <SvgFooterCodebility />
           </div>
-        </div>
+        </div>*/}
       </div>
     </>
   )
