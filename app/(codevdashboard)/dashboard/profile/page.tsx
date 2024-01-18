@@ -2,21 +2,14 @@
 
 import React, { useState } from "react"
 import Image from "next/image"
+import { Toaster } from "react-hot-toast"
 
 import personIcon from "public/sampleProfile/settings/person.png"
 import bellIcon from "public/sampleProfile/settings/bell.png"
 import gearIcon from "public/sampleProfile/settings/gear.png"
 import logIcon from "public/sampleProfile/settings/log.png"
 import infoIcon from "public/sampleProfile/settings/info.png"
-import {
-  SvgBin,
-  SvgCamera,
-  SvgCircleAvatar,
-  SvgEdit,
-  SvgEdit2,
-  SvgLock,
-  SvgPlusCircleBlue,
-} from "../../../../assets/icons"
+import { SvgBin, SvgCamera, SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 import Input from "../../../../Components/ui/forms/input"
 import UserInfoForm from "../../../../Components/profile/UserInfoForm"
 import { usePathname } from "next/navigation"
@@ -151,6 +144,7 @@ const ProfilePage = () => {
 
   return (
     <div className="h-full p-[1.63rem]">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="flex h-full w-full">
         <div className="h-full w-[19.3125rem] border-r">
           <div className=" w-full p-2 py-3">
