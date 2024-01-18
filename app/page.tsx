@@ -1,9 +1,9 @@
 import Footer from "../Components/Footer"
 import WhyJoinUs from "./WhyJoinUs/page"
 
-import Codevs from "./codevs/page"
 import Services from "./Services/Services"
 import Hero from "./Hero/Hero"
+import Codevs from "./devs/page"
 
 export default function Web() {
   return (
