@@ -6,26 +6,26 @@ import React, { useState } from "react"
 import { Menu, MenuIcon, X } from "lucide-react"
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
 import { Button } from "Components/ui/button"
-import { Inter } from "next/font/google"
-
+import { Inter, Rowdies, Iceland } from "next/font/google"
+import { motion } from 'framer-motion';
 const links = [
   {
-    name: "HOME",
+    name: "Home",
     href: "/Home",
   },
 
   {
-    name: "ABOUT",
+    name: "About",
     href: "/About",
   },
 
   {
-    name: "WORK",
+    name: "Services",
     href: "/Work",
   },
 
   {
-    name: "CONTACT",
+    name: "Co Devs",
     href: "/Contact",
   },
 ]
@@ -34,48 +34,85 @@ const inter = Inter({
   style: "normal",
   subsets: ["latin"],
 })
+const rowdies = Rowdies({
+  weight: "300",
+  subsets: ["latin"],
+})
 
+
+// Animation variants
+const HeaderAnimation = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+/*  */
 const Navbar = () => {
   const pathname = usePathname()
   return (
-    <header className="mb-2  mt-3 bg-transparent md:container">
-      <div className=" z-30 flex items-center justify-between px-16 py-4">
-        <div className="hidden lg:block">
-          <Link href="/">
-            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={220} height={35} />
-          </Link>
-        </div>
+    <header className="fixed z-50 w-full mx-auto bg-zinc-950 ">
+      <div className="flex items-center justify-between py-4 border-b border-zinc-900 ">
+      <motion.div className="flex items-center justify-between mx-auto lg:w-full max-w-7xl" variants={HeaderAnimation} initial="hidden" animate="visible">
+      <div className="hidden lg:flex">
+        <Link href="/">
+          <motion.div variants={item}>
+            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={130} height={35} />
+          </motion.div>
+        </Link>
+      </div>
 
-        <ul className={` hidden gap-12 font-thin lg:flex 2xl:ml-16 ${inter.className}`}>
-          {links.map((link, idx) => (
-            <div key={idx}>
-              {pathname === link.href ? (
-                <Link className="text-lg font-semibold text-primary" href={link.href}>
+      <ul className={` hidden gap-12 lg:flex 2xl:ml-16 `}>
+        {links.map((link, idx) => (
+          <motion.li key={idx} variants={item}>
+            {pathname === link.href ? (
+              <Link href={link.href}>
+                <div className="text-lg font-semibold text-primary">{link.name}</div>
+              </Link>
+            ) : (
+              <Link href={link.href}>
+                <div className="text-lg font-semibold text-gray-200 transition duration-100 hover:text-primary">
                   {link.name}
-                </Link>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="text-lg font-semibold text-gray-200 transition duration-100 hover:text-primary"
-                >
-                  {link.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </ul>
+                </div>
+              </Link>
+            )}
+          </motion.li>
+        ))}
+      </ul>
 
+      <div className="items-center hidden gap-2 text-lg lg:flex font-inter">
+        <motion.div variants={item}>
+          <Link href="/">Login</Link>
+        </motion.div>
+        <motion.div variants={item} className="px-5 py-2 text-black bg-white rounded-full">
+          <Link href="/">Sign Up</Link>
+        </motion.div>
+      </div>
+    </motion.div>
         {/*  */}
-        <div className="block lg:hidden ">
-          <Sheet>
+        <div className="flex flex-row-reverse items-center justify-between w-full px-5 lg:hidden ">
+          <Sheet >
             <SheetTrigger asChild>
-              <Button className="bg-transparent">
+              <Button className="bg-transparent ">
                 <MenuIcon className="text-gray-300" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="flex h-screen flex-col items-center justify-center bg-transparent  backdrop-blur-sm ">
+            <SheetContent className="flex flex-col items-center justify-center h-screen bg-transparent backdrop-blur-sm ">
               <SheetHeader>
-                <ul className={`space-y-14 ${inter.className} `}>
+                <ul className={`space-y-14  `}>
                   {links.map((link, idx) => (
                     <div key={idx}>
                       {pathname === link.href ? (
@@ -83,24 +120,34 @@ const Navbar = () => {
                       ) : (
                         <Link
                           href={link.href}
-                          className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100 hover:border-primary hover:text-primary"
+                          className="text-lg font-semibold transition duration-100 border-b-2 border-transparent text-gray-50 hover:border-primary hover:text-primary"
                         >
                           {link.name}
                         </Link>
                       )}
                     </div>
                   ))}
+
                 </ul>
+                <div className="items-center pt-10 text-lg lg:flex font-inter">
+                  <div>
+                    <Link href="/">Login</Link>
+                  </div>
+                  <div className="px-5 py-1 my-5 text-black bg-white rounded-full">
+                    <Link href="/">Sign Up</Link>
+                  </div>
+                </div>
               </SheetHeader>
             </SheetContent>
           </Sheet>
+          <div className="block lg:hidden">
+            <Link href="/">
+              <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={110} height={49} />
+            </Link>
+          </div>
         </div>
 
-        <div className="block lg:hidden">
-          <Link href="/">
-            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={180} height={49} />
-          </Link>
-        </div>
+
         <div className="lg:hidden" />
       </div>
     </header>
