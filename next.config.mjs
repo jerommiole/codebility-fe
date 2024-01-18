@@ -16,6 +16,15 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       { source: "/ping", destination: "/api/health" },
     ]
   },
+
+
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'res.cloudinary.com',
+      },
+    ]
+  }
 })
 
 export default config
