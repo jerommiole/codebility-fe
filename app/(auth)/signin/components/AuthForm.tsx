@@ -1,10 +1,11 @@
 "use client"
 
-import SignInputs from "Components/SignInputs"
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import { useCallback, useEffect, useState } from "react"
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import SignInputs from "Components/SignInputs"
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
+
 import { Button } from "Components/ui/button"
 import Image from "next/image"
 
@@ -66,7 +67,10 @@ const AuthForm = () => {
           </span>
         </div>
         <div className="flex justify-evenly">
-          <div className="flex w-36 cursor-pointer items-center justify-center gap-4 rounded-md bg-gray-800 p-2 2xl:w-auto 2xl:bg-transparent">
+          <div
+            className="flex w-36 cursor-pointer items-center justify-center gap-4 rounded-md bg-gray-800 p-2 2xl:w-auto 2xl:bg-transparent"
+            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+          >
             <Image src="/google-sign.png" width={20} height={20} alt="facebook-logo" className="h-7 w-7" />
             <p className="hidden 2xl:block">Sign up with Google</p>
           </div>

@@ -8,7 +8,7 @@ import { ModalProvider } from "Components/providers/modal-provider"
 
 export const metadata = {
   title: "Codebility",
-  desciption: "Lorem Ipsum",
+  description: "Lorem Ipsum",
 }
 
 const outfit = Outfit({

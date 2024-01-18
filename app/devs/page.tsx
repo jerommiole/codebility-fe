@@ -5,7 +5,7 @@ import Image from "next/image"
 import { interns, positionsSm, positions } from "../(codevdashboard)/Interns/DummyData"
 import { useState } from "react"
 
-const CoDevs = () => {
+const Codevs = () => {
   const [filterToggle, setFilterToggle] = useState(false)
   const [byCategory, setByCategory] = useState("")
 
@@ -271,4 +271,4 @@ const CoDevs = () => {
   )
 }
 
-export default CoDevs
+export default Codevs
