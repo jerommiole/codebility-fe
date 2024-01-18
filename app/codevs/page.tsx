@@ -26,7 +26,7 @@ const Codevs = () => {
   })
 
   return (
-    <div className="flex w-full flex-col items-center justify-center bg-backgroundColor py-10 text-primaryColor">
+    <div className="flex flex-col items-center justify-center w-full py-10 bg-backgroundColor text-primaryColor">
       {/* TEXT SECTION */}
       <div className="w-80 max-w-7xl md:flex md:w-screen md:items-center md:justify-between md:px-16 lg:w-[90%] xl:w-[80%] xl:px-0">
         <div>
@@ -44,17 +44,17 @@ const Codevs = () => {
 
       <div className="mb-5 mt-7 flex w-80 max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <h3 className="text-xl uppercase text-secondaryColor">Meet our</h3>
-        <h2 className="fw-bold text-3xl uppercase">Co Devs</h2>
+        <h2 className="text-4xl font-semibold uppercase">Co Devs</h2>
         <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text</p>
 
         {/* FILTER FOR MOBILE SCREEN */}
-        <div onClick={handelFilterToggle} className="relative mt-2 flex cursor-pointer gap-4 self-end lg:hidden">
+        <div onClick={handelFilterToggle} className="relative flex self-end gap-4 mt-2 cursor-pointer lg:hidden">
           <p className="text-xs text-primaryColor">Filter</p>
-          <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
+          <Image src="/filter.svg" alt="filter" width={13} height={13} className="w-auto h-auto" />
 
           {filterToggle && (
             <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
-              <div className="flex w-full justify-end">
+              <div className="flex justify-end w-full">
                 <Image
                   src="/Close.svg"
                   alt="close"
@@ -119,11 +119,11 @@ const Codevs = () => {
             className="hidden lg:relative lg:flex lg:cursor-pointer lg:gap-4"
           >
             <p className="text-sm text-primaryColor">Filter</p>
-            <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
+            <Image src="/filter.svg" alt="filter" width={20} height={20} className="w-auto h-auto" />
 
             {filterToggle && (
               <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
-                <div className="flex w-full justify-end">
+                <div className="flex justify-end w-full">
                   <Image
                     src="/Close.svg"
                     alt="close"
@@ -152,10 +152,10 @@ const Codevs = () => {
         </div>
 
         {/* TEAM SECTION */}
-        <div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
+        <div className="grid grid-cols-2 mt-20 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
           {/* DEV CARD */}
           {filteredData.map((intern) => (
-            <div key={intern.id} className=" flex flex-col items-center justify-center">
+            <div key={intern.id} className="flex flex-col items-center justify-center ">
               <div className="flex h-36 w-36 flex-col items-center justify-end gap-1 rounded-3xl bg-[#181818] bg-opacity-20 pb-3">
                 <div className="relative flex flex-col items-center">
                   <Image
@@ -164,11 +164,11 @@ const Codevs = () => {
                     width={100}
                     height={100}
                     priority
-                    className="absolute bottom-9 z-10 h-auto"
+                    className="absolute z-10 h-auto bottom-9"
                   />
                   <div className={`absolute bottom-9 h-16 w-16 ${intern.backgroundColor}`}></div>
 
-                  <div className="relative flex w-40 flex-col items-center text-center">
+                  <div className="relative flex flex-col items-center w-40 text-center">
                     <Image src={"/Wave.svg"} alt="wave" width={95} height={20} className="z-20 h-auto border-none" />
                     <h1 className="absolute bottom-0 z-30 w-full text-base font-bold text-darkBlueColor">
                       {intern.name}
@@ -249,10 +249,10 @@ const Codevs = () => {
                   ))}
                 </div>
                 <Link
-                  className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer"
+                  className="flex items-center justify-center gap-3 mt-1 hover:cursor-pointer"
                   href={`/codevs/${intern.name}`}
                 >
-                  <p className="fw-semibold text-xs text-darkBlueColor">Read Bio</p>
+                  <p className="text-xs fw-semibold text-darkBlueColor">Read Bio</p>
                   <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
                 </Link>
               </div>
