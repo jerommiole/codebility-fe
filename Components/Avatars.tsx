@@ -3,7 +3,7 @@
 import React from "react"
 import Avatar from "Components/ui/avatar"
 // import { Arrow } from "/app/CoDevs/Assets/exports"
-import { Arrow, Waves } from "app/devs/Assets/exports"
+import { Arrow, Waves } from "app/codevs/Assets/exports"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
