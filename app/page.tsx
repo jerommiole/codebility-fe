@@ -1,7 +1,7 @@
 import Footer from "../Components/Footer"
 import WhyJoinUs from "./WhyJoinUs/page"
 
-import CoDevs from "./codevs/page"
+import Codevs from "./codevs/page"
 import Services from "./Services/Services"
 import Hero from "./Hero/Hero"
 
@@ -15,7 +15,7 @@ export default function Web() {
         {/* <Footer /> */}
         <Services />
         <WhyJoinUs />
-        <CoDevs />
+        <Codevs />
         <Footer />
       </div>
     </>
