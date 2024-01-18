@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+export { default } from "next-auth/middleware"
 
 export function middleware(request: NextRequest) {
   // TODO: Feel free to remove this block
@@ -17,6 +18,7 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
+    "/dashboard/:path*",
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 }

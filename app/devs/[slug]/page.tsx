@@ -4,8 +4,6 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-import SvgFooterCodebility from "../../../Components/logos/footerCodebility"
-import Navbar from "../../Hero/Navbar"
 import CopyToClipboardButton from "../../../lib/helpers/copytoClipboard"
 import { skillList, socialsList } from "../../../lib/statisData"
 
