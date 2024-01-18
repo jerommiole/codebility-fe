@@ -1,24 +1,20 @@
 "use client"
-import React,{useState} from "react"
+import React from "react"
 
 import "../../styles/calendar.scss"
-import { Topbar, Avatar_Dashboard, Sidebar,Dashboard_Card,Dashboard_Card2 } from "Components/exports"
+import { Topbar, Avatar_Dashboard, Sidebar, Dashboard_Card, Dashboard_Card2 } from "Components/exports"
 import images from "./Assets/avt.svg"
 
 import CalendarComp from "./Section/CalendarComp"
 
-
 const Page = () => {
-
   return (
     <>
       <div className="flex h-screen w-full bg-[#0E0E0E] ">
         <Sidebar />
 
         <div className="ml-[8%] flex h-full w-full flex-col">
-          <div className="h-[8%] w-full ">
-              {/* topbar */}
-          </div>
+          <div className="h-[8%] w-full ">{/* topbar */}</div>
 
           <div className="flex h-[92%] w-full space-x-4 p-4">
             {/* r1 */}
@@ -59,36 +55,30 @@ const Page = () => {
                 </div>
               </div>
               {/* col2 */}
-              <div className="flex justify-center w-full h-full bg-[#181818] border-none p-4">
-                  <CalendarComp/>
+              <div className="flex h-full w-full justify-center border-none bg-[#181818] p-4">
+                <CalendarComp />
               </div>
             </div>
 
             {/* r2 */}
             <div className="flex w-[30%] flex-col space-y-4 ">
-
-              <div className="h-[50%] bg-[#181818] bg-opacity-[25%] grid grid-flow-col grid-rows-2 gap-4 justify-items-center  content-center p-4">
-                    <Dashboard_Card
-                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
-                    />
-                    <Dashboard_Card
-                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
-                    />
-                    <Dashboard_Card
-                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
-                    />
-                    <Dashboard_Card
-                      DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
-                    />
-
-
+              <div className="grid h-[50%] grid-flow-col grid-rows-2 content-center justify-items-center gap-4 bg-[#181818]  bg-opacity-[25%] p-4">
+                <Dashboard_Card
+                  DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                />
+                <Dashboard_Card
+                  DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                />
+                <Dashboard_Card
+                  DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                />
+                <Dashboard_Card
+                  DataNotes={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "}
+                />
               </div>
-              <div className="bg-[#181818] bg-opacity-[25%] h-[50%]">
-                    <Dashboard_Card2/>
+              <div className="h-[50%] bg-[#181818] bg-opacity-[25%]">
+                <Dashboard_Card2 />
               </div>
-
-
-
             </div>
           </div>
         </div>
