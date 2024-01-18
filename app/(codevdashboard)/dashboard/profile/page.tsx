@@ -22,6 +22,7 @@ import UserInfoForm from "../../../../Components/profile/UserInfoForm"
 import { usePathname } from "next/navigation"
 import { cn } from "../../../../lib/utils"
 import ContactSocialsInfoForm from "../../../../Components/profile/ContactSocialsInfoForm"
+import { upload } from "../../../../lib/upload"
 
 const profileMenuList = [
   {
@@ -117,7 +118,7 @@ const ProfilePage = () => {
     )
   }
 
-  const handleUploadAvatar = async (event: React.ChangeEvent<HTMLInputElement> | null | undefined) => {
+  const handleUploadAvatar = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // @ts-ignore
     const file: any = event.target.files[0]
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"]
@@ -135,6 +136,9 @@ const ProfilePage = () => {
       }
 
       reader.readAsDataURL(file)
+      await upload(event, (link) => {
+        setImageData(link)
+      })
     } else {
       console.log("The selected file is not an image in one of the supported formats.")
     }
