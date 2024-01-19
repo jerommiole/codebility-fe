@@ -3,8 +3,8 @@ import React from "react"
 import { Button } from "Components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
-import Navbar from "./Navbar"
 import { Inter, Rowdies, Iceland } from "next/font/google"
+import { motion,AnimatePresence } from 'framer-motion';
 
 const socials = [
   {
@@ -38,7 +38,7 @@ const inter = Inter({
   subsets: ["latin"],
 })
 const rowdies = Rowdies({
-  weight: "400",
+  weight: "300",
   subsets: ["latin"],
 })
 
@@ -47,49 +47,107 @@ const iceland = Iceland({
   subsets: ["latin"],
 })
 
+const SocialContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+const variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 const Hero = () => {
   return (
-    <div
-      className="min-w-screen relative min-h-screen overflow-hidden bg-cover bg-no-repeat"
+    <AnimatePresence>
+    <motion.div
+    initial="hidden"
+    animate="visible"
+    exit="hidden"
+    variants={variants}
+    transition={{ duration: 1 }}
+      className="relative min-h-screen overflow-hidden bg-no-repeat bg-cover min-w-screen"
       style={{ backgroundImage: "url('/HEROBG.png') " }}
     >
-      <Navbar />
+   
 
-      <div className=" flex h-5/6 flex-col items-center justify-center  md:h-full ">
-        <p className={`text-center font-extralight text-gray-400 ${inter.className}`}>
-          Unlocking Potential: Code is a Universal Language
-        </p>
-        <h1 className={` text-8xl text-gray-100 md:text-[8rem] ${iceland.className}`}>CODEBILITY</h1>
+      <div className="flex flex-col items-center justify-center h-5/6 md:h-full">
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01]
+          }}>
+          <p className={`text-center font-extralight text-white ${inter.className}`}>
+            Unlocking Potential: Code is a Universal Language
+          </p>
+          <h1 className={` text-6xl text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
 
-        <p className={`text-center font-extralight text-white ${inter.className}`}>
-          “Everyone has the ability to code”
-        </p>
-        <div className="mt-14 md:mt-16">
+          <p className={`text-center font-extralight text-white ${inter.className}`}>
+            “Everyone has the ability to code”
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity:0 }}
+          animate={{ y: -40 , opacity: 1 }}
+          
+          whileHover={{ scale: [null, 1.1, 1.1] }}
+          transition={{ duration: 0.3 }}
+          className="mt-14 md:mt-16">
           <Button
-            className=" h-12 w-44 items-center justify-center rounded-sm bg-gradient-to-r
-             from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br md:w-52
+            className=" h-12 w-44 items-center justify-center rounded-full bg-gradient-to-r
+             from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br md:w-22
              "
           >
             <div
-              className={` flex h-full w-full items-center justify-center bg-[#030303] text-base text-white ${inter.className}`}
+              className={` flex rounded-full h-full w-full items-center justify-center bg-[#030303] text-base text-white ${inter.className}`}
             >
               Get Starded
             </div>
           </Button>
 
-          {/* <Button className={` h-14 w-44 items-center justify-center rounded-sm bg-gradient-to-r from-green-400 to-purple-700  text-white ${inter.className}`}>
-            Get Started
-          </Button> */}
-        </div>
-        <div className="flex gap-5 pt-16 md:mt-16">
+        </motion.div>
+
+
+        <motion.div className="flex gap-5 pt-16 md:mt-16" variants={SocialContainer} initial="hidden" animate="visible">
           {socials.map((social, i) => (
             <Link key={`socials-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
-              <Image src={social.icon} alt={social.alt} width={30} height={30} />
+              <motion.div
+                whileHover={{ scale: 1.5, rotate: 360 }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0, 0.71, 0.2, 1.01]
+                }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%",
+
+                }} variants={item}>
+                <Image src={social.icon} alt={social.alt} width={30} height={30} />
+              </motion.div>
             </Link>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div >
+    </AnimatePresence>
   )
 }
 
