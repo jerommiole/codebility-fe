@@ -23,7 +23,7 @@ export default async function Codevs() {
   console.log(data)
 
   return (
-    <div className="flex w-full flex-col items-center justify-center bg-backgroundColor py-10 text-primaryColor">
+    <div className="flex flex-col items-center justify-center w-full py-10 bg-backgroundColor text-primaryColor">
       {/* TEXT SECTION */}
       <div className="w-80 max-w-7xl md:flex md:w-screen md:items-center md:justify-between md:px-16 lg:w-[90%] xl:w-[80%] xl:px-0">
         <div>
@@ -41,7 +41,7 @@ export default async function Codevs() {
 
       <div className="mb-5 mt-7 flex w-80 max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <h3 className="text-xl uppercase text-secondaryColor">Meet our</h3>
-        <h2 className="fw-bold text-3xl uppercase">Co Devs</h2>
+        <h2 className="text-4xl font-semibold uppercase">Co Devs</h2>
         <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text</p>
         <FilterCodev />
       </div>
