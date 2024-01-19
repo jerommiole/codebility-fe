@@ -1,6 +1,3 @@
-import Link from "next/link"
-import Image from "next/image"
-import { interns, positionsSm, positions } from "../(codevdashboard)/Interns/DummyData"
 import FilterCodev from "./components/filterCodev"
 
 async function getCodevs() {

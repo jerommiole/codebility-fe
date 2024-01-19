@@ -41,12 +41,12 @@ const Avatars = ({
 }: props) => {
   const router = useRouter()
   return (
-    <div className=" flex w-32 flex-col items-center justify-center ">
+    <div className="flex flex-col items-center justify-center w-32 ">
       <div className="relative flex items-end justify-center">
-        <div className="z-10 flex w-full justify-center">
+        <div className="z-10 flex justify-center w-full">
           <Image className="object-center" alt="dp" width={custmwdt} height={custmhgt} src={Avatarimg} />
         </div>
-        <div className="absolute bottom-0 flex h-12 w-full justify-center "></div>
+        <div className="absolute bottom-0 flex justify-center w-full h-12 "></div>
 
         <div className="absolute  h-[60px] w-[70px] bg-[#02FFE2]"></div>
       </div>
@@ -61,7 +61,7 @@ const Avatars = ({
         </span>
 
         <span className="text-[12px] text-[#8E8E8E]">{Position}</span>
-        <div className="flex w-full items-center space-x-4">
+        <div className="flex items-center w-full space-x-4">
           {showFE && (
             <span className="h-4 w-[50%] rounded-full bg-[#363636] text-center text-[0.6rem] text-[#FDB7D0]">{FE}</span>
           )}
