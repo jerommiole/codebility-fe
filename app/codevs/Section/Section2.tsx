@@ -23,7 +23,7 @@ const Section2 = () => {
           <span className="text-3xl text-white">CO DEVS</span>
           <span>Lorem Ipsum is simply dummy text </span>
         </div>
-        <div className="flex w-full justify-center space-x-6 pr-0  md:justify-end md:pr-10">
+        <div className="flex justify-center w-full pr-0 space-x-6 md:justify-end md:pr-10">
           <span>All</span>
           <span className="text-[#FDB7D0]">Full Stack Developer</span>
           <span className="text-[#02FFE2]">Backend Developer</span>
@@ -32,7 +32,7 @@ const Section2 = () => {
         </div>
       </div>
       <div className="flex h-[100%] w-[80%] flex-col items-center justify-center space-y-8  p-3">
-        <div className=" grid grid-flow-row grid-cols-2 gap-x-12 md:grid-flow-col md:grid-rows-2 ">
+        <div className="grid grid-flow-row grid-cols-2 gap-x-12 md:grid-flow-col md:grid-rows-2">
           {jsondata.map((data, index) => (
             <Avatars
               key={index}
