@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import { SvgCheckCircle, SvgEdit } from "../../assets/icons"
 import { SubmitHandler, useForm } from "react-hook-form"
