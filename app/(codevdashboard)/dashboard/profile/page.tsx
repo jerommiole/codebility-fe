@@ -1,54 +1,20 @@
-"use client"
+"use server"
 
-import React, { useState } from "react"
-import Image from "next/image"
+import React from "react"
 import { Toaster } from "react-hot-toast"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
-import personIcon from "public/sampleProfile/settings/person.png"
-import bellIcon from "public/sampleProfile/settings/bell.png"
-import gearIcon from "public/sampleProfile/settings/gear.png"
-import logIcon from "public/sampleProfile/settings/log.png"
-import infoIcon from "public/sampleProfile/settings/info.png"
-import { SvgBin, SvgCamera, SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
-import Input from "../../../../Components/ui/forms/input"
-import UserInfoForm from "../../../../Components/profile/UserInfoForm"
-import { usePathname } from "next/navigation"
-import { cn } from "../../../../lib/utils"
+// components
 import ContactSocialsInfoForm from "../../../../Components/profile/ContactSocialsInfoForm"
-import { upload } from "../../../../lib/upload"
+import UserInfo from "./components/UserInfo"
+import SettingMenu from "./components/SettingMenu"
 
-const profileMenuList = [
-  {
-    title: "Profile Info",
-    icon: personIcon,
-    href: "/profile",
-  },
-  {
-    title: "Change Password",
-    icon: personIcon,
-    href: "/change-password",
-  },
-  {
-    title: "Notifications",
-    icon: bellIcon,
-    href: "/notifications",
-  },
-  {
-    title: "Settings",
-    icon: gearIcon,
-    href: "/settings",
-  },
-  {
-    title: "Activity Log",
-    icon: logIcon,
-    href: "/activity-log",
-  },
-  {
-    title: "About",
-    icon: infoIcon,
-    href: "/about",
-  },
-]
+// icons
+import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
+
+//  utils
+import { authOptions } from "../../../../lib/authOptions"
 
 const contactInfoList = {
   phone: "+63901234123",
@@ -59,22 +25,10 @@ const contactInfoList = {
   skype: "https://www.facebook.com",
   linkedIn: "https://www.facebook.com",
 }
-const ProfilePage = () => {
-  const pathname = usePathname()
-
-  const [isLoading, setIsLoading] = useState(false)
-  const [imageData, setImageData] = useState<string | null>(null)
-  const [file, setFile] = useState<string | null>("")
-
-  const OutlineButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => {
-    return (
-      <div
-        className="flex cursor-pointer items-center gap-2.5 border border-gray03 px-[13px] py-[9px] text-xs text-secondaryColor transition duration-300 hover:-translate-y-0.5"
-        onClick={onClick}
-      >
-        {children}
-      </div>
-    )
+export default async function ProfilePage() {
+  const session = await getServerSession(authOptions)
+  if (!session) {
+    return redirect("/")
   }
 
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
@@ -83,63 +37,6 @@ const ProfilePage = () => {
         <div className="mx-auto w-full max-w-[679px]">{children}</div>
       </div>
     )
-  }
-
-  const SettingMenu = () => {
-    return (
-      <ul className="flex flex-col gap-3 px-6">
-        {profileMenuList.map((profile) => {
-          const active = pathname === `/dashboard${profile.href}` ? "bg-gray02" : null
-          return (
-            <div
-              className={cn(
-                `flex w-full cursor-pointer items-center gap-10 rounded-sm px-4 py-2 hover:bg-gray02`,
-                `${active}`
-              )}
-              key={profile.title}
-            >
-              <div>
-                <Image src={profile.icon} alt={profile.title} width="14" height="14" />
-              </div>
-
-              <li className="text-left text-sm">{profile.title}</li>
-            </div>
-          )
-        })}
-        <div className="border-b">&nbsp;</div>
-      </ul>
-    )
-  }
-
-  const handleUploadAvatar = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    // @ts-ignore
-    const file: any = event.target.files[0]
-    const allowedTypes = ["image/jpeg", "image/png", "image/gif"]
-
-    if (allowedTypes.includes(file.type)) {
-      const reader = new FileReader()
-
-      reader.onload = () => {
-        const image: any = reader.result
-        // @ts-ignore
-        const base64Image = image.split(",")[1]
-        setImageData(image)
-        // setValue("imageData", base64Image)
-        setFile(file.name)
-      }
-
-      reader.readAsDataURL(file)
-      await upload(event, (link) => {
-        setImageData(link)
-      })
-    } else {
-      console.log("The selected file is not an image in one of the supported formats.")
-    }
-  }
-
-  const handleRemoveAvatar = () => {
-    setImageData(null)
-    setFile(null)
   }
 
   return (
@@ -159,55 +56,7 @@ const ProfilePage = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.{" "}
             </p>
           </div>
-          <ProfileCard>
-            <h3 className="text-center text-xl">User Info</h3>
-            <p className="text-center text-xs text-secondaryColor">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.{" "}
-            </p>
-
-            <div className="pt-[39px]">
-              <div className="flex space-x-14">
-                <div className="relative h-[100px] w-[100px]">
-                  <div className="absolute inset-0">
-                    {imageData ? (
-                      <div className="flex h-full w-full items-center justify-center">
-                        <Image src={imageData} alt="avatar" className="rounded-full" fill />
-                      </div>
-                    ) : (
-                      <label className="flex h-full w-full cursor-pointer flex-col items-center justify-center rounded-full bg-gray03">
-                        <SvgCamera />
-                        <input type="file" className="hidden" onChange={handleUploadAvatar} />
-                        <p className="text-center text-[10px]">Upload Photo</p>
-                      </label>
-                    )}
-                  </div>
-                </div>
-                <div className="flex flex-col justify-end gap-1">
-                  <p className="text-sm font-light">Profile Picture</p>
-                  <p className="text-sm font-light text-secondaryColor">
-                    dummy text of the printing and typesetting industry.{" "}
-                  </p>
-                  <div className="flex items-center gap-[8px]">
-                    <label
-                      className="flex cursor-pointer items-center gap-2.5 border border-gray03 px-[13px] py-[9px]
-                      text-xs text-secondaryColor transition duration-300 hover:-translate-y-0.5"
-                    >
-                      <SvgEdit />
-                      Change
-                      <Input type="file" className="hidden" onChange={handleUploadAvatar} />
-                    </label>
-                    <OutlineButton onClick={handleRemoveAvatar}>
-                      <SvgBin />
-                      Remove
-                    </OutlineButton>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full">
-                <UserInfoForm />
-              </div>
-            </div>
-          </ProfileCard>
+          <UserInfo user={session?.user} />
           <ProfileCard>
             <div className="flex items-center justify-between">
               <h3 className="mb-[17px] text-xl">About Me</h3>
@@ -276,5 +125,3 @@ const ProfilePage = () => {
     </div>
   )
 }
-
-export default ProfilePage
