@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-
+import { signOut } from "next-auth/react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
 import logoPic from "public/Logo.png"
@@ -88,8 +88,8 @@ const Sidebar = () => {
           <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
             Clients
           </SidebarItems>
-          <div className="mt-auto flex flex-col">
-            <SidebarItems href="/" lastItem passedComponent={<LogoutSVG />}>
+          <div className="mt-auto flex flex-col" onClick={() => signOut()}>
+            <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out
             </SidebarItems>
           </div>
