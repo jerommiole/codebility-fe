@@ -2,7 +2,7 @@ import FilterCodev from "./components/filterCodev"
 
 async function getCodevs() {
   const headers = { Accept: "application/json" }
-  const res = await fetch("http://localhost:9000/api/v1/development/users", { headers })
+  const res = await fetch("http://localhost:4000/api/v1/development/users", { headers })
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
