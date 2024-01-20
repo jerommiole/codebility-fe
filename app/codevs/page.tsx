@@ -15,9 +15,7 @@ async function getCodevs() {
 }
 
 export default async function Codevs() {
-  const data = await getCodevs()
-
-  console.log(data)
+  // const data = await getCodevs()
 
   return (
     <div className="flex w-full flex-col items-center justify-center bg-backgroundColor py-10 text-primaryColor">
