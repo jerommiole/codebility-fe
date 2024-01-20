@@ -27,13 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-             <Navbar />
           <ModalProvider />
-          
+
           {/* <ThemeModeToggle /> */}
           {children}
         </ThemeProvider>
-        
       </body>
     </html>
   )
