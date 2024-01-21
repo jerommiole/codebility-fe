@@ -10,10 +10,8 @@ import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
 
 const UserInfo = ({ user }: any) => {
-  console.log(user)
   const [isLoading, setIsLoading] = useState(false)
   const [imageData, setImageData] = useState<string | null>(user?.image)
-  const [file, setFile] = useState<string | null>("")
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="border-box mb-4 w-full rounded-sm border border-gray03 py-11">
@@ -43,11 +41,7 @@ const UserInfo = ({ user }: any) => {
 
       reader.onload = () => {
         const image: any = reader.result
-        // @ts-ignore
-        const base64Image = image.split(",")[1]
         setImageData(image)
-        // setValue("imageData", base64Image)
-        setFile(file.name)
       }
 
       reader.readAsDataURL(file)
@@ -61,7 +55,6 @@ const UserInfo = ({ user }: any) => {
 
   const handleRemoveAvatar = () => {
     setImageData(null)
-    setFile(null)
   }
 
   const handleSaveChanges = async () => {
@@ -139,7 +132,7 @@ const UserInfo = ({ user }: any) => {
                 ) : (
                   <>
                     <SvgEdit />
-                    Change
+                    Save
                   </>
                 )}
               </button>
@@ -151,7 +144,7 @@ const UserInfo = ({ user }: any) => {
           </div>
         </div>
         <div className="w-full">
-          <UserInfoForm />
+          <UserInfoForm user={user} />
         </div>
       </div>
     </ProfileCard>
