@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react"
 import { SvgCheckCircle, SvgEdit } from "../../assets/icons"
 import { SubmitHandler, useForm } from "react-hook-form"
@@ -18,7 +20,7 @@ const FormWrapper = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex items-center justify-between border-b border-gray03 py-[19px] pl-[39px]">{children}</div>
 }
 
-const UserInfoForm = () => {
+const UserInfoForm = ({ user }: any) => {
   const initialFormData: IFormData = {
     name: "Mr.Dummy",
     address: "Dummy St. Lorem Ipsum City Philippines",
@@ -78,7 +80,7 @@ const UserInfoForm = () => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{formData.name}</p>
+              <p className="px-3 py-2">{user?.name}</p>
             )}
           </div>
         </div>
@@ -108,7 +110,7 @@ const UserInfoForm = () => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{formData.address}</p>
+              <p className="px-3 py-2">{user?.address || "- -"}</p>
             )}
           </div>
         </div>
@@ -124,7 +126,7 @@ const UserInfoForm = () => {
           />
         )}
       </FormWrapper>
-      <FormWrapper>
+      {/*<FormWrapper>
         <div className="flex w-full items-center">
           <label htmlFor="email" className="w-24 text-xs capitalize text-secondaryColor">
             Email
@@ -138,7 +140,7 @@ const UserInfoForm = () => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{formData.email}</p>
+              <p className="px-3 py-2">{user?.email}</p>
             )}
           </div>
         </div>
@@ -153,7 +155,7 @@ const UserInfoForm = () => {
             onClick={() => onEdit("email", true)}
           />
         )}
-      </FormWrapper>
+      </FormWrapper>*/}
       <FormWrapper>
         <div className="flex w-full items-center">
           <label htmlFor="gender" className="w-24 text-xs capitalize text-secondaryColor">
@@ -175,7 +177,7 @@ const UserInfoForm = () => {
                 </option>
               </select>
             ) : (
-              <p className="px-3 py-2 capitalize">{formData.gender}</p>
+              <p className="px-3 py-2 capitalize">{user?.gender || "- -"}</p>
             )}
           </div>
         </div>
