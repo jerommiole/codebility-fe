@@ -5,7 +5,8 @@ import Image from "next/image"
 import { interns, positions, positionsSm } from "../../(codevdashboard)/Interns/DummyData"
 import Link from "next/link"
 
-const FilterCodev = () => {
+const FilterCodev = ({ codevs }: any) => {
+  console.log("codev", codevs)
   const [filterToggle, setFilterToggle] = useState(false)
   const [byCategory, setByCategory] = useState("")
 
