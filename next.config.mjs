@@ -22,6 +22,8 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
     remotePatterns: [
       {
         hostname: 'res.cloudinary.com',
+      },{
+        hostname: 'lh3.googleusercontent.com',
       },
     ]
   }
