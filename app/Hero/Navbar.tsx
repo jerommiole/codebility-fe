@@ -7,7 +7,7 @@ import { Menu, MenuIcon, X } from "lucide-react"
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
 import { Button } from "Components/ui/button"
 import { Inter, Rowdies, Iceland } from "next/font/google"
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion"
 const links = [
   {
     name: "Home",
@@ -39,7 +39,6 @@ const rowdies = Rowdies({
   subsets: ["latin"],
 })
 
-
 // Animation variants
 const HeaderAnimation = {
   hidden: { opacity: 1, scale: 0 },
@@ -51,7 +50,7 @@ const HeaderAnimation = {
       staggerChildren: 0.1,
     },
   },
-};
+}
 
 const item = {
   hidden: { y: 20, opacity: 0 },
@@ -59,58 +58,63 @@ const item = {
     y: 0,
     opacity: 1,
   },
-};
+}
 /*  */
 const Navbar = () => {
   const pathname = usePathname()
   return (
-    <header className="fixed z-50 w-full mx-auto bg-zinc-950 ">
-      <div className="flex items-center justify-between py-4 border-b border-zinc-900 ">
-      <motion.div className="flex items-center justify-between mx-auto lg:w-full max-w-7xl" variants={HeaderAnimation} initial="hidden" animate="visible">
-      <div className="hidden lg:flex">
-        <Link href="/">
-          <motion.div variants={item}>
-            <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={130} height={35} />
-          </motion.div>
-        </Link>
-      </div>
+    <header className="fixed z-50 mx-auto w-full bg-zinc-950 ">
+      <div className="flex items-center justify-between border-b border-zinc-900 py-4 ">
+        <motion.div
+          className="mx-auto flex max-w-7xl items-center justify-between lg:w-full"
+          variants={HeaderAnimation}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="hidden lg:flex">
+            <Link href="/">
+              <motion.div variants={item}>
+                <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={130} height={35} />
+              </motion.div>
+            </Link>
+          </div>
 
-      <ul className={` hidden gap-12 lg:flex 2xl:ml-16 `}>
-        {links.map((link, idx) => (
-          <motion.li key={idx} variants={item}>
-            {pathname === link.href ? (
-              <Link href={link.href}>
-                <div className="text-lg font-semibold text-primary">{link.name}</div>
-              </Link>
-            ) : (
-              <Link href={link.href}>
-                <div className="text-lg font-semibold text-gray-200 transition duration-100 hover:text-primary">
-                  {link.name}
-                </div>
-              </Link>
-            )}
-          </motion.li>
-        ))}
-      </ul>
+          <ul className={` hidden gap-12 lg:flex 2xl:ml-16 `}>
+            {links.map((link, idx) => (
+              <motion.li key={idx} variants={item}>
+                {pathname === link.href ? (
+                  <Link href={link.href}>
+                    <div className="text-lg font-semibold text-primary">{link.name}</div>
+                  </Link>
+                ) : (
+                  <Link href={link.href}>
+                    <div className="text-lg font-semibold text-gray-200 transition duration-100 hover:text-primary">
+                      {link.name}
+                    </div>
+                  </Link>
+                )}
+              </motion.li>
+            ))}
+          </ul>
 
-      <div className="items-center hidden gap-2 text-lg lg:flex font-inter">
-        <motion.div variants={item}>
-          <Link href="/">Login</Link>
+          <div className="font-inter hidden items-center gap-2 text-lg lg:flex">
+            <motion.div variants={item}>
+              <Link href="/signin">Login</Link>
+            </motion.div>
+            <motion.div variants={item} className="rounded-full bg-white px-5 py-2 text-black">
+              <Link href="/">Sign Up</Link>
+            </motion.div>
+          </div>
         </motion.div>
-        <motion.div variants={item} className="px-5 py-2 text-black bg-white rounded-full">
-          <Link href="/">Sign Up</Link>
-        </motion.div>
-      </div>
-    </motion.div>
         {/*  */}
-        <div className="flex flex-row-reverse items-center justify-between w-full px-5 lg:hidden ">
-          <Sheet >
+        <div className="flex w-full flex-row-reverse items-center justify-between px-5 lg:hidden ">
+          <Sheet>
             <SheetTrigger asChild>
               <Button className="bg-transparent ">
                 <MenuIcon className="text-gray-300" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="flex flex-col items-center justify-center h-screen bg-transparent backdrop-blur-sm ">
+            <SheetContent className="flex h-screen flex-col items-center justify-center bg-transparent backdrop-blur-sm ">
               <SheetHeader>
                 <ul className={`space-y-14  `}>
                   {links.map((link, idx) => (
@@ -120,20 +124,19 @@ const Navbar = () => {
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-lg font-semibold transition duration-100 border-b-2 border-transparent text-gray-50 hover:border-primary hover:text-primary"
+                          className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100 hover:border-primary hover:text-primary"
                         >
                           {link.name}
                         </Link>
                       )}
                     </div>
                   ))}
-
                 </ul>
-                <div className="items-center pt-10 text-lg lg:flex font-inter">
+                <div className="font-inter items-center pt-10 text-lg lg:flex">
                   <div>
                     <Link href="/">Login</Link>
                   </div>
-                  <div className="px-5 py-1 my-5 text-black bg-white rounded-full">
+                  <div className="my-5 rounded-full bg-white px-5 py-1 text-black">
                     <Link href="/">Sign Up</Link>
                   </div>
                 </div>
@@ -146,7 +149,6 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-
 
         <div className="lg:hidden" />
       </div>
