@@ -5,7 +5,6 @@ import { BellSVG } from "./logos"
 import ToggleMenu from "Components/toggleMenu"
 import Image from "next/image"
 
-import Hero from "public/hero.png"
 import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 
@@ -37,9 +36,11 @@ const Contain: React.FC<ContainProps> = ({ user, children }) => {
         <div className="flex items-center gap-4">
           <BellSVG />
           <div className="h-16 border-l border-foreground tablet:hidden" />
-          <div className="flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
-            <div className="h-14 w-14 overflow-hidden rounded-full bg-violet-500">
-              <img src={user?.image} alt="profile-pic" />
+          <div className="relative flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
+            <div className="relative h-14 w-14">
+              <div className="flex h-full w-full items-center justify-center">
+                <Image src={user?.image || "/avatar.png"} alt="avatar" className="rounded-full" fill />
+              </div>
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
               <p className="font-bold">{user?.name}</p>
