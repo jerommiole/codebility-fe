@@ -1,22 +1,21 @@
 import FilterCodev from "./components/filterCodev"
 
+import { API } from "../../lib/constants"
+
 async function getCodevs() {
   const headers = { Accept: "application/json" }
-  const res = await fetch("http://localhost:4000/api/v1/development/users", { headers })
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+  const res = await fetch(API.CODEVS, { headers })
 
-  /*if (!res.ok) {
+  if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data")
-  }*/
+  }
 
   return res.json()
 }
 
 export default async function Codevs() {
-  // const data = await getCodevs()
-
+  const data = await getCodevs()
   return (
     <div className="flex w-full flex-col items-center justify-center bg-backgroundColor py-10 text-primaryColor">
       {/* TEXT SECTION */}
@@ -38,7 +37,7 @@ export default async function Codevs() {
         <h3 className="text-xl uppercase text-secondaryColor">Meet our</h3>
         <h2 className="fw-bold text-3xl uppercase">Co Devs</h2>
         <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text</p>
-        <FilterCodev />
+        <FilterCodev codevs={data} />
       </div>
 
       <div className="mt-5 flex w-80 items-center justify-center text-center text-xs md:w-screen md:px-20 lg:w-[90%] lg:text-sm xl:max-w-lg xl:px-0">

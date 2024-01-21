@@ -8,6 +8,7 @@ import UserInfoForm from "../../../../../Components/profile/UserInfoForm"
 
 import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
+import { saveUserData } from "../../../../api"
 
 const UserInfo = ({ user }: any) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -64,13 +65,7 @@ const UserInfo = ({ user }: any) => {
     const updatedData = { image: imageData }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/google/user/${email}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
-      })
+      const response = await saveUserData(email, updatedData)
       if (response.ok) {
         toast.success("Profile image updated successfully")
       } else {
