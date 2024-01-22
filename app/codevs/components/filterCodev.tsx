@@ -1,9 +1,16 @@
 "use client"
-
 import React, { useState } from "react"
 import Image from "next/image"
 import { interns, positions, positionsSm } from "../../(codevdashboard)/Interns/DummyData"
 import Link from "next/link"
+import Wavey from "app/codevs/Assets/Wave.png"
+import { motion } from "framer-motion"
+import {
+  box, item, fadeInOutRightToLeft,
+  fadeInOutLeftToRight,
+  fadeInOutUpToDown,
+  fadeInOutDownToUp,
+} from "../../../Components/FramerAnimation/Framer";
 
 const FilterCodev = ({ codevs }: any) => {
   console.log("codev", codevs)
@@ -26,15 +33,16 @@ const FilterCodev = ({ codevs }: any) => {
     setFilterToggle((prev) => !prev)
   }
 
+
   return (
     <>
-      <div onClick={handelFilterToggle} className="relative mt-2 flex cursor-pointer gap-4 self-end lg:hidden">
-        <p className="text-xs text-primaryColor">Filter</p>
-        <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
+      <div onClick={handelFilterToggle} className="relative flex self-end gap-4 mt-2 cursor-pointer lg:hidden">
+        <p className="text-base text-primaryColor">Filter</p>
+        <Image src="/filter.svg" alt="filter" width={13} height={13} className="w-auto h-auto" />
 
         {filterToggle && (
-          <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
-            <div className="flex w-full justify-end">
+          <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-sm">
+            <div className="flex justify-end w-full">
               <Image
                 src="/Close.svg"
                 alt="close"
@@ -61,34 +69,42 @@ const FilterCodev = ({ codevs }: any) => {
         )}
       </div>
       {/* POSITIONS FOR DESKTOP SCREEN */}
-      <div className="hidden lg:mr-8 lg:mt-4 lg:flex lg:items-center lg:gap-4 lg:self-end">
+      <motion.div
+        variants={box}
+        initial="hidden"
+        animate="visible"
+        className="hidden lg:mr-8 lg:mt-4 lg:flex lg:items-center lg:gap-4 lg:self-end">
         {positions.map((p) => (
-          <div key={p.position} onClick={() => setByCategory(p.position)}>
+          <motion.div
+            variants={item}
+            initial="hidden"
+            animate="visible"
+            key={p.position} onClick={() => setByCategory(p.position)}>
             {p.position === "Full Stack Developer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5 text-xs text-lightPinkColor">FS</p>
-                <p className="text-xs">{p.position}</p>
+                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5 text-sm text-lightPinkColor">FS</p>
+                <p className="text-sm">{p.position}</p>
               </div>
             ) : null}
             {p.position === "UI/UX Designer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-magentaColor">UI/UX</p>
-                <p className="text-xs">{p.position}</p>
+                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-sm text-magentaColor">UI/UX</p>
+                <p className="text-sm">{p.position}</p>
               </div>
             ) : null}
             {p.position === "Backend Developer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-tealColor">BE</p>
-                <p className="text-xs">{p.position}</p>
+                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-sm text-tealColor">BE</p>
+                <p className="text-sm">{p.position}</p>
               </div>
             ) : null}
             {p.position === "Frontend Developer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
-                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-xs text-darkBlueColor">FE</p>
-                <p className="text-xs">{p.position}</p>
+                <p className="rounded-lg bg-[#363636] bg-opacity-20 px-1 py-0.5  text-sm text-darkBlueColor">FE</p>
+                <p className="text-sm">{p.position}</p>
               </div>
             ) : null}
-          </div>
+          </motion.div>
         ))}
 
         {/* FILTER FOR DESKTOP SCREEN */}
@@ -98,11 +114,11 @@ const FilterCodev = ({ codevs }: any) => {
           className="hidden lg:relative lg:flex lg:cursor-pointer lg:gap-4"
         >
           <p className="text-sm text-primaryColor">Filter</p>
-          <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
+          <Image src="/filter.svg" alt="filter" width={20} height={20} className="w-auto h-auto" />
 
           {filterToggle && (
             <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
-              <div className="flex w-full justify-end">
+              <div className="flex justify-end w-full">
                 <Image
                   src="/Close.svg"
                   alt="close"
@@ -128,32 +144,42 @@ const FilterCodev = ({ codevs }: any) => {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* TEAM SECTION */}
-      <div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
+      <motion.div
+
+        variants={box}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-2 py-10 mt-20 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
         {/* DEV CARD */}
         {filteredData.map((intern) => (
-          <div key={intern.id} className=" flex flex-col items-center justify-center">
-            <div className="flex h-36 w-36 flex-col items-center justify-end gap-1 rounded-3xl bg-[#181818] bg-opacity-20 pb-3">
-              <div className="relative flex flex-col items-center">
+          <motion.div
+            variants={item}
+
+            key={intern.id} className="flex flex-col items-center justify-center ">
+            <div className="flex h-40 w-40 flex-col items-center justify-end gap-2 rounded-3xl bg-[#181818] bg-opacity-20 py-10">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="relative flex flex-col items-center">
+
                 <Image
                   src={`${intern.imageUrl}`}
                   alt={intern.name + " photo"}
                   width={100}
                   height={100}
                   priority
-                  className="absolute bottom-9 z-10 h-auto"
+                  className="absolute z-10 h-auto duration-300 bottom-9 hover:-translate-y-5"
                 />
-                <div className={`absolute bottom-9 h-16 w-16 ${intern.backgroundColor}`}></div>
-
-                <div className="relative flex w-40 flex-col items-center text-center">
-                  <Image src={"/Wave.svg"} alt="wave" width={95} height={20} className="z-20 h-auto border-none" />
+                <div className="relative flex flex-col items-center w-40 text-center">
+                  <Image src={Wavey} alt="wave" width={105} height={20} className="z-20 h-auto border-none" />
                   <h1 className="absolute bottom-0 z-30 w-full text-base font-bold text-darkBlueColor">
                     {intern.name}
                   </h1>
                 </div>
-              </div>
+              </motion.div>
               <p className="text-xs text-secondaryColor">Full Stack Development</p>
               {/* CARD BADGE */}
               <div className="flex items-center justify-center gap-2">
@@ -228,16 +254,16 @@ const FilterCodev = ({ codevs }: any) => {
                 ))}
               </div>
               <Link
-                className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer"
+                className="flex items-center justify-center gap-3 mt-1 hover:cursor-pointer"
                 href={`/codevs/${intern.name}`}
               >
-                <p className="fw-semibold text-xs text-darkBlueColor">Read Bio</p>
+                <p className="text-sm fw-semibold text-darkBlueColor">Read Bio</p>
                 <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   )
 }
