@@ -96,7 +96,7 @@ const SocialContainer = {
 }
 const Footer = () => {
   return (
-    <footer className="flex items-center justify-center bg-backgroundColor text-primaryColor">
+    <footer id="footer" className="flex items-center justify-center bg-backgroundColor text-primaryColor">
       <div className="w-screen mt-28">
         {/* TOP */}
         <div
@@ -105,7 +105,7 @@ const Footer = () => {
           <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
           >
             <Contacts
               imageUrl="/carbon_location-filled.svg"
@@ -118,7 +118,7 @@ const Footer = () => {
           <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
           >
             <Contacts
               imageUrl="/material-symbols_call.svg"
@@ -131,7 +131,7 @@ const Footer = () => {
           <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
           >
             <Contacts
               imageUrl="/mingcute_mail-open-fill.svg"
@@ -150,7 +150,7 @@ const Footer = () => {
           <motion.div 
           variants={fadeInOutLeftToRight}
           initial="hidden"
-            animate="visible"
+            whileInView="visible"
           className="flex flex-col gap-2">
             <div>
               <Link href="/">
@@ -169,7 +169,7 @@ const Footer = () => {
             <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
             className="flex flex-col items-center gap-4"
             >
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
@@ -193,7 +193,7 @@ const Footer = () => {
             <motion.div
               variants={SocialContainer}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
               className="flex gap-5">
               {socials.map((social, i) => (
                 <motion.div
@@ -221,12 +221,12 @@ const Footer = () => {
           <motion.div 
           variants={fadeInOutRightToLeft}
           initial="hidden"
-            animate="visible"
+            whileInView="visible"
           className="flex flex-col gap-4">
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
             <div className="grid grid-cols-2 gap-x-10 gap-y-3">
               {footerLinks.map((footerLink, index) => (
-                <Link href={footerLink.footerUrl} key={index} className="text-sm text-secondaryColor">
+                <Link href={footerLink.footerUrl} key={index} className="text-sm duration-100 hover:text-tealColor hover:scale-105 text-secondaryColor">
                   {footerLink.name}
                 </Link>
               ))}
@@ -238,7 +238,7 @@ const Footer = () => {
         <motion.div 
          variants={fadeInOutDownToUp}
          initial="hidden"
-           animate="visible"
+           whileInView="visible"
         className="flex items-center justify-center h-20 bg-footerColor">
           <p className="text-sm text-secondaryColor">
             Copyright &copy; All Right Reserved{" "}

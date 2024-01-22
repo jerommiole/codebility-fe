@@ -34,15 +34,14 @@ const Services = () => {
   return (
 
     <motion.section
-      id="services"
-      className="relative flex flex-col items-center justify-center px-5 my-auto bg-backgroundColor lg:pt-48 xl:px-56 "
+      id="about"
+      className="relative flex flex-col items-center justify-center px-3.5 min-h-screen bg-backgroundColor lg:pt-48 xl:px-56 "
     >
 
       {/*Moon Image*/}
-
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className="">
         <Image
@@ -57,13 +56,11 @@ const Services = () => {
 
       <div className="flex flex-col justify-center mt-32 lg:mt-0 lg:flex-row lg:gap-16">
         {/*What We Do Column*/}
-
-
         <motion.div className="xl:w-1/2">
           <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
           >
             <p className=" text-primaryColor">Our Services</p>
             <h1 className="text-5xl font-semibold">What We Do</h1>
@@ -78,13 +75,11 @@ const Services = () => {
           <motion.div
             variants={fadeInOutLeftToRight}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
             className="flex flex-col gap-3 mt-10">
             {Text.map((item, index) => (
               <motion.div
-                variants={fadeInOutLeftToRight}
-                initial="hidden"
-                animate="visible"
+                
                 key={index} className="flex w-[180px] justify-end gap-5  duration-500 hover:w-[200px]">
                 <p className="font-semibold hover:text-primaryColor">{item.num}</p>
                 <div className="w-[25px] -translate-y-2 border-b-2 border-white "></div>
@@ -95,7 +90,7 @@ const Services = () => {
           <motion.p
             variants={fadeInOutLeftToRight}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
             className="mt-10">
             Explore the limitless possibilities of what we do, as we turn dreams into code and aspirations into reality.
           </motion.p>
@@ -105,8 +100,8 @@ const Services = () => {
           {/* Cards Column */}
           <div className="flex flex-col gap-2 md:gap-3">
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, scale: 1, x: 1 }}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
               transition={{
                 duration: 0.8,
                 delay: 0.5,
@@ -122,8 +117,8 @@ const Services = () => {
               />
             </motion.div >
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, scale: 1, y: 1 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
                 duration: 0.8,
                 delay: 0.5,
@@ -142,8 +137,8 @@ const Services = () => {
           {/* Cards Column Translate-y*/}
           <div className="flex flex-col gap-2 -translate-y-10 md:gap-3">
             <motion.div
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, scale: 1, y: 1 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
                 duration: 0.8,
                 delay: 0.5,
@@ -157,8 +152,8 @@ const Services = () => {
                 Align="center"
               /></motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, scale: 1, x: 1 }}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
               transition={{
                 duration: 0.8,
                 delay: 0.5,
@@ -177,84 +172,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-full gap-10 mt-32 mb-16 md:mt-56 ">
-        <div>
-          <motion.div
-            variants={fadeInOutDownToUp}
-            initial="hidden"
-            animate="visible"
-            className="">
-            <h1 className="z-10 text-4xl font-bold tracking-wider text-center services md:text-5xl">SERVICES</h1>
-            <h1 className="services -translate-y-[50px] text-center text-6xl font-bold tracking-wider opacity-5 md:-translate-y-[75px] md:text-8xl">
-              SERVICES
-            </h1>
-          </motion.div>
-
-          <motion.p
-            variants={fadeInOutDownToUp}
-            initial="hidden"
-            animate="visible"
-            className="text-center text-secondaryColor ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.{" "}
-          </motion.p>
-        </div>
-        {/* Services Cards */}
-
-
-        <div className="flex flex-col justify-center gap-5 md:px-20 bg-backgroundColor md:mx-0 md:flex-row md:gap-20 lg:mt-10">
-          <motion.div
-            variants={fadeInOutLeftToRight}
-            initial="hidden"
-            animate="visible"
-          >
-            <Card
-              title="Web Design"
-              description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-              imageUrl="WebIcon.png"
-              link="Read More"
-              icon="Arrow.png"
-              CardColor=""
-            />
-          </motion.div>
-          <motion.div
-            variants={fadeInOutDownToUp}
-            initial="hidden"
-            animate="visible">
-            <Card
-              title="Graphic Design"
-              description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-              imageUrl="SharpIcon.png"
-              link="Read More"
-              icon="Arrow.png"
-              CardColor=""
-            />
-          </motion.div>
-          <motion.div
-            variants={fadeInOutRightToLeft}
-            initial="hidden"
-            animate="visible">
-            <Card
-              title="CMS"
-              description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-              imageUrl="Cms.png"
-              link="Read More"
-              icon="Arrow.png"
-              CardColor=""
-            />
-          </motion.div>
-        </div>
-
-
-        <motion.p
-          variants={fadeInOutDownToUp}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto mt-10 max-w-[550px] text-sm text-secondaryColor md:text-center">
-          {" "}
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
-          the printing and typesetting industry.{" "}
-        </motion.p>
-      </div>
+   
     </motion.section>
 
   )

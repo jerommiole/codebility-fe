@@ -19,7 +19,7 @@ const Reasons = ({title, reasonNumber, description} : ReasonProps) => {
       <motion.h1 
        variants={fadeInOutLeftToRight}
        initial="hidden"
-       animate="visible"
+       whileInView="visible"
       className="text-xl md:max-w-[200px] md:flex md:items-center md:justify-center md:text-center md:text-5xl md:leading-tight">
         {title}
       </motion.h1>
@@ -27,16 +27,16 @@ const Reasons = ({title, reasonNumber, description} : ReasonProps) => {
         <motion.div 
             variants={fadeInOutDownToUp}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
         className="flex items-center justify-center h-48 w-28 ">
           <h1 className="text-3xl font-semibold text-secondaryColor">0{reasonNumber}</h1>
         </motion.div>
         <motion.div 
         variants={fadeInOutRightToLeft}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         className="flex flex-col justify-between flex-1 p-1">
-          <p className="text-sm text-justify text-secondaryColor">
+          <p className="text-sm text-secondaryColor">
             {description}
           </p>
           <div className="flex justify-between text-sm text-secondaryColor">
