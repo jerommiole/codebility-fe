@@ -29,71 +29,61 @@ export const interns = [
     id: 1,
     name: "Mr. Lorem1",
     position: ["Full Stack Developer", "Shopify Developer"],
-    imageUrl: "/image51.png",
-    backgroundColor: "bg-darkBlueBgColor"
+    imageUrl: "/projectsCompletedAssets/image1.png",
   },
   {
     id: 2,
     name: "Mr. Lorem2",
     position: ["Frontend Developer", "Human Resource", "Research Auditor"],
-    imageUrl: "/image25.png",
-    backgroundColor: "bg-redBgColor"
+    imageUrl: "/projectsCompletedAssets/image2.png",
   },
   {
     id: 3,
     name: "Mr. Lorem3",
     position: ["UI/UX Designer", "Project Manager"],
-    imageUrl: "/image33.png",
-    backgroundColor: "bg-violetBgColor"
+    imageUrl: "/projectsCompletedAssets/image3.png",
   },
   {
     id: 4,
     name: "Mr. Lorem4",
     position: ["Frontend Developer", "Wordpress Developer"],
-    imageUrl: "/image32.png",
-    backgroundColor: "bg-greenBgColor"
+    imageUrl: "/projectsCompletedAssets/image4.png",
   },
   {
     id: 5,
     name: "Mr. Lorem5",
     position: ["Full Stack Developer", "Fb Ads Specialist"],
-    imageUrl: "/image51.png",
-    backgroundColor: "bg-darkBlueBgColor"
+    imageUrl: "/projectsCompletedAssets/image5.png",
   },
   {
     id: 6,
     name: "Mr. Lorem6",
     position: ["Backend Developer", "UI/UX Designer"],
-    imageUrl: "/image25.png",
-    backgroundColor: "bg-redBgColor"
+    imageUrl: "/projectsCompletedAssets/image3.png",
   },
   {
     id: 7,
     name: "Mr. Lorem7",
     position: ["Virtual Assistant", "Social Media Manager"],
-    imageUrl: "/image33.png",
-    backgroundColor: "bg-violetBgColor"
+    imageUrl: "/projectsCompletedAssets/image1.png",
   },
   {
     id: 8,
     name: "Mr. Lorem8",
     position: ["Frontend Developer", "UI/UX Designer"],
-    imageUrl: "/image32.png",
-    backgroundColor: "bg-greenBgColor"
+    imageUrl: "/projectsCompletedAssets/image5.png",
   },
   {
     id: 9,
     name: "Mr. Lorem9",
     position: ["Full Stack Developer", "Video Editor"],
-    imageUrl: "/image51.png",
-    backgroundColor: "bg-darkBlueBgColor"
+    imageUrl: "/projectsCompletedAssets/image4.png",
   },
   {
     id: 10,
     name: "Mr. Lorem10",
     position: ["Frontend Developer", "Backend Developer"],
-    imageUrl: "/image25.png",
-    backgroundColor: "bg-redBgColor"
+    imageUrl: "/projectsCompletedAssets/image2.png",
   },
   // {
   //   id: 11,

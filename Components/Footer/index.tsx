@@ -1,7 +1,15 @@
+'use client'
 import Image from "next/image"
 import Contacts from "./Contacts"
 import Link from "next/link"
-
+import { motion } from "framer-motion"
+import {
+  fadeInOutLeftToRight,
+  fadeInOutRightToLeft,
+  fadeInOutDownToUp,
+  item
+} from "../../Components/FramerAnimation/Framer";
+import { delay } from "lodash"
 const socials = [
   {
     socialUrl: "#facebook",
@@ -75,44 +83,75 @@ const footerLinks = [
   },
 ]
 
+const SocialContainer = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+}
 const Footer = () => {
   return (
     <footer className="flex items-center justify-center bg-backgroundColor text-primaryColor">
-      <div className="mt-28 w-screen">
+      <div className="w-screen mt-28">
         {/* TOP */}
         <div
-          className="w-90 mx-5 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10  lg:grid-cols-3
-                                        xl:mx-auto
-        "
+          className="grid grid-cols-1 gap-16 mx-5 w-90 max-w-7xl place-items-center lg:mx-10 lg:grid-cols-3 xl:mx-auto "
         >
-          <Contacts
-            imageUrl="/carbon_location-filled.svg"
-            alt="Find us"
-            name="Find us"
-            description="Lorem Ipsum is simply dummy text of the printing"
-          />
-          <Contacts
-            imageUrl="/material-symbols_call.svg"
-            alt="Contact us"
-            name="Contact us"
-            description="Lorem Ipsum is simply dummy text of the printing"
-          />
-          <Contacts
-            imageUrl="/mingcute_mail-open-fill.svg"
-            alt="Mail us"
-            name="Mail us"
-            description="Lorem Ipsum is simply dummy text of the printing"
-          />
+          <motion.div
+            variants={fadeInOutDownToUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <Contacts
+              imageUrl="/carbon_location-filled.svg"
+              alt="Find us"
+              name="Find us"
+              description="Lorem Ipsum is simply dummy text of the printing"
+            />
+          </motion.div>
+
+          <motion.div
+            variants={fadeInOutDownToUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <Contacts
+              imageUrl="/material-symbols_call.svg"
+              alt="Contact us"
+              name="Contact us"
+              description="Lorem Ipsum is simply dummy text of the printing"
+            />
+          </motion.div>
+
+          <motion.div
+            variants={fadeInOutDownToUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <Contacts
+              imageUrl="/mingcute_mail-open-fill.svg"
+              alt="Mail us"
+              name="Mail us"
+              description="Lorem Ipsum is simply dummy text of the printing"
+            />
+          </motion.div>
         </div>
-        <hr className="mx-5 my-16 max-w-7xl opacity-25 lg:mx-10 xl:mx-auto" />
+        <hr className="mx-5 my-16 opacity-25 max-w-7xl lg:mx-10 xl:mx-auto" />
 
         {/* MIDDLE */}
         <div
-          className="mx-5 mb-28 mt-10 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10 lg:grid-cols-3
-                                                      xl:mx-auto
-        "
+          className="grid grid-cols-1 gap-16 mx-5 mt-10 mb-28 max-w-7xl place-items-center lg:mx-10 lg:grid-cols-3 xl:mx-auto "
         >
-          <div className="flex flex-col gap-2">
+          <motion.div 
+          variants={fadeInOutLeftToRight}
+          initial="hidden"
+            animate="visible"
+          className="flex flex-col gap-2">
             <div>
               <Link href="/">
                 <Image src="/companyLogo.png" alt="Codebility" width={250} height={30} />
@@ -124,15 +163,21 @@ const Footer = () => {
                 industry's standard dummy text ever since the 1500s,
               </p>
             </div>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col items-center gap-4">
+            <motion.div
+            variants={fadeInOutDownToUp}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center gap-4"
+            >
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
             <div className="relative flex max-w-sm">
               <input
                 type="text"
                 placeholder="Email Address..."
-                className="h-10 w-80 rounded-full bg-inputColor px-7 pr-14 text-sm focus:outline-none"
+                className="h-10 text-sm rounded-full w-80 bg-inputColor px-7 pr-14 focus:outline-none"
               />
               <Image
                 src="/send.svg"
@@ -143,17 +188,41 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm text-secondaryColor">Lorem Ipsum is simply dummy text of the printing</p>
-            <h2 className="text-md font-semibold">Follow us</h2>
-            <div className="flex gap-5">
+            <h2 className="font-semibold text-md">Follow us</h2>
+            </motion.div>
+            <motion.div
+              variants={SocialContainer}
+              initial="hidden"
+              animate="visible"
+              className="flex gap-5">
               {socials.map((social, i) => (
-                <Link key={`social-${i}`} href={social.socialUrl}>
-                  <Image src={social.icon} alt={social.alt} width={30} height={30} />
-                </Link>
+                <motion.div
+                  whileHover={{ scale: 1.5, rotate: 360 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0, 0.71, 0.2, 1.01],
+                  }}
+                  whileTap={{
+                    scale: 0.8,
+                    rotate: -90,
+                    borderRadius: "100%",
+                  }}
+                  variants={item}
+                >
+                  <Link key={`social-${i}`} href={social.socialUrl}>
+                    <Image src={social.icon} alt={social.alt} width={30} height={30} />
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
+
           </div>
 
-          <div className="flex flex-col gap-4">
+          <motion.div 
+          variants={fadeInOutRightToLeft}
+          initial="hidden"
+            animate="visible"
+          className="flex flex-col gap-4">
             <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
             <div className="grid grid-cols-2 gap-x-10 gap-y-3">
               {footerLinks.map((footerLink, index) => (
@@ -162,18 +231,22 @@ const Footer = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* BOTTOM */}
-        <div className="flex h-20 items-center justify-center bg-footerColor">
+        <motion.div 
+         variants={fadeInOutDownToUp}
+         initial="hidden"
+           animate="visible"
+        className="flex items-center justify-center h-20 bg-footerColor">
           <p className="text-sm text-secondaryColor">
             Copyright &copy; All Right Reserved{" "}
             <Link href="/">
               <span className="font-bold text-primaryColor hover:underline">CODEBILITY</span>
             </Link>
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   )
