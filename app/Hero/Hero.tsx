@@ -74,86 +74,82 @@ const variants = {
 }
 const Hero = () => {
   return (
-    <AnimatePresence>
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={variants}
-        transition={{ duration: 1 }}
-        className="min-w-screen relative min-h-screen overflow-hidden bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/HEROBG.png') " }}
-      >
-        <Navbar />
-        <div className="flex h-5/6 flex-col items-center justify-center md:h-full">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.5,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
-          >
-            <p className={`text-center font-extralight text-white ${inter.className}`}>
-              Unlocking Potential: Code is a Universal Language
-            </p>
-            <h1 className={` text-6xl text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
+    <motion.div
+      
+      variants={variants}
+      transition={{ duration: 1 }}
+      className="relative min-h-screen overflow-hidden bg-no-repeat bg-cover min-w-screen"
+      style={{ backgroundImage: "url('/HEROBG.png') " }}
+    >
+      <Navbar />
+      <div className="flex flex-col items-center justify-center h-5/6 md:h-full">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          <p className={`text-center font-extralight text-white ${inter.className}`}>
+            Unlocking Potential: Code is a Universal Language
+          </p>
+          <h1 className={` text-6xl text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
 
-            <p className={`text-center font-extralight text-white ${inter.className}`}>
-              “Everyone has the ability to code”
-            </p>
-          </motion.div>
+          <p className={`text-center font-extralight text-white ${inter.className}`}>
+            “Everyone has the ability to code”
+          </p>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ y: -40, opacity: 1 }}
-            whileHover={{ scale: [null, 1.1, 1.1] }}
-            transition={{ duration: 0.3 }}
-            className="mt-14 md:mt-16"
-          >
-            <Button
-              className=" md:w-22 h-12 w-44 items-center justify-center rounded-full
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ y: -40, opacity: 1 }}
+          whileHover={{ scale: [null, 1.1, 1.1] }}
+          transition={{ duration: 0.3 }}
+          className="mt-14 md:mt-16"
+        >
+          <Button
+            className=" md:w-22 h-12 w-44 items-center justify-center rounded-full
              bg-gradient-to-r from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br
              "
-            >
-              <div
-                className={` flex h-full w-full items-center justify-center rounded-full bg-[#030303] text-base text-white ${inter.className}`}
-              >
-                Get Starded
-              </div>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            className="flex gap-5 pt-16 md:mt-16"
-            variants={SocialContainer}
-            initial="hidden"
-            animate="visible"
           >
-            {socials.map((social, i) => (
-              <Link key={`socials-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
-                <motion.div
-                  whileHover={{ scale: 1.5, rotate: 360 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                  whileTap={{
-                    scale: 0.8,
-                    rotate: -90,
-                    borderRadius: "100%",
-                  }}
-                  variants={item}
-                >
-                  <Image src={social.icon} alt={social.alt} width={30} height={30} />
-                </motion.div>
-              </Link>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
+            <div
+              className={` flex h-full w-full items-center justify-center rounded-full bg-[#030303] text-base text-white ${inter.className}`}
+            >
+              Get Starded
+            </div>
+          </Button>
+        </motion.div>
+
+        <motion.div
+          className="flex gap-5 pt-16 md:mt-16"
+          variants={SocialContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          {socials.map((social, i) => (
+            <Link key={`socials-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
+              <motion.div
+                whileHover={{ scale: 1.5, rotate: 360 }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: -90,
+                  borderRadius: "100%",
+                }}
+                variants={item}
+              >
+                <Image src={social.icon} alt={social.alt} width={30} height={30} />
+              </motion.div>
+            </Link>
+          ))}
+        </motion.div>
+      </div>
+    </motion.div>
   )
 }
 
