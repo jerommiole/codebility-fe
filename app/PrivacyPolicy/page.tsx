@@ -15,9 +15,9 @@ const page = () => {
           <h1 className="text-2xl">Lorem Ipsum has been the industry's</h1>
         </div>
         {/*  */}
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col gap-[18px] px-8">
           <div className="flex items-start gap-x-5 ">
-            <Image src="/simple-icons.svg" width={30} height={25} alt="" style={{ width: "30px", height: "25px" }} />
+            <Image src="./simple-icons.svg" width={30} height={25} alt="" style={{ width: "30px", height: "25px" }} />
             <div className="flex flex-col items-start justify-start gap-y-2  ">
               <h1 className="text-xl">Lorem Ipsum</h1>
               <p>
