@@ -27,13 +27,14 @@ export default async function Codevs() {
   const data = await getCodevs()
   return (
     <motion.div
+    id="codevs"
       className="flex flex-col px-3.5 items-center justify-center w-full py-10 bg-backgroundColor text-primaryColor">
       {/* TEXT SECTION */}
       <div className="w-full mx-auto  max-w-7xl md:flex md:w-screen md:items-center md:justify-between md:px-16 lg:w-[90%] xl:w-[80%] xl:px-0">
         <motion.div
           variants={fadeInOutLeftToRight}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
         >
           <p>Lorem Lorem</p>
           <div className="mb-3 h-[3px] w-[30px] bg-white"></div>
@@ -42,7 +43,7 @@ export default async function Codevs() {
         <motion.div
           variants={fadeInOutRightToLeft}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
         >
           <p className="mt-1 w-full md:max-w-[260px] text-sm xl:max-w-md">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -51,11 +52,11 @@ export default async function Codevs() {
         </motion.div>
       </div>
 
-      <div className="mb-5 mt-7 flex w-full  max-w-7xl flex-col items-center justify-center gap-1 rounded-3xl bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
+      <div className="mb-5 mt-7 flex w-full  max-w-7xl flex-col items-center justify-center gap-1 rounded bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <motion.div
           variants={fadeInOutUpToDown}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
         >
           <h3 className="text-xl text-center uppercase text-secondaryColor">Meet our</h3>
           <h2 className="text-5xl font-semibold text-center uppercase">Co Devs</h2>
@@ -67,7 +68,7 @@ export default async function Codevs() {
       <motion.div
         variants={fadeInOutDownToUp}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         className="mt-5 flex w-full items-center justify-center text-center text-base md:w-screen md:px-20 lg:w-[90%] lg:text-sm xl:max-w-lg xl:px-0">
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's

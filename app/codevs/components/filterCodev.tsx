@@ -6,10 +6,7 @@ import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
 import {
-  box, item, fadeInOutRightToLeft,
-  fadeInOutLeftToRight,
-  fadeInOutUpToDown,
-  fadeInOutDownToUp,
+  box, item, fadeInOutUpToDown
 } from "../../../Components/FramerAnimation/Framer";
 
 const FilterCodev = ({ codevs }: any) => {
@@ -70,15 +67,16 @@ const FilterCodev = ({ codevs }: any) => {
       </div>
       {/* POSITIONS FOR DESKTOP SCREEN */}
       <motion.div
-        variants={box}
+        
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         className="hidden lg:mr-8 lg:mt-4 lg:flex lg:items-center lg:gap-4 lg:self-end">
         {positions.map((p) => (
           <motion.div
-            variants={item}
+            variants={fadeInOutUpToDown}
             initial="hidden"
-            animate="visible"
+
+            whileInView="visible"
             key={p.position} onClick={() => setByCategory(p.position)}>
             {p.position === "Full Stack Developer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
@@ -151,15 +149,15 @@ const FilterCodev = ({ codevs }: any) => {
 
         variants={box}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         className="grid grid-cols-2 py-10 mt-20 gap-x-10 gap-y-24 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
         {/* DEV CARD */}
         {filteredData.map((intern) => (
           <motion.div
             variants={item}
 
-            key={intern.id} className="flex flex-col items-center justify-center ">
-            <div className="flex h-40 w-40 flex-col items-center justify-end gap-2 rounded-3xl bg-[#181818] bg-opacity-20 py-10">
+            key={intern.id} className="flex flex-col items-center justify-center gap-2 ">
+            <div className="flex h-40 w-40 flex-col items-center justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

@@ -4,7 +4,7 @@ import { Button } from "Components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Inter, Rowdies, Iceland } from "next/font/google"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Navbar from "./Navbar"
 
 const socials = [
@@ -75,27 +75,28 @@ const variants = {
 const Hero = () => {
   return (
     <motion.div
-      
-      variants={variants}
-      transition={{ duration: 1 }}
-      className="relative min-h-screen overflow-hidden bg-no-repeat bg-cover min-w-screen"
+      id="home"
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      transition={{duration:0.1}}
+      className="relative w-full min-h-screen overflow-hidden bg-no-repeat bg-cover"
       style={{ backgroundImage: "url('/HEROBG.png') " }}
     >
       <Navbar />
       <div className="flex flex-col items-center justify-center h-5/6 md:h-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{
-            duration: 0.8,
-            delay: 0.5,
+            duration: 0.5,
+            delay: 0.2,
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
           <p className={`text-center font-extralight text-white ${inter.className}`}>
             Unlocking Potential: Code is a Universal Language
           </p>
-          <h1 className={` text-6xl text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
+          <h1 className={` text-5xl text-center text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
 
           <p className={`text-center font-extralight text-white ${inter.className}`}>
             “Everyone has the ability to code”
@@ -104,7 +105,7 @@ const Hero = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ y: -40, opacity: 1 }}
+          whileInView={{ y: -40, opacity: 1 }}
           whileHover={{ scale: [null, 1.1, 1.1] }}
           transition={{ duration: 0.3 }}
           className="mt-14 md:mt-16"
@@ -126,7 +127,7 @@ const Hero = () => {
           className="flex gap-5 pt-16 md:mt-16"
           variants={SocialContainer}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
         >
           {socials.map((social, i) => (
             <Link key={`socials-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
