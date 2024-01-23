@@ -78,10 +78,9 @@ export default function Page() {
         whileInView="visible"
         className="mt-5 flex w-full items-center justify-center text-center text-base md:w-screen md:px-20 lg:w-[90%] lg:text-sm xl:max-w-lg xl:px-0"
       >
-        Our Co Devs are not just about individual brilliance; they are a testament to the power of collaboration.
-        Working in synergy, they push the boundaries of what's possible, fostering an environment where innovation
-        thrives. They're not just developers; they're pioneers who are continuously exploring new frontiers in
-        technology.
+        Our CoDevs are not just about individual brilliance; they are a testament to the power of collaboration. Working
+        in synergy, they push the boundaries of what's possible, fostering an environment where innovation thrives.
+        They're not just developers; they're pioneers who are continuously exploring new frontiers in technology.
       </motion.div>
     </motion.div>
   )
