@@ -7,7 +7,7 @@ import ServicesSection2 from "./Services/ServicesSection2"
 
 export default function Web() {
   return (
-    <div className="flex flex-col w-full h-screen mx-auto ">
+    <div className=" flex h-screen w-full flex-col overflow-x-hidden bg-black">
       <Hero />
       <About />
       <Codevs />

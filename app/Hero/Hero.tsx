@@ -76,14 +76,14 @@ const Hero = () => {
   return (
     <motion.div
       id="home"
-      initial={{opacity:0}}
-      animate={{opacity:1}}
-      transition={{duration:0.1}}
-      className="relative w-full min-h-screen overflow-hidden bg-no-repeat bg-cover"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.1 }}
+      className="relative min-h-screen w-full flex-col items-center justify-center overflow-hidden  bg-cover bg-no-repeat"
       style={{ backgroundImage: "url('/HEROBG.png') " }}
     >
       <Navbar />
-      <div className="flex flex-col items-center justify-center h-5/6 md:h-full">
+      <div className="flex h-5/6 flex-col items-center justify-center md:h-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -96,7 +96,7 @@ const Hero = () => {
           <p className={`text-center font-extralight text-white ${inter.className}`}>
             Unlocking Potential: Code is a Universal Language
           </p>
-          <h1 className={` text-5xl text-center text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
+          <h1 className={` text-center text-5xl text-gray-100 md:text-[6rem] ${rowdies.className}`}>CODEBILITY</h1>
 
           <p className={`text-center font-extralight text-white ${inter.className}`}>
             “Everyone has the ability to code”
