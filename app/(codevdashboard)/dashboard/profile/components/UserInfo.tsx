@@ -10,7 +10,7 @@ import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
 import { getCodev, saveUserData } from "../../../../api"
 
-const UserInfo = ({ user }: any) => {
+const UserInfo = ({ user }: { user: { email: string; image: string } }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [imageData, setImageData] = useState<string | null>(user?.image)
   const [profileData, setProfileData] = useState<string[] | unknown>(null)
@@ -23,12 +23,10 @@ const UserInfo = ({ user }: any) => {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
+    ;(async () => {
       const data = await getCodev(user?.email)
       setProfileData(data)
-    }
-
-    fetchData()
+    })()
   }, [])
 
   const OutlineButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => {
