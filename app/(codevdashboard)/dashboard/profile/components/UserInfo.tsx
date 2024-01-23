@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import toast from "react-hot-toast"
 
@@ -8,11 +8,12 @@ import UserInfoForm from "../../../../../Components/profile/UserInfoForm"
 
 import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
-import { saveUserData } from "../../../../api"
+import { getCodev, saveUserData } from "../../../../api"
 
 const UserInfo = ({ user }: any) => {
   const [isLoading, setIsLoading] = useState(false)
   const [imageData, setImageData] = useState<string | null>(user?.image)
+  const [profileData, setProfileData] = useState<string[] | unknown>(null)
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="border-box mb-4 w-full rounded-sm border border-gray03 py-11">
@@ -20,6 +21,15 @@ const UserInfo = ({ user }: any) => {
       </div>
     )
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCodev(user?.email)
+      setProfileData(data)
+    }
+
+    fetchData()
+  }, [])
 
   const OutlineButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => {
     return (
@@ -139,7 +149,7 @@ const UserInfo = ({ user }: any) => {
           </div>
         </div>
         <div className="w-full">
-          <UserInfoForm user={user} />
+          <UserInfoForm user={user} profileData={profileData} />
         </div>
       </div>
     </ProfileCard>

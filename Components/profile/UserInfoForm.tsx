@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { SvgCheckCircle, SvgEdit } from "../../assets/icons"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { updateProfile } from "../../app/api"
 
 enum GenderEnum {
   female = "female",
@@ -20,21 +21,14 @@ const FormWrapper = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex items-center justify-between border-b border-gray03 py-[19px] pl-[39px]">{children}</div>
 }
 
-const UserInfoForm = ({ user }: any) => {
-  const initialFormData: IFormData = {
-    name: "Mr.Dummy",
-    address: "Dummy St. Lorem Ipsum City Philippines",
-    email: "Dummy@gmail.com",
-    gender: GenderEnum.female,
-  }
-
+const UserInfoForm = ({ user, profileData }: any) => {
   const [isEdit, setIsEdit] = useState({
     name: false,
     address: false,
     email: false,
     gender: false,
   })
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(profileData?.profile[0])
 
   const onEdit = (key: string, value: boolean) => {
     setIsEdit((prevIsEdit) => ({ ...prevIsEdit, [key]: value }))
@@ -55,13 +49,11 @@ const UserInfoForm = ({ user }: any) => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<IFormData>({
-    defaultValues: initialFormData,
-  })
+  } = useForm<IFormData>()
 
-  const onSubmit: SubmitHandler<IFormData> = (data) => {
-    console.log(data)
-    setFormData(data)
+  const onSubmit: SubmitHandler<IFormData> = async (data) => {
+    const res = await updateProfile(profileData?.profile[0]?.userId, data)
+    setFormData(res)
   }
 
   return (
@@ -110,7 +102,7 @@ const UserInfoForm = ({ user }: any) => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{user?.address || "- -"}</p>
+              <p className="px-3 py-2">{formData?.address || "- -"}</p>
             )}
           </div>
         </div>
@@ -177,7 +169,7 @@ const UserInfoForm = ({ user }: any) => {
                 </option>
               </select>
             ) : (
-              <p className="px-3 py-2 capitalize">{user?.gender || "- -"}</p>
+              <p className="px-3 py-2 capitalize">{formData?.gender || "- -"}</p>
             )}
           </div>
         </div>
