@@ -3,19 +3,24 @@
 import React, { useState } from "react"
 import { SvgCheckCircle, SvgEdit } from "../../assets/icons"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { updateProfile } from "../../app/api"
 
 interface IFormData {
-  phone?: string
-  github?: string
-  facebook?: string
-  whatsApp?: string
-  telegram?: string
-  skype?: string
-  linkedIn?: string
+  phone_no?: string
+  github_link?: string
+  fb_link?: string
+  linkedin_link?: string
+  whatsapp_link?: string
+  skype_link?: string
+  telegram_link?: string
+  portfolio_website?: string
+  userId?: string | undefined
 }
 
 interface Props {
-  data: IFormData
+  data: {
+    profile: IFormData[]
+  }
 }
 
 const FormWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -24,16 +29,27 @@ const FormWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
   const [isEdit, setIsEdit] = useState<Record<string, boolean>>({
-    phone: false,
-    github: false,
-    facebook: false,
-    whatsApp: false,
-    telegram: false,
-    skype: false,
+    phone_no: false,
+    github_link: false,
+    fb_link: false,
+    linkedin_link: false,
+    whatsapp_link: false,
+    telegram_link: false,
     linkedIn: false,
+    portfolio_website: false,
   })
 
-  const [formData, setFormData] = useState<string | any>(data)
+  const myUserId = data?.profile[0]?.userId
+
+  // @ts-ignore
+  const filterSocialLink = Object.entries(data?.profile[0])
+    .filter(([key, value]) => key.endsWith("_link"))
+    .reduce((acc, [key, value]) => {
+      acc[key] = value
+      return acc
+    }, {})
+
+  const [formData, setFormData] = useState<string | any>(filterSocialLink)
 
   const onEdit = (key: string, value: boolean) => {
     setIsEdit((prevIsEdit) => ({ ...prevIsEdit, [key]: value }))
@@ -42,13 +58,14 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
   const onUpdate = async () => {
     await onSubmit(watch())
     setIsEdit({
-      phone: false,
-      github: false,
-      facebook: false,
-      whatsApp: false,
-      telegram: false,
-      skype: false,
+      phone_no: false,
+      github_link: false,
+      fb_link: false,
+      linkedin_link: false,
+      whatsapp_link: false,
+      telegram_link: false,
       linkedIn: false,
+      portfolio_website: false,
     })
   }
 
@@ -58,12 +75,12 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
     watch,
     formState: { errors },
   } = useForm<IFormData>({
-    defaultValues: data,
+    defaultValues: filterSocialLink,
   })
 
-  const onSubmit: SubmitHandler<IFormData> = (data) => {
-    console.log(data)
-    setFormData(data)
+  const onSubmit: SubmitHandler<IFormData> = async (data) => {
+    const res = await updateProfile(myUserId, data)
+    setFormData(res)
   }
 
   const renderField = (key: keyof IFormData | string | any, value: string) => {
@@ -103,7 +120,7 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>{Object.entries(data).map(([key, value]) => renderField(key, value))}</div>
+      <div>{Object.entries(filterSocialLink).map(([key, value]) => renderField(key, value))}</div>
     </form>
   )
 }

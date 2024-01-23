@@ -15,6 +15,7 @@ import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 
 //  utils
 import { authOptions } from "../../../../lib/authOptions"
+import { getCodev } from "../../../api"
 
 const contactInfoList = {
   phone: "+63901234123",
@@ -25,8 +26,16 @@ const contactInfoList = {
   skype: "https://www.facebook.com",
   linkedIn: "https://www.facebook.com",
 }
+
+async function getData(email: any) {
+  const res = await getCodev(email)
+
+  return res
+}
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions)
+
+  const data = await getData(session?.user?.email)
   if (!session) {
     return redirect("/")
   }
@@ -77,7 +86,7 @@ export default async function ProfilePage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
             <div className="pt-4">
-              <ContactSocialsInfoForm data={contactInfoList} />
+              <ContactSocialsInfoForm data={data} />
               {/* <ul>
                 {contactInfoList.map((item) => {
                   return (
