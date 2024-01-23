@@ -35,7 +35,7 @@ async function getData(email: any) {
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions)
 
-  const data = await getData(session?.user?.email)
+  const data: any = await getData(session?.user?.email)
   if (!session) {
     return redirect("/")
   }

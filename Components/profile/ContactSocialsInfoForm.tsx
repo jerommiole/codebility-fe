@@ -14,13 +14,11 @@ interface IFormData {
   skype_link?: string
   telegram_link?: string
   portfolio_website?: string
-  userId?: string | undefined
+  userId?: any
 }
 
 interface Props {
-  data: {
-    profile: IFormData[]
-  }
+  data: any
 }
 
 const FormWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -41,10 +39,9 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
 
   const myUserId = data?.profile[0]?.userId
 
-  // @ts-ignore
-  const filterSocialLink = Object.entries(data?.profile[0])
+  const filterSocialLink: any = Object.entries(data?.profile[0])
     .filter(([key, value]) => key.endsWith("_link"))
-    .reduce((acc, [key, value]) => {
+    .reduce((acc: any, [key, value]) => {
       acc[key] = value
       return acc
     }, {})
@@ -120,7 +117,7 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>{Object.entries(filterSocialLink).map(([key, value]) => renderField(key, value))}</div>
+      <div>{Object.entries(filterSocialLink).map(([key, value]: any) => renderField(key, value))}</div>
     </form>
   )
 }

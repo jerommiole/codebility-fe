@@ -10,7 +10,7 @@ import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
 import { getCodev, saveUserData } from "../../../../api"
 
-const UserInfo = ({ user }: { user: { email: string; image: string } }) => {
+const UserInfo = ({ user }: any) => {
   const [isLoading, setIsLoading] = useState(false)
   const [imageData, setImageData] = useState<string | null>(user?.image)
   const [profileData, setProfileData] = useState<string[] | unknown>(null)
