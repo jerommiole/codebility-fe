@@ -4,5 +4,5 @@ const Url = process.env.NEXT_PUBLIC_BASE_API
 
 export const API = {
   CODEVS: `${Url}users`,
-  AUTH_GOOGLE_CODEVS: `${Url}google/user`,
+  AUTH_GOOGLE_CODEVS: `${Url}user`,
 }
