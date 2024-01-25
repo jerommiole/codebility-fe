@@ -1,5 +1,3 @@
-"use server"
-
 import React from "react"
 import { Toaster } from "react-hot-toast"
 
@@ -15,13 +13,14 @@ import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 // import { getCodev } from "../../../api"
 
 const contactInfoList = {
-  phone: "+63901234123",
-  github: "dummy.github.io",
-  facebook: "https://www.facebook.com",
-  whatsApp: "https://www.facebook.com",
-  telegram: "https://www.facebook.com",
-  skype: "https://www.facebook.com",
-  linkedIn: "https://www.facebook.com",
+  phone_no: "",
+  github_link: "",
+  fb_link: "",
+  linkedin_link: "",
+  whatsapp_link: "",
+  telegram_link: "",
+  linkedIn: "",
+  portfolio_website: "",
 }
 
 /*async function getData(email: any) {
