@@ -11,22 +11,22 @@ import {
   fadeInOutUpToDown,
   fadeInOutDownToUp,
 } from "../../Components/FramerAnimation/Framer"
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 type CoDevData = []
 export default function Page() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<any[]>([])
+
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchCoDevsData = async () => {
       try {
-        const res = await fetch(API.CODEVS, { headers: { Accepts: "application/json" } })
-        if (!res.ok) {
-          throw new Error("Failed to fetch data")
-        }
+        const res = await fetch(API.CODEVS)
+
         //TODO replace any with CoDevData type above
-        const result = (await res.json()) as any
+        const result = (await res.json()) as any[]
         setData(result)
       } catch (error) {
         console.error(error)
