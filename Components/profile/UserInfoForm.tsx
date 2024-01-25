@@ -21,14 +21,14 @@ const FormWrapper = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex items-center justify-between border-b border-gray03 py-[19px] pl-[39px]">{children}</div>
 }
 
-const UserInfoForm = ({ user, profileData }: any) => {
+const UserInfoForm = () => {
   const [isEdit, setIsEdit] = useState({
     name: false,
     address: false,
     email: false,
     gender: false,
   })
-  const [formData, setFormData] = useState(profileData?.profile[0])
+  const [formData, setFormData] = useState()
 
   const onEdit = (key: string, value: boolean) => {
     setIsEdit((prevIsEdit) => ({ ...prevIsEdit, [key]: value }))
@@ -52,8 +52,8 @@ const UserInfoForm = ({ user, profileData }: any) => {
   } = useForm<IFormData>()
 
   const onSubmit: SubmitHandler<IFormData> = async (data) => {
-    const res = await updateProfile(profileData?.profile[0]?.userId, data)
-    setFormData(res)
+    /*   const res = await updateProfile(profileData?.profile[0]?.userId, data)
+    setFormData(res)*/
   }
 
   return (
@@ -72,7 +72,7 @@ const UserInfoForm = ({ user, profileData }: any) => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{user?.name}</p>
+              <p className="px-3 py-2">name</p>
             )}
           </div>
         </div>
@@ -102,7 +102,7 @@ const UserInfoForm = ({ user, profileData }: any) => {
                 className="w-full rounded border border-gray03 bg-transparent px-3 py-2 focus:outline-none"
               />
             ) : (
-              <p className="px-3 py-2">{formData?.address || "- -"}</p>
+              <p className="px-3 py-2">{"address" || "- -"}</p>
             )}
           </div>
         </div>
@@ -169,7 +169,7 @@ const UserInfoForm = ({ user, profileData }: any) => {
                 </option>
               </select>
             ) : (
-              <p className="px-3 py-2 capitalize">{formData?.gender || "- -"}</p>
+              <p className="px-3 py-2 capitalize">{"gender" || "- -"}</p>
             )}
           </div>
         </div>

@@ -10,9 +10,9 @@ import { SvgBin, SvgCamera, SvgEdit } from "../../../../../assets/icons"
 import { upload } from "../../../../../lib/upload"
 import { getCodev, saveUserData } from "../../../../api"
 
-const UserInfo = ({ user }: any) => {
+const UserInfo = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [imageData, setImageData] = useState<string | null>(user?.image)
+  const [imageData, setImageData] = useState<string | null>()
   const [profileData, setProfileData] = useState<string[] | unknown>(null)
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -21,13 +21,13 @@ const UserInfo = ({ user }: any) => {
       </div>
     )
   }
-
+  /*
   useEffect(() => {
     ;(async () => {
       const data = await getCodev(user?.email)
       setProfileData(data)
     })()
-  }, [])
+  }, [])*/
 
   const OutlineButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => {
     return (
@@ -69,7 +69,7 @@ const UserInfo = ({ user }: any) => {
   const handleSaveChanges = async () => {
     setIsLoading(true)
 
-    const email = user?.email
+    const email = "sample@gmail.com"
     const updatedData = { image: imageData }
 
     try {
@@ -147,7 +147,7 @@ const UserInfo = ({ user }: any) => {
           </div>
         </div>
         <div className="w-full">
-          <UserInfoForm user={user} profileData={profileData} />
+          <UserInfoForm />
         </div>
       </div>
     </ProfileCard>

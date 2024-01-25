@@ -1,20 +1,10 @@
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
-import { redirect, useRouter } from "next/navigation"
-import { getServerSession } from "next-auth"
 
 import SignUpButton from "./components/signUpButton"
-import { authOptions } from "../../../lib/authOptions"
 
 async function Sign() {
-  const session = await getServerSession(authOptions)
-
-  if (session) {
-    return redirect("/dashboard")
-  }
-
   return (
-    //
     <div className="flex h-screen">
       <div className="flex flex-1 flex-col justify-center">
         <div className="overflow-y-auto px-12 py-20 lg:px-32 2xl:px-36">
