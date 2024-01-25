@@ -1,9 +1,5 @@
-"use server"
-
 import React from "react"
 import { Toaster } from "react-hot-toast"
-import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
 
 // components
 import ContactSocialsInfoForm from "../../../../Components/profile/ContactSocialsInfoForm"
@@ -14,32 +10,25 @@ import SettingMenu from "./components/SettingMenu"
 import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 
 //  utils
-import { authOptions } from "../../../../lib/authOptions"
-import { getCodev } from "../../../api"
+// import { getCodev } from "../../../api"
 
 const contactInfoList = {
-  phone: "+63901234123",
-  github: "dummy.github.io",
-  facebook: "https://www.facebook.com",
-  whatsApp: "https://www.facebook.com",
-  telegram: "https://www.facebook.com",
-  skype: "https://www.facebook.com",
-  linkedIn: "https://www.facebook.com",
+  phone_no: "",
+  github_link: "",
+  fb_link: "",
+  linkedin_link: "",
+  whatsapp_link: "",
+  telegram_link: "",
+  linkedIn: "",
+  portfolio_website: "",
 }
 
-async function getData(email: any) {
+/*async function getData(email: any) {
   const res = await getCodev(email)
 
   return res
-}
+}*/
 export default async function ProfilePage() {
-  const session = await getServerSession(authOptions)
-
-  const data: any = await getData(session?.user?.email)
-  if (!session) {
-    return redirect("/")
-  }
-
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="border-box mb-4 w-full rounded-sm border border-gray03 py-11">
@@ -65,7 +54,7 @@ export default async function ProfilePage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.{" "}
             </p>
           </div>
-          <UserInfo user={session?.user} />
+          <UserInfo />
           <ProfileCard>
             <div className="flex items-center justify-between">
               <h3 className="mb-[17px] text-xl">About Me</h3>
@@ -86,7 +75,7 @@ export default async function ProfilePage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
             <div className="pt-4">
-              <ContactSocialsInfoForm data={data} />
+              <ContactSocialsInfoForm data={contactInfoList} />
               {/* <ul>
                 {contactInfoList.map((item) => {
                   return (
