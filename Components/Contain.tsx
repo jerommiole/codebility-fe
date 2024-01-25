@@ -9,11 +9,10 @@ import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 
 type ContainProps = {
-  user: any
   children: React.ReactNode
 }
 
-const Contain: React.FC<ContainProps> = ({ user, children }) => {
+const Contain: React.FC<ContainProps> = ({ children }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -39,12 +38,12 @@ const Contain: React.FC<ContainProps> = ({ user, children }) => {
           <div className="relative flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
             <div className="relative h-14 w-14">
               <div className="flex h-full w-full items-center justify-center">
-                <Image src={user?.image || "/avatar.png"} alt="avatar" className="rounded-full" fill />
+                <Image src={"/avatar.png"} alt="avatar" className="rounded-full" fill />
               </div>
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
-              <p className="font-bold">{user?.name}</p>
-              <p className="">{user?.email}</p>
+              <p className="font-bold">name</p>
+              <p className="">email</p>
             </div>
           </div>
         </div>

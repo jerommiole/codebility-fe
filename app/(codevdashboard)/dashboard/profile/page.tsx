@@ -14,7 +14,7 @@ import SettingMenu from "./components/SettingMenu"
 import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 
 //  utils
-import { authOptions } from "../../../../lib/authOptions"
+// import { authOptions } from "../../../../lib/authOptions"
 import { getCodev } from "../../../api"
 
 const contactInfoList = {
@@ -33,12 +33,12 @@ async function getData(email: any) {
   return res
 }
 export default async function ProfilePage() {
-  const session = await getServerSession(authOptions)
+  /*  const session = await getServerSession(authOptions)
 
   const data: any = await getData(session?.user?.email)
   if (!session) {
     return redirect("/")
-  }
+  }*/
 
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -65,7 +65,7 @@ export default async function ProfilePage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.{" "}
             </p>
           </div>
-          <UserInfo user={session?.user} />
+          <UserInfo />
           <ProfileCard>
             <div className="flex items-center justify-between">
               <h3 className="mb-[17px] text-xl">About Me</h3>
@@ -86,7 +86,7 @@ export default async function ProfilePage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
             <div className="pt-4">
-              <ContactSocialsInfoForm data={data} />
+              <ContactSocialsInfoForm data={contactInfoList} />
               {/* <ul>
                 {contactInfoList.map((item) => {
                   return (

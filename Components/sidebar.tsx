@@ -28,6 +28,10 @@ import Link from "next/link"
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
 
+  const handleLogOutGoogle = () => {
+    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
+  }
+
   return (
     <>
       <Blinds />
@@ -88,7 +92,7 @@ const Sidebar = () => {
           <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
             Clients
           </SidebarItems>
-          <div className="mt-auto flex flex-col" onClick={() => signOut()}>
+          <div className="mt-auto flex flex-col" onClick={handleLogOutGoogle}>
             <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out
             </SidebarItems>
