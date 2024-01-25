@@ -37,9 +37,9 @@ const ContactSocialsInfoForm: React.FC<Props> = ({ data }) => {
     portfolio_website: false,
   })
 
-  const myUserId = data?.profile[0]?.userId
+  const myUserId = "data?.profile[0]?.userId"
 
-  const filterSocialLink: any = Object.entries(data?.profile[0])
+  const filterSocialLink: any = Object.entries(data)
     .filter(([key, value]) => key.endsWith("_link"))
     .reduce((acc: any, [key, value]) => {
       acc[key] = value

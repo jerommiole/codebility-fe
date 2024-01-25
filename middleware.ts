@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const { nextUrl, cookies } = request
   let cookie = request.cookies.get("x-auth-cookie")
 
-  const protectedRoutes = ["/dashboard"]
+  /* const protectedRoutes = ["/dashboard"]
   if (!cookie && protectedRoutes.includes(nextUrl.pathname)) {
     console.log("Cookie is missing")
     return NextResponse.redirect(new URL("/signin", request.url))
@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
     } else {
       console.log("Token is still valid")
     }
-  }
+  }*/
 }
 
 export const config = {
