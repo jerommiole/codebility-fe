@@ -2,8 +2,6 @@
 
 import React from "react"
 import { Toaster } from "react-hot-toast"
-import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
 
 // components
 import ContactSocialsInfoForm from "../../../../Components/profile/ContactSocialsInfoForm"
@@ -14,8 +12,7 @@ import SettingMenu from "./components/SettingMenu"
 import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
 
 //  utils
-// import { authOptions } from "../../../../lib/authOptions"
-import { getCodev } from "../../../api"
+// import { getCodev } from "../../../api"
 
 const contactInfoList = {
   phone: "+63901234123",
@@ -27,19 +24,12 @@ const contactInfoList = {
   linkedIn: "https://www.facebook.com",
 }
 
-async function getData(email: any) {
+/*async function getData(email: any) {
   const res = await getCodev(email)
 
   return res
-}
+}*/
 export default async function ProfilePage() {
-  /*  const session = await getServerSession(authOptions)
-
-  const data: any = await getData(session?.user?.email)
-  if (!session) {
-    return redirect("/")
-  }*/
-
   const ProfileCard = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="border-box mb-4 w-full rounded-sm border border-gray03 py-11">
