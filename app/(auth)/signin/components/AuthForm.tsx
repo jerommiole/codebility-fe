@@ -1,8 +1,7 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
-import { signIn, useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+
 import SignInputs from "Components/SignInputs"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 
@@ -10,7 +9,6 @@ import { Button } from "Components/ui/button"
 import Image from "next/image"
 
 const AuthForm = () => {
-  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {}, [])
@@ -25,6 +23,10 @@ const AuthForm = () => {
       password: "",
     },
   })
+
+  const googleAuth = () => {
+    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
+  }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data)
@@ -69,7 +71,7 @@ const AuthForm = () => {
         <div className="flex justify-evenly">
           <div
             className="flex w-36 cursor-pointer items-center justify-center gap-4 rounded-md bg-gray-800 p-2 2xl:w-auto 2xl:bg-transparent"
-            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+            onClick={googleAuth}
           >
             <Image src="/google-sign.png" width={20} height={20} alt="facebook-logo" className="h-7 w-7" />
             <p className="hidden 2xl:block">Sign up with Google</p>
