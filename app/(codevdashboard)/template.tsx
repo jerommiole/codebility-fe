@@ -1,23 +1,37 @@
-import { SessionProvider } from "next-auth/react"
-import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
+"use client"
+
+import React, { useEffect } from "react"
 
 import Sidebar from "../../Components/sidebar"
 import Contain from "../../Components/Contain"
-import React from "react"
-import { authOptions } from "../../lib/authOptions"
 
 export default async function Template({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(authOptions)
+  const getUser = async () => {
+    try {
+      const url = `${process.env.NEXT_PUBLIC_BASE_API}/auth/login/success`
 
-  if (!session) {
-    return redirect("/signin")
+      const response = await fetch(url, {
+        method: "GET",
+        credentials: "include",
+      })
+
+      const data = await response.json()
+      console.log("data", data)
+      // setUser(data.user._json);
+    } catch (err) {
+      console.log(err)
+    }
   }
+
+  useEffect(() => {
+    getUser()
+    console.log("rendering...")
+  }, [])
 
   return (
     <>
       <Sidebar />
-      <Contain user={session.user}>{children}</Contain>
+      <Contain>{children}</Contain>
     </>
   )
 }
