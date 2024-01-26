@@ -51,7 +51,7 @@ const SignInputs = ({
   const [showPassword, setShowPassword] = useState(false)
   return (
     <div className="flex flex-col" onClick={onClick}>
-      <label htmlFor={id} className={clsx("ml-5", errors[id] && "text-red-500")}>
+      <label htmlFor={id} className={clsx("text-xs sm:ml-5", errors[id] && "text-red-500")}>
         {label}
       </label>
       <div className="relative flex flex-col">
@@ -62,7 +62,7 @@ const SignInputs = ({
           disabled={disabled}
           {...register(id)}
           className={clsx(
-            "border-b-2 bg-transparent p-5 text-xl placeholder:text-gray-600 focus:outline-none",
+            "text-md border-b-2 bg-transparent p-2 placeholder:text-gray-600 focus:outline-none sm:p-5 sm:text-xl",
             errors[id] ? "border-red-500" : "border-white",
             disabled && "cursor-default opacity-50",
             readonly && "cursor-default",
