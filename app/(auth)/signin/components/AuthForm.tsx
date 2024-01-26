@@ -7,6 +7,12 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 
 import { Button } from "Components/ui/button"
 import Image from "next/image"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { SignInValidation } from "lib/validations/auth"
+import { z } from "zod"
+import SignInInputs from "Components/SigninInputs"
+
+type Inputs = z.infer<typeof SignInValidation>
 
 const AuthForm = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -16,12 +22,12 @@ const AuthForm = () => {
   const {
     register,
     handleSubmit,
+    trigger,
+    reset,
+    watch,
     formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
+  } = useForm<Inputs>({
+    resolver: zodResolver(SignInValidation),
   })
 
   const googleAuth = () => {
@@ -30,6 +36,7 @@ const AuthForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data)
+    reset()
   }
 
   const socialAction = (action: string) => {
@@ -39,7 +46,7 @@ const AuthForm = () => {
   return (
     <div className="relative">
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <SignInputs
+        <SignInInputs
           id="email"
           label="Email"
           placeholder="LoremIpsum@gmail.com"
@@ -49,7 +56,7 @@ const AuthForm = () => {
           type="email"
           required
         />
-        <SignInputs
+        <SignInInputs
           id="password"
           label="Password"
           placeholder="********************"
