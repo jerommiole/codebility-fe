@@ -52,7 +52,7 @@ const SignInInputs = ({
           disabled={disabled}
           {...register(id)}
           className={clsx(
-            "border-b-2 bg-transparent p-5 text-xl placeholder:text-gray-600 focus:outline-none",
+            "text-md border-b-2 bg-transparent p-2 placeholder:text-gray-600 focus:outline-none sm:p-5 sm:text-xl",
             errors[id] ? "border-red-500" : "border-white",
             disabled && "cursor-default opacity-50",
             readonly && "cursor-default",

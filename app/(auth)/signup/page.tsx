@@ -9,7 +9,7 @@ const SignUp = () => {
   const router = useRouter()
   const { onOpen } = useModal()
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen w-full">
       <div className="relative hidden flex-1 justify-between lg:flex lg:flex-col">
         <div className="absolute inset-0">
           <Image
@@ -35,25 +35,34 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-1 flex-col justify-center">
-        <div className="overflow-y-auto overflow-x-hidden px-12 py-20 lg:px-32 2xl:px-36">
-          <Image src="/codebilityLogoBlue.png" width={220} height={50} alt="codebilityLogoBlue" />
-          <p className="my-4 text-base">Nisi lacus sed viverra tellus in hac habitasse platea dictumst</p>
-          <h1 className="my-8 text-xl">Sign Up</h1>
-          <SignUpForm />
-          <div className="my-20 text-center">
-            Have An Account?{" "}
-            <span onClick={() => router.push("/signin")} className="cursor-pointer text-blue-500 hover:underline">
-              Sign In
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer hover:underline">
-              Privacy Policy
-            </span>
-            <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer hover:underline">
-              Terms and Conditions
-            </span>
+      <div className="flex flex-1 flex-col overflow-hidden">
+        <div className="overflow-y-auto px-8">
+          <div className="overflow-x-hidden py-8 sm:mx-auto sm:max-w-[40rem] sm:py-10">
+            <Image
+              className="cursor-pointer"
+              onClick={() => router.push("/")}
+              src="/codebilityLogoBlue.png"
+              width={220}
+              height={50}
+              alt="codebilityLogoBlue"
+            />
+            <p className="my-4 text-base">Nisi lacus sed viverra tellus in hac habitasse platea dictumst</p>
+            <h1 className="my-8 text-xl">Sign Up</h1>
+            <SignUpForm />
+            <div className="my-10 text-center sm:my-20">
+              Have An Account?{" "}
+              <span onClick={() => router.push("/signin")} className="cursor-pointer text-blue-500 hover:underline">
+                Sign In
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer hover:underline">
+                Privacy Policy
+              </span>
+              <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer hover:underline">
+                Terms and Conditions
+              </span>
+            </div>
           </div>
         </div>
       </div>
