@@ -15,6 +15,22 @@ import google from "public/google-sign.png"
 import github from "public/github-signup.png"
 import { useModal } from "hooks/use-modal"
 import { useTechStackStore } from "hooks/use-techstack"
+import { SignUpValidation } from "lib/validations/auth"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+
+type Inputs = z.infer<typeof SignUpValidation>
+
+const steps = [
+  {
+    id: "Step 1",
+    fields: ["name", "address", "email", "githubLink", "portfolioLink"],
+  },
+  {
+    id: "Step 2",
+    fields: ["techstacks", "password", "confirmPassword", "schedule", "position"],
+  },
+]
 
 const AuthForm = () => {
   const router = useRouter()
@@ -25,10 +41,20 @@ const AuthForm = () => {
   const div_2 = useRef<HTMLDivElement>(null)
 
   const delta = currentStep - previousStep
-
+  type FieldName = keyof Inputs
   const next = async () => {
+    const fields = steps[currentStep - 1]?.fields
+    const output = await trigger(fields as FieldName[], { shouldFocus: true })
+    if (!output) return
     setPreviousStep(currentStep)
     setCurrentStep((step) => step + 1)
+  }
+
+  const prev = () => {
+    if (currentStep > 0) {
+      setPreviousStep(currentStep)
+      setCurrentStep((step) => step - 1)
+    }
   }
 
   const icons = [
@@ -50,37 +76,23 @@ const AuthForm = () => {
     },
   ]
 
-  const prev = () => {
-    if (currentStep > 0) {
-      setPreviousStep(currentStep)
-      setCurrentStep((step) => step - 1)
-    }
-  }
-
   useEffect(() => {}, [])
   const { onOpen } = useModal()
 
   const {
     register,
     handleSubmit,
+    trigger,
+    reset,
+    watch,
     formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      name: "",
-      address: "",
-      email: "",
-      githubLink: "",
-      portfolioLink: "",
-      techstacks: [],
-      password: "",
-      confirmPassword: "",
-      schedule: "",
-      position: "",
-    },
+  } = useForm<Inputs>({
+    resolver: zodResolver(SignUpValidation),
   })
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data)
+    reset()
   }
 
   const socialAction = (action: string) => {
