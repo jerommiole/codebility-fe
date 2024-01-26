@@ -1,18 +1,33 @@
+"use client"
+
 import AuthForm from "./components/AuthForm"
 import Image from "next/image"
 
 import SignUpButton from "./components/signUpButton"
+import { useRouter } from "next/navigation"
 
-async function Sign() {
+function Sign() {
+  const router = useRouter()
   return (
     <div className="flex h-screen">
-      <div className="flex flex-1 flex-col justify-center">
-        <div className="overflow-y-auto px-12 py-20 lg:px-32 2xl:px-36">
-          <Image src="/codebilityLogoBlue.png" width={220} height={50} alt="codebilityLogoBlue" />
-          <h1 className="my-5 text-5xl font-semibold">Lorem Ipsum</h1>
-          <h2 className="my-14 text-xl">Sign in</h2>
-          <AuthForm />
-          <SignUpButton />
+      <div className="flex flex-1 flex-col overflow-hidden">
+        <div className="h-full overflow-y-auto px-8 sm:h-auto">
+          <div className="flex h-full flex-col overflow-x-hidden py-8 sm:mx-auto sm:h-auto sm:max-w-[40rem] sm:py-10">
+            <Image
+              className="cursor-pointer"
+              onClick={() => router.push("/")}
+              src="/codebilityLogoBlue.png"
+              width={220}
+              height={50}
+              alt="codebilityLogoBlue"
+            />
+            <h1 className="my-2 text-3xl font-semibold sm:my-5 md:text-5xl">Lorem Ipsum</h1>
+            <div className="flex flex-1 flex-col justify-center">
+              <h2 className="text-md mb-5 sm:mt-10 sm:text-xl md:my-14">Sign in</h2>
+              <AuthForm />
+            </div>
+            <SignUpButton />
+          </div>
         </div>
       </div>
       <div className="relative hidden flex-1 justify-between  lg:flex lg:flex-col">

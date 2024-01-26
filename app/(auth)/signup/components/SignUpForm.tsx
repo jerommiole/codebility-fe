@@ -18,6 +18,7 @@ import { useTechStackStore } from "hooks/use-techstack"
 import { SignUpValidation } from "lib/validations/auth"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import clsx from "clsx"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -63,16 +64,8 @@ const AuthForm = () => {
       icon: google,
     },
     {
-      name: "Github",
-      icon: github,
-    },
-    {
       name: "Facebook",
       icon: facebook,
-    },
-    {
-      name: "Slack",
-      icon: slack,
     },
   ]
 
@@ -234,38 +227,51 @@ const AuthForm = () => {
             />
           </motion.div>
         )}
-
-        {currentStep === 1 && (
-          <Button onClick={() => next()} type="button" className="mt-10 bg-[#6a78f2] p-8 text-white hover:bg-[#3c448b]">
-            Next
-          </Button>
-        )}
-        {currentStep === 2 && (
-          <>
+        <div className={clsx("flex gap-2", currentStep === 2 ? "" : "flex-col")}>
+          {currentStep === 1 && (
             <Button
-              onClick={() => prev()}
+              onClick={() => next()}
               type="button"
-              className="mt-10 bg-[#6a78f2] p-8 text-white hover:bg-[#3c448b]"
+              className="mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b] sm:p-8 sm:text-lg"
             >
-              Previous
+              Next
             </Button>
-            <Button type="submit" className="mt-10 bg-[#6a78f2] p-8 text-white hover:bg-[#3c448b]">
-              Sign Up
-            </Button>
-          </>
-        )}
-
-        <div className="mt-3 inline-flex w-full items-center justify-center">
-          <hr className="my-8 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600" />
-          <span className="absolute left-1/2 -translate-x-1/2 bg-white px-5 font-medium text-gray-900 dark:bg-background dark:text-white">
-            or
+          )}
+          {currentStep === 2 && (
+            <>
+              <Button
+                onClick={() => prev()}
+                type="button"
+                className={clsx(
+                  "mt-8 bg-[#8e47f7] p-5 text-sm font-bold text-white hover:bg-[#8e47f7]/80 sm:p-8 sm:text-lg",
+                  currentStep === 2 && "flex-1"
+                )}
+              >
+                Previous
+              </Button>
+              <Button
+                type="submit"
+                className={clsx(
+                  "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b] sm:p-8 sm:text-lg",
+                  currentStep === 2 && "flex-1"
+                )}
+              >
+                Sign Up
+              </Button>
+            </>
+          )}
+        </div>
+        <div className="inline-flex w-full items-center justify-center">
+          <hr className="my-4 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600 sm:my-8" />
+          <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xs font-medium text-gray-900 dark:bg-background dark:text-white">
+            OR
           </span>
         </div>
         <div className="grid grid-cols-2 gap-2">
           {icons.map((item, index) => (
             <div
               key={`div-${item.name}-${index}`}
-              className="flex cursor-pointer justify-center rounded-md bg-gray-700 p-2 hover:bg-gray-700 2xl:justify-start 2xl:bg-transparent 2xl:pl-24"
+              className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
             >
               <div className="flex gap-2">
                 <Image src={item.icon} width={20} height={20} alt="facebook-logo" className="h-7 w-7" />
