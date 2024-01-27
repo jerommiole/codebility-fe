@@ -166,7 +166,7 @@ const TechStackModal = () => {
     <Dialog open={isModalOpen}>
       <DialogContent
         hasButton
-        className="h-[30rem] max-w-md overflow-y-auto px-8 py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16"
+        className="h-[30rem] max-w-md overflow-y-auto py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16"
       >
         <DialogHeader className="">
           <DialogTitle className="text-center">
@@ -177,7 +177,7 @@ const TechStackModal = () => {
           <p>Filter</p>
           <Image src="/filter.png" alt="filter-icon" height={24} width={24} />
         </div> */}
-        <div className="mx-auto grid w-[20rem] grid-cols-4 gap-2 sm:w-auto">
+        <div className="grid w-full grid-cols-4 gap-2 sm:w-auto">
           {techstack?.map((tech, i) => (
             <div
               className={`flex cursor-pointer items-center justify-center rounded-md border py-1 hover:bg-gray-500/40 sm:justify-normal sm:p-2 ${
@@ -191,19 +191,19 @@ const TechStackModal = () => {
             </div>
           ))}
         </div>
-        <DialogFooter className="mx-auto mt-5 flex w-[20rem] flex-row gap-2 sm:mx-0 sm:w-auto">
+        <DialogFooter className="mt-5 flex w-full flex-row gap-2 sm:mx-0 sm:w-auto">
           <Button
             onClick={() => {
               clearStack()
               onClose()
             }}
-            className="flex-1 bg-[#743bc7] text-lg text-foreground hover:bg-[#743bc7]/50"
+            className="flex-1 bg-[#743bc7] text-sm text-foreground hover:bg-[#743bc7]/50"
           >
             Cancel
           </Button>
           <Button
             onClick={() => onClose()}
-            className="flex-1 bg-[#6876f5] text-lg text-foreground hover:bg-[#6876f5]/50"
+            className="flex-1 bg-[#6876f5] text-sm text-foreground hover:bg-[#6876f5]/50"
           >
             Ok
           </Button>
