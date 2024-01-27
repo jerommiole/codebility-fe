@@ -11,14 +11,14 @@ import {
   fadeInOutUpToDown,
   fadeInOutDownToUp,
 } from "../../Components/FramerAnimation/Framer"
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 
 type CoDevData = []
 export default function Page() {
   const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchCoDevsData = async () => {
       try {
         const res = await fetch(API.CODEVS, { headers: { Accepts: "application/json" } })
