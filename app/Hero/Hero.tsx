@@ -86,7 +86,7 @@ const Hero = () => {
 
       </div>
       <div>
-        <img src="Person.png" alt="" className="absolute right-56 bottom-0 h-[80%] w-auto " />
+        <img src="Person.png" alt="" className="absolute opacity-50  right-56 bottom-0 h-[80%] w-auto " />
       </div>
       <div className="wrapper">
         <div><span className="dot"></span></div>
@@ -101,7 +101,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="z-10 flex flex-col items-center justify-center h-full -translate-y-24">
+      <div className="absolute top-0 bottom-0 left-0 right-0 z-10 flex flex-col items-center justify-center h-full -translate-y-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
