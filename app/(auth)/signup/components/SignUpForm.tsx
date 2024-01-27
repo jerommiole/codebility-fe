@@ -19,6 +19,7 @@ import { SignUpValidation } from "lib/validations/auth"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import clsx from "clsx"
+import { useSchedule } from "hooks/use-timeavail"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -36,7 +37,7 @@ const steps = [
 const AuthForm = () => {
   const router = useRouter()
   const [previousStep, setPreviousStep] = useState(1)
-  const [currentStep, setCurrentStep] = useState(2)
+  const [currentStep, setCurrentStep] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const div_1 = useRef<HTMLDivElement>(null)
   const div_2 = useRef<HTMLDivElement>(null)
@@ -93,8 +94,10 @@ const AuthForm = () => {
   }
 
   const { stack } = useTechStackStore()
+  const { time } = useSchedule()
 
   const string = stack.map((item, i) => item.name)
+  const newTime = (time.from || time.to) && `${time.from} - ${time.to}`
 
   return (
     <div className="relative">
@@ -212,7 +215,11 @@ const AuthForm = () => {
               register={register}
               errors={errors}
               disabled={isLoading}
+              values={newTime}
+              onChange={() => {}}
+              onClick={() => onOpen("scheduleModal")}
               type="text"
+              readonly
               required
             />
             <SignInputs
