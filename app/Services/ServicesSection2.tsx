@@ -75,7 +75,7 @@ const ServicesSection2 = () => {
           variants={fadeInOutDownToUp}
           initial="hidden"
           whileInView="visible"
-          className=" mx-auto mt-10 max-w-[1050px]  text-sm text-primaryColor md:text-center"
+          className="w-full mx-auto mt-10 text-base  text-primaryColor md:text-center"
         >
           At the core of our services, we believe in the transformative power of innovation and design. Our dedicated
           team is committed to crafting solutions that not only meet but exceed the expectations of our clients. We
