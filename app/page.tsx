@@ -30,7 +30,7 @@ export default function Web() {
         <div className="flex flex-col items-center justify-center h-screen gap-10 ">
           <Loader />
           <div className="flex items-center justify-center gap-5">
-          <div>Please Wait</div>
+          <div className="text-primaryColor">Please Wait</div>
           <div className="translate-y-1 dots"></div>
           </div>
         </div>
