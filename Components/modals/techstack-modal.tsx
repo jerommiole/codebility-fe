@@ -1,7 +1,6 @@
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogClose } from "Components/ui/dialog"
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import { useTechStackStore } from "hooks/use-techstack"
-import { icons } from "lucide-react"
 import Image from "next/image"
 import { Tech } from "hooks/use-techstack"
 
@@ -154,7 +153,7 @@ const techstack = [
 
 const TechStackModal = () => {
   const { isOpen, onClose, type } = useModal()
-  const { stack, addRemoveStack } = useTechStackStore()
+  const { stack, addRemoveStack, clearStack } = useTechStackStore()
   const checkArray = (objectItem: Tech) => {
     const isObjectInArray = stack.some((obj) => {
       return JSON.stringify(obj) === JSON.stringify(objectItem)
@@ -164,22 +163,24 @@ const TechStackModal = () => {
 
   const isModalOpen = isOpen && type === "techStackModal"
   return (
-    <Dialog open={isModalOpen} onOpenChange={() => onClose()}>
-      <DialogContent className="h-[30rem] max-w-md overflow-y-auto px-8 py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16">
-        <DialogHeader>
+    <Dialog open={isModalOpen}>
+      <DialogContent
+        hasButton
+        className="h-[30rem] max-w-md overflow-y-auto px-8 py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16"
+      >
+        <DialogHeader className="">
           <DialogTitle className="text-center">
-            <p className="mb-4 text-4xl">TechStack</p>
+            <p className="mb-4 text-xl md:text-4xl">TechStack</p>
           </DialogTitle>
         </DialogHeader>
-        <div className="flex gap-2 py-2">
+        {/* <div className="flex gap-2 py-2">
           <p>Filter</p>
           <Image src="/filter.png" alt="filter-icon" height={24} width={24} />
-        </div>
-
-        <div className="grid grid-cols-4 gap-2">
+        </div> */}
+        <div className="mx-auto grid w-[20rem] grid-cols-4 gap-2 sm:w-auto">
           {techstack?.map((tech, i) => (
             <div
-              className={`flex cursor-pointer items-center justify-center rounded-md p-2 hover:bg-gray-500/40 sm:justify-normal ${
+              className={`flex cursor-pointer items-center justify-center rounded-md border py-1 hover:bg-gray-500/40 sm:justify-normal sm:p-2 ${
                 checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-gray-500/40"
               }`}
               key={`tech-item-${i}`}
@@ -190,14 +191,23 @@ const TechStackModal = () => {
             </div>
           ))}
         </div>
-        {/* <DialogFooter className="mt-5 flex justify-between sm:justify-between">
-          <DialogClose>
-            <Button variant="destructive" className="w-[10rem]">
-              Cancel
-            </Button>
-          </DialogClose>
-          <Button className="w-[10rem] hover:bg-blue-500">Ok</Button>
-        </DialogFooter> */}
+        <DialogFooter className="mx-auto mt-5 flex w-[20rem] flex-row gap-2 sm:mx-0 sm:w-auto">
+          <Button
+            onClick={() => {
+              clearStack()
+              onClose()
+            }}
+            className="flex-1 bg-[#743bc7] text-lg text-foreground hover:bg-[#743bc7]/50"
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={() => onClose()}
+            className="flex-1 bg-[#6876f5] text-lg text-foreground hover:bg-[#6876f5]/50"
+          >
+            Ok
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

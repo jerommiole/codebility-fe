@@ -2,7 +2,7 @@
 
 import clsx from "clsx"
 import { FieldError, FieldErrors, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form"
-import { EyeSVG } from "./logos"
+import { EyeCloseSVG, EyeSVG } from "./logos"
 import { useEffect, useState } from "react"
 import { SignUpValidation, SignInValidation } from "lib/validations/auth"
 import { z } from "zod"
@@ -74,12 +74,13 @@ const SignInputs = ({
           readOnly={readonly}
         />
         {type === "password" && (
-          <EyeSVG
-            onClick={() => setShowPassword((prev) => !prev)}
-            className={`absolute right-5 top-[50%] -translate-y-[50%] cursor-pointer ${
-              showPassword && "text-[#9747ff]"
-            }`}
-          />
+          <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6 sm:w-8">
+            {showPassword ? (
+              <EyeCloseSVG onClick={() => setShowPassword((prev) => !prev)} className="text-[#9747ff]" />
+            ) : (
+              <EyeSVG onClick={() => setShowPassword((prev) => !prev)} className="" />
+            )}
+          </div>
         )}
       </div>
       {errors[id]?.message && (

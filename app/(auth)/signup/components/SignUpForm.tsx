@@ -36,7 +36,7 @@ const steps = [
 const AuthForm = () => {
   const router = useRouter()
   const [previousStep, setPreviousStep] = useState(1)
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(2)
   const [isLoading, setIsLoading] = useState(false)
   const div_1 = useRef<HTMLDivElement>(null)
   const div_2 = useRef<HTMLDivElement>(null)
