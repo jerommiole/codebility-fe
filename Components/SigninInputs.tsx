@@ -4,24 +4,14 @@ import clsx from "clsx"
 import { FieldError, FieldErrors, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form"
 import { EyeCloseSVG, EyeSVG } from "./logos"
 import { useEffect, useState } from "react"
-import { SignUpValidation, SignInValidation } from "lib/validations/auth"
+import { SignInValidation } from "lib/validations/auth"
 import { z } from "zod"
 
-type Inputs = z.infer<typeof SignUpValidation>
+type Inputs = z.infer<typeof SignInValidation>
 
 interface InputProps {
   label: string
-  id:
-    | "name"
-    | "address"
-    | "email"
-    | "githubLink"
-    | "portfolioLink"
-    | "techstacks"
-    | "password"
-    | "confirmPassword"
-    | "schedule"
-    | "position"
+  id: "email" | "password"
   type?: string
   required?: boolean
   register: UseFormRegister<Inputs>
@@ -34,7 +24,7 @@ interface InputProps {
   readonly?: boolean
 }
 
-const SignInputs = ({
+const SignInInputs = ({
   label,
   id,
   type,
@@ -51,7 +41,7 @@ const SignInputs = ({
   const [showPassword, setShowPassword] = useState(false)
   return (
     <div className="flex flex-col" onClick={onClick}>
-      <label htmlFor={id} className={clsx("text-xs sm:ml-5", errors[id] && "text-red-500")}>
+      <label htmlFor={id} className={clsx("ml-5", errors[id] && "text-red-500")}>
         {label}
       </label>
       <div className="relative flex flex-col">
@@ -90,4 +80,4 @@ const SignInputs = ({
   )
 }
 
-export default SignInputs
+export default SignInInputs
