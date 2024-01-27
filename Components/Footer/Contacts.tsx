@@ -12,7 +12,7 @@ const Contacts = ({ imageUrl, alt, name, description }: ContactProps) => {
   return (
     <div className="flex max-w-md gap-3">
       <div className="self-center">
-        <Image src={imageUrl} alt={alt} width={50} height={50} />
+        <Image src={imageUrl} alt={alt} width={40} height={40} />
       </div>
       <div>
         <h1 className="text-xl font-semibold">{name}</h1>

@@ -18,7 +18,7 @@ export default function Page() {
   const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const fetchCoDevsData = async () => {
       try {
         const res = await fetch(API.CODEVS, { headers: { Accepts: "application/json" } })

@@ -79,12 +79,29 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}
-      className="flex-col items-center justify-center w-full min-h-screen overflow-hidden bg-no-repeat bg-cover "
-      style={{ backgroundImage: "url('/HEROBG.png') "}}
+      className="relative flex-col items-center justify-center w-full min-h-screen overflow-hidden bg-no-repeat bg-cover "
+
     >
-   
-     
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="absolute w-screen z-10 -top-80  h-[400px] blur-[200px] md:blur-[500px] GradientHero">
+
+      </div>
+      <div>
+        <img src="Person.png" alt="" className="absolute right-56 bottom-0 h-[80%] w-auto " />
+      </div>
+      <div className="wrapper">
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+        <div><span className="dot"></span></div>
+
+      </div>
+
+      <div className="z-10 flex flex-col items-center justify-center h-full -translate-y-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -112,17 +129,17 @@ const Hero = () => {
           className="mt-14 md:mt-16"
         >
           <Link href="#codevs">
-          <Button 
-            className=" md:w-22 h-12 w-44 items-center justify-center rounded-full
+            <Button
+              className=" md:w-22 h-12 w-44 items-center justify-center rounded-full
              bg-gradient-to-r from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br
              "
-          >
-            <div
-              className={` flex h-full w-full items-center justify-center rounded-full bg-[#030303] text-base text-white ${inter.className}`}
             >
-              See Our Codevs
-            </div>
-          </Button>
+              <div
+                className={` flex h-full w-full items-center justify-center rounded-full bg-[#030303] text-base text-white ${inter.className}`}
+              >
+                See Our Codevs
+              </div>
+            </Button>
           </Link>
         </motion.div>
 
