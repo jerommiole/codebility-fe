@@ -65,8 +65,8 @@ const item = {
 const Navbar = () => {
   const pathname = usePathname()
   return (
-    <header className="fixed z-50 mx-auto w-full bg-zinc-950 ">
-      <div className="flex items-center justify-between border-b border-zinc-900 py-6 ">
+    <header className= "w-full mx-auto shadow-lg  bg-zinc-950">
+      <div className="flex items-center justify-between py-6 border-b border-zinc-900 ">
         <motion.div
           className="mx-auto flex max-w-7xl items-center justify-between px-3.5 lg:w-full"
           variants={HeaderAnimation}
@@ -99,9 +99,9 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="font-inter hidden items-center gap-4 text-base lg:flex">
+          <div className="items-center hidden gap-4 text-base font-inter lg:flex">
             <motion.div variants={item}>
-              <Link href="/signin" className="rounded-full bg-white px-5 py-2 text-black">
+              <Link href="/signin" className="px-5 py-2 text-black bg-white rounded-full">
                 Login
               </Link>
             </motion.div>
@@ -111,14 +111,14 @@ const Navbar = () => {
           </div>
         </motion.div>
         {/*  */}
-        <div className="flex w-full flex-row-reverse items-center justify-between px-5 lg:hidden ">
+        <div className="flex flex-row-reverse items-center justify-between w-full px-5 lg:hidden ">
           <Sheet>
             <SheetTrigger asChild>
               <Button className="bg-transparent ">
                 <MenuIcon className="text-gray-300" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="flex h-screen flex-col items-center justify-center bg-transparent backdrop-blur-sm ">
+            <SheetContent className="flex flex-col items-center justify-center h-screen bg-transparent backdrop-blur-sm ">
               <SheetHeader>
                 <ul className={`space-y-14  `}>
                   {links.map((link, idx) => (
@@ -128,7 +128,7 @@ const Navbar = () => {
                       ) : (
                         <Link
                           href={link.href}
-                          className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100 hover:border-primary hover:text-primary"
+                          className="text-lg font-semibold transition duration-100 border-b-2 border-transparent text-gray-50 hover:border-primary hover:text-primary"
                         >
                           {link.name}
                         </Link>
@@ -136,11 +136,11 @@ const Navbar = () => {
                     </div>
                   ))}
                 </ul>
-                <div className="font-inter items-center pt-10 text-lg lg:flex">
+                <div className="items-center pt-10 text-lg font-inter lg:flex">
                   <div>
                     <Link href="/">Login</Link>
                   </div>
-                  <div className="my-5 rounded-full bg-white px-5 py-1 text-black">
+                  <div className="px-5 py-1 my-5 text-black bg-white rounded-full">
                     <Link href="/">Sign Up</Link>
                   </div>
                 </div>
