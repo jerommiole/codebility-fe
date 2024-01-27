@@ -61,11 +61,11 @@ const item = {
     opacity: 1,
   },
 }
-/*  */
+
 const Navbar = () => {
   const pathname = usePathname()
   return (
-    <header className= "w-full mx-auto shadow-lg  bg-zinc-950">
+    <header className= "w-full mx-auto shadow-lg bg-zinc-950">
       <div className="flex items-center justify-between py-6 border-b border-zinc-900 ">
         <motion.div
           className="mx-auto flex max-w-7xl items-center justify-between px-3.5 lg:w-full"

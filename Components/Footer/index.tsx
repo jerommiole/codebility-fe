@@ -40,47 +40,43 @@ const socials = [
 
 // dummy data
 const footerLinks = [
+ 
   {
-    name: "Lorem Ipsum",
-    footerUrl: "#link1",
-  },
-  {
-    name: "Lorem Ipsum",
+    name: "Privacy Policy",
     footerUrl: "#link2",
   },
   {
-    name: "simply dummy",
+    name: "Co Devs",
     footerUrl: "#link3",
   },
   {
-    name: "simply dummy",
+    name: "Terms and Condition",
     footerUrl: "#link4",
   },
 
   {
-    name: "Lorem Ipsum ",
+    name: "Why Choose Us?",
     footerUrl: "#link5",
   },
   {
-    name: "Lorem Ipsum ",
-    footerUrl: "#link6",
+    name: "",
+    footerUrl: "#link5",
+  },
+
+  {
+    name: "About",
+    footerUrl: "#link2",
+  },
+
+  {
+    name: "",
+    footerUrl: "#link5",
   },
   {
-    name: "simply dummy",
-    footerUrl: "#link7",
+    name: "Services",
+    footerUrl: "#link4",
   },
-  {
-    name: "simply dummy",
-    footerUrl: "#link8",
-  },
-  {
-    name: "Lorem",
-    footerUrl: "#link9",
-  },
-  {
-    name: "Lorem",
-    footerUrl: "#link10",
-  },
+
 ]
 
 const SocialContainer = {
@@ -151,7 +147,7 @@ const Footer = () => {
               whileInView="visible"
               className="flex flex-col items-center gap-4"
             >
-              <h1 className="text-xl font-semibold">CONNECT WITH US</h1>
+              <h1 className="text-sm ">CONNECT WITH US</h1>
               <div className="relative flex max-w-sm">
                 <input
                   type="text"
@@ -198,13 +194,13 @@ const Footer = () => {
             whileInView="visible"
             className="flex flex-col gap-4"
           >
-            <h1 className="text-xl font-semibold">Lorem Ipsum</h1>
-            <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+            <h1 className="text-xl font-semibold">Menu</h1>
+            <div className="grid grid-cols-2 gap-x-10 gap-y-1">
               {footerLinks.map((footerLink, index) => (
                 <Link
                   href={footerLink.footerUrl}
                   key={index}
-                  className="text-sm duration-100 text-secondaryColor hover:scale-105 hover:text-tealColor"
+                  className="text-base font-light duration-100 text-secondaryColor hover:scale-105 hover:text-tealColor"
                 >
                   {footerLink.name}
                 </Link>
