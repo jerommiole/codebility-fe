@@ -10,7 +10,7 @@ interface ContactProps {
 
 const Contacts = ({ imageUrl, alt, name, description }: ContactProps) => {
   return (
-    <div className="flex gap-3">
+    <div className="flex max-w-md gap-3">
       <div className="self-center">
         <Image src={imageUrl} alt={alt} width={50} height={50} />
       </div>
