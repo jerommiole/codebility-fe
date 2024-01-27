@@ -6,8 +6,8 @@ import { fadeInOutUpToDown, fadeInOutDownToUp } from "../../Components/FramerAni
 const WhyJoinUs = () => {
   return (
     <div id="join">
-      <section className="flex flex-col gap-10 bg-backgroundColor py-20 text-primaryColor">
-        <div className="mx-5 max-w-7xl md:mx-16 xl:mx-auto xl:w-[70%]">
+      <section className="flex px-3.5 w-full  mx-auto flex-col gap-10 py-20 items-center justify-center bg-backgroundColor text-primaryColor">
+        <div className="w-full max-w-7xl ">
           <motion.p variants={fadeInOutUpToDown} initial="hidden" whileInView="visible" className="w-max xl:ml-11">
             Codebility
           </motion.p>
@@ -15,10 +15,10 @@ const WhyJoinUs = () => {
             variants={fadeInOutDownToUp}
             initial="hidden"
             whileInView="visible"
-            className="mt-7 flex flex-col gap-12 md:gap-6 lg:flex-row lg:justify-between xl:justify-evenly"
+            className="flex flex-col mt-7 md:gap-6 lg:flex-row lg:justify-between "
           >
-            <h1 className="text-4xl font-bold md:ml-12 md:text-5xl lg:ml-0">Why Choose Us?</h1>
-            <p className="max-w-lg text-sm text-primaryColor md:ml-24 lg:max-w-md">
+            <h1 className="text-4xl font-bold text-tealColor xl:ml-12 md:text-6xl lg:ml-0">Why Choose Us?</h1>
+            <p className="w-full mt-2 text-sm text-primaryColor xl:ml-24 lg:max-w-xl">
               At Codebility, we don't just keep pace with the digital world; we set the trends. Our expertise is built
               on a foundation of innovation, passion, and a deep understanding of the digital landscape. Since our
               inception, we have dedicated ourselves to empowering individuals and businesses alike, turning complex
@@ -26,7 +26,7 @@ const WhyJoinUs = () => {
             </p>
           </motion.div>
         </div>
-        <motion.div className="mx-5 my-5 flex max-w-7xl flex-col gap-5 py-10 md:mx-16  xl:mx-auto xl:w-[70%]">
+        <motion.div className="flex flex-col w-full gap-5 py-10 mx-auto my-5 max-w-7xl">
           <Reasons
             title="Innovative Approach"
             subTitle="Pushing the Boundaries of Creativity"
@@ -52,7 +52,7 @@ const WhyJoinUs = () => {
           whileInView="visible"
           className="mx-5 mt-5 flex max-w-7xl items-center justify-center md:mx-16 md:justify-end lg:justify-center xl:mx-auto xl:w-[70%]"
         >
-          <p className="max-w-sm text-center text-xs lg:max-w-3xl lg:text-sm">
+          <p className="text-center w-fulltext-xs lg:max-w-3xl lg:text-sm">
             This revision aims to convey a sense of expertise, creativity, and client-focused service that Codebility
             offers. It highlights the company's strengths and commitment to delivering tailored solutions.
           </p>

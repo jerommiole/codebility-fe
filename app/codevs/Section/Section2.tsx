@@ -16,7 +16,7 @@ const jsondata = [
 ]
 const Section2 = () => {
   return (
-    <div className="flex h-[auto] w-full flex-col items-center space-y-5 bg-[#151515] p-2 ">
+    <div className="flex h-[auto] flex-col items-center space-y-5 bg-[#151515] p-2 ">
       <div className="flex w-full flex-col  space-y-4 text-center text-[#8E8E8E]">
         <div className="flex flex-col items-center">
           <span>MEET OUR</span>
@@ -31,8 +31,8 @@ const Section2 = () => {
           <span className="text-[#C108FE]">UI/UX Designer</span>
         </div>
       </div>
-      <div className="flex h-[100%] w-[80%] flex-col items-center justify-center space-y-8  p-3">
-        <div className="grid grid-flow-row grid-cols-2 gap-x-12 md:grid-flow-col md:grid-rows-2">
+      <div className="flex h-[100%] w-[100%] flex-col items-center justify-center space-y-8  p-3">
+        <div className="grid grid-flow-row grid-cols-2 gap-x-12 md:grid-flow-col md:grid-rows-3">
           {jsondata.map((data, index) => (
             <Avatars
               key={index}
