@@ -97,9 +97,9 @@ const SocialContainer = {
 const Footer = () => {
   return (
     <footer id="footer" className="flex items-center justify-center bg-backgroundColor text-primaryColor">
-      <div className="mt-28 w-screen">
+      <div className="w-screen mt-28">
         {/* TOP */}
-        <div className="w-90 mx-5 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10 lg:grid-cols-3 xl:mx-auto ">
+        <div className="grid w-full grid-cols-1 gap-16 px-10 max-w-7xl place-items-center lg:mx-10 lg:grid-cols-3 xl:mx-auto ">
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible">
             <Contacts
               imageUrl="/carbon_location-filled.svg"
@@ -127,10 +127,10 @@ const Footer = () => {
             />
           </motion.div>
         </div>
-        <hr className="mx-5 my-16 max-w-7xl opacity-25 lg:mx-10 xl:mx-auto" />
+        <hr className="mx-5 my-16 opacity-25 max-w-7xl lg:mx-10 xl:mx-auto" />
 
         {/* MIDDLE */}
-        <div className="mx-5 mb-28 mt-10 grid max-w-7xl grid-cols-1 place-items-center gap-16 lg:mx-10 lg:grid-cols-3 xl:mx-auto ">
+        <div className="grid grid-cols-1 gap-16 mx-5 mt-10 mb-28 max-w-7xl place-items-center lg:mx-10 lg:grid-cols-3 xl:mx-auto ">
           <motion.div
             variants={fadeInOutLeftToRight}
             initial="hidden"
@@ -156,7 +156,7 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Email Address..."
-                  className="h-10 w-80 rounded-full bg-inputColor px-7 pr-14 text-sm focus:outline-none"
+                  className="h-10 text-sm rounded-full w-80 bg-inputColor px-7 pr-14 focus:outline-none"
                 />
                 <Image
                   src="/send.svg"
@@ -166,7 +166,7 @@ const Footer = () => {
                   className="absolute -right-3 hover:cursor-pointer"
                 />
               </div>
-              <h2 className="text-md font-semibold">Follow us</h2>
+              <h2 className="font-semibold text-md">Follow us</h2>
             </motion.div>
             <motion.div variants={SocialContainer} initial="hidden" whileInView="visible" className="flex gap-5">
               {socials.map((social, index) => (
@@ -204,7 +204,7 @@ const Footer = () => {
                 <Link
                   href={footerLink.footerUrl}
                   key={index}
-                  className="text-sm text-secondaryColor duration-100 hover:scale-105 hover:text-tealColor"
+                  className="text-sm duration-100 text-secondaryColor hover:scale-105 hover:text-tealColor"
                 >
                   {footerLink.name}
                 </Link>
@@ -218,7 +218,7 @@ const Footer = () => {
           variants={fadeInOutDownToUp}
           initial="hidden"
           whileInView="visible"
-          className="flex h-20 items-center justify-center bg-footerColor"
+          className="flex items-center justify-center h-20 bg-footerColor"
         >
           <p className="text-sm text-secondaryColor">
             Copyright &copy; All Right Reserved{" "}

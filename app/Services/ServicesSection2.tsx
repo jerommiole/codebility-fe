@@ -12,10 +12,10 @@ import {
 const ServicesSection2 = () => {
   return (
     <div id="services" className="bg-backgroundColor px-3.5">
-      <div className="mb-16 mt-32 flex w-full flex-col gap-10 md:mt-56 ">
+      <div className="flex flex-col w-full gap-10 mx-auto mb-16 max-w-7xl ">
         <div className="flex flex-col items-center justify-center">
-          <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className=" h-24 ">
-            <h1 className="services z-10 text-center text-4xl font-bold tracking-wider text-primaryColor md:text-5xl">
+          <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="h-24 ">
+            <h1 className="z-10 text-4xl font-bold tracking-wider text-center services text-primaryColor md:text-5xl">
               SERVICES
             </h1>
             <h1 className="services -translate-y-[50px] text-center text-6xl font-bold  tracking-wider text-primaryColor opacity-5 md:-translate-y-[75px] md:text-8xl">
@@ -27,9 +27,9 @@ const ServicesSection2 = () => {
             variants={fadeInOutDownToUp}
             initial="hidden"
             whileInView="visible"
-            className="max-w-[800px]  text-center text-secondaryColor "
+            className="max-w-[800px]  md:text-center text-secondaryColor "
           >
-            <p className="text-xl">Empowering Your Digital Presence</p>
+            <p className="text-xl text-primaryColor">Empowering Your Digital Presence</p>
             <br />
             In the ever-evolving world of digital technology, we stand at the forefront of innovation and design. Our
             services are tailored to meet your unique needs, ensuring that your digital footprint not only stands out
@@ -38,7 +38,7 @@ const ServicesSection2 = () => {
         </div>
         {/* Services Cards */}
 
-        <div className="flex flex-col justify-center gap-8 bg-backgroundColor md:mx-0 md:flex-row lg:mt-10 xl:gap-20 xl:px-20">
+        <div className="flex flex-col justify-center gap-8 bg-backgroundColor md:mx-0 md:flex-row lg:mt-10 xl:gap-6 xl:px-20">
           <motion.div variants={fadeInOutLeftToRight} initial="hidden" whileInView="visible">
             <Card
               title="Web Design"
@@ -75,7 +75,7 @@ const ServicesSection2 = () => {
           variants={fadeInOutDownToUp}
           initial="hidden"
           whileInView="visible"
-          className=" mx-auto mt-10 max-w-[1050px] text-justify  text-sm text-secondaryColor md:text-center"
+          className=" mx-auto mt-10 max-w-[1050px]  text-sm text-primaryColor md:text-center"
         >
           At the core of our services, we believe in the transformative power of innovation and design. Our dedicated
           team is committed to crafting solutions that not only meet but exceed the expectations of our clients. We
