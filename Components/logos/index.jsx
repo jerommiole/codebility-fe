@@ -16,6 +16,7 @@ import AddSVG from "./add"
 import ShowSVG from "./show"
 import FilterSVG from "./filter"
 import EyeSVG from "./eye"
+import EyeCloseSVG from "./eyeclose"
 
 export {
   ClientSVG,
@@ -36,4 +37,5 @@ export {
   ShowSVG,
   FilterSVG,
   EyeSVG,
+  EyeCloseSVG,
 }
