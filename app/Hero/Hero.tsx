@@ -79,11 +79,12 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}
-      className="relative min-h-screen w-full flex-col items-center justify-center overflow-hidden  bg-cover bg-no-repeat"
-      style={{ backgroundImage: "url('/HEROBG.png') " }}
+      className="flex-col items-center justify-center w-full min-h-screen overflow-hidden bg-no-repeat bg-cover "
+      style={{ backgroundImage: "url('/HEROBG.png') "}}
     >
-      <Navbar />
-      <div className="flex h-5/6 flex-col items-center justify-center md:h-full">
+   
+     
+      <div className="flex flex-col items-center justify-center h-screen">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -110,7 +111,8 @@ const Hero = () => {
           transition={{ duration: 0.3 }}
           className="mt-14 md:mt-16"
         >
-          <Button
+          <Link href="#codevs">
+          <Button 
             className=" md:w-22 h-12 w-44 items-center justify-center rounded-full
              bg-gradient-to-r from-[#02FFE2] via-[#6A78F2] to-[#C108FE] p-0.5 hover:bg-gradient-to-br
              "
@@ -118,9 +120,10 @@ const Hero = () => {
             <div
               className={` flex h-full w-full items-center justify-center rounded-full bg-[#030303] text-base text-white ${inter.className}`}
             >
-              Get Starded
+              See Our Codevs
             </div>
           </Button>
+          </Link>
         </motion.div>
 
         <motion.div

@@ -1,5 +1,4 @@
 import React from "react"
-import { motion } from "framer-motion"
 
 type TextAlign = "left" | "center" | "right"
 
@@ -29,10 +28,12 @@ const Card: React.FC<CardProps> = ({
     textAlign: Align,
   }
 
-  const imageClassName = ` md:h-[25px]  md:mt-10 mb-4 rounded-md ${Align === "center" ? "mx-auto" : ""}`
+  const imageClassName = ` h-[25px]  md:mt-10 mb-4 rounded-md ${Align === "center" ? "mx-auto" : ""}`
 
   return (
     <div className=" xl:max-size-[250px]  p-4 shadow-md md:p-6" style={cardStyle}>
+
+
       <img src={imageUrl} alt={title} className={imageClassName} style={cardStyle} />
       <h2
         className={`text-md mb-2 font-semibold text-primaryColor ${centerText ? "text-center" : ""}`}
@@ -43,7 +44,7 @@ const Card: React.FC<CardProps> = ({
       <p className={`text-sm text-secondaryColor ${centerText ? "text-center" : ""}`}>{description}</p>
 
       <button
-        className="mt-5 flex items-center justify-center gap-2 text-sm duration-300 hover:translate-x-2 hover:font-semibold"
+        className="flex items-center justify-center gap-2 mt-5 text-sm duration-300 hover:translate-x-2 hover:font-semibold"
         style={{ color: "#31AFC4" }}
       >
         {link} <img src={icon} alt="" className="h-[8px]" />
