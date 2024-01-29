@@ -41,7 +41,8 @@ const AuthForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const div_1 = useRef<HTMLDivElement>(null)
   const div_2 = useRef<HTMLDivElement>(null)
-
+  const { stack, clearStack, setStack } = useTechStackStore()
+  const { time, clearTime } = useSchedule()
   const delta = currentStep - previousStep
   type FieldName = keyof Inputs
   const next = async () => {
@@ -78,26 +79,27 @@ const AuthForm = () => {
     handleSubmit,
     trigger,
     reset,
-    watch,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: zodResolver(SignUpValidation),
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data)
+    clearTime()
+    clearStack()
     reset()
+    setCurrentStep(1)
   }
 
   const socialAction = (action: string) => {
     console.log(action)
   }
 
-  const { stack } = useTechStackStore()
-  const { time } = useSchedule()
-
-  const string = stack.map((item, i) => item.name)
+  const string = stack.map((item, i) => item.name).join(", ")
   const newTime = (time.from || time.to) && `${time.from} - ${time.to}`
+
+  console.log(newTime)
 
   return (
     <div className="relative">
@@ -173,7 +175,10 @@ const AuthForm = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <SignInputs
-              onClick={() => onOpen("techStackModal")}
+              onClick={(e) => {
+                onOpen("techStackModal")
+                e.target.focus()
+              }}
               id="techstacks"
               label="Tech Stacks"
               placeholder="Java, Node, Python"
@@ -181,12 +186,10 @@ const AuthForm = () => {
               errors={errors}
               disabled={isLoading}
               type="text"
-              values={string.join(", ")}
-              onChange={() => {
-                console.log("wew")
-              }}
+              values={string}
+              onChange={() => {}}
               required
-              readonly
+              // readonly
             />
             <SignInputs
               id="password"
@@ -219,8 +222,8 @@ const AuthForm = () => {
               onChange={() => {}}
               onClick={() => onOpen("scheduleModal")}
               type="text"
-              readonly
               required
+              readonly
             />
             <SignInputs
               id="position"
@@ -259,7 +262,7 @@ const AuthForm = () => {
               <Button
                 type="submit"
                 className={clsx(
-                  "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b] sm:p-8 sm:text-lg",
+                  "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#6a78f2] sm:p-8 sm:text-lg sm:hover:bg-[#3c448b]",
                   currentStep === 2 && "flex-1"
                 )}
               >
