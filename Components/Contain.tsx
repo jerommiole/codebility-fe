@@ -7,6 +7,7 @@ import Image from "next/image"
 
 import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 type ContainProps = {
   children: React.ReactNode
@@ -23,6 +24,8 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
   const goToProfile = () => {
     router.push("/dashboard/profile")
   }
+
+  const session = useSession()
 
   return (
     <div className="relative ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
@@ -42,8 +45,9 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
               </div>
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
-              <p className="font-bold">name</p>
-              <p className="">email</p>
+              <p className="font-bold">{session?.data?.user ? session?.data?.user.name : "name"}</p>
+              {/* @ts-ignore */}
+              <p className="">{session?.data?.user ? session?.data?.user?.email_address : "email"}</p>
             </div>
           </div>
         </div>
