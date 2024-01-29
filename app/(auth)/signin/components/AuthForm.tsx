@@ -13,6 +13,7 @@ import { loginUser } from "app/api"
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import NextAuth from "next-auth"
+import toast from "react-hot-toast"
 
 type Inputs = z.infer<typeof SignInValidation>
 
@@ -48,9 +49,11 @@ const AuthForm = () => {
       redirect: false,
       ...data,
     })
-    console.log(result)
     if (!result?.ok) {
       setIsLoading(false)
+      toast.error("Invalid Credentials")
+    } else {
+      toast.success("Logged In")
     }
   }
 
