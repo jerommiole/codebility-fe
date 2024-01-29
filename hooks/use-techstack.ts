@@ -11,6 +11,7 @@ interface TechStack {
   stack: Tech[]
   addRemoveStack: (tech: Tech) => void
   clearStack: () => void
+  setStack: (i: Tech[]) => void
 }
 
 export const useTechStackStore = create<TechStack>((set) => ({
@@ -27,4 +28,5 @@ export const useTechStackStore = create<TechStack>((set) => ({
       }
     }),
   clearStack: () => set((state) => ({ stack: [] })),
+  setStack: (i) => set((state) => ({ stack: i })),
 }))

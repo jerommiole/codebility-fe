@@ -1,14 +1,14 @@
 "use client"
 
 import React from "react"
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
 import logoPic from "public/Logo.png"
 import logoChar from "public/logoChar.png"
 import logoDark from "public/logoBlack.png"
 
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 import {
   DashboardSVG,
@@ -111,21 +111,35 @@ interface SidebarItemsProps {
 }
 
 const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, lastItem, children, href = "" }) => {
+  const router = useRouter()
   const pathname = usePathname()
   const { activeNav, closeNav } = useNavStore()
   const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
+  const handleSignout = () => {
+    if (lastItem && !href) {
+      signOut()
+    }
+  }
   if (!activeNav) {
     return (
       <TooltipProvider>
         <Tooltip delayDuration={200}>
           <TooltipTrigger className={`${lastItem && "mt-auto"}`}>
-            <Link href={href}>
-              <div className={`nav-items ${isActive && "bg-muted"}`} onClick={closeNav}>
+            {href ? (
+              <Link href={href}>
+                <div className={`nav-items ${isActive && "bg-muted"}`} onClick={closeNav}>
+                  {Component &&
+                    React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
+                  {children}
+                </div>
+              </Link>
+            ) : (
+              <div onClick={handleSignout} className={`nav-items ${isActive && "bg-muted"}`}>
                 {Component &&
                   React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
                 {children}
               </div>
-            </Link>
+            )}
           </TooltipTrigger>
 
           <TooltipContent side="right">
@@ -136,13 +150,23 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
     )
   } else {
     return (
-      <Link href={href}>
-        <div className={`nav-items ${isActive && "bg-muted"} ${lastItem && "mt-auto"}`} onClick={closeNav}>
-          {Component &&
-            React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
-          {children}
-        </div>
-      </Link>
+      <>
+        {href ? (
+          <Link href={href}>
+            <div className={`nav-items ${isActive && "bg-muted"}`} onClick={closeNav}>
+              {Component &&
+                React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
+              {children}
+            </div>
+          </Link>
+        ) : (
+          <div onClick={handleSignout} className={`nav-items ${isActive && "bg-muted"}`}>
+            {Component &&
+              React.cloneElement(Component, { className: `${isActive ? "text-primary" : "text-foreground"}` })}
+            {children}
+          </div>
+        )}
+      </>
     )
   }
 }
