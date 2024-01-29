@@ -18,7 +18,9 @@ module.exports = {
     },
     extend: {
       screens: {
-        tablet: { max: "640px" },
+        phone: { max: "425px" },
+
+        tablet: { max: "767px" },
         // => @media (min-width: 640px) { ... }
 
         laptop: { max: "1024px" },
