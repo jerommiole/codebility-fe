@@ -6,6 +6,8 @@ import { Outfit } from "next/font/google"
 import AuthContext from "./context/AuthContext"
 import { ModalProvider } from "Components/providers/modal-provider"
 import Navbar from "./Hero/Navbar"
+import { SessionProvider } from "next-auth/react"
+import ToasterContext from "./context/ToasterContext"
 export const metadata = {
   title: "Codebility",
   description: "Lorem Ipsum",
@@ -27,10 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          <ModalProvider />
+          <AuthContext>
+            <ToasterContext />
+            <ModalProvider />
 
-          {/* <ThemeModeToggle /> */}
-          {children}
+            {/* <ThemeModeToggle /> */}
+            {children}
+          </AuthContext>
         </ThemeProvider>
       </body>
     </html>
