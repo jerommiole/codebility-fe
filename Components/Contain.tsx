@@ -47,7 +47,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
             <div className="flex flex-col gap-1 tablet:hidden">
               <p className="font-bold">{session?.data?.user ? session?.data?.user.name : "name"}</p>
               {/* @ts-ignore */}
-              <p className="">{session?.data?.user ? session?.data?.user?.email_address : "email"}</p>
+              <p className="">{session?.data?.user ? session?.data?.user?.email : "email"}</p>
             </div>
           </div>
         </div>
