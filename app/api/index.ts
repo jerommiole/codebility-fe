@@ -10,6 +10,21 @@ export async function saveUserData(email: string, updatedData: any) {
   })
 }
 
+export async function loginUser(credentials: any) {
+  const restructuredObject = {
+    email_address: credentials.email,
+    password: credentials.password,
+  }
+  const response = await fetch(`${API.CODEVS}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(restructuredObject),
+  })
+  return response.json()
+}
+
 export async function updateProfile(id: string, updatedData: any) {
   const response = await fetch(`${API.AUTH_GOOGLE_CODEVS}/${id}`, {
     method: "POST",
