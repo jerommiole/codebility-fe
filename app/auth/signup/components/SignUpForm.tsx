@@ -85,21 +85,17 @@ const AuthForm = () => {
   })
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data)
     clearTime()
     clearStack()
     reset()
     setCurrentStep(1)
+    router.push("/signin")
   }
 
-  const socialAction = (action: string) => {
-    console.log(action)
-  }
+  const socialAction = (action: string) => {}
 
   const string = stack.map((item, i) => item.name).join(", ")
   const newTime = (time.from || time.to) && `${time.from} - ${time.to}`
-
-  console.log(newTime)
 
   return (
     <div className="relative">

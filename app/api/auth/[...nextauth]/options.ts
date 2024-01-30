@@ -1,7 +1,6 @@
 import { loginUser } from "app/api"
 import type { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { User } from "app/_types/user"
 
 export const options: NextAuthOptions = {
   providers: [
@@ -23,10 +22,17 @@ export const options: NextAuthOptions = {
       },
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/auth/signin",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
   callbacks: {
     async jwt({ token, user }) {
       const newFile: any = { ...user }
-      console.log(newFile)
       if (user) {
         const client_user_data: any = {
           ...token,
@@ -41,20 +47,16 @@ export const options: NextAuthOptions = {
       return token
     },
     async session({ session, token }) {
-      console.log("Session", session)
-      console.log("Token", token)
-      return {
-        ...session,
-        user: {
+      if (token) {
+        return {
           ...session,
-          ...token,
-        },
+          user: {
+            ...session,
+            ...token,
+          },
+        }
       }
       return session
     },
   },
-  session: {
-    strategy: "jwt",
-  },
-  secret: process.env.NEXTAUTH_SECRET,
 }

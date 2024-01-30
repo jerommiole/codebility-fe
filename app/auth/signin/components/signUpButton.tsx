@@ -9,8 +9,8 @@ const SignUpButton = () => {
   const { onOpen } = useModal()
 
   return (
-    <>
-      <div className="my-10 text-center sm:my-20">
+    <div className="">
+      <div className="mb-10 text-center">
         Don't have an account?{" "}
         <span onClick={() => router.push("/signup")} className="cursor-pointer text-blue-500 hover:underline">
           Sign Up
@@ -24,7 +24,7 @@ const SignUpButton = () => {
           Terms and Conditions
         </span>
       </div>
-    </>
+    </div>
   )
 }
 
