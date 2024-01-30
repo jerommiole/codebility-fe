@@ -24,6 +24,7 @@ import {
 import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
 import Link from "next/link"
+import toast from "react-hot-toast"
 
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
