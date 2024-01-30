@@ -96,11 +96,6 @@ const SignUpInputs = ({
             )}
             placeholder={placeholder}
             ref={inputRef}
-            // defaultValue={s}
-            // value={s}
-            // onChange={(e) => {
-            //   console.log("wew")
-            // }}
             readOnly={readonly}
           />
         ) : (
