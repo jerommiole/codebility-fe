@@ -41,6 +41,7 @@ interface InputProps {
   onChange?: (e: any) => void
   readonly?: boolean
   setValue?: any
+  emailAlreadyExist?: boolean
 }
 
 const SignUpInputs = ({
@@ -57,8 +58,10 @@ const SignUpInputs = ({
   onChange,
   readonly,
   setValue,
+  emailAlreadyExist,
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const [emailExist, setEmailExist] = useState(false)
   const newVal = useMemo(() => {
     return values
   }, [values])
@@ -68,14 +71,22 @@ const SignUpInputs = ({
       setValue(id, newVal ?? "")
     }
   }, [newVal])
+  useEffect(() => {
+    if (emailAlreadyExist) {
+      setEmailExist(true)
+    }
+  }, [emailAlreadyExist])
   const [showPassword, setShowPassword] = useState(false)
   return (
     <div className="flex flex-col" onClick={onClick}>
-      <label htmlFor={id} className={cn("flex items-center justify-between text-xs", errors[id] && "text-red-500")}>
+      <label
+        htmlFor={id}
+        className={cn("flex items-center justify-between text-xs", (errors[id] || emailExist) && "text-red-500")}
+      >
         {label}
-        {errors[id]?.message && (
+        {(errors[id]?.message || emailExist) && (
           <p className="rounded-xl bg-red-900 p-1 px-2 text-xs text-white">
-            {(errors[id]?.message as string) || "An error occurred"}
+            {(errors[id]?.message as string) || "Email already exist"}
           </p>
         )}
       </label>
@@ -107,13 +118,19 @@ const SignUpInputs = ({
             {...register(id)}
             className={cn(
               "text-md border-b-2 bg-transparent p-2 text-sm placeholder:text-gray-600 focus:outline-none",
-              errors[id] ? "border-red-500" : "border-white",
+              errors[id] || emailExist ? "border-red-500" : "border-white",
               disabled && "cursor-default opacity-50",
               readonly && "cursor-default",
               type === "password" && "pr-16"
             )}
             placeholder={placeholder}
             readOnly={readonly}
+            autoFocus={emailAlreadyExist}
+            onChange={() => {
+              if (emailAlreadyExist) {
+                setEmailExist(false)
+              }
+            }}
           />
         )}
         {type === "password" && (
