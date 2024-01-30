@@ -17,7 +17,7 @@ function Sign() {
       router.push("/dashboard")
     }
   }, [session?.status, router])
-  if (session?.status === "loading")
+  if (session?.status === "loading" || session?.status === "authenticated")
     return (
       <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
         <Loader />
