@@ -20,6 +20,8 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import clsx from "clsx"
 import { useSchedule } from "hooks/use-timeavail"
+import { checkEmail, signupUser } from "app/api"
+import toast from "react-hot-toast"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -44,6 +46,8 @@ const AuthForm = () => {
   const { stack, clearStack, setStack } = useTechStackStore()
   const { time, clearTime } = useSchedule()
   const delta = currentStep - previousStep
+  const [emailExist, setEmailExist] = useState(false)
+  const [rawErrors, setRawErrors] = useState<string[]>([])
 
   type FieldName = keyof Inputs
 
@@ -82,17 +86,38 @@ const AuthForm = () => {
     trigger,
     reset,
     setValue,
+    setError,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: zodResolver(SignUpValidation),
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = async () => {
-    clearTime()
-    clearStack()
-    reset()
+  const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
+    setEmailExist(false)
+    setIsLoading(true)
+    const response: any = await checkEmail(data.email)
+    if (!response.success && !response.data) {
+      const createdUser: any = await signupUser(data)
+      if (createdUser.rawErrors) {
+        createdUser.rawErrors.map((rawError: string) => {
+          toast.error(rawError)
+        })
+        setCurrentStep(1)
+        setIsLoading(false)
+        return null
+      }
+      clearTime()
+      clearStack()
+      reset()
+      setCurrentStep(1)
+      toast.success("Account Created")
+      router.push("/auth/signin")
+      return null
+    }
+    setIsLoading(false)
     setCurrentStep(1)
-    router.push("/auth/signin")
+    setEmailExist(true)
+    toast.error("Sign up failed")
   }
 
   const string = stack.map((item, i) => item.name).join(", ")
@@ -142,6 +167,7 @@ const AuthForm = () => {
                 errors={errors}
                 disabled={isLoading}
                 type="email"
+                emailAlreadyExist={emailExist}
                 required
               />
               <SignInputs
@@ -243,6 +269,7 @@ const AuthForm = () => {
                 onClick={() => next()}
                 type="button"
                 className="mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b]"
+                disabled={isLoading}
               >
                 Next
               </Button>
@@ -256,6 +283,7 @@ const AuthForm = () => {
                     "mt-8 bg-[#8e47f7] p-5 text-sm font-bold text-white hover:bg-[#8e47f7]/80",
                     currentStep === 2 && "flex-1"
                   )}
+                  disabled={isLoading}
                 >
                   Previous
                 </Button>
@@ -265,6 +293,7 @@ const AuthForm = () => {
                     "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#6a78f2] sm:hover:bg-[#3c448b]",
                     currentStep === 2 && "flex-1"
                   )}
+                  disabled={isLoading}
                 >
                   Sign Up
                 </Button>

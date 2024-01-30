@@ -25,6 +25,38 @@ export async function loginUser(credentials: any) {
   return response.json()
 }
 
+export async function checkEmail(email: string) {
+  const response = await fetch(`${API.CODEVS}/${email}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  return response.json()
+}
+
+export async function signupUser(data: any) {
+  const restructuredData = {
+    name: data.name,
+    address: data.address,
+    email_address: data.email,
+    github_link: data.githubLink,
+    portfolio_website: data.portfolioLink,
+    tech_stacks: [...data.techstacks.split(", ")],
+    schedule: data.schedule,
+    position: [data.position],
+    password: data.password,
+  }
+  const response = await fetch(`${API.CODEVS}/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(restructuredData),
+  })
+  return response.json()
+}
+
 export async function updateProfile(id: string, updatedData: any) {
   const response = await fetch(`${API.AUTH_GOOGLE_CODEVS}/${id}`, {
     method: "POST",
