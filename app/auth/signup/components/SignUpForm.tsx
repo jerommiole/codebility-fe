@@ -87,30 +87,16 @@ const AuthForm = () => {
     resolver: zodResolver(SignUpValidation),
   })
 
-  // const onSubmit: SubmitHandler<FieldValues> = async () => {
-  //   clearTime()
-  //   clearStack()
-  //   reset()
-  //   setCurrentStep(1)
-  //   router.push("/auth/signin")
-  // }
-
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FieldValues> = async () => {
+    clearTime()
+    clearStack()
+    reset()
+    setCurrentStep(1)
+    router.push("/auth/signin")
   }
 
   const string = stack.map((item, i) => item.name).join(", ")
   const newTime = (time.from || time.to) && `${time.from} - ${time.to}`
-
-  const handleChangeTechStack = (e: any) => {
-    console.log(string)
-  }
-
-  // const onSubmit = async () => {
-  //   const fields = steps[currentStep - 1]?.fields
-  //   const output = await trigger(fields as FieldName[], { shouldFocus: true })
-  //   if (!output) return
-  // }
 
   const socialAction = (action: string) => {}
 
