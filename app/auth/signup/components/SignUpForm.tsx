@@ -1,8 +1,8 @@
 "use client"
 
-import SignInputs from "Components/SignInputs"
+import SignInputs from "Components/SignupInputs"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import { useCallback, useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "Components/ui/button"
@@ -44,7 +44,9 @@ const AuthForm = () => {
   const { stack, clearStack, setStack } = useTechStackStore()
   const { time, clearTime } = useSchedule()
   const delta = currentStep - previousStep
+
   type FieldName = keyof Inputs
+
   const next = async () => {
     const fields = steps[currentStep - 1]?.fields
     const output = await trigger(fields as FieldName[], { shouldFocus: true })
@@ -79,214 +81,233 @@ const AuthForm = () => {
     handleSubmit,
     trigger,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: zodResolver(SignUpValidation),
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    clearTime()
-    clearStack()
-    reset()
-    setCurrentStep(1)
-    router.push("/signin")
-  }
+  // const onSubmit: SubmitHandler<FieldValues> = async () => {
+  //   clearTime()
+  //   clearStack()
+  //   reset()
+  //   setCurrentStep(1)
+  //   router.push("/auth/signin")
+  // }
 
-  const socialAction = (action: string) => {}
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    console.log(data)
+  }
 
   const string = stack.map((item, i) => item.name).join(", ")
   const newTime = (time.from || time.to) && `${time.from} - ${time.to}`
 
+  const handleChangeTechStack = (e: any) => {
+    console.log(string)
+  }
+
+  // const onSubmit = async () => {
+  //   const fields = steps[currentStep - 1]?.fields
+  //   const output = await trigger(fields as FieldName[], { shouldFocus: true })
+  //   if (!output) return
+  // }
+
+  const socialAction = (action: string) => {}
+
   return (
-    <div className="relative">
-      <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-        {currentStep === 1 && (
-          <motion.div
-            className="flex w-full flex-col gap-4 px-2"
-            id="page1"
-            ref={div_1}
-            initial={{ x: delta >= 1 ? "50%" : "-50%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <SignInputs
-              id="name"
-              label="Name"
-              placeholder="John Doe"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              required
-            />
-            <SignInputs
-              id="address"
-              label="Address"
-              placeholder="City, Province/State, Zip Code ,Country"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              required
-            />
-            <SignInputs
-              id="email"
-              label="Email"
-              placeholder="LoremIpsum@gmail.com"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="email"
-              required
-            />
-            <SignInputs
-              id="githubLink"
-              label="Github Link"
-              placeholder="eg. (https://github.com/LoremIpsum)"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              required
-            />
-            <SignInputs
-              id="portfolioLink"
-              label="Portfolio Link"
-              placeholder="eg. (portfolio.vercel.app)"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              required
-            />
-          </motion.div>
-        )}
-        {currentStep === 2 && (
-          <motion.div
-            className="flex w-full flex-col gap-4 px-2"
-            id="page2"
-            ref={div_2}
-            initial={{ x: delta >= 1 ? "50%" : "-50%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <SignInputs
-              onClick={(e) => {
-                onOpen("techStackModal")
-                e.target.focus()
-              }}
-              id="techstacks"
-              label="Tech Stacks"
-              placeholder="Java, Node, Python"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              values={string}
-              onChange={() => {}}
-              required
-              // readonly
-            />
-            <SignInputs
-              id="password"
-              label="Password"
-              placeholder="***************"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="password"
-              required
-            />
-            <SignInputs
-              id="confirmPassword"
-              label="Confirm Password"
-              placeholder="***************"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="password"
-              required
-            />
-            <SignInputs
-              id="schedule"
-              label="Schedule"
-              placeholder="5:30 pm Onwards"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              values={newTime}
-              onChange={() => {}}
-              onClick={() => onOpen("scheduleModal")}
-              type="text"
-              required
-              readonly
-            />
-            <SignInputs
-              id="position"
-              label="Position"
-              placeholder="Front End Developer"
-              register={register}
-              errors={errors}
-              disabled={isLoading}
-              type="text"
-              required
-            />
-          </motion.div>
-        )}
-        <div className={clsx("flex gap-2", currentStep === 2 ? "" : "flex-col")}>
+    <div className="relative flex flex-1 flex-col items-center justify-center py-2">
+      <div className="w-full">
+        <h1 className="mb-4 text-xl">Sign Up</h1>
+        <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           {currentStep === 1 && (
-            <Button
-              onClick={() => next()}
-              type="button"
-              className="mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b] sm:p-8 sm:text-lg"
+            <motion.div
+              className="flex w-full flex-col gap-4 px-2"
+              id="page1"
+              ref={div_1}
+              initial={{ x: delta >= 1 ? "50%" : "-50%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              Next
-            </Button>
+              <SignInputs
+                id="name"
+                label="Name"
+                placeholder="John Doe"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                required
+              />
+              <SignInputs
+                id="address"
+                label="Address"
+                placeholder="City, Province/State, Zip Code ,Country"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                required
+              />
+              <SignInputs
+                id="email"
+                label="Email"
+                placeholder="LoremIpsum@gmail.com"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="email"
+                required
+              />
+              <SignInputs
+                id="githubLink"
+                label="Github Link"
+                placeholder="eg. (https://github.com/LoremIpsum)"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                required
+              />
+              <SignInputs
+                id="portfolioLink"
+                label="Portfolio Link"
+                placeholder="eg. (portfolio.vercel.app)"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                required
+              />
+            </motion.div>
           )}
           {currentStep === 2 && (
-            <>
-              <Button
-                onClick={() => prev()}
-                type="button"
-                className={clsx(
-                  "mt-8 bg-[#8e47f7] p-5 text-sm font-bold text-white hover:bg-[#8e47f7]/80 sm:p-8 sm:text-lg",
-                  currentStep === 2 && "flex-1"
-                )}
-              >
-                Previous
-              </Button>
-              <Button
-                type="submit"
-                className={clsx(
-                  "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#6a78f2] sm:p-8 sm:text-lg sm:hover:bg-[#3c448b]",
-                  currentStep === 2 && "flex-1"
-                )}
-              >
-                Sign Up
-              </Button>
-            </>
-          )}
-        </div>
-        <div className="inline-flex w-full items-center justify-center">
-          <hr className="my-4 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600 sm:my-8" />
-          <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xs font-medium text-gray-900 dark:bg-background dark:text-white">
-            OR
-          </span>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          {icons.map((item, index) => (
-            <div
-              key={`div-${item.name}-${index}`}
-              className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
+            <motion.div
+              className="flex w-full flex-col gap-4 px-2"
+              id="page2"
+              ref={div_2}
+              initial={{ x: delta >= 1 ? "50%" : "-50%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="flex gap-2">
-                <Image src={item.icon} width={20} height={20} alt="facebook-logo" className="h-7 w-7" />
-                <p className="hidden 2xl:block">{item.name}</p>
+              <SignInputs
+                onClick={(e) => {
+                  onOpen("techStackModal")
+                }}
+                id="techstacks"
+                label="Tech Stacks"
+                placeholder="Java, Node, Python"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                values={string}
+                required
+                readonly
+                setValue={setValue}
+              />
+              <SignInputs
+                id="password"
+                label="Password"
+                placeholder="***************"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="password"
+                required
+              />
+              <SignInputs
+                id="confirmPassword"
+                label="Confirm Password"
+                placeholder="***************"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="password"
+                required
+              />
+              <SignInputs
+                id="schedule"
+                label="Schedule"
+                placeholder="5:30 pm Onwards"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                values={newTime}
+                onClick={() => onOpen("scheduleModal")}
+                type="text"
+                required
+                readonly
+                setValue={setValue}
+              />
+              <SignInputs
+                id="position"
+                label="Position"
+                placeholder="Front End Developer"
+                register={register}
+                errors={errors}
+                disabled={isLoading}
+                type="text"
+                required
+              />
+            </motion.div>
+          )}
+          <div className={clsx("flex gap-2", currentStep === 2 ? "" : "flex-col")}>
+            {currentStep === 1 && (
+              <Button
+                onClick={() => next()}
+                type="button"
+                className="mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b]"
+              >
+                Next
+              </Button>
+            )}
+            {currentStep === 2 && (
+              <>
+                <Button
+                  onClick={() => prev()}
+                  type="button"
+                  className={clsx(
+                    "mt-8 bg-[#8e47f7] p-5 text-sm font-bold text-white hover:bg-[#8e47f7]/80",
+                    currentStep === 2 && "flex-1"
+                  )}
+                >
+                  Previous
+                </Button>
+                <Button
+                  type="submit"
+                  className={clsx(
+                    "mt-8 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#6a78f2] sm:hover:bg-[#3c448b]",
+                    currentStep === 2 && "flex-1"
+                  )}
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
+          </div>
+          <div className="inline-flex w-full items-center justify-center">
+            <hr className="my-4 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600 sm:my-8" />
+            <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xs font-medium text-gray-900 dark:bg-background dark:text-white">
+              OR
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {icons.map((icon, index) => (
+              <div
+                key={`div-${icon.name}-${index}`}
+                className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="relative h-4 w-4">
+                    <Image src={icon.icon} alt="facebook-logo" fill className="object-cover" />
+                  </div>
+                  <p className="hidden sm:block">{icon.name}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </form>
+            ))}
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
