@@ -43,20 +43,16 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   // Uncomment this to enable loading screen
 
-  // if (session?.status === "loading")
-  //   return (
-  //     <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
-  //       <Loader />
-  //       <div className="flex items-center justify-center gap-5">
-  //         <div className="text-primaryColor">Please wait</div>
-  //         <div className="dots translate-y-1"></div>
-  //       </div>
-  //     </div>
-  //   )
-
-  //Uncomment this for securing the codevdashboard
-  // if (session?.status === "authenticated")
-
+  if (session?.status === "loading")
+    return (
+      <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
+        <Loader />
+        <div className="flex items-center justify-center gap-5">
+          <div className="text-primaryColor">Please wait</div>
+          <div className="dots translate-y-1"></div>
+        </div>
+      </div>
+    )
   return (
     <>
       <Sidebar />

@@ -1,12 +1,13 @@
 "use client"
 
-import AuthForm from "./components/AuthForm"
+import AuthForm from "./components/SignInForm"
 import Image from "next/image"
 
-import SignUpButton from "./components/signUpButton"
+import SignUpButton from "./components/signInFooter"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import { useEffect } from "react"
+import Loader from "Components/loader"
 
 function Sign() {
   const session = useSession()
@@ -16,23 +17,35 @@ function Sign() {
       router.push("/dashboard")
     }
   }, [session?.status, router])
+  if (session?.status === "loading")
+    return (
+      <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
+        <Loader />
+        <div className="flex items-center justify-center gap-5">
+          <div className="text-primaryColor">Please wait</div>
+          <div className="dots translate-y-1"></div>
+        </div>
+      </div>
+    )
   if (session?.status === "unauthenticated")
     return (
-      <div className="flex h-screen">
-        <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex h-screen py-4 sm:py-0">
+        <div className="flex flex-1 flex-col overflow-auto">
           <div className="h-full px-8">
-            <div className="flex h-full flex-col overflow-x-hidden py-8 sm:mx-auto sm:max-w-[40rem] sm:py-10">
-              <Image
-                className="cursor-pointer"
-                onClick={() => router.push("/")}
-                src="/codebilityLogoBlue.png"
-                width={220}
-                height={50}
-                alt="codebilityLogoBlue"
-              />
+            <div className="flex h-full flex-col sm:mx-auto sm:max-w-[40rem] sm:py-10">
+              <div className="relative -ml-1 h-10 w-[12rem]">
+                <Image
+                  className="cursor-pointer object-cover"
+                  onClick={() => router.push("/")}
+                  src="/codebilityLogoBlue.png"
+                  fill
+                  alt="codebilityLogoBlue"
+                />
+              </div>
+
               <h1 className="my-2 text-3xl font-semibold sm:my-5">Lorem Ipsum</h1>
               <div className=" flex flex-1 flex-col justify-center">
-                <AuthForm />{" "}
+                <AuthForm />
               </div>
               <SignUpButton />
             </div>
