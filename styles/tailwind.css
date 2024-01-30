@@ -86,7 +86,7 @@
   }
 
   .navigation {
-    @apply mx-[24px] mb-[24px] flex flex-1 flex-col gap-2 sm:gap-5;
+    @apply mx-[24px] mb-[24px] flex flex-1 flex-col gap-2;
     /* height: calc(100% - 10px); */
   }
 
@@ -103,7 +103,7 @@
   }
 
   .blinds {
-    @apply fixed top-0 left-0 z-40 w-0 h-screen transition-opacity duration-500;
+    @apply fixed left-0 top-0 z-40 h-screen w-0 transition-opacity duration-500;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(2px);
   }
@@ -121,11 +121,9 @@ body {
   scroll-behavior: smooth;
 }
 
-
 /* Scroll bar */
 ::-webkit-scrollbar {
   width: 5px;
-  
 }
 
 /* Track */
@@ -136,12 +134,12 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #02FFE2;
+  background: #02ffe2;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #C108FE;
+  background: #c108fe;
 }
 
 /* Spinner Loaders */
@@ -152,7 +150,7 @@ body {
   transform-style: preserve-3d;
 }
 
-.spinner>div {
+.spinner > div {
   background-color: rgba(193, 8, 254, 0.2);
   height: 100%;
   position: absolute;
@@ -209,23 +207,31 @@ body {
   background: #ffffff;
   color: #ffffff;
   border-radius: 50%;
-  box-shadow: 9.6px 0, -9.6px 0;
+  box-shadow:
+    9.6px 0,
+    -9.6px 0;
   animation: dots-u8fzftmn 1.4s infinite linear alternate;
 }
 
 @keyframes dots-u8fzftmn {
   0% {
-    box-shadow: 9.6px 0, -9.6px 0;
+    box-shadow:
+      9.6px 0,
+      -9.6px 0;
     background: "";
   }
 
   33% {
-    box-shadow: 9.6px 0, -9.6px 0 rgba(255, 255, 255, 0.13);
+    box-shadow:
+      9.6px 0,
+      -9.6px 0 rgba(255, 255, 255, 0.13);
     background: rgba(255, 255, 255, 0.13);
   }
 
   66% {
-    box-shadow: 9.6px 0 rgba(255, 255, 255, 0.13), -9.6px 0;
+    box-shadow:
+      9.6px 0 rgba(255, 255, 255, 0.13),
+      -9.6px 0;
     background: rgba(255, 255, 255, 0.13);
   }
 }
@@ -274,7 +280,7 @@ body {
 }
 
 .wrapper div:nth-child(1) {
-  box-shadow: inset 0 0 10px 1px #02FFE2;
+  box-shadow: inset 0 0 10px 1px #02ffe2;
 
   top: 20%;
   left: 20%;
@@ -282,49 +288,49 @@ body {
 }
 
 .wrapper div:nth-child(2) {
-  box-shadow: inset 0 0 10px 1px #C108FE;
+  box-shadow: inset 0 0 10px 1px #c108fe;
   top: 60%;
   left: 80%;
   animation: animate 10s linear infinite;
 }
 
 .wrapper div:nth-child(3) {
-  box-shadow: inset 0 0 10px 1px #6A78F2;
+  box-shadow: inset 0 0 10px 1px #6a78f2;
   top: 40%;
   left: 40%;
   animation: animate 3s ease infinite;
 }
 
 .wrapper div:nth-child(4) {
-  box-shadow: inset 0 0 10px 1px #D9D9D9;
+  box-shadow: inset 0 0 10px 1px #d9d9d9;
   top: 66%;
   left: 30%;
   animation: animate 7s linear infinite;
 }
 
 .wrapper div:nth-child(5) {
-  box-shadow: inset 0 0 10px 1px #02FFE2;
+  box-shadow: inset 0 0 10px 1px #02ffe2;
   top: 90%;
   left: 10%;
   animation: animate 9s ease infinite;
 }
 
 .wrapper div:nth-child(6) {
-  box-shadow: inset 0 0 10px 1px #6A78F2;
+  box-shadow: inset 0 0 10px 1px #6a78f2;
   top: 30%;
   left: 60%;
   animation: animate 5s linear infinite;
 }
 
 .wrapper div:nth-child(7) {
-  box-shadow: inset 0 0 10px 1px #C108FE;
+  box-shadow: inset 0 0 10px 1px #c108fe;
   top: 70%;
   left: 20%;
   animation: animate 8s ease infinite;
 }
 
 .wrapper div:nth-child(8) {
-  box-shadow: inset 0 0 10px 1px #D9D9D9;
+  box-shadow: inset 0 0 10px 1px #d9d9d9;
   top: 75%;
   left: 60%;
   animation: animate 10s linear infinite;
@@ -345,7 +351,6 @@ body {
     transform: scale(1.3) translateY(-100px) rotate(360deg);
   }
 }
-
 
 /* Gradient for Hero */
 .GradientHero {
