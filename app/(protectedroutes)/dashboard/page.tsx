@@ -6,7 +6,7 @@ import H from "public/hero2.png"
 
 export default async function DashboardPage() {
   return (
-    <div className=" flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:overflow-hidden lg:p-0">
+    <div className="flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:overflow-hidden lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
         <Title
           title="Company Overview"

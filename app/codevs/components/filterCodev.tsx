@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react"
 import Image from "next/image"
-import { interns, positions, positionsSm } from "../../(codevdashboard)/Interns/DummyData"
+import { interns, positions, positionsSm } from "../../(protectedroutes)/Interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
@@ -29,13 +29,13 @@ const FilterCodev = ({ codevs }: any) => {
 
   return (
     <>
-      <div onClick={handelFilterToggle} className="relative flex self-end gap-4 mt-2 cursor-pointer lg:hidden px-3.5">
+      <div onClick={handelFilterToggle} className="relative mt-2 flex cursor-pointer gap-4 self-end px-3.5 lg:hidden">
         <p className="text-base text-primaryColor">Filter</p>
-        <Image src="/filter.svg" alt="filter" width={13} height={13} className="w-auto h-auto" />
+        <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
 
         {filterToggle && (
           <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-sm">
-            <div className="flex justify-end w-full">
+            <div className="flex w-full justify-end">
               <Image
                 src="/Close.svg"
                 alt="close"
@@ -109,11 +109,11 @@ const FilterCodev = ({ codevs }: any) => {
           className="hidden lg:relative lg:flex lg:cursor-pointer lg:gap-4"
         >
           <p className="text-sm text-primaryColor">Filter</p>
-          <Image src="/filter.svg" alt="filter" width={20} height={20} className="w-auto h-auto" />
+          <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
           {filterToggle && (
             <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
-              <div className="flex justify-end w-full">
+              <div className="flex w-full justify-end">
                 <Image
                   src="/Close.svg"
                   alt="close"
@@ -146,7 +146,7 @@ const FilterCodev = ({ codevs }: any) => {
         variants={box}
         initial="hidden"
         whileInView="visible"
-        className="grid grid-cols-2 py-10 mt-20 sm:grid-cols-3 gap-x-10 gap-y-32 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24"
+        className="mt-20 grid grid-cols-2 gap-x-10 gap-y-32 py-10 sm:grid-cols-3 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24"
       >
         {/* DEV CARD */}
         {filteredData.map((intern) => (
@@ -163,9 +163,9 @@ const FilterCodev = ({ codevs }: any) => {
                   width={100}
                   height={100}
                   priority
-                  className="absolute z-10 h-auto duration-300 bottom-9 hover:-translate-y-5"
+                  className="absolute bottom-9 z-10 h-auto duration-300 hover:-translate-y-5"
                 />
-                <div className="relative flex flex-col items-center w-40 text-center">
+                <div className="relative flex w-40 flex-col items-center text-center">
                   <Image src={Wavey} alt="wave" width={105} height={20} className="z-20 h-auto border-none" />
                   <h1 className="absolute bottom-0 z-30 w-full text-base font-bold text-darkBlueColor">
                     {intern.name}
@@ -246,10 +246,10 @@ const FilterCodev = ({ codevs }: any) => {
                 ))}
               </div>
               <Link
-                className="flex items-center justify-center gap-3 mt-1 hover:cursor-pointer"
+                className="mt-1 flex items-center justify-center gap-3 hover:cursor-pointer"
                 href={`/codevs/${intern.name}`}
               >
-                <p className="text-sm fw-semibold text-darkBlueColor">Read Bio</p>
+                <p className="fw-semibold text-sm text-darkBlueColor">Read Bio</p>
                 <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
               </Link>
             </div>
