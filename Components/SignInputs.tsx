@@ -72,9 +72,6 @@ const SignInputs = ({
           value={values}
           onChange={onChange}
           readOnly={readonly}
-          onVolumeChangeCapture={() => {
-            console.log("wew")
-          }}
         />
         {type === "password" && (
           <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6 sm:w-8">
