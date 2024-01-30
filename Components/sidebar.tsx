@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { signOut, useSession } from "next-auth/react"
+import { getSession, signOut } from "next-auth/react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
 import logoPic from "public/Logo.png"
@@ -92,7 +92,7 @@ const Sidebar = () => {
           <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
             Clients
           </SidebarItems>
-          <div className="mt-auto flex flex-col" onClick={handleLogOutGoogle}>
+          <div className="mt-auto flex flex-col">
             <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out
             </SidebarItems>
@@ -115,9 +115,10 @@ const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component,
   const pathname = usePathname()
   const { activeNav, closeNav } = useNavStore()
   const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
-  const handleSignout = () => {
-    if (lastItem && !href) {
-      signOut()
+  const handleSignout = async () => {
+    const session = await getSession()
+    if (session) {
+      await signOut()
     }
   }
   if (!activeNav) {
