@@ -23,11 +23,13 @@ export default function Page() {
   useEffect(() => {
     const fetchCoDevsData = async () => {
       try {
-        const res = await fetch(API.CODEVS)
-
-        //TODO replace any with CoDevData type above
-        const result = (await res.json()) as any[]
-        setData(result)
+        const response = await axios("https://codebility-be.onrender.com/api/v1/production/users")
+        if (!response) {
+          throw new Error("Error: Cannot get users")
+        }
+        setData(response.data.data);
+        console.log(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.error(error)
       } finally {
@@ -40,6 +42,9 @@ export default function Page() {
     fetchCoDevsData()
   }, [])
 
+  if (isLoading) {
+    return <div className="bg-black">Loading....</div>
+  }
 
   return (
     <motion.div
@@ -63,21 +68,14 @@ export default function Page() {
         </motion.div>
       </div>
 
-      {isLoading ? (
-        <div className="flex items-center justify-center h-screen">
-          <div className="CodevsSpinner"></div>
-
-        </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center w-full py-10 mb-5 bg-white rounded mt-7 bg-opacity-5">
-          <motion.div variants={fadeInOutUpToDown} initial="hidden" whileInView="visible">
-            <h3 className="text-xl text-center uppercase text-secondaryColor">Meet our</h3>
-            <h2 className="text-5xl font-semibold text-center uppercase">Co Devs</h2>
-            <p className="text-sm text-center text-secondaryColor">The Pioneers Behind the Code</p>
-          </motion.div>
-          <FilterCodev codevs={data} />
-        </div>
-      )}
+      <div className="mb-5 mt-7 flex w-full  max-w-7xl flex-col items-center justify-center gap-1 rounded bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
+        <motion.div variants={fadeInOutUpToDown} initial="hidden" whileInView="visible">
+          <h3 className="text-center text-xl uppercase text-secondaryColor">Meet our</h3>
+          <h2 className="text-center text-5xl font-semibold uppercase">Co Devs</h2>
+          <p className="text-center text-sm text-secondaryColor">The Pioneers Behind the Code</p>
+        </motion.div>
+        <FilterCodev codevs={data} />
+      </div>
 
       <motion.div
         variants={fadeInOutDownToUp}
