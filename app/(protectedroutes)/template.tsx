@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation"
 export default function Template({ children }: { children: React.ReactNode }) {
   const session = useSession()
   const router = useRouter()
+  console.log(session)
   if (session?.status === "loading")
     return (
       <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
