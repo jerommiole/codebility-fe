@@ -28,6 +28,10 @@ const SignInForm = () => {
     resolver: zodResolver(SignInValidation),
   })
 
+  const googleAuth = () => {
+    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
+  }
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)
     const result = await signIn("credentials", {
@@ -42,7 +46,21 @@ const SignInForm = () => {
     }
   }
 
-  const socialAction = (action: string) => {}
+  const socialAction = async (action: string) => {
+    setIsLoading(true)
+
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error("Invalid Credentials")
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success("Logged In!")
+        }
+      })
+      .finally(() => setIsLoading(false))
+  }
 
   return (
     <div className="relative flex flex-1 flex-col items-center justify-center">
@@ -81,7 +99,10 @@ const SignInForm = () => {
             </span>
           </div>
           <div className="flex justify-evenly gap-2">
-            <div className="flex flex-1 cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
+            <div
+              onClick={googleAuth}
+              className="flex flex-1 cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
+            >
               <div className="flex items-center gap-2">
                 <div className="relative h-6 w-6">
                   <Image src="/google-sign.png" alt="facebook-logo" fill className="object-cover" />
