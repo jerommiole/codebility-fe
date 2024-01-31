@@ -38,7 +38,7 @@ const SignInForm = () => {
       redirect: false,
       ...data,
     })
-    if (!result || !result.ok || result.status === 5000) {
+    if (!result || result.status === 5000) {
       toast.error("Something went wrong")
       setIsLoading(false)
       return null
