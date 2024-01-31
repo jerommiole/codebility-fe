@@ -28,9 +28,7 @@ import Link from "next/link"
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
 
-  const handleLogOutGoogle = () => {
-    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
-  }
+  const handleLogOutGoogle = () => {}
 
   return (
     <>
