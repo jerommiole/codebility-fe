@@ -46,9 +46,6 @@ export async function signupUser(data: any) {
   try {
     const response = await fetch(`${API.CODEVS}/create`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: sendData,
     })
     return response.json()
