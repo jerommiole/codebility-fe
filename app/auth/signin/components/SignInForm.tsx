@@ -38,6 +38,11 @@ const SignInForm = () => {
       redirect: false,
       ...data,
     })
+    if (!result || !result.ok || result.status === 5000) {
+      toast.error("Something went wrong")
+      setIsLoading(false)
+      return null
+    }
     if (!result?.ok) {
       setIsLoading(false)
       toast.error("Invalid Credentials")
