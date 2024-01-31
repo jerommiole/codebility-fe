@@ -11,23 +11,25 @@ import {
   fadeInOutUpToDown,
   fadeInOutDownToUp,
 } from "../../Components/FramerAnimation/Framer"
-import { useEffect, useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 type CoDevData = []
 export default function Page() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<any[]>([])
+
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchCoDevsData = async () => {
       try {
-        const res = await fetch(API.CODEVS, { headers: { Accepts: "application/json" } })
-        if (!res.ok) {
-          throw new Error("Failed to fetch data")
+        const response = await axios("https://codebility-be.onrender.com/api/v1/production/users")
+        if (!response) {
+          throw new Error("Error: Cannot get users")
         }
-        //TODO replace any with CoDevData type above
-        const result = (await res.json()) as any
-        setData(result)
+        setData(response.data.data)
+        console.log(response.data)
+        setIsLoading(false)
       } catch (error) {
         console.error(error)
       } finally {
@@ -39,6 +41,10 @@ export default function Page() {
 
     fetchCoDevsData()
   }, [])
+
+  if (isLoading) {
+    return <div className="bg-black">Loading....</div>
+  }
 
   return (
     <motion.div
@@ -76,6 +82,15 @@ export default function Page() {
           <FilterCodev codevs={data} />
         </div>
       )}
+
+      <div className="mb-5 mt-7 flex w-full  max-w-7xl flex-col items-center justify-center gap-1 rounded bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
+        <motion.div variants={fadeInOutUpToDown} initial="hidden" whileInView="visible">
+          <h3 className="text-center text-xl uppercase text-secondaryColor">Meet our</h3>
+          <h2 className="text-center text-5xl font-semibold uppercase">Co Devs</h2>
+          <p className="text-center text-sm text-secondaryColor">The Pioneers Behind the Code</p>
+        </motion.div>
+        <FilterCodev codevs={data} />
+      </div>
 
       <motion.div
         variants={fadeInOutDownToUp}

@@ -24,7 +24,9 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
         hostname: 'res.cloudinary.com',
       },{
         hostname: 'lh3.googleusercontent.com',
-      },
+      }, {
+        hostname: 'images.unsplash.com'
+      }
     ]
   }
 })
