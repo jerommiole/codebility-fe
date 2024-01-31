@@ -25,7 +25,7 @@ const AuthForm = () => {
   })
 
   const googleAuth = () => {
-    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
+    window.open(`${process.env.NEXT_PUBLIC_BASE_API}/auth/google`, "_self")
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
