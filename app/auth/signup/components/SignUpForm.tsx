@@ -3,16 +3,14 @@
 import SignInputs from "Components/SignupInputs"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import { useEffect, useState, useRef } from "react"
-import { signIn, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "Components/ui/button"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
-import slack from "public/slack-signup.png"
 import facebook from "public/facebook-sign.png"
 import google from "public/google-sign.png"
-import github from "public/github-signup.png"
 import { useModal } from "hooks/use-modal"
 import { useTechStackStore } from "hooks/use-techstack"
 import { SignUpValidation } from "lib/validations/auth"
@@ -20,7 +18,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import clsx from "clsx"
 import { useSchedule } from "hooks/use-timeavail"
-import { checkEmail, signupUser } from "app/api"
+import { signupUser } from "app/api"
 import toast from "react-hot-toast"
 
 type Inputs = z.infer<typeof SignUpValidation>
@@ -95,29 +93,34 @@ const AuthForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
     setEmailExist(false)
     setIsLoading(true)
-    const response: any = await checkEmail(data.email)
-    if (!response.success && !response.data) {
-      const createdUser: any = await signupUser(data)
-      if (createdUser.rawErrors) {
-        createdUser.rawErrors.map((rawError: string) => {
-          toast.error(rawError)
-        })
-        setCurrentStep(1)
-        setIsLoading(false)
-        return null
-      }
-      clearTime()
-      clearStack()
-      reset()
+
+    const createdUser: any = await signupUser(data)
+    if (createdUser.rawErrors) {
+      createdUser.rawErrors.map((rawError: string) => {
+        toast.error(rawError)
+      })
       setCurrentStep(1)
-      toast.success("Account Created")
-      router.push("/auth/signin")
+      setIsLoading(false)
       return null
     }
-    setIsLoading(false)
+    if (
+      createdUser &&
+      createdUser.data?.errorCode === "P2002" &&
+      createdUser.data?.errorTarget?.includes("email_address")
+    ) {
+      setIsLoading(false)
+      setCurrentStep(1)
+      setEmailExist(true)
+      toast.error("Sign up failed")
+      return null
+    }
+    clearTime()
+    clearStack()
+    reset()
     setCurrentStep(1)
-    setEmailExist(true)
-    toast.error("Sign up failed")
+    toast.success("Account Created")
+    router.push("/auth/signin")
+    return null
   }
 
   const string = stack.map((item, i) => item.name).join(", ")

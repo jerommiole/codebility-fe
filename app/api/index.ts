@@ -25,16 +25,6 @@ export async function loginUser(credentials: any) {
   return response.json()
 }
 
-export async function checkEmail(email: string) {
-  const response = await fetch(`${API.CODEVS}/${email}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-  return response.json()
-}
-
 export async function signupUser(data: any) {
   const restructuredData = {
     name: data.name,
