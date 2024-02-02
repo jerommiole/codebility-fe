@@ -1,36 +1,27 @@
-import React,{useState} from 'react'
-import Link from 'next/link';
-import StyledRadio from './StyledRadio';
+import React, { useState } from "react"
+import Link from "next/link"
+import StyledRadio from "./StyledRadio"
 
-interface props{
-    notetitles:string;
+interface props {
+  notetitles: string
 }
 
+const UserMiniCard = ({ notetitles }: props) => {
+  const [isChecked, setIsChecked] = useState(false)
 
-const UserMiniCard = ({notetitles}:props) => {
-    const [isChecked, setIsChecked] = useState(false);
-
-    const toggleCheck = () => {
-      setIsChecked(!isChecked);
-      console.log("Checked state is now:", !isChecked);
-    };
+  const toggleCheck = () => {
+    setIsChecked(!isChecked)
+    // console.log("Checked state is now:", !isChecked);
+  }
   return (
-    <div className="flex  w-full h-full p-5 bg-[#181818] bg-opacity-[50%] rounded">
-        <div className="flex space-x-4">
-                <StyledRadio
-                    id="customCheckbox"
-                    checked={isChecked}
-                    onChange={toggleCheck}
-
-                    />
-                    <span>{notetitles}</span>
-        </div>
-        <div className="flex-grow text-right text-[#6A78F2]">
-            <Link  href="#">
-                View
-          </Link>
-          </div>
-
+    <div className="flex  h-full w-full rounded bg-[#181818] bg-opacity-[50%] p-5">
+      <div className="flex space-x-4">
+        <StyledRadio id="customCheckbox" checked={isChecked} onChange={toggleCheck} />
+        <span>{notetitles}</span>
+      </div>
+      <div className="flex-grow text-right text-[#6A78F2]">
+        <Link href="#">View</Link>
+      </div>
     </div>
   )
 }

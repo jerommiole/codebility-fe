@@ -6,18 +6,29 @@ import Image from "next/image"
 import SignUpButton from "./components/signInFooter"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Loader from "Components/loader"
+import useGoogleAuthCookie from "hooks/use-cookie"
+import { getCookies } from "lib/cookies"
 
 function Sign() {
   const session = useSession()
   const router = useRouter()
+  const googleAuthCredentials = useGoogleAuthCookie()
+  // const [currentUser, setCurrentUser] = useState<any>({})
   useEffect(() => {
-    if (session?.status === "authenticated") {
+    if (session?.status === "authenticated" || googleAuthCredentials?.status === "authenticated") {
       router.push("/dashboard")
     }
-  }, [session?.status, router])
-  if (session?.status === "loading" || session?.status === "authenticated")
+  }, [session?.status, googleAuthCredentials?.status, router])
+
+  // console.log(currentUser)
+  if (
+    session?.status === "loading" ||
+    session?.status === "authenticated" ||
+    googleAuthCredentials?.status === "loading" ||
+    googleAuthCredentials?.status === "authenticated"
+  )
     return (
       <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
         <Loader />
