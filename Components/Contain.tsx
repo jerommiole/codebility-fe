@@ -28,8 +28,6 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
 
   const session = useSession()
   const gooogleAuth = useGoogleAuthCookie()
-  console.log("googleAuth", gooogleAuth)
-  console.log("session", session)
 
   return (
     <div className="relative ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
