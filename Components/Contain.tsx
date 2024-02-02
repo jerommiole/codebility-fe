@@ -8,6 +8,7 @@ import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
+import useGoogleAuthCookie from "hooks/use-cookie"
 
 type ContainProps = {
   children: React.ReactNode
@@ -26,6 +27,9 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
   }
 
   const session = useSession()
+  const gooogleAuth = useGoogleAuthCookie()
+  console.log("googleAuth", gooogleAuth)
+  console.log("session", session)
 
   return (
     <div className="relative ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
@@ -41,20 +45,24 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
           <div className="relative flex cursor-pointer items-center gap-2 px-4 tablet:hidden" onClick={goToProfile}>
             <div className="relative h-14 w-14">
               <div className="flex h-full w-full items-center justify-center">
-                {/*<Image src={"/avatar.png"} alt="avatar" className="rounded-full" fill />*/}
+                <Image
+                  src={gooogleAuth?.data?.image ?? "/defaultAvatar.png"}
+                  alt="avatar"
+                  className="rounded-full"
+                  fill
+                />
               </div>
             </div>
             <div className="flex flex-col gap-1 tablet:hidden">
-              <p className="font-bold">{session?.data?.user ? session?.data?.user.name : "name"}</p>
+              <p className="font-bold">{session?.data?.user?.name ?? gooogleAuth?.data?.name ?? "name"}</p>
               {/* @ts-ignore */}
-              <p className="">{session?.data?.user ? session?.data?.user?.email : "email"}</p>
+              <p className="w-[10rem] overflow-hidden text-ellipsis">
+                {session?.data?.user?.email ?? gooogleAuth?.data?.email ?? "email"}
+              </p>
             </div>
           </div>
         </div>
       </div>
-      {/* Content */}
-      {/* lg:overflow-hidden */}
-      {/* ${!activeNav ? "overflow-y-auto" : "overflow-y-hidden"} */}
       <div className={`flex min-h-0 flex-1 overflow-hidden`}>
         <div
           className={`flex-1 ${

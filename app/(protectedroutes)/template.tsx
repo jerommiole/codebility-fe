@@ -1,18 +1,20 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 
 import Sidebar from "../../Components/sidebar"
 import Contain from "../../Components/Contain"
 import { useSession } from "next-auth/react"
 import Loader from "Components/loader"
+import { getCookies } from "lib/cookies"
+import useGoogleAuthCookie from "hooks/use-cookie"
 import { useRouter } from "next/navigation"
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const session = useSession()
+  const googleAuth = useGoogleAuthCookie()
   const router = useRouter()
-  console.log(session)
-  if (session?.status === "loading")
+  if (session?.status === "loading" || googleAuth?.status === "loading")
     return (
       <div className="fixed left-0 top-0 z-20 flex h-screen w-screen flex-col items-center justify-center gap-10 bg-black">
         <Loader />
@@ -22,7 +24,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         </div>
       </div>
     )
-  if (session?.status === "authenticated")
+  if (session?.status === "authenticated" || googleAuth?.status === "authenticated")
     return (
       <>
         <Sidebar />
