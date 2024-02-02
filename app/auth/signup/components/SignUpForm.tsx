@@ -94,7 +94,7 @@ const AuthForm = () => {
     setEmailExist(false)
     setIsLoading(true)
     const createdUser: any = await signupUser(data)
-    console.log(createdUser)
+    // console.log(createdUser)
     if (!createdUser || createdUser.status === 500) {
       toast.error("Something went wrong")
       setIsLoading(false)

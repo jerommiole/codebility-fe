@@ -28,7 +28,7 @@ export default function Page() {
           throw new Error("Error: Cannot get users")
         }
         setData(response.data.data)
-        console.log(response.data)
+        // console.log(response.data)
         setIsLoading(false)
       } catch (error) {
         console.error(error)

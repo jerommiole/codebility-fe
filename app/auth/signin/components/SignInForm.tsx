@@ -9,7 +9,7 @@ import { z } from "zod"
 import SignInInputs from "Components/SigninInputs"
 import { signIn } from "next-auth/react"
 import toast from "react-hot-toast"
-import { useRouter } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 
 type Inputs = z.infer<typeof SignInValidation>
 
@@ -29,7 +29,7 @@ const SignInForm = () => {
   })
 
   const googleAuth = () => {
-    window.open("http://localhost:9000/api/v1/development/auth/google", "_self")
+    window.open(`${process.env.NEXT_PUBLIC_BASE_API}/auth/google`, "_self")
   }
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {

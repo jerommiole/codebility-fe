@@ -25,6 +25,7 @@ import Image from "next/image"
 import { useNavStore } from "hooks/use-sidebar"
 import Link from "next/link"
 import toast from "react-hot-toast"
+import useGoogleAuthCookie from "hooks/use-cookie"
 
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
@@ -112,13 +113,15 @@ interface SidebarItemsProps {
 const SidebarItems: React.FC<SidebarItemsProps> = ({ passedComponent: Component, lastItem, children, href = "" }) => {
   const router = useRouter()
   const pathname = usePathname()
+  const googleAuthSession = useGoogleAuthCookie()
   const { activeNav, closeNav } = useNavStore()
   const isActive = (pathname.includes(href) && href?.length > 1) || pathname === href
   const handleSignout = async () => {
-    const session = await getSession()
-    if (session) {
-      await signOut()
+    if (googleAuthSession.status === "authenticated") {
+      signOut({ callbackUrl: "/auth/signout" })
+      return null
     }
+    signOut()
   }
   if (!activeNav) {
     return (
