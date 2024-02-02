@@ -20,6 +20,7 @@ import clsx from "clsx"
 import { useSchedule } from "hooks/use-timeavail"
 import { signupUser } from "app/api"
 import toast from "react-hot-toast"
+import { makeApiCallWithTimeout } from "lib/timeoutcall"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -91,10 +92,11 @@ const AuthForm = () => {
   })
 
   const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
+    //TODO: Finalizing Sign up backend
     setEmailExist(false)
     setIsLoading(true)
-    const createdUser: any = await signupUser(data)
-    // console.log(createdUser)
+    const createdUser: any = await makeApiCallWithTimeout(signupUser(data), 2000)
+    console.log(createdUser)
     if (!createdUser || createdUser.status === 500) {
       toast.error("Something went wrong")
       setIsLoading(false)
