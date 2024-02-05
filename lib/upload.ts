@@ -15,7 +15,7 @@ export async function upload(ev: React.ChangeEvent<HTMLInputElement>, callbackFn
       }).then((response) => {
         if (response.ok) {
           response.json().then((link: any) => {
-            console.log(link.secure_url)
+            // console.log(link.secure_url)
             callbackFn(link.secure_url)
             resolve(link.secure_url)
           })

@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server"
 import { API } from "../../lib/constants"
 
 export async function saveUserData(email: string, updatedData: any) {
@@ -15,14 +16,45 @@ export async function loginUser(credentials: any) {
     email_address: credentials.email,
     password: credentials.password,
   }
-  const response = await fetch(`${API.CODEVS}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(restructuredObject),
-  })
-  return response.json()
+  try {
+    const response = await fetch(`${API.CODEVS}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(restructuredObject),
+    })
+    return response.json()
+  } catch (e: any) {
+    return new NextResponse("INTERNAL_SERVER_ERROR", { status: 500 })
+  }
+}
+
+export async function signupUser(data: any) {
+  const restructuredData = {
+    name: data.name,
+    address: data.address,
+    email_address: data.email,
+    github_link: data.githubLink,
+    portfolio_website: data.portfolioLink,
+    tech_stacks: [...data.techstacks.split(", ")],
+    schedule: data.schedule,
+    position: [data.position],
+    password: data.password,
+  }
+  const sendData = JSON.stringify(restructuredData)
+  try {
+    const response = await fetch(`${API.CODEVS}/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: sendData,
+    })
+    return response.json()
+  } catch (e: any) {
+    return new NextResponse("INTERNAL_SERVER_ERROR", { status: 500 })
+  }
 }
 
 export async function updateProfile(id: string, updatedData: any) {
