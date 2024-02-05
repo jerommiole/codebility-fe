@@ -1,38 +1,31 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-
+import { options } from "app/api/auth/[...nextauth]/options"
 import { jwtDecode } from "jwt-decode"
 
-export function middleware(request: NextRequest) {
-  const { nextUrl, cookies } = request
-  let cookie = request.cookies.get("x-auth-cookie")
-
-  /* const protectedRoutes = ["/dashboard"]
-  if (!cookie && protectedRoutes.includes(nextUrl.pathname)) {
-    console.log("Cookie is missing")
-    return NextResponse.redirect(new URL("/signin", request.url))
+export async function middleware(request: NextRequest) {
+  const { nextUrl, cookies, headers } = request
+  let cookie1 = cookies.get("x-auth-cookie")
+  let sessionToken = cookies.get("next-auth.session-token")
+  if (!cookies.has("x-auth-cookie") && !cookies.has("next-auth.session-token")) {
+    return NextResponse.redirect(new URL(`${options.pages?.signIn}`, request.url))
   }
-
-  if (cookie) {
-    const decodedData: any = jwtDecode(cookie?.value as string)
-
+  if (nextUrl.pathname === "/auth/signout") {
+    const response = NextResponse.redirect(new URL(options.pages?.signIn as string, request.url))
+    response.cookies.delete("x-auth-cookie")
+    response.cookies.delete("next-auth.session-token")
+    return response
+  }
+  if (cookie1) {
+    const decodedData: any = jwtDecode(cookie1?.value as string)
     if (decodedData?.exp * 1000 < Date.now()) {
-      console.log("Token has expired")
-    } else {
-      console.log("Token is still valid")
+      const response = NextResponse.redirect(new URL(options.pages?.signIn as string, request.url))
+      response.cookies.delete("x-auth-cookie")
+      return response
     }
-  }*/
+  }
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!api|auth/signin|auth/signup|codevs|_next/static|.*\\..*|_next/image|$).*)"],
 }

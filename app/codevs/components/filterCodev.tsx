@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { interns, positions, positionsSm } from "../../(codevdashboard)/Interns/DummyData"
+import { interns, positions, positionsSm } from "../../(protectedroutes)/Interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
@@ -131,7 +131,9 @@ export default function FilterCodev({ codevs }: any) {
         >
           <p className="text-sm text-primaryColor">Filter</p>
           <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
+
           {/* FILTER CARD FOR DESKTOP SCREEN */}
+
           {filterToggle && (
             <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
               <div className="flex w-full justify-end">
@@ -174,6 +176,9 @@ export default function FilterCodev({ codevs }: any) {
       {/* MAY CONFLICT PO SA ANIMATION KAYA COMMENT KO PO MUNA, 
           HINDI NAGDIDISPLAY KAPAG NAG FILTER, NAKA LANG HIDE SYA*/}
       <motion.div
+        variants={box}
+        initial="hidden"
+        whileInView="visible"
         // variants={box}
         // initial="hidden" <-- DAHIL PO SIGURO DITO
         // whileInView="visible"

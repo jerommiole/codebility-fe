@@ -71,41 +71,42 @@ const ScheduleModal = () => {
         onClose()
       }}
     >
-      <DialogContent className="max-w-md overflow-y-auto py-8 sm:max-w-2xl sm:px-12 sm:py-16">
+      <DialogContent className="max-w-[20rem] overflow-y-auto py-8 sm:px-8 sm:py-12">
         <DialogHeader className="">
           <DialogTitle className="text-center">
-            <h1 className="text-xl md:text-4xl">Work Time Availability</h1>
+            <p className="text-xl">Work Time Availability</p>
           </DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col justify-between sm:flex-row">
-          <div className="mb-4 flex flex-col gap-2 sm:mb-0 sm:flex-row">
-            <div className="flex h-10 items-center justify-between gap-2 sm:justify-normal">
-              <label htmlFor="from" className="text-sm sm:text-xl">
-                From
-              </label>
-              <input
-                onChange={(e) => convertTo12HourFormat(e.target.value, "from")}
-                className="text-xl outline-none sm:bg-transparent"
-                type="time"
-                id="from"
-                value={convertTo24HourFormat(time.from)}
-              />
-            </div>
-            <div className="hidden h-full w-[1px] bg-white/30 sm:block"></div>
-            <div className="flex h-10 items-center justify-between gap-2 sm:justify-normal">
-              <label htmlFor="to" className="text-sm sm:text-xl">
-                To
-              </label>
-              <input
-                onChange={(e) => convertTo12HourFormat(e.target.value, "to")}
-                className="text-xl outline-none sm:bg-transparent"
-                type="time"
-                id="to"
-                value={convertTo24HourFormat(time.to)}
-              />
+        <div className="flex flex-col justify-between">
+          <div>
+            <div className="mx-auto mb-4 flex max-w-[15rem] flex-col gap-2">
+              <div className="flex h-10 items-center justify-between gap-2">
+                <label htmlFor="from" className="text-sm sm:text-xl">
+                  From
+                </label>
+                <input
+                  onChange={(e) => convertTo12HourFormat(e.target.value, "from")}
+                  className="text-xl outline-none sm:bg-transparent"
+                  type="time"
+                  id="from"
+                  value={convertTo24HourFormat(time.from)}
+                />
+              </div>
+              <div className="flex h-10 items-center justify-between gap-2">
+                <label htmlFor="to" className="text-sm sm:text-xl">
+                  To
+                </label>
+                <input
+                  onChange={(e) => convertTo12HourFormat(e.target.value, "to")}
+                  className="text-xl outline-none sm:bg-transparent"
+                  type="time"
+                  id="to"
+                  value={convertTo24HourFormat(time.to)}
+                />
+              </div>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="mt-2 flex gap-4">
             <Button
               onClick={() => {
                 clearTime()

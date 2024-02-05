@@ -48,8 +48,8 @@ const SignInInputs = ({
         <input
           id={id}
           type={!showPassword ? type : "text"}
-          autoComplete={id}
           disabled={disabled}
+          autoComplete={id}
           {...register(id)}
           className={clsx(
             "text-md border-b-2 bg-transparent p-2 placeholder:text-gray-600 focus:outline-none sm:p-5 sm:text-xl",
@@ -59,9 +59,6 @@ const SignInInputs = ({
             type === "password" && "pr-16"
           )}
           placeholder={placeholder}
-          value={values}
-          onChange={onChange}
-          readOnly={readonly}
         />
         {type === "password" && (
           <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6 sm:w-8">
