@@ -32,7 +32,7 @@ const Contain: React.FC<ContainProps> = ({ children }) => {
   return (
     <div className="relative ml-[103px] flex h-screen flex-col overflow-hidden bg-background tablet:ml-0">
       {/* Header */}
-      <div className="flex w-full items-center justify-between bg-gray-100 px-4 py-2 lg:pr-16 tablet:pr-5">
+      <div className="flex w-full items-center justify-between bg-background px-4 py-2 lg:pr-16 tablet:pr-5">
         <div>
           <ToggleMenu />
         </div>
