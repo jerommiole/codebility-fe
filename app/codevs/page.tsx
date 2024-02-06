@@ -68,7 +68,7 @@ export default function Page() {
         </motion.div>
       </div>
 
-      {isLoading ? (
+      {/*      {isLoading ? (
         <div className="flex h-screen items-center justify-center">
           <div className="CodevsSpinner"></div>
         </div>
@@ -81,7 +81,7 @@ export default function Page() {
           </motion.div>
           <FilterCodev codevs={data} />
         </div>
-      )}
+      )}*/}
 
       <div className="mb-5 mt-7 flex w-full  max-w-7xl flex-col items-center justify-center gap-1 rounded bg-white bg-opacity-5 p-5 md:w-[85%] lg:w-[90%] xl:w-[80%]">
         <motion.div variants={fadeInOutUpToDown} initial="hidden" whileInView="visible">
