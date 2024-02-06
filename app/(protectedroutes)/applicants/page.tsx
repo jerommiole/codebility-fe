@@ -55,18 +55,18 @@ const ApplicantsPage = () => {
         <TableHeader>
           <TableRow>
             <TableHead></TableHead>
-            <TableHead className="text-center">Name</TableHead>
-            <TableHead className="text-center">Gmail</TableHead>
-            <TableHead className="text-center">Github Link</TableHead>
-            <TableHead className="text-center">Portfolio Link</TableHead>
-            <TableHead className="text-center">Tech Stack</TableHead>
-            <TableHead className="text-center"></TableHead>
+            <TableHead className="min-w-[200px] text-center">Name</TableHead>
+            <TableHead className="min-w-[200px] text-center">Gmail</TableHead>
+            <TableHead className="min-w-[200px] text-center">Github Link</TableHead>
+            <TableHead className="min-w-[200px] text-center">Portfolio Link</TableHead>
+            <TableHead className="min-w-[200px] text-center">Tech Stack</TableHead>
+            <TableHead></TableHead>
             <TableHead className="text-center">Approval</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {applicants.map((applicant) => (
-            <TableRow>
+          {applicants.map((applicant, i) => (
+            <TableRow key={i}>
               <TableCell>
                 <Checkbox />
               </TableCell>
@@ -74,16 +74,20 @@ const ApplicantsPage = () => {
               <TableCell className="text-center">{applicant.gmail}</TableCell>
               <TableCell className="text-center">{applicant.github}</TableCell>
               <TableCell className="text-center">{applicant.portfolio}</TableCell>
-              <TableCell className="flex w-full items-center justify-center gap-2 text-center">
-                {/* Render Image components only on the client-side */}
-                {applicant.techstacks.map((techstack, index) => (
-                  <Image key={index} src={techstack} width={15} height={5} alt="" />
-                ))}
+              <TableCell className="h-full w-full">
+                <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 ">
+                  {/* Render Image components only on the client-side */}
+                  {applicant.techstacks.map((techstack, index) => (
+                    <Image key={index} src={techstack} objectFit="contain" width={15} height={5} alt="" />
+                  ))}
+                </div>
               </TableCell>
               <TableCell className="text-center"></TableCell>
-              <TableCell className="flex items-center justify-center gap-4">
-                <button className="hover:underline">Accept</button>
-                <button className="hover:underline">Deny</button>
+              <TableCell className="">
+                <div className="flex h-full w-full items-center justify-center gap-4">
+                  <button className="hover:underline">Accept</button>
+                  <button className="hover:underline">Deny</button>
+                </div>
               </TableCell>
             </TableRow>
           ))}
