@@ -92,6 +92,9 @@ const Sidebar = () => {
           <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
             Clients
           </SidebarItems>
+          <SidebarItems href="/applicants" passedComponent={<ClientSVG />}>
+            Applicants
+          </SidebarItems>
           <div className="mt-auto flex flex-col">
             <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out
