@@ -56,15 +56,7 @@ export default function FilterCodev({ codevs }: any) {
               {positionsSm.map((position) => (
                 <p
                   key={position}
-                  onClick={() =>
-                    setByCategory(
-                      position === "Frontend Developer"
-                        ? "Front End Developer"
-                        : position === "Backend Developer"
-                        ? "Back End Developer"
-                        : position
-                    )
-                  }
+                  onClick={() => setByCategory(position)}
                   className="rounded-md px-2 py-1 hover:bg-[#6A78F2]"
                 >
                   {position}
@@ -86,15 +78,7 @@ export default function FilterCodev({ codevs }: any) {
             initial="hidden"
             whileInView="visible"
             key={p.position}
-            onClick={() =>
-              setByCategory(
-                p.position === "Frontend Developer"
-                  ? "Front End Developer"
-                  : p.position === "Backend Developer"
-                  ? "Back End Developer"
-                  : p.position
-              )
-            }
+            onClick={() => setByCategory(p.position)}
           >
             {p.position === "Full Stack Developer" ? (
               <div title={p.position} className="flex items-center justify-center gap-3 hover:cursor-pointer">
@@ -151,15 +135,7 @@ export default function FilterCodev({ codevs }: any) {
                 {positionsSm.map((position) => (
                   <p
                     key={position}
-                    onClick={() =>
-                      setByCategory(
-                        position === "Frontend Developer"
-                          ? "Front End Developer"
-                          : position === "Backend Developer"
-                          ? "Back End Developer"
-                          : position
-                      )
-                    }
+                    onClick={() => setByCategory(position)}
                     className="rounded-md px-2 py-1 hover:bg-[#6A78F2]"
                   >
                     {position}
@@ -182,7 +158,7 @@ export default function FilterCodev({ codevs }: any) {
              variants={box}
             initial="hidden"
             whileInView="visible"
-            className="flex h-40 w-40 flex-col items-center justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
+            className="flex h-40 w-40 flex-col items-center gap-1 justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
