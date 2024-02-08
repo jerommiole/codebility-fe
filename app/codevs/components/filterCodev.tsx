@@ -34,7 +34,7 @@ export default function FilterCodev({ codevs }: any) {
 
   return (
     <>
-      <div onClick={handelFilterToggle} className="relative mt-2 flex cursor-pointer gap-4 self-end lg:hidden ">
+      <div onClick={handelFilterToggle} className="relative mt-2 px-3.5 flex cursor-pointer gap-4 self-end lg:hidden ">
         <p className="text-base text-primaryColor">Filter</p>
         <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
         {/* FILTER CARD FOR MOBILE AND TABLET SCREEN */}
@@ -133,7 +133,6 @@ export default function FilterCodev({ codevs }: any) {
           <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
 
           {/* FILTER CARD FOR DESKTOP SCREEN */}
-
           {filterToggle && (
             <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-[#0E0E0E] p-3 text-xs">
               <div className="flex w-full justify-end">
@@ -173,21 +172,17 @@ export default function FilterCodev({ codevs }: any) {
       </motion.div>
 
       {/* TEAM SECTION */}
-      {/* MAY CONFLICT PO SA ANIMATION KAYA COMMENT KO PO MUNA, 
-          HINDI NAGDIDISPLAY KAPAG NAG FILTER, NAKA LANG HIDE SYA*/}
       <motion.div
-        variants={box}
-        initial="hidden"
-        whileInView="visible"
-        // variants={box}
-        // initial="hidden" <-- DAHIL PO SIGURO DITO
-        // whileInView="visible"
         className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 py-10 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24"
       >
         {/* DEV CARD */}
         {filteredData.map((user: any) => (
           <motion.div variants={item} key={user.id} className="flex flex-col items-center justify-center gap-2 ">
-            <div className="flex h-40 w-40 flex-col items-center justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
+            <motion.div 
+             variants={box}
+            initial="hidden"
+            whileInView="visible"
+            className="flex h-40 w-40 flex-col items-center justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -296,7 +291,7 @@ export default function FilterCodev({ codevs }: any) {
                 <p className="fw-semibold text-sm text-darkBlueColor">Read Bio</p>
                 <Image src="/back.svg" alt="see website" priority width={15} height={15} className="w-auto" />
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>
