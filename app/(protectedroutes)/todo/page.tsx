@@ -22,13 +22,13 @@ const TodoPage = () => {
         <h1 className="font-semibold sm:text-xl md:text-2xl">TO DO LIST</h1>
         <div className="flex items-center gap-4 text-xs sm:text-base">
           <div className="flex items-center gap-2">
-            Add <AddSVG className="text-text4" />
+            Add <AddSVG className="text-text4 cursor-pointer" />
           </div>
           <div className="flex items-center gap-2">
-            Filter <FilterSVG className="text-text4" />
+            Filter <FilterSVG className="text-text4 cursor-pointer" />
           </div>
           <div className="flex items-center gap-2">
-            Priority <SvgPriority />
+            Priority <SvgPriority className="cursor-pointer"/>
           </div>
         </div>
       </div>
@@ -37,11 +37,11 @@ const TodoPage = () => {
           // Add key prop
           <TodoCard key={i} />
         ))}
-        <Card className="mx-auto flex h-[260px] w-full max-w-[400px] items-center justify-center">
-          <p className="flex items-center gap-2">
-            <AddSVG className="text-text4" />
+        <Card className="mx-auto flex h-[240px] w-full max-w-[400px] items-center justify-center cursor-pointer">
+          <div className="flex items-center gap-2">
+            <AddSVG className="text-text4 cursor-pointer" />
             ADD NEW TASK
-          </p>
+          </div>
         </Card>
       </div>
       <Pagination className="mt-4">
