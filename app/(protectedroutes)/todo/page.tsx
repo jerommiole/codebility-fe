@@ -44,7 +44,7 @@ const TodoPage = () => {
           </div>
         </Card>
       </div>
-      <Pagination className="right-0 mt-4 w-[350px] md:absolute md:-bottom-14 xl:-bottom-8">
+      <Pagination className="right-0 mt-4 w-[350px] sm:absolute sm:-bottom-14 xl:-bottom-8">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious href="#" />
