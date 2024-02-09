@@ -18,7 +18,7 @@ import { Card } from "Components/ui/card"
 const TodoPage = () => {
   return (
     <div className="relative flex h-full flex-col justify-between ">
-      <div className="my-4 flex items-center justify-between px-1 sm:px-10 md:px-0">
+      <div className="my-4 flex items-center justify-between px-1 ">
         <h1 className="font-semibold sm:text-xl md:text-2xl">TO DO LIST</h1>
         <div className="flex items-center gap-4 text-xs sm:text-base">
           <div className="flex items-center gap-2">
@@ -32,12 +32,12 @@ const TodoPage = () => {
           </div>
         </div>
       </div>
-      <div className="mb-4 grid place-items-start gap-2 overflow-y-scroll md:grid-cols-2 xl:grid-cols-3">
+      <div className="mb-4 grid place-items-start gap-2 overflow-y-scroll sm:grid-cols-2 xl:grid-cols-3">
         {"qwert".split("").map((i) => (
           // Add key prop
           <TodoCard key={i} />
         ))}
-        <Card className="mx-auto flex h-[250px] w-full max-w-[400px] cursor-pointer items-center justify-center">
+        <Card className="mx-auto flex h-[250px] w-full cursor-pointer items-center justify-center">
           <div className="flex items-center gap-2">
             <AddSVG className="cursor-pointer text-text4" />
             ADD NEW TASK
