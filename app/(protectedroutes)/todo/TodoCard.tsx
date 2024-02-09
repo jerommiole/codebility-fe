@@ -5,15 +5,15 @@ import { SvgBox, SvgPin, SvgMore, SvgWarning } from "assets/icons"
 
 const TodoCard = () => {
   return (
-    <Card className="mx-auto h-[260px] w-full max-w-[400px] p-3 ">
+    <Card className="mx-auto h-[240px] w-full max-w-[400px] p-3 ">
       <div className="flex justify-between">
         <div className="flex w-[60px] items-center justify-between">
-          <SvgBox />
-          <SvgPin />
+          <SvgBox className="cursor-pointer" />
+          <SvgPin className="cursor-pointer" />
         </div>
         <div className="flex w-[65px] items-center justify-between">
-          <SvgWarning className="text-text4" />
-          <SvgMore className="text-text4" />
+          <SvgWarning className="cursor-pointer" />
+          <SvgMore className="cursor-pointer" />
         </div>
       </div>
       {/* Card Content  */}
