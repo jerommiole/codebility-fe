@@ -5,7 +5,7 @@ import { SvgBox, SvgPin, SvgMore, SvgWarning } from "assets/icons"
 
 const TodoCard = () => {
   return (
-    <Card className="mx-auto h-[250px] w-full p-3 ">
+    <Card className="mx-auto flex h-[250px] w-full flex-col justify-between p-3 ">
       <div className="flex justify-between">
         <div className="flex w-[60px] items-center justify-between">
           <SvgBox className="cursor-pointer" />
@@ -22,18 +22,17 @@ const TodoCard = () => {
           <h1 className="font-600 text-xl text-[#02FFE2]">JIRA TICKET</h1>
           <p className="text-xs text-gray-500">11/28/2023</p>
         </div>
-        <p className="text-xs text-[#9747FF] xl:text-sm">
-          Git Link : https://github.com/mitzukin/AnyStore
-        </p>
+        <p className=" text-sm text-[#9747FF] sm:text-xs xl:text-sm">Git Link : https://github.com/mitzukin/AnyStore</p>
         <div className="p-3">
-          <p className="text-sm text-gray-500 md:text-xs lg:text-sm">
+          <p className="line-clamp-3 overflow-hidden text-sm text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut ipsum minima
-            impedit.
+            impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut
+            ipsum minima impedit.
           </p>
         </div>
       </div>
       {/* Card Footer  */}
-      <div className="mt-2 flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2">
         {/* left  container */}
         <div className="flex gap-2">
           <button className="flex cursor-pointer items-center gap-3 rounded-full border px-2 py-1 text-xs sm:px-3">
