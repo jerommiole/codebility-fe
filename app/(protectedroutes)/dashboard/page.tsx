@@ -1,7 +1,7 @@
 import Title from "Components/Title"
 import Calendar from "./components/Calendar"
 import TimeTracker from "./components/TimeTracker"
-import TodoList from "./components/TodoList"
+import TodoList from "./components/TodoList/TodoList"
 
 export default function DashboardPage() {
   return (
