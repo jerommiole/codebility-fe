@@ -39,7 +39,7 @@ export const positionsSm = [
   "Research Auditor",
 ]
 
-export const internList = [
+export const interns = [
   {
     id: 1,
     name: "Mr. Lorem1",
