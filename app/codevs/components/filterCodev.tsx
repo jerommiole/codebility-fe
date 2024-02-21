@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { positions, positionsSm } from "../../(protectedroutes)/interns/DummyData"
+import { positions, positionTitles } from "../../(protectedroutes)/interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
@@ -53,7 +53,7 @@ export default function FilterCodev({ codevs }: any) {
               />
             </div>
             <div className="flex flex-col gap-3">
-              {positionsSm.map((position) => (
+              {positionTitles.map((position) => (
                 <p
                   key={position}
                   onClick={() => setByCategory(position)}
@@ -132,7 +132,7 @@ export default function FilterCodev({ codevs }: any) {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                {positionsSm.map((position) => (
+                {positionTitles.map((position) => (
                   <p
                     key={position}
                     onClick={() => setByCategory(position)}
