@@ -1,4 +1,4 @@
-import { interns } from "../DummyData"
+import { interns } from "../data"
 import InternCard from "./InternCard"
 
 interface InternProps {
