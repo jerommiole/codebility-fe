@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { interns } from "./DummyData"
+import { internList as interns } from "./DummyData"
 import InternCard from "./InternCard"
 
 interface InternProps {
