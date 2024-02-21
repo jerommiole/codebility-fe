@@ -4,7 +4,7 @@
 import Avatar from "Components/ui/avatar"
 import Hero from "public/hero.png"
 import Image, { StaticImageData } from "next/image"
-import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "./logos"
+import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "Components/logos"
 import { useModal } from "hooks/use-modal"
 
 interface Description {
@@ -44,50 +44,30 @@ const ClientCards = ({
   footerText,
 }: Props) => {
   const { onOpen } = useModal()
+
   const data = {
-    image,
-    imgBgColor,
-    name: name ? name : "Lorem Ipsum",
-    time: time ? time : "08:00 am - 02:00 pm",
-    date: date ? date : "11/29/30",
-    company: company ? company : "Company Ipsum",
-    subtext: subtext ? subtext : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, voluptatem.",
-    phonenumber: phonenumber ? phonenumber : "+63238729789",
-    linkedin: linkedin ? linkedin : "Lorem",
-    email: email ? email : "lorem@gmail.com",
-    address: address ? address : "Philippines",
-    description: description
-      ? description
-      : [
-          {
-            label: "Lorem Ipsum",
-            sublabel:
-              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
-          },
-          {
-            label: "Lorem Ipsum",
-            sublabel:
-              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
-          },
-          {
-            label: "Lorem Ipsum",
-            sublabel:
-              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
-          },
-          {
-            label: "Lorem Ipsum",
-            sublabel:
-              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
-          },
-          {
-            label: "Lorem Ipsum",
-            sublabel:
-              "Since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book",
-          },
-        ],
-    footerText: footerText
-      ? footerText
-      : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, enim ipsa nemo cum labore fugiat quia possimus itaque eligendi tenetur.",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    imgBgColor: "#abcdef",
+    name: "John Smith",
+    time: "09:00 am - 03:00 pm",
+    date: "12/01/30",
+    company: "Tech Innovations Ltd.",
+    subtext: "Passionate about technology and innovation.",
+    phonenumber: "+1 123-456-7890",
+    linkedin: "john-smith-linkedin",
+    email: "john.smith@example.com",
+    address: "San Francisco, CA, USA",
+    description: [
+      {
+        label: "Web Development",
+        sublabel: "Experienced in building modern and responsive web applications.",
+      },
+      {
+        label: "Tech Enthusiast",
+        sublabel: "Keen interest in the latest trends and technologies in the tech industry.",
+      },
+    ],
+    footerText: "Connecting people through technology.",
   }
   return (
     <div className="flex flex-col items-center justify-center rounded-lg border bg-card-client px-5 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
