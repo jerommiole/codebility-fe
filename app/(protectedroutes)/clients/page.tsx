@@ -1,6 +1,6 @@
 import ClientCards from "Components/ClientCards"
 import Pagination from "Components/Pagination"
-import Header from "Components/Header"
+import Title from "Components/Title"
 import { AddSVG, FilterSVG, ShowSVG } from "Components/logos"
 import H from "public/hero2.png"
 
@@ -8,7 +8,7 @@ export default async function Clients() {
   return (
     <div className="flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:overflow-hidden lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
-        <Header
+        <Title
           title="Company Overview"
           subtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         />
