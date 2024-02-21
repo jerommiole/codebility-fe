@@ -21,8 +21,7 @@ export const positions = [
   },
 ]
 
-// FOR MOBILE SCREENS
-export const positionsSm = [
+export const positionTitles = [
   "All",
   "Full Stack Developer",
   "Backend Developer",
@@ -42,149 +41,88 @@ export const positionsSm = [
 export const interns = [
   {
     id: 1,
-    name: "Mr. Lorem1",
-    position: ["Full Stack Developer", "Shopify Developer"],
+    name: "John Smith",
+    position: "Full Stack Developer",
     imageUrl: "/projectsCompletedAssets/image1.png",
     backgroundColor: "bg-darkBlueBgColor",
   },
   {
     id: 2,
-    name: "Mr. Lorem2",
-    position: ["Frontend Developer", "Human Resource", "Research Auditor"],
+    name: "Alice Johnson",
+    position: "Frontend Developer",
     imageUrl: "/projectsCompletedAssets/image2.png",
     backgroundColor: "bg-redBgColor",
   },
   {
     id: 3,
-    name: "Mr. Lorem3",
-    position: ["UI/UX Designer", "Project Manager"],
+    name: "Eva Davis",
+    position: "UI/UX Designer",
     imageUrl: "/projectsCompletedAssets/image3.png",
     backgroundColor: "bg-violetBgColor",
   },
   {
     id: 4,
-    name: "Mr. Lorem4",
-    position: ["Frontend Developer", "Wordpress Developer"],
+    name: "Bob Williams",
+    position: "Frontend Developer",
     imageUrl: "/projectsCompletedAssets/image4.png",
     backgroundColor: "bg-greenBgColor",
   },
   {
     id: 5,
-    name: "Mr. Lorem5",
-    position: ["Full Stack Developer", "Fb Ads Specialist"],
+    name: "Chris Turner",
+    position: "Full Stack Developer",
     imageUrl: "/projectsCompletedAssets/image5.png",
     backgroundColor: "bg-darkBlueBgColor",
   },
   {
     id: 6,
-    name: "Mr. Lorem6",
-    position: ["Backend Developer", "UI/UX Designer"],
+    name: "Sophie Wilson",
+    position: "Backend Developer",
     imageUrl: "/projectsCompletedAssets/image3.png",
     backgroundColor: "bg-redBgColor",
   },
   {
     id: 7,
-    name: "Mr. Lorem7",
-    position: ["Virtual Assistant", "Social Media Manager"],
+    name: "Daniel Brown",
+    position: "Virtual Assistant",
     imageUrl: "/projectsCompletedAssets/image1.png",
     backgroundColor: "bg-violetBgColor",
   },
   {
     id: 8,
-    name: "Mr. Lorem8",
-    position: ["Frontend Developer", "UI/UX Designer"],
+    name: "Emma White",
+    position: "Frontend Developer",
     imageUrl: "/projectsCompletedAssets/image5.png",
     backgroundColor: "bg-greenBgColor",
   },
   {
     id: 9,
-    name: "Mr. Lorem9",
-    position: ["Full Stack Developer", "Video Editor"],
+    name: "Alex Turner",
+    position: "Full Stack Developer",
     imageUrl: "/projectsCompletedAssets/image4.png",
     backgroundColor: "bg-darkBlueBgColor",
   },
   {
     id: 10,
-    name: "Mr. Lorem10",
-    position: ["Frontend Developer", "Backend Developer"],
+    name: "Grace Taylor",
+    position: "Frontend Developer",
     imageUrl: "/projectsCompletedAssets/image2.png",
     backgroundColor: "bg-redBgColor",
   },
-  // {
-  //   id: 11,
-  //   name: "Mr. Lorem11",
-  //   position: ["Backend Developer"],
-  //   imageUrl: "/image33.png",
-  //   backgroundColor: "bg-violetBgColor"
-  // },
-  // {
-  //   id: 12,
-  //   name: "Mr. Lorem12",
-  //   position: ["UI/UX Designer"],
-  //   imageUrl: "/image32.png",
-  //   backgroundColor: "bg-greenBgColor"
-  // },
-  // {
-  //   id: 13,
-  //   name: "Mr. Lorem13",
-  //   position: ["Full Stack Developer"],
-  //   imageUrl: "/image51.png",
-  //   backgroundColor: "bg-darkBlueBgColor"
-  // },
-  // {
-  //   id: 14,
-  //   name: "Mr. Lorem14",
-  //   position: ["Frontend Developer"],
-  //   imageUrl: "/image25.png",
-  //   backgroundColor: "bg-redBgColor"
-  // },
-  // {
-  //   id: 15,
-  //   name: "Mr. Lorem15",
-  //   position: ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
-  //   imageUrl: "/image33.png",
-  //   backgroundColor: "bg-violetBgColor"
-  // },
-  // {
-  //   id: 16,
-  //   name: "Mr. Lorem16",
-  //   position: ["Frontend Developer", "Backend Developer"],
-  //   imageUrl: "/image32.png",
-  //   backgroundColor: "bg-greenBgColor"
-  // },
-  // {
-  //   id: 17,
-  //   name: "Mr. Lorem17",
-  //   position: ["Full Stack Developer"],
-  //   imageUrl: "/image51.png",
-  //   backgroundColor: "bg-darkBlueBgColor"
-  // },
-  // {
-  //   id: 18,
-  //   name: "Mr. Lorem18",
-  //   position: ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
-  //   imageUrl: "/image25.png",
-  //   backgroundColor: "bg-redBgColor"
-  // },
-  // {
-  //   id: 19,
-  //   name: "Mr. Lorem19",
-  //   position: ["Frontend Developer", "UI/UX Designer"],
-  //   imageUrl: "/image33.png",
-  //   backgroundColor: "bg-violetBgColor"
-  // },
-  // {
-  //   id: 20,
-  //   name: "Mr. Lorem20",
-  //   position: ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
-  //   imageUrl: "/image32.png",
-  //   backgroundColor: "bg-greenBgColor"
-  // },
-  // {
-  //   id: 21,
-  //   name: "Mr. Lorem21",
-  //   position: ["Full Stack Developer"],
-  //   imageUrl: "/image51.png",
-  //   backgroundColor: "bg-darkBlueBgColor"
-  // },
 ]
+
+export const roleMappings = {
+  "Full Stack Developer": { abbreviation: "FS", color: "text-lightPinkColor" },
+  "UI/UX Designer": { abbreviation: "UI/UX", color: "text-magentaColor" },
+  "Backend Developer": { abbreviation: "BE", color: "text-tealColor" },
+  "Frontend Developer": { abbreviation: "FE", color: "text-darkBlueColor" },
+  "Video Editor": { abbreviation: "VE", color: "text-greenColor" },
+  "Virtual Assistant": { abbreviation: "VA", color: "text-redColor" },
+  "Shopify Developer": { abbreviation: "SD", color: "text-yellowColor" },
+  "Wordpress Developer": { abbreviation: "WD", color: "text-blueColor" },
+  "Human Resource": { abbreviation: "HR", color: "dark:text-white" },
+  "Project Manager": { abbreviation: "PrM", color: "text-skyBlueColor" },
+  "Social Media Manager": { abbreviation: "SMM", color: "text-orangeColor" },
+  "Fb Ads Specialist": { abbreviation: "Fb Ads", color: "text-secondaryColor" },
+  "Research Auditor": { abbreviation: "RA", color: "dark:text-white" },
+}
