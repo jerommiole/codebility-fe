@@ -32,6 +32,17 @@ const Sidebar = () => {
 
   const handleLogOutGoogle = () => {}
 
+  const sidebarData = [
+    { href: "/dashboard", passedComponent: <DashboardSVG />, label: "Dashboard" },
+    { href: "/time-tracker", passedComponent: <TimeTrackerSVG />, label: "Time Tracker" },
+    { href: "/todo", passedComponent: <TodoSVG />, label: "To Do" },
+    { href: "/projects-completed", passedComponent: <ProjectsSVG />, label: "Projects Completed" },
+    { href: "/orgchart", passedComponent: <OrgchartSVG />, label: "Org Chart" },
+    { href: "/interns", passedComponent: <InternSVG />, label: "Interns" },
+    { href: "/clients", passedComponent: <ClientSVG />, label: "Clients" },
+    { href: "/applicants", passedComponent: <ClientSVG />, label: "Applicants" },
+  ]
+
   return (
     <>
       <Blinds />
@@ -71,30 +82,11 @@ const Sidebar = () => {
         </div>
 
         <div className="navigation">
-          <SidebarItems href="/dashboard" passedComponent={<DashboardSVG />}>
-            Dashboard
-          </SidebarItems>
-          <SidebarItems href="/time-tracker" passedComponent={<TimeTrackerSVG />}>
-            Time Tracker
-          </SidebarItems>
-          <SidebarItems href="/todo" passedComponent={<TodoSVG />}>
-            To Do
-          </SidebarItems>
-          <SidebarItems href="/projects-completed" passedComponent={<ProjectsSVG />}>
-            Projects Completed
-          </SidebarItems>
-          <SidebarItems href="/orgchart" passedComponent={<OrgchartSVG />}>
-            Org Chart
-          </SidebarItems>
-          <SidebarItems href="/Interns" passedComponent={<InternSVG />}>
-            Interns
-          </SidebarItems>
-          <SidebarItems href="/clients" passedComponent={<ClientSVG />}>
-            Clients
-          </SidebarItems>
-          <SidebarItems href="/applicants" passedComponent={<ClientSVG />}>
-            Applicants
-          </SidebarItems>
+          {sidebarData.map((item, index) => (
+            <SidebarItems key={index} href={item.href} passedComponent={item.passedComponent}>
+              {item.label}
+            </SidebarItems>
+          ))}
           <div className="mt-auto flex flex-col">
             <SidebarItems lastItem passedComponent={<LogoutSVG />}>
               Sign Out

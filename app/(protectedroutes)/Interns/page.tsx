@@ -5,7 +5,7 @@ import { positions, positionsSm } from "./DummyData"
 import { useState } from "react"
 import { Iceland } from "next/font/google"
 import Intern from "./Intern"
-import Sidebar from "Components/sidebar"
+import Sidebar from "Components/Sidebar"
 
 const iceland = Iceland({
   weight: "400",
@@ -24,7 +24,7 @@ const Interns = () => {
 
   return (
     <div className="flex w-full">
-      <div className="flex w-full flex-col gap-5 bg-background xl:gap-4 xl:p-4 dark:bg-[#0E0E0E]">
+      <div className="flex w-full flex-col gap-5 bg-background dark:bg-[#0E0E0E] xl:gap-4 xl:p-4">
         <div className="mb-10 flex flex-col items-center justify-center gap-5 md:mb-2 lg:flex-row lg:justify-between">
           <div className="flex flex-col items-center justify-center gap-7 md:gap-1">
             <h1 className="text-3xl font-semibold uppercase dark:text-[#EAEAEA] lg:self-start xl:text-4xl">
@@ -86,7 +86,7 @@ const Interns = () => {
         </div>
 
         {/* Positions */}
-        <div className="hidden md:mb-12 md:mr-10 md:flex md:w-[80%] md:justify-end md:gap-x-4 md:gap-y-1 md:self-end lg:mr-14 xl:w-[90%] xl:gap-10 xl:mb-5">
+        <div className="hidden md:mb-12 md:mr-10 md:flex md:w-[80%] md:justify-end md:gap-x-4 md:gap-y-1 md:self-end lg:mr-14 xl:mb-5 xl:w-[90%] xl:gap-10">
           {/* {positions.map((p) => (
             <p
               key={p.position}
@@ -134,7 +134,7 @@ const Interns = () => {
 
         <Intern isSearching={isSearching} byCategory={byCategory} />
 
-        <div className="mx-5 text-center text-xs text-secondaryColor md:flex md:max-w-md md:flex-col md:justify-center md:self-center md:mb-5 lg:mx-auto xl:max-w-xl xl:mb-0">
+        <div className="mx-5 text-center text-xs text-secondaryColor md:mb-5 md:flex md:max-w-md md:flex-col md:justify-center md:self-center lg:mx-auto xl:mb-0 xl:max-w-xl">
           <p>
             Lorem Ipsum is simply dummy text for searching interns and their contributions in the company y text for
             searching interns and their contributions in the company

@@ -1,6 +1,6 @@
 import ClientCards from "Components/ClientCards"
 import Pagination from "Components/Pagination"
-import Title from "Components/Title"
+import Title from "Components/Header"
 import { AddSVG, FilterSVG, ShowSVG } from "Components/logos"
 import H from "public/hero2.png"
 

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { interns, positions, positionsSm } from "../../(protectedroutes)/Interns/DummyData"
+import { interns, positions, positionsSm } from "../../(protectedroutes)/interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
@@ -34,7 +34,7 @@ export default function FilterCodev({ codevs }: any) {
 
   return (
     <>
-      <div onClick={handelFilterToggle} className="relative mt-2 px-3.5 flex cursor-pointer gap-4 self-end lg:hidden ">
+      <div onClick={handelFilterToggle} className="relative mt-2 flex cursor-pointer gap-4 self-end px-3.5 lg:hidden ">
         <p className="text-base text-primaryColor">Filter</p>
         <Image src="/filter.svg" alt="filter" width={13} height={13} className="h-auto w-auto" />
         {/* FILTER CARD FOR MOBILE AND TABLET SCREEN */}
@@ -148,17 +148,16 @@ export default function FilterCodev({ codevs }: any) {
       </motion.div>
 
       {/* TEAM SECTION */}
-      <motion.div
-        className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 py-10 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24"
-      >
+      <motion.div className="mt-20 grid grid-cols-2 gap-x-10 gap-y-24 py-10 md:mt-24 md:grid-cols-4 lg:mt-24 lg:grid-cols-5 lg:gap-x-14 lg:gap-y-24">
         {/* DEV CARD */}
         {filteredData.map((user: any) => (
           <motion.div variants={item} key={user.id} className="flex flex-col items-center justify-center gap-2 ">
-            <motion.div 
-             variants={box}
-            initial="hidden"
-            whileInView="visible"
-            className="flex h-40 w-40 flex-col items-center gap-1 justify-end  rounded-xl bg-[#181818] bg-opacity-20 py-10">
+            <motion.div
+              variants={box}
+              initial="hidden"
+              whileInView="visible"
+              className="flex h-40 w-40 flex-col items-center justify-end gap-1  rounded-xl bg-[#181818] bg-opacity-20 py-10"
+            >
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
