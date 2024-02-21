@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { internList, positions, positionsSm } from "../../(protectedroutes)/Interns/DummyData"
+import { interns, positions, positionsSm } from "../../(protectedroutes)/Interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
