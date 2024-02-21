@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { roleMappings } from "../DummyData"
+import { roleMappings } from "../data"
 import Avatar from "Components/ui/avatar"
 import Hero from "public/hero.png"
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { positionTitles } from "../DummyData"
+import { positionTitles } from "../data"
 import Image from "next/image"
 
 const Filter = () => {

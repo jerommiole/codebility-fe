@@ -1,4 +1,4 @@
-import { interns } from "../DummyData"
+import { interns } from "../data"
 import InternCard from "./InternCard"
 
 interface InternProps {
@@ -11,17 +11,17 @@ const Intern = ({ isSearching, byCategory }: InternProps) => {
     if (isSearching) {
       switch (isSearching.toLowerCase()) {
         case "fs":
-          return intern.position.some((pos) => pos === "Full Stack Developer")
+          return [intern.position].some((pos) => pos === "Full Stack Developer")
         case "fe":
-          return intern.position.some((pos) => pos === "Frontend Developer")
+          return [intern.position].some((pos) => pos === "Frontend Developer")
         case "be":
-          return intern.position.some((pos) => pos === "Backend Developer")
+          return [intern.position].some((pos) => pos === "Backend Developer")
         case "md":
-          return intern.position.some((pos) => pos === "Mobile Developer")
+          return [intern.position].some((pos) => pos === "Mobile Developer")
         default:
           return (
             intern.name.toLowerCase().includes(isSearching.toLowerCase()) ||
-            intern.position.some((pos) => pos.toLowerCase().includes(isSearching.toLowerCase()))
+            [intern.position].some((pos) => pos.toLowerCase().includes(isSearching.toLowerCase()))
           )
       }
     } else if (byCategory) {

@@ -1,11 +1,50 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { positions, positionsSm } from "../../(protectedroutes)/interns/DummyData"
 import Link from "next/link"
 import Wavey from "app/codevs/Assets/Wave.png"
 import { motion } from "framer-motion"
 import { box, item, fadeInOutUpToDown } from "../../../Components/FramerAnimation/Framer"
+
+export const positions = [
+  {
+    position: "All",
+    textColor: "dark:text-white",
+  },
+  {
+    position: "Full Stack Developer",
+    textColor: "text-lightPinkColor",
+  },
+  {
+    position: "Backend Developer",
+    textColor: "text-tealColor",
+  },
+  {
+    position: "Frontend Developer",
+    textColor: "text-darkBlueColor",
+  },
+  {
+    position: "UI/UX Designer",
+    textColor: "text-magentaColor",
+  },
+]
+
+export const positionTitles = [
+  "All",
+  "Full Stack Developer",
+  "Backend Developer",
+  "Frontend Developer",
+  "UI/UX Designer",
+  "Video Editor",
+  "Virtual Assistant",
+  "Shopify Developer",
+  "Wordpress Developer",
+  "Human Resource",
+  "Project Manager",
+  "Social Media Manager",
+  "Fb Ads Specialist",
+  "Research Auditor",
+]
 
 export default function FilterCodev({ codevs }: any) {
   const [filterToggle, setFilterToggle] = useState(false)
@@ -53,7 +92,7 @@ export default function FilterCodev({ codevs }: any) {
               />
             </div>
             <div className="flex flex-col gap-3">
-              {positionsSm.map((position) => (
+              {positionTitles.map((position) => (
                 <p
                   key={position}
                   onClick={() => setByCategory(position)}
@@ -132,7 +171,7 @@ export default function FilterCodev({ codevs }: any) {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                {positionsSm.map((position) => (
+                {positionTitles.map((position) => (
                   <p
                     key={position}
                     onClick={() => setByCategory(position)}
