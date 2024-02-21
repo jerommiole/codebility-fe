@@ -48,6 +48,7 @@ const SignInForm = () => {
       toast.error("Invalid Credentials")
     } else {
       toast.success("Logged In")
+      router.push("/dashboard")
     }
   }
 
