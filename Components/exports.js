@@ -1,7 +1,7 @@
 import Avatar_Dashboard from "../app/UserDashboard/Section/Dashboard_Avatar"
-import Topbar from "./topbar"
+import Topbar from "./Topbar"
 import Avatars from "./Avatars"
-import Sidebar from "./Sidebar"
+import Sidebar from "./Sidebar1"
 import Dashboard_Card from "./DashboardCards1.tsx"
 import Dashboard_Card2 from "./DashboardCards2.tsx"
 

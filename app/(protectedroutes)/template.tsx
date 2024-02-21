@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react"
 
-import Sidebar from "../../Components/Sidebar"
+import Sidebar from "../../Components/Sidebar1"
 import Contain from "../../Components/Contain"
 import { useSession } from "next-auth/react"
 import Loader from "Components/loader"
