@@ -58,6 +58,8 @@ module.exports = {
         blueColor: "#066EBD",
         skyBlueColor: "#61DAFB",
         orangeColor: "#E76F00",
+        // Resume Page
+        blackBgColor: "#0E0E0E",
 
         text1: "rgba(var(--text-color-1))",
         text2: "hsl(var(--text-color-2))",
