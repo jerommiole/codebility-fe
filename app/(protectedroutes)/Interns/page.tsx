@@ -5,7 +5,7 @@ import { positions, positionsSm } from "./DummyData"
 import { useState } from "react"
 import { Iceland } from "next/font/google"
 import Intern from "./Intern"
-import Sidebar from "Components/Sidebar"
+import Sidebar from "Components/sidebar"
 
 const iceland = Iceland({
   weight: "400",

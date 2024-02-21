@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { projects } from "./DummyData"
 import Link from "next/link"
-import Sidebar from "Components/Sidebar"
+import Sidebar from "Components/sidebar"
 
 const ProjectsCompleted = () => {
   return (
