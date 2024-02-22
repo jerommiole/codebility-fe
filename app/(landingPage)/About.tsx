@@ -43,28 +43,30 @@ const Services = () => {
   return (
     <motion.section
       id="about"
-      className="relative flex flex-col my-0 items-center justify-center  bg-backgroundColor px-3.5 pb-4 max-w-7xl mx-auto"
+      className="relative mx-auto my-0 flex max-w-7xl flex-col  items-center justify-center bg-backgroundColor px-3.5 pb-4"
     >
       {/*Moon Image*/}
 
-
-      <div className="flex flex-col justify-center gap-10 mt-32 lg:mt-0 lg:flex-row max-w-7xl">
+      <div className="mt-32 flex max-w-7xl flex-col justify-center gap-10 lg:mt-0 lg:flex-row">
         {/*What We Do Column*/}
         <motion.div className="w-full">
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="relative">
             <Image
               src="/Moon.png"
               alt="Moon"
-              className="absolute -top-48 md-top-56 -right-10 h-[200px] w-[200px] scale-x-[-1] transform md:h-[300px] md:w-[300px] xl:-top-60 lg:-left-20 lg:-top-72  xl:-left-56 lg:transform-none"
+              className="md-top-56 absolute -right-10 -top-48 h-[200px] w-[200px] scale-x-[-1] transform md:h-[300px] md:w-[300px] lg:-left-20 lg:-top-72 lg:transform-none  xl:-left-56 xl:-top-60"
               width={200}
               height={200}
             />
 
             <p className=" text-primaryColor">Our Services</p>
             <h1 className="text-5xl font-semibold text-primaryColor">What We Do</h1>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }} className="">
-
-            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className=""
+            ></motion.div>
             <motion.p variants={fadeInOutDownToUp} className="mt-2 text-secondaryColor ">
               In an era where digital landscapes are constantly evolving, Codebility stands as a beacon of innovation
               and opportunity. We've transcended the boundaries of traditional practices. Here, we don't just teach
@@ -75,21 +77,19 @@ const Services = () => {
               understanding the heartbeat of the tech industry.Our learners dive into the essence of coding discipline,
               mirroring the professional environments they will soon thrive in. Our programs are more than courses;
               they're gateways to new horizons.
-
-
             </motion.p>
           </motion.div>
           <motion.div
             variants={fadeInOutLeftToRight}
             initial="hidden"
             whileInView="visible"
-            className="flex flex-col gap-3 mt-10"
+            className="mt-10 flex flex-col gap-3"
           >
             {Text.map((item, index) => (
               <motion.div
                 key={index}
                 variants={textParentVariant}
-                className="flex gap-4 duration-500 cursor-pointer parent-hover "
+                className="parent-hover flex cursor-pointer gap-4 duration-500 "
                 whileHover="hover"
               >
                 <p className="font-semibold text-primaryColor hover:text-primaryColor">{item.num}</p>
@@ -103,11 +103,10 @@ const Services = () => {
           </motion.div>
 
           <motion.p variants={fadeInOutDownToUp} className="mt-2 text-secondaryColor ">
-            We believe in the transformative power of coding – it's not just a
-            skill, it's a tool for building a brighter, more empowered future. At Codebility, we're not just teaching
-            code; we're sculpting the architects of tomorrow's digital world. Embrace the journey with us. Together,
-            we can unlock the code to a better future.
-
+            We believe in the transformative power of coding – it's not just a skill, it's a tool for building a
+            brighter, more empowered future. At Codebility, we're not just teaching code; we're sculpting the architects
+            of tomorrow's digital world. Embrace the journey with us. Together, we can unlock the code to a better
+            future.
           </motion.p>
           <motion.p
             variants={fadeInOutLeftToRight}
@@ -121,7 +120,7 @@ const Services = () => {
 
         <div className="flex flex-col items-center justify-center gap-2 py-10 md:flex-row md:gap-3 lg:mt-0">
           {/* Cards Column */}
-          <div className="flex flex-col max-w-md gap-2 md:gap-3">
+          <div className="flex max-w-md flex-col gap-2 md:gap-3">
             <motion.div
               initial={{ opacity: 0, x: -25 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -159,7 +158,7 @@ const Services = () => {
             </motion.div>
           </div>
           {/* Cards Column Translate-y*/}
-          <div className="flex flex-col max-w-md gap-2 md:-translate-y-10 md:gap-3">
+          <div className="flex max-w-md flex-col gap-2 md:-translate-y-10 md:gap-3">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -195,7 +194,6 @@ const Services = () => {
                 Align="center"
               />
             </motion.div>
-
           </div>
         </div>
       </div>

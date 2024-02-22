@@ -12,10 +12,10 @@ import {
 const ServicesSection2 = () => {
   return (
     <div id="services" className="bg-backgroundColor px-3.5">
-      <div className="flex flex-col w-full gap-10 mx-auto mb-16 max-w-7xl ">
+      <div className="mx-auto mb-16 flex w-full max-w-7xl flex-col gap-10 ">
         <div className="flex flex-col items-center justify-center">
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="h-24 ">
-            <h1 className="z-10 text-4xl font-bold tracking-wider text-center services text-primaryColor md:text-5xl">
+            <h1 className="services z-10 text-center text-4xl font-bold tracking-wider text-primaryColor md:text-5xl">
               SERVICES
             </h1>
             <h1 className="services -translate-y-[50px] text-center text-6xl font-bold  tracking-wider text-primaryColor opacity-5 md:-translate-y-[75px] md:text-8xl">
@@ -27,7 +27,7 @@ const ServicesSection2 = () => {
             variants={fadeInOutDownToUp}
             initial="hidden"
             whileInView="visible"
-            className="max-w-[800px]  md:text-center text-secondaryColor "
+            className="max-w-[800px]  text-secondaryColor md:text-center "
           >
             <p className="text-xl text-primaryColor">Empowering Your Digital Presence</p>
             <br />
@@ -75,7 +75,7 @@ const ServicesSection2 = () => {
           variants={fadeInOutDownToUp}
           initial="hidden"
           whileInView="visible"
-          className="w-full mx-auto mt-10 text-base  text-primaryColor md:text-center"
+          className="mx-auto mt-10 w-full text-base  text-primaryColor md:text-center"
         >
           At the core of our services, we believe in the transformative power of innovation and design. Our dedicated
           team is committed to crafting solutions that not only meet but exceed the expectations of our clients. We
