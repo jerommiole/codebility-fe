@@ -6,8 +6,9 @@ import About from "./(landingPage)/About"
 import Footer from "./(landingPage)/Footer"
 import Hero from "./(landingPage)/Hero"
 import Services from "./(landingPage)/Services"
-import WhyJoinUs from "./WhyJoinUs/page"
+import WhyChoose from "./(landingPage)/WhyChoose"
 import Codevs from "./codevs/page"
+import MissionVision from "./(landingPage)/MissionVision"
 
 export default function Web() {
   const [isLoading, setIsLoading] = useState(true)
@@ -39,7 +40,8 @@ export default function Web() {
           <About />
           <Codevs />
           <Services />
-          <WhyJoinUs />
+          {/* <MissionVision /> */}
+          <WhyChoose />
           <Footer />
         </>
       )}
