@@ -8,14 +8,14 @@ export default function DashboardPage() {
     <div className="flex flex-col gap-6">
       <Title title="Dashboard" />
 
-      <div className="flex gap-6">
-        <div className="basis-3/5">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="md:basis-3/5">
           <div className="flex flex-col gap-6">
             <TimeTracker />
             <Calendar />
           </div>
         </div>
-        <div className="flex basis-2/5 flex-col gap-4">
+        <div className="flex md:basis-2/5 flex-col gap-4">
           <TodoList />
         </div>
       </div>
