@@ -1,52 +1,48 @@
-'use client'
-import { useState, useEffect } from "react";
-import Hero from "./Hero/Hero";
-import WhyJoinUs from "./WhyJoinUs/page";
-import About from "./Services/About";
-import Codevs from "./codevs/page";
-import Footer from "../Components/Footer";
-import ServicesSection2 from "./Services/ServicesSection2";
-import Loader from "../Components/loader";
-import Navbar from "./Hero/Navbar";
+"use client"
+import { useEffect, useState } from "react"
+import Navbar from "./(landingPage)/Navbar"
+import Loader from "../Components/loader"
+import About from "./(landingPage)/About"
+import Footer from "./(landingPage)/Footer"
+import Hero from "./(landingPage)/Hero"
+import Services from "./(landingPage)/Services"
+import WhyJoinUs from "./WhyJoinUs/page"
+import Codevs from "./codevs/page"
+
 export default function Web() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    
     const fetchData = async () => {
-     
       setTimeout(async () => {
-        setIsLoading(false);
-      }, 2000);
-    };
+        setIsLoading(false)
+      }, 2000)
+    }
 
-    
-    fetchData();
-  }, []); 
+    fetchData()
+  }, [])
 
   return (
-    <div className="relative flex flex-col w-full h-screen overflow-x-hidden bg-black">
+    <div className="relative flex h-screen w-full flex-col overflow-x-hidden bg-black">
       {isLoading ? (
-        <div className="flex flex-col items-center justify-center h-screen gap-10 ">
+        <div className="flex h-screen flex-col items-center justify-center gap-10 ">
           <Loader />
           <div className="flex items-center justify-center gap-5">
-          <div className="text-primaryColor">Please Wait</div>
-          <div className="translate-y-1 dots"></div>
+            <div className="text-primaryColor">Please Wait</div>
+            <div className="dots translate-y-1"></div>
           </div>
         </div>
       ) : (
         <>
-        <div className="sticky top-0 z-50">
-        <Navbar/>
-        </div>
+          <Navbar />
           <Hero />
           <About />
           <Codevs />
-          <ServicesSection2 />
+          <Services />
           <WhyJoinUs />
           <Footer />
         </>
       )}
     </div>
-  );
+  )
 }

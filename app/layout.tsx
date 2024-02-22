@@ -5,7 +5,7 @@ import { ThemeModeToggle } from "../Components/thememodetoggle"
 import { Outfit } from "next/font/google"
 import AuthContext from "./context/AuthContext"
 import { ModalProvider } from "Components/providers/modal-provider"
-import Navbar from "./Hero/Navbar"
+import Navbar from "./(landingPage)/Navbar"
 import { SessionProvider } from "next-auth/react"
 import ToasterContext from "./context/ToasterContext"
 export const metadata = {

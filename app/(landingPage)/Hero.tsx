@@ -79,29 +79,43 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}
-      className="relative flex-col items-center justify-center w-full min-h-screen overflow-hidden bg-no-repeat bg-cover "
-
+      className="relative min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat "
     >
-      <div className="absolute w-screen z-10 -top-80  h-[400px] blur-[200px] md:blur-[500px] GradientHero">
-
-      </div>
+      <div className="GradientHero absolute -top-80 z-10  h-[400px] w-screen blur-[200px] md:blur-[500px]"></div>
       <div>
-        <img src="Person.png" alt="" className="absolute opacity-50  right-56 bottom-0 h-[80%] w-auto " />
+        <img src="Person.png" alt="" className="absolute bottom-0  right-56 h-[80%] w-auto opacity-50 " />
       </div>
       <div className="wrapper">
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-        <div><span className="dot"></span></div>
-
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
       </div>
 
-      <div className="absolute top-0 bottom-0 left-0 right-0 z-10 flex flex-col items-center justify-center h-full -translate-y-24">
+      <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full -translate-y-24 flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
