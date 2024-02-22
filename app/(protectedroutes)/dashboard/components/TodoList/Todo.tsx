@@ -58,12 +58,12 @@ const Todo = ({ title, body, dueTime, id }:TodoProps) => {
           transition={{ duration: 0.2 }}
         >
           <Image className='cursor-pointer hover:scale-110 absolute top-[1.3rem] right-[1rem]'
-          src="/Close.svg" 
-          alt="close" 
-          width={13} 
-          height={13} 
-          onClick={toggleModal} 
-        />
+            src="/Close.svg" 
+            alt="close" 
+            width={13} 
+            height={13} 
+            onClick={toggleModal} 
+          />
           <div className='flex flex-col gap-5 w-full h-full'>
             <div className='flex items-center gap-4'>
               <div className='w-5 h-5 border-[1px] border-[#8e8e8e] dark:border-white p-[3px] rounded-[3px] cursor-pointer hover:opacity-90' onClick={() => setCheck(!check)}> {/* Checkbox input button */}
