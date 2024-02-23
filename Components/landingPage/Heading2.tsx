@@ -1,11 +1,11 @@
-import React from "react"
+import React, { ReactNode } from "react"
 
-interface Header2Props {
-  text: string
+interface Heading2 {
+  children: ReactNode
 }
 
-const Header2: React.FC<Header2Props> = ({ text }) => {
-  return <h2 className="text-2xl font-semibold text-primaryColor md:text-5xl">{text}</h2>
+const Heading2: React.FC<Heading2> = ({ children }) => {
+  return <h2 className="mb-4 text-2xl font-semibold uppercase text-primaryColor md:text-5xl">{children}</h2>
 }
 
-export default Header2
+export default Heading2

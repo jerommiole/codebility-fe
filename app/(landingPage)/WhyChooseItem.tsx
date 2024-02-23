@@ -17,7 +17,7 @@ const WhyChooseItem = ({ title, itemNumber, description, subTitle }: ItemProps) 
           variants={fadeInOutLeftToRight}
           initial="hidden"
           whileInView="visible"
-          className="max-w-auto m-auto text-left text-2xl font-semibold uppercase text-primaryColor lg:max-w-[200px]  lg:text-3xl"
+          className="max-w-auto m-auto text-left text-2xl font-semibold text-primaryColor lg:max-w-[200px]  lg:text-3xl"
         >
           {title}
         </motion.h3>

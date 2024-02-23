@@ -1,11 +1,11 @@
-import React from "react"
+import React, { ReactNode } from "react"
 
-interface IntroTextProps {
-  text: string
+interface IntroText {
+  children: ReactNode
 }
 
-const IntroText: React.FC<IntroTextProps> = ({ text }) => {
-  return <p className="text-sm text-primaryColor">{text}</p>
+const IntroText: React.FC<IntroText> = ({ children }) => {
+  return <p className="mb-3 text-lg text-[#8E8E8E]">{children}</p>
 }
 
 export default IntroText

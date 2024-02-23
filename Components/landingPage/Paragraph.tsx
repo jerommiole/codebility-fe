@@ -1,11 +1,10 @@
-import React from "react"
+import React, { ReactNode } from "react"
 
-interface ParagraphProps {
-  text: string
+interface Paragraph {
+  children: ReactNode
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ text }) => {
-  return <p className="text-sm text-primaryColor">{text}</p>
+const Paragraph: React.FC<Paragraph> = ({ children }) => {
+  return <p className="mb-3 text-sm text-[#8E8E8E]">{children}</p>
 }
-
 export default Paragraph
