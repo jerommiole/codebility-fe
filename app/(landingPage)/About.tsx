@@ -1,16 +1,10 @@
 "use client"
-import React, { useRef } from "react"
-import Image from "next/image"
-import Card from "./ServiceCard"
 import { motion } from "framer-motion"
-import {
-  fadeInOutRightToLeft,
-  fadeInOutLeftToRight,
-  fadeInOutUpToDown,
-  fadeInOutDownToUp,
-} from "../../Components/FramerAnimation/Framer"
-const Services = () => {
-  //dummy
+import Image from "next/image"
+import { fadeInOutDownToUp, fadeInOutLeftToRight } from "../../Components/FramerAnimation/Framer"
+import AboutCard from "./AboutCard"
+
+const AboutSection = () => {
   const Text = [
     {
       num: "01",
@@ -119,7 +113,7 @@ const Services = () => {
         </motion.div>
 
         <div className="flex flex-col items-center justify-center gap-2 py-10 md:flex-row md:gap-3 lg:mt-0">
-          {/* Cards Column */}
+          {/* AboutCards Column */}
           <div className="flex max-w-md flex-col gap-2 md:gap-3">
             <motion.div
               initial={{ opacity: 0, x: -25 }}
@@ -130,12 +124,10 @@ const Services = () => {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <Card
+              <AboutCard
+                icon={}
                 title="Skill Mastery"
-                description="Committed to empowering individuals to become Full Stack Developers."
-                imageUrl="mastery.png"
-                CardColor="#0D0D0D"
-                Align="center"
+                desc="Committed to empowering individuals to become Full Stack Developers."
               />
             </motion.div>
             <motion.div
@@ -147,17 +139,14 @@ const Services = () => {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <Card
+              <AboutCard
+                icon={}
                 title="Community Building"
-                description="Committed to empowering individuals to become 
-            Full Stack Developers."
-                imageUrl="community.png"
-                CardColor="#111111"
-                Align="center"
+                desc="We connect like-minded individuals, providing a supportive network"
               />
             </motion.div>
           </div>
-          {/* Cards Column Translate-y*/}
+          {/* AboutCards Column Translate-y*/}
           <div className="flex max-w-md flex-col gap-2 md:-translate-y-10 md:gap-3">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
@@ -168,12 +157,10 @@ const Services = () => {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <Card
+              <AboutCard
+                icon={}
                 title="Innovation"
-                description="We serve as a dynamic hub for innovation, fostering a creative environment "
-                imageUrl="innovation.png"
-                CardColor="#111111"
-                Align="center"
+                desc="We serve as a dynamic hub for innovation, fostering a creative environment"
               />
             </motion.div>
             <motion.div
@@ -185,13 +172,10 @@ const Services = () => {
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <Card
-                title="Skill Mastery"
-                description="Committed to empowering individuals to become 
-            Full Stack Developers."
-                imageUrl="Bulb.png"
-                CardColor="#0D0D0D"
-                Align="center"
+              <AboutCard
+                icon={}
+                title="Real-world Applications"
+                desc="Beyond theoretical knowledge, our focus is on practical, real-world applications of coding"
               />
             </motion.div>
           </div>
@@ -201,4 +185,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default AboutSection

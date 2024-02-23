@@ -233,3 +233,42 @@ export const SvgCMS = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+export const SvgSkillMastery = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} fill="none" {...props}>
+    <path
+      fill="#C108FE"
+      d="m.25 12.874 5.204-6.447L6.94 8.268l-3.717 4.606L6.94 17.48l-1.486 1.842L.25 12.874Zm8.622 11.37L13.588.874l2.04.632-4.716 23.368-2.04-.632Zm8.686-6.764 3.718-4.606-3.718-4.606 1.488-1.841 5.204 6.447-5.204 6.448-1.488-1.842Z"
+    />
+  </svg>
+)
+
+export const SvgInnovation = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} fill="none" {...props}>
+    <path
+      fill="#02FFE2"
+      d="m19.417 18.208-5.334-5.333v-4.24c1.547-.56 2.667-2.027 2.667-3.76 0-2.213-1.787-4-4-4s-4 1.787-4 4c0 1.733 1.12 3.2 2.667 3.76v4.24l-5.334 5.333H.75v6.667h6.667v-4.067l5.333-5.6 5.333 5.6v4.067h6.667v-6.667h-5.333Z"
+    />
+  </svg>
+)
+
+export const SvgCommunity = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={30} height={18} fill="none" {...props}>
+    <path
+      stroke="#6A78F2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M8.75 16.625v-1.25A6.25 6.25 0 0 1 15 9.125m0 0a6.25 6.25 0 0 1 6.25 6.25v1.25M15 9.125a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm-13.75 7.5v-1.25A3.75 3.75 0 0 1 5 11.625m0 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm23.75 5v-1.25a3.75 3.75 0 0 0-3.75-3.75m0 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+    />
+  </svg>
+)
+
+export const SvgRealWorld = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={19} height={28} fill="none" {...props}>
+    <path
+      fill="#fff"
+      d="M5.824 24.425h7.852v2.7H5.824v-2.7Zm10.346-8.489c1.348-1.628 2.74-3.311 2.74-6.361 0-5.21-4.11-9.45-9.16-9.45S.59 4.365.59 9.575c0 3.085 1.396 4.763 2.749 6.386.468.564.954 1.148 1.418 1.82.189.279.498 1.345.774 2.594H4.515v2.7h10.47v-2.7h-1.013c.279-1.251.589-2.32.776-2.599.46-.679.95-1.269 1.422-1.84Zm-3.564.288c-.568.833-1.042 2.801-1.317 4.151H8.212c-.273-1.353-.748-3.325-1.323-4.158a27.552 27.552 0 0 0-1.565-2.014c-1.275-1.531-2.117-2.544-2.117-4.628 0-3.722 2.935-6.75 6.543-6.75s6.543 3.028 6.543 6.75c0 2.053-.841 3.07-2.113 4.608-.488.59-1.042 1.26-1.574 2.04Z"
+    />
+  </svg>
+)
