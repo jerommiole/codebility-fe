@@ -1,10 +1,10 @@
 import { fadeInOutDownToUp } from "Components/FramerAnimation/Framer"
-import Section from "Components/landingPage/Section"
+import SectionWrapper from "Components/landingPage/SectionWrapper"
 import { motion } from "framer-motion"
 
 const WeLeverage = () => {
   return (
-    <Section>
+    <SectionWrapper>
       <motion.p
         variants={fadeInOutDownToUp}
         initial="hidden"
@@ -15,7 +15,7 @@ const WeLeverage = () => {
         drive growth, engagement, and success. Whether it's redefining your brand, launching a website, or creating
         compelling content, we turn your ideas into impactful and memorable digital experiences.
       </motion.p>
-    </Section>
+    </SectionWrapper>
   )
 }
 
