@@ -5,6 +5,6 @@ interface Paragraph {
 }
 
 const Paragraph: React.FC<Paragraph> = ({ children }) => {
-  return <p className="text-sm text-primaryColor">{children}</p>
+  return <p className="mb-3 text-sm text-[#8E8E8E]">{children}</p>
 }
 export default Paragraph
