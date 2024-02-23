@@ -5,7 +5,7 @@ interface Heading3 {
 }
 
 const Heading3: React.FC<Heading3> = ({ children }) => {
-  return <h3 className="text-2xl font-semibold text-primaryColor">{children}</h3>
+  return <h3 className="mb-3 text-2xl font-semibold text-primaryColor">{children}</h3>
 }
 
 export default Heading3

@@ -1,7 +1,7 @@
 "use client"
 
 import { AddSVG } from "Components/logos"
-import { SvgAttachment, SvgExit, SvgUpload } from "assets/icons"
+import { SvgAttachment, SvgExit, SvgUpload } from "public/assets/icons"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import { Button } from "Components/ui/button"

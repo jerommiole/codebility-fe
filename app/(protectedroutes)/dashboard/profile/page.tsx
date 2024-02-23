@@ -7,7 +7,7 @@ import UserInfo from "./components/UserInfo"
 import SettingMenu from "./components/SettingMenu"
 
 // icons
-import { SvgEdit, SvgPlusCircleBlue } from "../../../../assets/icons"
+import { SvgEdit, SvgPlusCircleBlue } from "../../../../public/assets/icons"
 
 //  utils
 // import { getCodev } from "../../../api"

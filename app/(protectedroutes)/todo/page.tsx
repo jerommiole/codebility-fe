@@ -5,7 +5,7 @@ import React, { useState } from "react"
 import TodoCard from "./components/TodoCard"
 
 import { AddSVG, FilterSVG } from "Components/logos"
-import { SvgPriority } from "assets/icons"
+import { SvgPriority } from "public/assets/icons"
 import {
   Pagination,
   PaginationContent,

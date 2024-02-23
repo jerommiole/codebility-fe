@@ -1,7 +1,7 @@
 "use client"
 
 import { AddSVG } from "Components/logos"
-import { SvgAttachment, SvgUpload, SvgX } from "assets/icons"
+import { SvgAttachment, SvgUpload, SvgX } from "public/assets/icons"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import { Button } from "Components/ui/button"
@@ -42,7 +42,7 @@ const ViewTodoModal = () => {
             </div>
             <div className="">
               <h1 className="">Gitlink</h1>
-              <p className="text-xs sm:text-sm text-[#9747FF] ">Git Link : https://github.com/mitzukin/AnyStore</p>
+              <p className="text-xs text-[#9747FF] sm:text-sm ">Git Link : https://github.com/mitzukin/AnyStore</p>
             </div>
           </div>
           {/* center */}

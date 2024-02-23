@@ -1,11 +1,12 @@
 "use client"
+
 import Heading2 from "Components/landingPage/Heading2"
+import IntroText from "Components/landingPage/IntroText"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
+import { SvgCMS, SvgGraphicDesign, SvgWebDesign } from "public/assets/icons"
 import { motion } from "framer-motion"
 import { fadeInOutDownToUp } from "../../Components/FramerAnimation/Framer"
 import Card from "./ServiceCard"
-import IntroText from "Components/landingPage/IntroText"
-import { SvgCMS, SvgGraphicDesign, SvgWebDesign } from "assets/icons"
 
 const Services = () => {
   return (
