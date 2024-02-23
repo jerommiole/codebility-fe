@@ -1,14 +1,8 @@
 "use client"
-import React from "react"
-import Image from "next/image"
-import Card from "../../Components/Card"
 import { motion } from "framer-motion"
-import {
-  fadeInOutRightToLeft,
-  fadeInOutLeftToRight,
-  fadeInOutUpToDown,
-  fadeInOutDownToUp,
-} from "../../Components/FramerAnimation/Framer"
+import Card from "../../Components/Card"
+import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from "../../Components/FramerAnimation/Framer"
+
 const ServicesSection2 = () => {
   return (
     <div id="services" className="bg-backgroundColor px-3.5">
@@ -70,21 +64,6 @@ const ServicesSection2 = () => {
             />
           </motion.div>
         </div>
-
-        <motion.p
-          variants={fadeInOutDownToUp}
-          initial="hidden"
-          whileInView="visible"
-          className="mx-auto mt-10 w-full text-base  text-primaryColor md:text-center"
-        >
-          At the core of our services, we believe in the transformative power of innovation and design. Our dedicated
-          team is committed to crafting solutions that not only meet but exceed the expectations of our clients. We
-          understand that in a rapidly digitalizing world, the right online presence can be a game-changer for
-          businesses and individuals alike. That's why our approach is centered around understanding your unique needs
-          and translating them into digital realities that propel growth,engagement, and success. Whether you're looking
-          to revamp your brand, launch a new website, or create compelling content, we're here to turn your ideas into
-          tangible, effective, and memorable digital experiences.
-        </motion.p>
       </div>
     </div>
   )
