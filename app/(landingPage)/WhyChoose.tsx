@@ -1,5 +1,5 @@
 "use client"
-import Header2 from "Components/landingPage/Heading2"
+import Heading2 from "Components/landingPage/Heading2"
 import IntroText from "Components/landingPage/IntroText"
 import Paragraph from "Components/landingPage/Paragraph"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
           className="flex flex-col gap-4 lg:flex-row"
         >
           <div className="basis-1/2">
-            <Header2 text="Why Choose Us" />
+            <Heading2>Why Choose Us?</Heading2>
           </div>
           <div className="max-w-[450px] basis-1/2">
             <IntroText text="At Codebility, we lead in digital trends, driven by innovation and passion. With a deep understanding of the digital landscape, we empower individuals and businesses, effortlessly turning challenges into solutions since our inception." />

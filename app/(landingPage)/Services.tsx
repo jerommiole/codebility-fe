@@ -1,8 +1,9 @@
 "use client"
+import Heading2 from "Components/landingPage/Heading2"
+import SectionWrapper from "Components/landingPage/SectionWrapper"
 import { motion } from "framer-motion"
 import Card from "../../Components/Card"
 import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from "../../Components/FramerAnimation/Framer"
-import SectionWrapper from "Components/landingPage/SectionWrapper"
 import WeLeverage from "./WeLeverage"
 
 const Services = () => {
@@ -10,7 +11,23 @@ const Services = () => {
     <>
       <div id="services"></div>
       <SectionWrapper>
-        <div></div>
+        <div className="flex flex-col gap-2">
+          <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="mx-auto">
+            <Heading2>Services</Heading2>
+          </motion.div>
+          <motion.div
+            variants={fadeInOutDownToUp}
+            initial="hidden"
+            whileInView="visible"
+            className="max-w-[600px] text-center text-secondaryColor"
+          >
+            <p className="text-xl text-primaryColor">Empowering Your Digital Presence</p>
+            <p>
+              We lead in digital innovation and design, offering tailored services to make your digital presence stand
+              out and achieve impactful results.
+            </p>
+          </motion.div>
+        </div>
       </SectionWrapper>
 
       <WeLeverage />
