@@ -1,7 +1,7 @@
 "use client"
 import React, { useRef } from "react"
 import Image from "next/image"
-import Card from "../../Components/Card"
+import Card from "./ServiceCard"
 import { motion } from "framer-motion"
 import {
   fadeInOutRightToLeft,
