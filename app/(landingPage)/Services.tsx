@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Card from "../../Components/Card"
 import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from "../../Components/FramerAnimation/Framer"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
+import WeLeverage from "./WeLeverage"
 
 const Services = () => {
   return (
@@ -11,6 +12,9 @@ const Services = () => {
       <SectionWrapper>
         <div></div>
       </SectionWrapper>
+
+      <WeLeverage />
+
       <div id="services" className="bg-backgroundColor px-3.5">
         <div className="mx-auto mb-16 flex w-full max-w-7xl flex-col gap-10 ">
           <div className="flex flex-col items-center justify-center">
