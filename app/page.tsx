@@ -17,7 +17,7 @@ export default function Web() {
     const fetchData = async () => {
       setTimeout(async () => {
         setIsLoading(false)
-      }, 2000)
+      }, 1000)
     }
 
     fetchData()

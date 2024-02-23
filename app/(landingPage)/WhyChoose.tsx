@@ -2,7 +2,7 @@
 import Header2 from "Components/landingPage/Heading2"
 import IntroText from "Components/landingPage/IntroText"
 import Paragraph from "Components/landingPage/Paragraph"
-import Section from "Components/landingPage/Section"
+import SectionWrapper from "Components/landingPage/SectionWrapper"
 import { motion } from "framer-motion"
 import { fadeInOutDownToUp } from "../../Components/FramerAnimation/Framer"
 import WhyChooseItem from "./WhyChooseItem"
@@ -10,7 +10,7 @@ import WhyChooseItem from "./WhyChooseItem"
 const WhyChooseUs = () => {
   return (
     <div id="join">
-      <Section>
+      <SectionWrapper>
         <motion.div
           variants={fadeInOutDownToUp}
           initial="hidden"
@@ -57,7 +57,7 @@ const WhyChooseUs = () => {
             offers. It highlights the company's strengths and commitment to delivering tailored solutions."
           />
         </motion.div>
-      </Section>
+      </SectionWrapper>
     </div>
   )
 }
