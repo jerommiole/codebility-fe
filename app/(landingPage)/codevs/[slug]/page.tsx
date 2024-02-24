@@ -5,6 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { skillList, socialsList } from "../../../../lib/statisData"
+import { educList, skillData, socials, workExperienceData } from "../constant"
+import Navbar from "app/(landingPage)/Navbar"
 
 interface workExperience {
   company: string
@@ -36,17 +38,18 @@ interface User {
 //    -END DATE
 //    -TASKS[] NOT SHORT DESC
 //    -TECH USED []
+
 const Page = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
   const [data, setData] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const fetchCoDevsData = async (id: string) => {
+    const fetchUsersData = async (id: string) => {
       try {
         const response = await axios("https://codebility-be.onrender.com/api/v1/production/users/" + id)
         if (!response) {
-          throw new Error("Error: Cannot get specific users")
+          throw new Error("Failed to fetch data from the server.")
         }
         setData(response.data.data)
         setIsLoading(false)
@@ -56,101 +59,16 @@ const Page = ({ params }: { params: { slug: string } }) => {
         setIsLoading(false)
       }
     }
-    fetchCoDevsData(id)
+    fetchUsersData(id)
   }, [id])
-  console.log("eto", data)
+
   if (isLoading) {
     return <div className="bg-black">Loading....</div>
   }
-  const socials = [
-    {
-      name: "facebook",
-      url: "http://facebook.com",
-    },
-    {
-      name: "github",
-      url: "http://facebook.com",
-    },
-    {
-      name: "linkedin",
-      url: "http://facebook.com",
-    },
-    {
-      name: "whatsapp",
-      url: "http://facebook.com",
-    },
-    {
-      name: "skype",
-      url: "http://facebook.com",
-    },
-    {
-      name: "telegram",
-      url: "http://facebook.com",
-    },
-  ]
-  const educList = [
-    {
-      name: "Harvard University",
-      details: "BS Computer Engineering",
-      date: "2019-2023",
-    },
-  ]
-  const skillData = [
-    {
-      name: "angular",
-    },
-    {
-      name: "css",
-    },
-    {
-      name: "firebase",
-    },
-    {
-      name: "bootstrap",
-    },
-    {
-      name: "oracle",
-    },
-    {
-      name: "html",
-    },
-  ]
-  const workExperienceData = [
-    {
-      position: "Senior UI/UX Designer",
-      fromYear: "April 2000",
-      toYear: "April 2023",
-      company: "Codebility",
-      tasks: [
-        "Design and iterate on user interfaces for [mention specific platforms or products], ensuring a seamless and visually appealing experience.",
-        "Collaborate with product management and engineering teams to define and implement innovative solutions for product direction, visuals, and experience.",
-        "Conduct user research and evaluate user feedback to enhance usability and optimize the design of products.",
-        "Create wireframes, storyboards, user flows, process flows, and site maps to effectively communicate interaction and design ideas.",
-        "Execute all visual design stages from concept to final hand-off to engineering.",
-        "Develop and maintain design wireframes, mockups, and specifications as needed.",
-        "Stay current with the latest UI trends, techniques, and technologies.",
-      ],
-      technologies: ["html", "css", "javascript", "angular", "jquery"],
-    },
-    {
-      position: "Senior UI/UX Designer",
-      fromYear: "April 2000",
-      toYear: "April 2023",
-      company: "Microsoft Corporation",
-      tasks: [
-        "Design and iterate on user interfaces for [mention specific platforms or products], ensuring a seamless and visually appealing experience.",
-        "Collaborate with product management and engineering teams to define and implement innovative solutions for product direction, visuals, and experience.",
-        "Conduct user research and evaluate user feedback to enhance usability and optimize the design of products.",
-        "Create wireframes, storyboards, user flows, process flows, and site maps to effectively communicate interaction and design ideas.",
-        "Execute all visual design stages from concept to final hand-off to engineering.",
-        "Develop and maintain design wireframes, mockups, and specifications as needed.",
-        "Stay current with the latest UI trends, techniques, and technologies.",
-      ],
-      technologies: ["html", "css", "javascript", "angular", "jquery"],
-    },
-  ]
+
   return (
     <>
+      <Navbar />
       <section className="mx-auto bg-blackBgColor px-4 pb-10 text-gray01 xl:pt-28">
         <div className="mb-8 grid max-w-7xl gap-y-5 pt-8 lg:relative lg:h-[20rem] lg:grid-cols-6 lg:grid-rows-3 lg:gap-y-0 xl:mx-auto">
           <div className="border-b border-b-tealColor pb-3 md:px-10 md:pb-5 lg:col-span-2 lg:pt-0 xl:pl-32">
