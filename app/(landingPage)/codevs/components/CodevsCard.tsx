@@ -54,7 +54,7 @@ const CodevsCard = ({ users }: { users: any }) => {
           </div>
           <ButtonLink>
             {/* /codevs/${user.id} */}
-            <Link className="text-[#31AFC4]" href={`#`}>
+            <Link className="text-[#31AFC4]" href={`/codevs/${user.id}`}>
               Read Bio
             </Link>
           </ButtonLink>

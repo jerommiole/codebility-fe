@@ -3,7 +3,6 @@
 import Heading2 from "Components/landingPage/Heading2"
 import Heading3 from "Components/landingPage/Heading3"
 import IntroText from "Components/landingPage/IntroText"
-import Paragraph from "Components/landingPage/Paragraph"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import axios from "axios"
 import { motion } from "framer-motion"

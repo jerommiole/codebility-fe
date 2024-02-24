@@ -1,9 +1,11 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { skillList, socialsList } from "../../../../lib/statisData"
+
 import axios from "axios"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { skillList, socialsList } from "../../../../lib/statisData"
+
 interface workExperience {
   company: string
   date: string
@@ -13,6 +15,7 @@ interface workExperience {
   short_desc: string
   userWorkExpId: string
 }
+
 interface User {
   id: string
   name: string
@@ -25,6 +28,7 @@ interface User {
   UserProjects?: any[]
   clients?: any[]
 }
+
 // NOTES: WALA PA SA API FOR RESUME PAGE
 // EDUCATION
 // WORK EXPERIENCES
@@ -36,6 +40,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
   const [data, setData] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     const fetchCoDevsData = async (id: string) => {
       try {
