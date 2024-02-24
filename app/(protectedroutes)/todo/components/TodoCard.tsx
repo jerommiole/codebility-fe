@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 
 import { useModal } from "hooks/use-modal"
-import { SvgBox, SvgPin, SvgMore, SvgWarning } from "assets/icons"
+import { SvgBox, SvgPin, SvgMore, SvgWarning } from "public/assets/icons"
 
 import {
   DropdownMenu,

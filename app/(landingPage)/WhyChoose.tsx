@@ -21,12 +21,14 @@ const WhyChooseUs = () => {
             <div className="basis-1/2">
               <Heading2>Why Choose Us?</Heading2>
             </div>
-            <div className="max-w-[450px] basis-1/2">
-              <IntroText>
-                At Codebility, we lead in digital trends, driven by innovation and passion. With a deep understanding of
-                the digital landscape, we empower individuals and businesses, effortlessly turning challenges into
-                solutions since our inception.
-              </IntroText>
+            <div className="basis-1/2">
+              <div className="max-w-[500px] ">
+                <IntroText>
+                  At Codebility, we lead in digital trends, driven by innovation and passion. With a deep understanding
+                  of the digital landscape, we empower individuals and businesses, effortlessly turning challenges into
+                  solutions since our inception.
+                </IntroText>
+              </div>
             </div>
           </motion.div>
 

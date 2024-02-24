@@ -10,7 +10,7 @@ interface AboutCardProps {
 const AboutCard = ({ icon, title, desc }: AboutCardProps) => {
   return (
     <motion.div variants={fadeInOutLeftToRight} initial="hidden" whileInView="visible">
-      <div className="flex h-64 flex-col items-center justify-center gap-4 bg-[#0D0D0D] p-4 text-center">
+      <div className="flex h-64 flex-col items-center justify-center gap-1 rounded-lg bg-[#121212] p-4 text-center">
         {icon}
         <Heading3>{title}</Heading3>
         <p className="text-[#8E8E8E]">{desc}</p>

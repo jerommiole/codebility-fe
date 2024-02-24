@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "react"
 import Loader from "../Components/loader"
 import About from "./(landingPage)/About"
@@ -8,7 +9,7 @@ import Navbar from "./(landingPage)/Navbar"
 import Services from "./(landingPage)/Services"
 import WeLeverage from "./(landingPage)/WeLeverage"
 import WhyChoose from "./(landingPage)/WhyChoose"
-import Codevs from "./codevs/page"
+import Codevs from "./(landingPage)/codevs/Codevs"
 
 export default function Web() {
   const [isLoading, setIsLoading] = useState(true)

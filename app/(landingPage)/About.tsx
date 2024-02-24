@@ -2,8 +2,8 @@
 import Heading2 from "Components/landingPage/Heading2"
 import IntroText from "Components/landingPage/IntroText"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
-import { SvgCommunity, SvgInnovation, SvgRealWorld, SvgSkillMastery } from "assets/icons"
-import moon from "assets/images/moon.png"
+import { SvgCommunity, SvgInnovation, SvgRealWorld, SvgSkillMastery } from "public/assets/icons"
+import moon from "public/assets/images/moon.png"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import AboutCard from "./AboutCard"
@@ -78,7 +78,7 @@ const AboutSection = () => {
             </IntroText>
           </div>
           <div className="basis-1/2">
-            <div className="flex flex-row gap-6 py-10">
+            <div className="flex flex-col gap-6 py-10 lg:flex-row">
               <div className="flex flex-1 flex-col gap-6">
                 <motion.div
                   initial={{ opacity: 0, x: -25 }}

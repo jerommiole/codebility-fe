@@ -2,7 +2,7 @@ import { fadeInOutDownToUp } from "Components/FramerAnimation/Framer"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import TextGradient from "Components/landingPage/TextGradient"
 import { motion } from "framer-motion"
-import innovationIcon from "assets/images/idea-icon.png"
+import innovationIcon from "public/assets/images/idea-icon.png"
 import Image from "next/image"
 
 const WeLeverage = () => {
