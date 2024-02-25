@@ -317,3 +317,26 @@ export const SvgLink = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+export const SvgCodebilityIconBlack = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={203} height={326} fill="none" {...props}>
+    <path
+      fill="#1C1C1C"
+      d="M16.63 0 203 187.629l-77.505 80.605c9.856-25.077 17.024-47.02-20.16-88.218-37.185-41.197-68.097-65.379-86.018-87.769C1.397 69.857-12.043 41.197 16.63 0Z"
+    />
+    <path
+      fill="#1C1C1C"
+      d="M94.582 191.659s-17.024 17.465-43.904 43.885c-26.88 26.42-23.744 67.618-2.688 90.456 68.539-58.921 80.034-87.795 46.592-134.341Z"
+    />
+  </svg>
+)
+
+export const SvgDownload = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" {...props}>
+    <path
+      fill="#31AFC4"
+      fillOpacity={0.96}
+      d="M8 12 3 7l1.4-1.45L7 8.15V0h2v8.15l2.6-2.6L13 7l-5 5Zm-6 4c-.55 0-1.02-.196-1.412-.587A1.93 1.93 0 0 1 0 14v-3h2v3h12v-3h2v3c0 .55-.196 1.021-.587 1.413A1.92 1.92 0 0 1 14 16H2Z"
+    />
+  </svg>
+)

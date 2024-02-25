@@ -1,48 +1,74 @@
 "use client"
 
+import CodevHeading from "Components/landingPage/CodevHeading"
+import Heading1 from "Components/landingPage/Heading1"
+import SectionWrapper from "Components/landingPage/SectionWrapper"
+import Navbar from "app/(landingPage)/Navbar"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
+import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { useEffect, useState } from "react"
-import { skillList, socialsList } from "../../../../lib/statisData"
-import { educList, skillData, socials, workExperienceData } from "../constant"
-import Navbar from "app/(landingPage)/Navbar"
-
-interface workExperience {
-  company: string
-  date: string
-  id: string
-  position: string
-  profileId: string
-  short_desc: string
-  userWorkExpId: string
-}
+import { skillData, skillList, workExperienceData } from "../constant"
+import imgCodebilityThumb from "../../../../public/assets/images/codebility-project-thumb.png"
+import Footer from "app/(landingPage)/Footer"
 
 interface User {
   id: string
-  name: string
-  short_bio?: string
-  image_icon?: string
+  name: string // displayed
+  short_bio?: string // displayed
+  image_icon?: string // displayed
+  address?: string // displayed
+  email_address?: string | undefined // displayed
+  phone_no?: string
+  github_link?: string // displayed
+  fb_link?: string // displayed
+  linkedin_link?: string // displayed
+  whatsapp_link?: string
+  skype_link?: string
+  telegram_link?: string
+  portfolio_website?: string // displayed
   tech_stacks?: string[]
   addtl_skills?: string[]
-  position: string
-  work_experience?: workExperience[]
-  UserProjects?: any[]
-  clients?: any[]
+  about_me?: string
+  education?: string
+  created_at?: string
+  updated_at?: string
+  schedule?: string
+  position?: string[]
+  projects?: any[]
+  clientId?: string
 }
 
-// NOTES: WALA PA SA API FOR RESUME PAGE
-// EDUCATION
-// WORK EXPERIENCES
-//    -START DATE
-//    -END DATE
-//    -TASKS[] NOT SHORT DESC
-//    -TECH USED []
-
-const Page = ({ params }: { params: { slug: string } }) => {
+const CodevBioPage = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
   const [data, setData] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+
+  const {
+    name,
+    short_bio,
+    image_icon,
+    address,
+    email_address,
+    github_link,
+    fb_link,
+    linkedin_link,
+    whatsapp_link,
+    skype_link,
+    telegram_link,
+    portfolio_website,
+    tech_stacks,
+    addtl_skills,
+    about_me,
+    education,
+    created_at,
+    updated_at,
+    schedule,
+    position,
+    projects,
+    clientId,
+  } = data || {}
 
   useEffect(() => {
     const fetchUsersData = async (id: string) => {
@@ -62,269 +88,236 @@ const Page = ({ params }: { params: { slug: string } }) => {
     fetchUsersData(id)
   }, [id])
 
-  if (isLoading) {
-    return <div className="bg-black">Loading....</div>
-  }
-
   return (
     <>
       <Navbar />
-      <section className="mx-auto bg-blackBgColor px-4 pb-10 text-gray01 xl:pt-28">
-        <div className="mb-8 grid max-w-7xl gap-y-5 pt-8 lg:relative lg:h-[20rem] lg:grid-cols-6 lg:grid-rows-3 lg:gap-y-0 xl:mx-auto">
-          <div className="border-b border-b-tealColor pb-3 md:px-10 md:pb-5 lg:col-span-2 lg:pt-0 xl:pl-32">
-            <div className="flex justify-between">
-              <h2 className="mb-3 text-2xl font-semibold text-white md:text-5xl xl:mb-1">{data?.name ?? "John Doe"}</h2>
-              <Image src="/download.svg" alt="Download Button" width={25} height={25} className="lg:hidden" />
+      <div className="bg-[#0B0B0C]">
+        <SectionWrapper>
+          <div className="flex flex-col gap-20">
+            <div className="text-center">
+              <Heading1>Biography</Heading1>
             </div>
-            <p className="max-w-60 text-base font-normal lg:text-xl">Frontend Developer</p>
-            <span className="w-full"></span>
-          </div>
-          <div className="flex w-full items-center justify-center lg:row-span-2">
-            <div className="flex h-full w-[10.6875rem] items-center bg-indigo-950 pt-3 lg:h-[14rem] lg:pt-0">
-              <Image src={data?.image_icon ?? "/sampleProfile/profile.png"} width="328" height="390" alt="profile" />
-            </div>
-          </div>
-          <div className="flex items-end lg:col-span-2 lg:col-start-4 lg:row-start-2">
-            <div className="mx-auto mt-5 flex lg:pb-5 lg:pl-8 xl:mx-0">
-              <div className="flex gap-5 pb-4">
-                {socials.map((social: { name: string; url: string }, i) => (
-                  <Link key={`link-${i}`} href={social.url}>
-                    <Image
-                      src={socialsList[social.name]?.icon!}
-                      alt={social.name}
-                      width={20}
-                      height={20}
-                      className="transition duration-300 hover:-translate-y-0.5"
-                    />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-2 lg:row-start-2 lg:mt-10">
-            <div className="md:px-5">
-              <p className="text-base text-tealColor">About Me</p>
-              <p className="pl-4 pt-4 text-xs">{data?.short_bio}</p>
-            </div>
-          </div>
-        </div>
-        <Image
-          src="/download.svg"
-          alt="Download Button"
-          width={40}
-          height={40}
-          className="hidden cursor-pointer lg:absolute lg:right-10 lg:top-10 lg:flex"
-        />
 
-        <p className="hidden text-center text-base text-tealColor lg:block">Work Experience</p>
-        <section className="lg:grid-rows-0 mb-5 grid max-w-7xl grid-cols-1 lg:grid-cols-6 xl:mx-auto">
-          <div className="md:px-5 lg:col-span-2 lg:row-start-2 lg:pb-14">
-            <p className="text-base text-tealColor">Education</p>
-            <div className="pb-6 pl-4 pt-5 text-xs">
-              <ul className="flex w-full flex-col gap-3">
-                {educList.map((educ, i) => (
-                  <li key={`li-${i}`} className="flex flex-col capitalize">
-                    <p className="text-xs font-semibold lg:text-sm">{educ.name}</p>
-                    <p className="text-xs font-normal lg:text-sm">{educ.details}</p>
-                    <p className="text-xs text-secondaryColor lg:text-sm">{educ.date}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="md:px-5 lg:col-span-2 lg:row-start-3 lg:pb-14">
-            <p className="text-base text-tealColor">Skills</p>
-            <div className="pb-6 pl-4 pt-5 text-xs">
-              <ul className="flex w-full items-center gap-3">
-                {data?.tech_stacks &&
-                  data.tech_stacks?.map((skill, i) => (
-                    <li key={`skill-${i}`} className="w-5">
-                      <Image
-                        src={`/techStack/${skill.toLowerCase()}.png`}
-                        alt={`${skill} logo`}
-                        width={1000}
-                        quality={100}
-                        height={1000}
-                        className=" transition duration-300 hover:-translate-y-0.5"
-                      />
-                    </li>
+            <div className="flex flex-col gap-20 bg-[#121212] p-10">
+              <div className="flex flex-col gap-6 lg:flex-row">
+                <div className="order-3 my-auto flex basis-2/5 flex-col text-primaryColor lg:order-1">
+                  <p className="text-center text-lg font-semibold md:text-3xl lg:text-left">
+                    {name && name.length > 0 ? name : "Null"}
+                  </p>
+                  <p className="text-center text-lg text-[#8E8E8E] lg:text-left">
+                    {position && position[0] ? position : "Null"}
+                  </p>
+                  <p className="text-center text-lg text-[#8E8E8E] lg:text-left">
+                    {address && address ? address : "Null"}
+                  </p>
+                  <div className="mt-2 flex flex-row justify-center gap-2 lg:justify-start">
+                    {email_address && (
+                      <Link href={`mailto:${email_address}`}>
+                        <SvgEmail />
+                      </Link>
+                    )}
+                    {github_link && (
+                      <Link href={github_link} target="_blank">
+                        <SvgGithub />
+                      </Link>
+                    )}
+                    {portfolio_website && (
+                      <Link href={portfolio_website} target="_blank">
+                        <SvgLink />
+                      </Link>
+                    )}
+                    {fb_link && (
+                      <Link href={fb_link} target="_blank">
+                        <SvgGithub />
+                        {/* Change to FB Icon */}
+                      </Link>
+                    )}
+                    {linkedin_link && (
+                      <Link href={linkedin_link} target="_blank">
+                        <SvgLinkedin />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+                <div className="order-2 basis-1/5 lg:order-2">
+                  <div className="flex justify-center">
+                    <Image
+                      alt="Avatar"
+                      src={image_icon ?? "/sampleProfile/profile.png"}
+                      width={200}
+                      height={200}
+                      // className="rounded-lg bg-[#1e1b4b] bg-cover"
+                      className="h-[80px] w-[80px] rounded-lg bg-[#1e1b4b] bg-cover object-contain md:h-[96px] md:w-[96px] lg:h-[180px] lg:w-[180px]"
+                    />
+                  </div>
+                </div>
+                <div className="order-1 basis-2/5 lg:order-3">
+                  <div className="relative">
+                    <div className="invisible absolute right-0 lg:visible">
+                      <SvgCodebilityIconBlack />
+                    </div>
+                    <div className="absolute right-0 top-0">
+                      <SvgDownload />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-6 lg:flex-row">
+                <div className="flex basis-2/5 flex-col gap-4 text-[#8E8E8E]">
+                  <div>
+                    <CodevHeading>About me</CodevHeading>
+                    <p className="text-sm">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                      the industry's standard dummy text ever since the 1500s,
+                    </p>
+                    <p>{short_bio}</p>
+                  </div>
+                  <div>
+                    <CodevHeading>Education</CodevHeading>
+                    <p className="text-sm">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                      the industry's standard dummy text ever since the 1500s,
+                    </p>
+                    <p>{education}</p>
+                  </div>
+                  <div>
+                    <CodevHeading>Skills</CodevHeading>
+                    <ul>{tech_stacks?.map((skill, i) => <li key={`skill-${i}`}>{skill}</li>)}</ul>
+                  </div>
+                </div>
+
+                <div className="flex basis-3/5 flex-col gap-2">
+                  <CodevHeading>Work Experience</CodevHeading>
+
+                  {workExperienceData.map((item, i) => (
+                    <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
+                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 animate-ping rounded-full bg-tealColor" />
+                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 rounded-full bg-tealColor " />
+
+                      <div className="flex flex-col gap-4 border-b border-[#1C1C1C] pb-6">
+                        <div>
+                          <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">{item.position}</p>
+                          <p className="text-sm text-[#8E8E8E] lg:text-lg">{item.company}</p>
+                          <p className="text-xs text-[#8E8E8E] lg:text-sm">
+                            {item.fromYear} - {item.toYear}
+                          </p>
+                          <p className="text-xs text-[#8E8E8E] lg:text-sm">{item.location}</p>
+                        </div>
+
+                        <ul className="pl-4 text-[#8E8E8E]">
+                          {item.tasks?.map((task: any, i: any) => (
+                            <li className="list-disc text-xs lg:text-sm" key={i}>
+                              {task}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex gap-2">
+                          {item.technologies?.map((task: any, i: any) => (
+                            <Image
+                              src={`/techStack/${task}.png`}
+                              alt={task + " icon"}
+                              width={20}
+                              height={20}
+                              title={task}
+                              className="cursor-pointer object-contain"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   ))}
-              </ul>
-            </div>
-          </div>
-          <div className="row-span-10 mt-10 lg:col-span-3">
-            <p className="pb-5 text-center text-base text-tealColor lg:hidden lg:pb-0">Work Experience</p>
-            <div className="flex flex-col">
-              {/* {data?.work_experience && data?.work_experience.map((item, i) => ( */}
-              {workExperienceData.map((item, i) => (
-                <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
-                  <p className="mb-1 text-xs text-secondaryColor lg:text-sm">
-                    {/* WALA PA SA API */}
-                    {item.fromYear} - {item.toYear}
-                    {/* {item.date} */}
-                  </p>
-                  <p className="mb-2 text-lg font-bold text-gray01 lg:text-xl">{item.position}</p>
-                  <p className="mb-2 text-sm text-gray01 lg:text-lg">{item.company}</p>
-                  <ul className="pl-4">
-                    {/* {item.short_desc} */}
-                    {/* WALA PA SA API */}
-                    {item.tasks?.map((task: any, i: any) => (
-                      <li className="list-disc text-xs lg:text-sm" key={i}>
-                        {task}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="m-2 flex gap-2">
-                    {/* WALA PA SA API */}
-                    {item.technologies?.map((task: any, i: any) => (
-                      <Image
-                        src={`/techStack/${task}.png`}
-                        alt={task + " icon"}
-                        width={20}
-                        height={20}
-                        title={task}
-                        className="cursor-pointer object-contain"
-                      />
-                    ))}
-                  </div>
-                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 animate-ping rounded-full bg-tealColor">
-                    &nbsp;
-                  </span>
-                  <span className="absolute -left-[4px] bottom-0 h-2 w-2 rounded-full bg-tealColor ">&nbsp;</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        <div className="max-w-7xl md:my-5 xl:mx-auto xl:px-28">
-          <p className="text-base md:text-center">CODEBILITY PROJECTS</p>
-          <div className="mt-7 flex flex-col gap-y-10 lg:gap-y-5">
-            {/* data.clients */}
-            {[1, 2, 3].map((i, j) => (
-              <div key={`div-${j}`} className="flex flex-col items-center justify-center gap-2 lg:flex-row lg:gap-10">
-                <div className="gap-3 hover:cursor-pointer lg:flex">
-                  <div className=" h-full w-[303px] lg:w-[203px]">
-                    <Image
-                      src="/sampleproject/codebility.png"
-                      height={142}
-                      width={203}
-                      // fill
-                      alt="codebility"
-                      className="aspect-auto h-full w-full rounded transition duration-300 hover:scale-105"
-                    />
-                  </div>
-                  <div className="hidden flex-col justify-between lg:flex">
-                    <Image
-                      src="/sampleproject/codebility.png"
-                      height="80"
-                      width="87"
-                      alt="codebility"
-                      className="rounded transition duration-300 hover:scale-105"
-                    />
-                    <Image
-                      src="/sampleproject/codebility.png"
-                      height="80"
-                      width="87"
-                      alt="codebility"
-                      className="rounded transition duration-300 hover:scale-105"
-                    />
-                  </div>
-                </div>
-                <div className="flex w-full flex-grow flex-col justify-between gap-1 px-5 py-2 md:w-1/2">
-                  <p className="text-xs text-secondaryColor lg:text-sm">April 2023</p>
-                  <h4 className="text-lg">CODEBILITY </h4>
-                  <a className="text-sm hover:underline" href="#">
-                    Link: https://codebility-fe.vercel.app/
-                  </a>
-                  <ul className="my-1 flex w-full items-center gap-3">
-                    {skillData.map((skill, i) => (
-                      <li key={`skill-${i}`}>
-                        <Image
-                          src={skillList[skill?.name]?.icon!}
-                          alt={skill.name}
-                          width={20}
-                          height={20}
-                          className=" transition duration-300 hover:-translate-y-0.5"
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="h-12 truncate text-wrap text-xs lg:text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, laborum!
-                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="max-w-7xl md:my-5 xl:mx-auto xl:px-28">
-          <p className=" text-base md:text-center">PERSONAL PROJECTS</p>
-          <div className="mt-7 flex flex-col gap-y-10 lg:gap-y-5">
-            {/* data.UserProjects */}
-            {[1, 2, 3].map((i, j) => (
-              <div key={`div-${j}`} className="flex flex-col items-center justify-center gap-2 lg:flex-row lg:gap-10">
-                <div className="gap-3 hover:cursor-pointer lg:flex">
-                  <div className=" h-full w-[303px] lg:w-[203px]">
+
+              <div>
+                <CodevHeading>Codebility Projects</CodevHeading>
+                <div className="flex flex-col gap-2 lg:flex-row lg:gap-10">
+                  <div className="h-full w-full">
                     <Image
-                      src="/sampleproject/codebility.png"
-                      height={142}
-                      width={203}
-                      // fill
-                      alt="codebility"
-                      className="aspect-auto h-full w-full rounded transition duration-300 hover:scale-105"
+                      src={imgCodebilityThumb}
+                      width={700}
+                      height={800}
+                      alt="Codebility Project"
+                      className="h-full w-full rounded-lg bg-cover object-contain"
                     />
                   </div>
-                  <div className="hidden flex-col justify-between lg:flex">
-                    <Image
-                      src="/sampleproject/codebility.png"
-                      height="80"
-                      width="87"
-                      alt="codebility"
-                      className="rounded transition duration-300 hover:scale-105"
-                    />
-                    <Image
-                      src="/sampleproject/codebility.png"
-                      height="80"
-                      width="87"
-                      alt="codebility"
-                      className="rounded transition duration-300 hover:scale-105"
-                    />
+                  <div className="my-auto flex flex-col gap-2 text-[#8E8E8E]">
+                    <div>
+                      <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">CODEBILITY </p>
+                      <p className="text-xs text-[#8E8E8E] lg:text-sm">2023 - 2024</p>
+                    </div>
+                    <p className="text-xs lg:text-sm">
+                      At Codebility, we undertook a dynamic and comprehensive project to design and develop a
+                      feature-rich website, seamlessly integrating an eye-catching landing page with a robust Content
+                      Management System (CMS). This project aimed to provide Codebility with a modern and user-friendly
+                      online presence, enabling efficient content management and easy navigation for both visitors and
+                      administrators.
+                    </p>
+                    <ul className="my-1 flex w-full items-center gap-3">
+                      {skillData.map((skill, i) => (
+                        <li key={`skill-${i}`}>
+                          <Image
+                            src={skillList[skill?.name]?.icon!}
+                            alt={skill.name}
+                            width={20}
+                            height={20}
+                            className=" transition duration-300 hover:-translate-y-0.5"
+                          />
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-                <div className="flex w-full flex-grow flex-col justify-between gap-1 px-5 py-2 md:w-1/2">
-                  <p className="text-xs text-secondaryColor lg:text-sm">April 2023</p>
-                  <h4 className="text-lg">CODEBILITY </h4>
-                  <a className="text-sm hover:underline" href="#">
-                    Link: https://codebility-fe.vercel.app/
-                  </a>
-                  <ul className="my-1 flex w-full items-center gap-3">
-                    {skillData.map((skill, i) => (
-                      <li key={`skill-${i}`}>
-                        <Image
-                          src={skillList[skill?.name]?.icon!}
-                          alt={skill.name}
-                          width={20}
-                          height={20}
-                          className=" transition duration-300 hover:-translate-y-0.5"
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="h-12 truncate text-wrap text-xs lg:text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, laborum!
-                  </p>
                 </div>
               </div>
-            ))}
+
+              <div>
+                <CodevHeading>Personal Projects</CodevHeading>
+                <div className="flex flex-col gap-2 lg:flex-row lg:gap-10">
+                  <div className="h-full w-full">
+                    <Image
+                      src={imgCodebilityThumb}
+                      width={700}
+                      height={800}
+                      alt="Codebility Project"
+                      className="h-full w-full rounded-lg bg-cover object-contain"
+                    />
+                  </div>
+                  <div className="my-auto flex flex-col gap-2 text-[#8E8E8E]">
+                    <div>
+                      <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">CODEBILITY </p>
+                      <p className="text-xs text-[#8E8E8E] lg:text-sm">2023 - 2024</p>
+                    </div>
+                    <p className="text-xs lg:text-sm">
+                      At Codebility, we undertook a dynamic and comprehensive project to design and develop a
+                      feature-rich website, seamlessly integrating an eye-catching landing page with a robust Content
+                      Management System (CMS). This project aimed to provide Codebility with a modern and user-friendly
+                      online presence, enabling efficient content management and easy navigation for both visitors and
+                      administrators.
+                    </p>
+                    <ul className="my-1 flex w-full items-center gap-3">
+                      {skillData.map((skill, i) => (
+                        <li key={`skill-${i}`}>
+                          <Image
+                            src={skillList[skill?.name]?.icon!}
+                            alt={skill.name}
+                            width={20}
+                            height={20}
+                            className=" transition duration-300 hover:-translate-y-0.5"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      <div className="flex h-20 items-center justify-end bg-blackBgColor px-5 xl:px-14">
-        <Link href="/">
-          <Image src="/codebilityLogoBlue.png" alt="Codebility logo" height={50} width={120} className="opacity-40" />
-        </Link>
+        </SectionWrapper>
       </div>
+      <Footer />
     </>
   )
 }
-export default Page
+export default CodevBioPage
