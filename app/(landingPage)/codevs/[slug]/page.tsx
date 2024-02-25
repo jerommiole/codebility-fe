@@ -10,35 +10,9 @@ import Link from "next/link"
 import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { useEffect, useState } from "react"
 import { skillData, skillList, workExperienceData } from "../constant"
-import imgCodebilityThumb from "../../../../public/assets/images/codebility-project-thumb.png"
+import imgCodebilityThumb from "@/public/assets/images/codebility-project-thumb.png"
 import Footer from "app/(landingPage)/Footer"
-
-interface User {
-  id: string
-  name: string // displayed
-  short_bio?: string // displayed
-  image_icon?: string // displayed
-  address?: string // displayed
-  email_address?: string | undefined // displayed
-  phone_no?: string
-  github_link?: string // displayed
-  fb_link?: string // displayed
-  linkedin_link?: string // displayed
-  whatsapp_link?: string
-  skype_link?: string
-  telegram_link?: string
-  portfolio_website?: string // displayed
-  tech_stacks?: string[]
-  addtl_skills?: string[]
-  about_me?: string
-  education?: string
-  created_at?: string
-  updated_at?: string
-  schedule?: string
-  position?: string[]
-  projects?: any[]
-  clientId?: string
-}
+import { User } from "@/types"
 
 const CodevBioPage = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
