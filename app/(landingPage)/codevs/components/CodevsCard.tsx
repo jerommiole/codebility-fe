@@ -15,20 +15,22 @@ const CodevsCard = ({ users }: { users: any }) => {
           key={user.id}
           className="flex flex-col items-center gap-2 rounded-lg bg-[#121212] p-4 text-center lg:bg-transparent"
         >
-          <Image
-            alt="Avatar"
-            src={
-              user.image_icon
-                ? user.image_icon
-                : user.pronoun === ("male" || "he" || "him" || "his")
-                ? defaultAvatarFemale
-                : defaultAvatarMale
-            }
-            width={100}
-            height={100}
-            className="rounded-full bg-[#583DFF] bg-cover"
-          />
-          <p className="font-semibold text-darkBlueColor">{user.name}</p>
+          <Link href={`/codevs/${user.id}`}>
+            <Image
+              alt="Avatar"
+              src={
+                user.image_icon
+                  ? user.image_icon
+                  : user.pronoun === ("male" || "he" || "him" || "his")
+                  ? defaultAvatarFemale
+                  : defaultAvatarMale
+              }
+              width={100}
+              height={100}
+              className="rounded-lg bg-[#1e1b4b] bg-cover"
+            />
+            <p className="pt-3 font-semibold text-darkBlueColor">{user.name}</p>
+          </Link>
           <p className="text-[#8E8E8E]">{user.position}</p>
           <div className="flex flex-row justify-center gap-2">
             {user.email_address && (
