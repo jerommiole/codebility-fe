@@ -1,7 +1,7 @@
 import ClientCard from "./components/ClientCard"
 import Pagination from "Components/Pagination"
 import Title from "Components/Title"
-import H from "public/hero2.png"
+import H from "@/public/assets/images/bio-project-thumb.png"
 import Action from "./components/Action"
 
 export default async function Clients() {

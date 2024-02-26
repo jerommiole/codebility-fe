@@ -4,13 +4,9 @@ import React from "react"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 
-import personIcon from "../../../../../public/sampleProfile/settings/person.png"
-import bellIcon from "../../../../../public/sampleProfile/settings/bell.png"
-import gearIcon from "../../../../../public/sampleProfile/settings/gear.png"
-import logIcon from "../../../../../public/sampleProfile/settings/log.png"
-import infoIcon from "../../../../../public/sampleProfile/settings/info.png"
+import personIcon from "@/public/assets/images/person.png"
 
-import { cn } from "../../../../../lib/utils"
+import { cn } from "@/lib/utils"
 const SettingMenu = () => {
   const pathname = usePathname()
 
@@ -24,26 +20,6 @@ const SettingMenu = () => {
       title: "Change Password",
       icon: personIcon,
       href: "/change-password",
-    },
-    {
-      title: "Notifications",
-      icon: bellIcon,
-      href: "/notifications",
-    },
-    {
-      title: "Settings",
-      icon: gearIcon,
-      href: "/settings",
-    },
-    {
-      title: "Activity Log",
-      icon: logIcon,
-      href: "/activity-log",
-    },
-    {
-      title: "About",
-      icon: infoIcon,
-      href: "/about",
     },
   ]
 

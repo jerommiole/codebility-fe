@@ -2,7 +2,7 @@
 
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Avatar from "Components/ui/avatar"
-import Hero from "public/hero.png"
+import Hero from "@/public/assets/images/bio-project-thumb.png"
 import Image, { StaticImageData } from "next/image"
 import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "Components/logos"
 import { useModal } from "hooks/use-modal"

@@ -4,9 +4,9 @@ import React from "react"
 import { getSession, signOut } from "next-auth/react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
 
-import logoPic from "public/Logo.png"
-import logoChar from "public/logoChar.png"
-import logoDark from "public/logoBlack.png"
+import logoPic from "@/public/assets/images/logo.png"
+import logoChar from "@/public/assets/images/codebility-logo-icon-full-colored.png"
+import logoDark from "@/public/assets/images/codebility-logo-black.png"
 
 import { usePathname, useRouter } from "next/navigation"
 

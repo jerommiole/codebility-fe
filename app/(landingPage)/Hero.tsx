@@ -1,11 +1,11 @@
 "use client"
-import React from "react"
+
 import { Button } from "Components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
-import { Inter, Rowdies, Iceland } from "next/font/google"
 import { motion } from "framer-motion"
-import Navbar from "./Navbar"
+import { Iceland, Inter, Rowdies } from "next/font/google"
+import Image from "next/image"
+import Link from "next/link"
+import personBG from "@/public/assets/images/hero-blindfoldedman.png"
 
 const socials = [
   {
@@ -83,7 +83,7 @@ const Hero = () => {
     >
       <div className="GradientHero absolute -top-80 z-10  h-[400px] w-screen blur-[200px] md:blur-[500px]"></div>
       <div>
-        <img src="Person.png" alt="" className="absolute bottom-0  right-56 h-[80%] w-auto opacity-50 " />
+        <Image src={personBG} alt="person" className="absolute bottom-0  right-56 h-[80%] w-auto opacity-50 " />
       </div>
       <div className="wrapper">
         <div>

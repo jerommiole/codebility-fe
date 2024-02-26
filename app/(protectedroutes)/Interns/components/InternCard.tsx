@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { roleMappings } from "../data"
 import Avatar from "Components/ui/avatar"
-import Hero from "public/hero.png"
+import Hero from "@/public/assets/images/bio-project-thumb.png"
 
 interface InternCardProps {
   image: string

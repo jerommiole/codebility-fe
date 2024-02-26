@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 
 import UserInfoForm from "../../../../../Components/profile/UserInfoForm"
 
-import { SvgBin, SvgCamera, SvgEdit } from "../../../../../public/assets/icons"
+import { SvgBin, SvgCamera, SvgEdit } from "@/public/assets/icons"
 import { upload } from "../../../../../lib/upload"
 import { getCodev, saveUserData } from "../../../../api"
 

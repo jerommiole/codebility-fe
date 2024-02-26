@@ -1,8 +1,11 @@
 "use client"
 
+import imgCodebilityThumb from "@/public/assets/images/bio-project-thumb.png"
+import { User } from "@/types"
 import CodevHeading from "Components/landingPage/CodevHeading"
 import Heading1 from "Components/landingPage/Heading1"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
+import Footer from "app/(landingPage)/Footer"
 import Navbar from "app/(landingPage)/Navbar"
 import axios from "axios"
 import Image from "next/image"
@@ -10,9 +13,6 @@ import Link from "next/link"
 import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { useEffect, useState } from "react"
 import { skillData, skillList, workExperienceData } from "../constant"
-import imgCodebilityThumb from "@/public/assets/images/codebility-project-thumb.png"
-import Footer from "app/(landingPage)/Footer"
-import { User } from "@/types"
 
 const CodevBioPage = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
