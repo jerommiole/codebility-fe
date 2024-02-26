@@ -32,7 +32,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         <Sidebar />
         <Navbar />
         <section className="max-md:pb-14 flex min-h-screen flex-1 flex-col px-6 pb-6 pt-36 sm:px-14">
-          <div className=" w-full max-w-4xl">{children}</div>
+          <div className="w-full">{children}</div>
         </section>
       </div>
     </main>

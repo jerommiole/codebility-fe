@@ -8,7 +8,7 @@ import { useNavStore } from "hooks/use-sidebar"
 const ToggleMenu = () => {
   const { activeNav, toggleNav } = useNavStore()
   return (
-    <Toggle pressed={activeNav ? true : false} onClick={() => toggleNav()} className="hidden tablet:block">
+    <Toggle pressed={activeNav ? true : false} onClick={() => toggleNav()}>
       <HamburgSVG />
     </Toggle>
   )
