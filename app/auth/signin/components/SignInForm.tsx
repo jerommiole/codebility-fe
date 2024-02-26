@@ -1,15 +1,17 @@
 "use client"
+import facebook from "@/public/assets/icons/icon-facebook.svg"
+import google from "@/public/assets/icons/icon-google.svg"
+import { zodResolver } from "@hookform/resolvers/zod"
+import SignInInputs from "Components/SigninInputs"
+import { Button } from "Components/ui/button"
+import { SignInValidation } from "lib/validations/auth"
+import { signIn } from "next-auth/react"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import { Button } from "Components/ui/button"
-import Image from "next/image"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { SignInValidation } from "lib/validations/auth"
-import { z } from "zod"
-import SignInInputs from "Components/SigninInputs"
-import { signIn } from "next-auth/react"
 import toast from "react-hot-toast"
-import { redirect, useRouter } from "next/navigation"
+import { z } from "zod"
 
 type Inputs = z.infer<typeof SignInValidation>
 
@@ -111,7 +113,7 @@ const SignInForm = () => {
             >
               <div className="flex items-center gap-2">
                 <div className="relative h-6 w-6">
-                  <Image src="/google-sign.png" alt="facebook-logo" fill className="object-cover" />
+                  <Image src={google} alt="google-logo" fill className="object-cover" />
                 </div>
                 <p className="hidden text-sm lg:block">Sign in with Google</p>
               </div>
@@ -119,7 +121,7 @@ const SignInForm = () => {
             <div className="flex flex-1 cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
               <div className="flex items-center gap-2">
                 <div className="relative h-6 w-6">
-                  <Image src="/facebook-sign.png" alt="facebook-logo" fill className="object-cover" />
+                  <Image src={facebook} alt="facebook-logo" fill className="object-cover" />
                 </div>
                 <p className="hidden text-sm lg:block">Sign in with Facebook</p>
               </div>

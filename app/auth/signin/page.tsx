@@ -1,15 +1,13 @@
 "use client"
 
-import AuthForm from "./components/SignInForm"
 import Image from "next/image"
+import AuthForm from "./components/SignInForm"
 
-import SignUpButton from "./components/signInFooter"
-import { useRouter } from "next/navigation"
-import { useSession } from "next-auth/react"
-import { useEffect, useState } from "react"
-import Loader from "Components/loader"
+import loginImageBackground from "@/public/assets/images/blindfoldedman-full.jpg"
 import useGoogleAuthCookie from "hooks/use-cookie"
-import { getCookies } from "lib/cookies"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import SignUpButton from "./components/signInFooter"
 
 function Sign() {
   const session = useSession()
@@ -66,7 +64,7 @@ function Sign() {
       <div className="relative hidden flex-1 justify-between md:flex md:flex-col">
         <div className="absolute inset-0 ">
           <Image
-            src="/SigninSplash.png"
+            src={loginImageBackground}
             sizes="100%"
             priority
             quality={80}

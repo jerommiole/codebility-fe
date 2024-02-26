@@ -1,5 +1,5 @@
 "use client"
-import Heading2 from "Components/landingPage/Heading2"
+import H2 from "@/Components/landingPage/H2"
 import IntroText from "Components/landingPage/IntroText"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import { SvgCommunity, SvgInnovation, SvgRealWorld, SvgSkillMastery } from "public/assets/icons"
@@ -51,7 +51,7 @@ const AboutSection = () => {
         <div className="flex flex-col gap-10 lg:flex-row">
           <div className="flex basis-1/2 flex-col justify-center gap-6">
             <div>
-              <Heading2>What We Do</Heading2>
+              <H2 className="text-primaryColor">What We Do</H2>
               <IntroText>
                 Codebility sparks a passion for technology and innovation. Beyond teaching coding, we immerse learners
                 in the coding culture, replicating real-world company standards. Our programs go beyond skill

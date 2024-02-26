@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { SvgCheckCircle, SvgEdit } from "../../public/assets/icons"
+import { SvgCheckCircle, SvgEdit } from "@/public/assets/icons"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { updateProfile } from "../../app/api"
 

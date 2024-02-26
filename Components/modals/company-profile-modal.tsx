@@ -5,7 +5,7 @@ import Avatar from "Components/ui/avatar"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import Image from "next/image"
-import Hero from "public/hero.png"
+import Hero from "@/public/assets/images/bio-project-thumb.png"
 
 const CompanyProfileModal = () => {
   const { isOpen, onClose, type, data } = useModal()
