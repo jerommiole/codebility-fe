@@ -8,7 +8,7 @@ import axios from "axios"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { fadeInOutDownToUp } from "../../../Components/FramerAnimation/Framer"
-import CodevsCard from "./components/CodevsCard"
+import CodevsCard from "./CodevsCard"
 
 const Codevs = () => {
   const [data, setData] = useState<any[]>([])

@@ -6,6 +6,7 @@ import Link from "next/link"
 import defaultAvatarMale from "public/assets/images/default-avatar-male.png"
 import defaultAvatarFemale from "public/assets/images/default-avatar-female.png"
 import { SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
+import { IconGithub } from "@/public/assets/svgs"
 
 const CodevsCard = ({ users }: { users: any }) => {
   return (
@@ -40,7 +41,7 @@ const CodevsCard = ({ users }: { users: any }) => {
             )}
             {user.github_link && (
               <Link href={user.github_link} target="_blank">
-                <SvgGithub />
+                <IconGithub className="h-[20px] w-[20px] text-white" />
               </Link>
             )}
             {user.linkedin_link && (

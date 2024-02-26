@@ -17,18 +17,28 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
     ]
   },
 
-
   images: {
     remotePatterns: [
       {
-        hostname: 'res.cloudinary.com',
-      },{
-        hostname: 'lh3.googleusercontent.com',
-      }, {
-        hostname: 'images.unsplash.com'
-      }
-    ]
-  }
+        hostname: "res.cloudinary.com",
+      },
+      {
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [{ loader: "@svgr/webpack", options: { icon: true } }],
+    })
+
+    return config
+  },
 })
 
 export default config
