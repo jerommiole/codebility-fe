@@ -5,8 +5,6 @@ import { User } from "@/types"
 import CodevHeading from "Components/landingPage/CodevHeading"
 import H1 from "@/Components/landingPage/H1"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
-import Footer from "app/(landingPage)/Footer"
-import Navbar from "app/(landingPage)/Navbar"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
@@ -64,12 +62,11 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <Navbar />
       <div className="bg-[#0B0B0C]">
         <SectionWrapper>
           <div className="flex flex-col gap-20">
             <div className="text-center">
-              <H1>Biography</H1>
+              <H1 className="text-primaryColor">Biography</H1>
             </div>
 
             <div className="flex flex-col gap-20 bg-[#121212] p-10">
@@ -136,7 +133,6 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
                   </div>
                 </div>
               </div>
-
               <div className="flex flex-col gap-6 lg:flex-row">
                 <div className="flex basis-2/5 flex-col gap-4 text-[#8E8E8E]">
                   <div>
@@ -186,7 +182,6 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
                             </li>
                           ))}
                         </ul>
-
                         <div className="flex gap-2">
                           {item.technologies?.map((task: any, i: any) => (
                             <Image
@@ -290,7 +285,6 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
           </div>
         </SectionWrapper>
       </div>
-      <Footer />
     </>
   )
 }
