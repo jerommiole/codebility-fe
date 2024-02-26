@@ -1,5 +1,5 @@
 "use client"
-import Heading2 from "Components/landingPage/Heading2"
+import H2 from "@/Components/landingPage/H2"
 import IntroText from "Components/landingPage/IntroText"
 import Paragraph from "Components/landingPage/Paragraph"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
             className="flex flex-col gap-4 lg:flex-row"
           >
             <div className="basis-1/2">
-              <Heading2>Why Choose Us?</Heading2>
+              <H2 className="text-primaryColor">Why Choose Us?</H2>
             </div>
             <div className="basis-1/2">
               <div className="max-w-[500px] ">

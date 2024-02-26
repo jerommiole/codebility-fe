@@ -1,6 +1,6 @@
 "use client"
 
-import Heading2 from "Components/landingPage/Heading2"
+import H2 from "@/Components/landingPage/H2"
 import IntroText from "Components/landingPage/IntroText"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import { SvgCMS, SvgGraphicDesign, SvgWebDesign } from "public/assets/icons"
@@ -16,7 +16,7 @@ const Services = () => {
         <div className="flex flex-col gap-20">
           <div className="flex flex-col gap-6">
             <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="mx-auto">
-              <Heading2>Services</Heading2>
+              <H2 className="text-primaryColor">Services</H2>
             </motion.div>
             <motion.div
               variants={fadeInOutDownToUp}
