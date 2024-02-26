@@ -8,6 +8,7 @@ import Hero from "./(landingPage)/Hero"
 import Navbar from "./(landingPage)/Navbar"
 import Services from "./(landingPage)/Services"
 import WeLeverage from "./(landingPage)/WeLeverage"
+import MissionVision from "./(landingPage)/MissionVision"
 import WhyChoose from "./(landingPage)/WhyChoose"
 import Codevs from "./(landingPage)/codevs/Codevs"
 
@@ -42,7 +43,7 @@ export default function Web() {
           <Codevs />
           <Services />
           <WeLeverage />
-          {/* <MissionVision /> */}
+          <MissionVision />
           <WhyChoose />
           <Footer />
         </>
