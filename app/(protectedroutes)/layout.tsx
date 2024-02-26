@@ -31,8 +31,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
       <div className="flex">
         <Sidebar />
         <Navbar />
-        <section className="max-md:pb-14 flex min-h-screen flex-1 flex-col px-6 pb-6 pt-36 sm:px-14">
-          <div className="w-full">{children}</div>
+        <section className="max-md:pb-14 flex min-h-screen w-full flex-1 flex-col bg-gray-50 px-6 pb-6 pt-36">
+          {children}
         </section>
       </div>
     </main>

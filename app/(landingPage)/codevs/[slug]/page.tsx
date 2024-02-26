@@ -3,7 +3,7 @@
 import imgCodebilityThumb from "@/public/assets/images/bio-project-thumb.png"
 import { User } from "@/types"
 import CodevHeading from "Components/landingPage/CodevHeading"
-import Heading1 from "Components/landingPage/Heading1"
+import H1 from "@/Components/landingPage/H1"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import Footer from "app/(landingPage)/Footer"
 import Navbar from "app/(landingPage)/Navbar"
@@ -69,7 +69,7 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
         <SectionWrapper>
           <div className="flex flex-col gap-20">
             <div className="text-center">
-              <Heading1>Biography</Heading1>
+              <H1>Biography</H1>
             </div>
 
             <div className="flex flex-col gap-20 bg-[#121212] p-10">
