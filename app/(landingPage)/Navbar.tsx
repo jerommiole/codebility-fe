@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sh
 import { Button } from "Components/ui/button"
 import { Inter, Rowdies, Iceland } from "next/font/google"
 import { motion } from "framer-motion"
-import logo from "@/public/assets/images/logo.png"
+import logo from "@/public/assets/images/codebility-logo-blue-transparent.png"
 
 const links = [
   {

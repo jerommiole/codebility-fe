@@ -1,31 +1,30 @@
 "use client"
 
-import React from "react"
-import { getSession, signOut } from "next-auth/react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "Components/ui/tooltip"
+import { signOut } from "next-auth/react"
+import React from "react"
 
-import logoPic from "@/public/assets/images/logo.png"
-import logoChar from "@/public/assets/images/codebility-logo-icon-full-colored.png"
 import logoDark from "@/public/assets/images/codebility-logo-black.png"
+import logoChar from "@/public/assets/images/codebility-logo-icon-full-colored.png"
+import logoPic from "@/public/assets/images/codebility-logo-blue-transparent.png"
 
 import { usePathname, useRouter } from "next/navigation"
 
 import {
+  ClientSVG,
   DashboardSVG,
+  InternSVG,
+  LogoutSVG,
+  OrgchartSVG,
+  ProjectsSVG,
   TimeTrackerSVG,
   TodoSVG,
-  ProjectsSVG,
-  OrgchartSVG,
-  InternSVG,
-  ClientSVG,
-  LogoutSVG,
 } from "Components/logos"
 
-import Image from "next/image"
-import { useNavStore } from "hooks/use-sidebar"
-import Link from "next/link"
-import toast from "react-hot-toast"
 import useGoogleAuthCookie from "hooks/use-cookie"
+import { useNavStore } from "hooks/use-sidebar"
+import Image from "next/image"
+import Link from "next/link"
 
 const Sidebar = () => {
   const { activeNav, toggleNav } = useNavStore()
@@ -47,9 +46,9 @@ const Sidebar = () => {
     <>
       <Blinds />
       <nav
-        className={`nav ${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
+        className={`${activeNav ? "tablet:w-[310px]" : "tablet:w-[0px]"} ${
           activeNav ? "w-[310px]" : "w-[103px]"
-        } z-50 border shadow-stiglitz dark:border-none dark:shadow-none`}
+        } sticky left-0 top-0 z-20 flex h-screen flex-col justify-between overflow-y-auto border-r bg-white`}
       >
         <div className="logo-container">
           <div className={`transition-all ${!activeNav ? "flex-0" : "flex-1"} flex overflow-hidden`}>
