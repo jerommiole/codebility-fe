@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation"
 import { Button } from "Components/ui/button"
 import Image from "next/image"
 import { motion } from "framer-motion"
-
-import facebook from "public/facebook-sign.png"
-import google from "public/google-sign.png"
 import { useModal } from "hooks/use-modal"
 import { useTechStackStore } from "hooks/use-techstack"
 import { SignUpValidation } from "lib/validations/auth"
@@ -21,6 +18,7 @@ import { useSchedule } from "hooks/use-timeavail"
 import { signupUser } from "app/api"
 import toast from "react-hot-toast"
 import { makeApiCallWithTimeout } from "lib/timeoutcall"
+import google from "next-auth/providers/google"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
