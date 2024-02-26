@@ -18,7 +18,9 @@ import { useSchedule } from "hooks/use-timeavail"
 import { signupUser } from "app/api"
 import toast from "react-hot-toast"
 import { makeApiCallWithTimeout } from "lib/timeoutcall"
-import google from "next-auth/providers/google"
+
+import facebookIcon from "@/public/assets/icons/icon-facebook.svg"
+import googleIcon from "@/public/assets/icons/icon-google.svg"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -62,17 +64,6 @@ const AuthForm = () => {
       setCurrentStep((step) => step - 1)
     }
   }
-
-  const icons = [
-    {
-      name: "Google",
-      icon: google,
-    },
-    {
-      name: "Facebook",
-      icon: facebook,
-    },
-  ]
 
   useEffect(() => {}, [])
   const { onOpen } = useModal()
@@ -315,19 +306,22 @@ const AuthForm = () => {
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            {icons.map((icon, index) => (
-              <div
-                key={`div-${icon.name}-${index}`}
-                className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="relative h-4 w-4">
-                    <Image src={icon.icon} alt="facebook-logo" fill className="object-cover" />
-                  </div>
-                  <p className="hidden sm:block">{icon.name}</p>
+            <div className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
+              <div className="flex items-center gap-2">
+                <div className="relative h-4 w-4">
+                  <Image src={googleIcon} alt="facebook-logo" fill className="object-cover" />
                 </div>
+                <p className="hidden sm:block">Google</p>
               </div>
-            ))}
+            </div>
+            <div className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
+              <div className="flex items-center gap-2">
+                <div className="relative h-4 w-4">
+                  <Image src={facebookIcon} alt="facebook-logo" fill className="object-cover" />
+                </div>
+                <p className="hidden sm:block">Facebook</p>
+              </div>
+            </div>
           </div>
         </form>
       </div>
