@@ -7,41 +7,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import axios from "axios"
 import Link from "next/link"
 import { IconEmail, IconGithub, IconLink } from "@/public/assets/svgs"
-import { User } from "@/types"
-
-interface ApplicantData {
-  about_me: string | null
-  address: string
-  addtl_skills: string[]
-  clientId: string | null
-  created_at: string
-  education: string | null
-  email_address: string
-  fb_link: string | null
-  github_link: string
-  id: string
-  image_icon: string | null
-  linkedin_link: string | null
-  name: string
-  password: string
-  phone_no: string | null
-  portfolio_website: string
-  position: string[]
-  projects: string[]
-  roleType: string
-  schedule: string
-  short_bio: string | null
-  skype_link: string | null
-  tech_stacks: string[]
-  telegram_link: string | null
-  updated_at: string
-  userType: string
-  whatsapp_link: string | null
-}
-
-interface TechStackIcons {
-  [key: string]: React.ReactNode
-}
+import { User, TechStackIcons } from "@/types"
 
 // TODO:
 // - destructure the props
@@ -78,37 +44,41 @@ const ApplicantsPage = async () => {
         </TableHeader>
         <TableBody>
           {applicants.length > 0 &&
-            applicants.map((applicant: ApplicantData) => (
-              <TableRow key={applicant.id}>
+            applicants.map(({ id, name, email_address, github_link, portfolio_website, tech_stacks }: User) => (
+              <TableRow key={id}>
                 <TableCell>
                   <Checkbox />
                 </TableCell>
-                <TableCell>{applicant.name}</TableCell>
+                <TableCell>{name}</TableCell>
                 <TableCell className="text-center">
-                  <Link href={`mailto:${applicant.email_address}`}>
+                  <Link href={`mailto:${email_address}`}>
                     <div className="flex justify-center">
                       <IconEmail className="h-[18px] w-[18px] text-[#31AFC4]" />
                     </div>
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <Link href={applicant.github_link} target="_blank">
-                    <div className="flex justify-center">
-                      <IconLink className="h-[18px] w-[18px] text-[#31AFC4]" />
-                    </div>
-                  </Link>
+                  {github_link && (
+                    <Link href={github_link} target="_blank">
+                      <div className="flex justify-center">
+                        <IconGithub className="h-[18px] w-[18px] text-[#31AFC4]" />
+                      </div>
+                    </Link>
+                  )}
                 </TableCell>
                 <TableCell>
-                  <Link href={applicant.portfolio_website} target="_blank">
-                    <div className="flex justify-center">
-                      <IconGithub className="h-[18px] w-[18px] text-[#31AFC4]" />
-                    </div>
-                  </Link>
+                  {portfolio_website && (
+                    <Link href={portfolio_website} target="_blank">
+                      <div className="flex justify-center">
+                        <IconLink className="h-[18px] w-[18px] text-[#31AFC4]" />
+                      </div>
+                    </Link>
+                  )}
                 </TableCell>
                 <TableCell className="h-full w-full">
                   <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 ">
                     {/* Render Svg components only on the client-side  */}
-                    {applicant.tech_stacks.map((techstack: string) => (
+                    {tech_stacks?.map((techstack: string) => (
                       // <div key={techstack}>{techStackIcons[techstack]}</div>
                       <div key={techstack}>
                         <SvgGithub />

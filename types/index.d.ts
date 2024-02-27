@@ -1,3 +1,7 @@
+export interface TechStackIcons {
+  [key: string]: React.ReactNode
+}
+
 export interface User {
   id: string
   name: string
