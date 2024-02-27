@@ -1,9 +1,13 @@
 import React from "react"
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "Components/ui/table"
-import { Checkbox } from "Components/ui/checkbox"
-import axios from "axios"
+import H1 from "@/Components/shared/dashboard/H1"
 import { SvgGithub } from "@/public/assets/icons"
+import { Checkbox } from "Components/ui/checkbox"
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "Components/ui/table"
+import axios from "axios"
+import Link from "next/link"
+import { IconEmail, IconGithub, IconLink } from "@/public/assets/svgs"
+import { User } from "@/types"
 
 interface ApplicantData {
   about_me: string | null
@@ -39,36 +43,10 @@ interface TechStackIcons {
   [key: string]: React.ReactNode
 }
 
-// const techStackIcons: TechStackIcons = {
-//   Angular: <SvgAngular />,
-//   Apache: <SvgApache />,
-//   AWS: <SvgAWS />,
-//   Bootstrap: <SvgBootstrap />,
-//   CSS: <SvgCSS />,
-//   Django: <SvgDjango />,
-//   Express: <SvgExpress />,
-//   Firebase: <SvgFirebase />,
-//   Html: <SvgHTML />,
-//   Java: <SvgJava />,
-//   Javascript: <SvgJavascript />,
-//   Jquery: <SvgJquery />,
-//   Kotlin: <SvgKotlin />,
-//   Github: <SvgGithub />,
-//   Mongodb: <SvgMongoDB />,
-//   Mui: <SvgMUI />,
-//   Mysql: <SvgMySQL />,
-//   Node: <SvgNode />,
-//   Oracle: <SvgOracle />,
-//   Postgresql: <SvgPostgreSql />,
-//   Python: <SvgPython />,
-//   React: <SvgReact />,
-//   Ruby: <SvgRuby />,
-//   Shadcnui: <SvgShadcnUI />,
-//   Solidity: <SvgSolidity />,
-//   Swift: <SvgSwift />,
-//   Typescript: <SvgTypescript />,
-//   Vue: <SvgVue />,
-// }
+// TODO:
+// - destructure the props
+// import { User } from "@/types"
+// import TechSatckIcons from "@/components/techStackIcons"
 
 const getApplicants = async () => {
   const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/users/applicant")
@@ -78,10 +56,10 @@ const getApplicants = async () => {
 
 const ApplicantsPage = async () => {
   const applicants = await getApplicants()
-  console.log(applicants)
+
   return (
-    <div className="h-full w-full">
-      <h1 className="mb-4 ms-5 text-2xl text-gray-900">Applicants Records</h1>
+    <div className="flex flex-col gap-6">
+      <H1>Applicants List</H1>
       <Table>
         <TableCaption>
           {applicants.length > 0 ? `${applicants.length} list of Applicants.` : "No list of Applicants"}
@@ -90,9 +68,9 @@ const ApplicantsPage = async () => {
           <TableRow>
             <TableHead></TableHead>
             <TableHead className="min-w-[150px] text-center">Name</TableHead>
-            <TableHead className="min-w-[150px] text-center">Gmail</TableHead>
-            <TableHead className="min-w-[200px] text-center">Github Link</TableHead>
-            <TableHead className="min-w-[250px] text-center">Portfolio Link</TableHead>
+            <TableHead>Gmail</TableHead>
+            <TableHead>Github</TableHead>
+            <TableHead>Portfolio</TableHead>
             <TableHead className="min-w-[200px] text-center">Tech Stack</TableHead>
             <TableHead></TableHead>
             <TableHead className="text-center">Approval</TableHead>
@@ -105,10 +83,28 @@ const ApplicantsPage = async () => {
                 <TableCell>
                   <Checkbox />
                 </TableCell>
-                <TableCell className="text-center">{applicant.name}</TableCell>
-                <TableCell className="text-center">{applicant.email_address}</TableCell>
-                <TableCell className="text-center">{applicant.github_link}</TableCell>
-                <TableCell className="text-center">{applicant.portfolio_website}</TableCell>
+                <TableCell>{applicant.name}</TableCell>
+                <TableCell className="text-center">
+                  <Link href={`mailto:${applicant.email_address}`}>
+                    <div className="flex justify-center">
+                      <IconEmail className="h-[18px] w-[18px] text-[#31AFC4]" />
+                    </div>
+                  </Link>
+                </TableCell>
+                <TableCell>
+                  <Link href={applicant.github_link} target="_blank">
+                    <div className="flex justify-center">
+                      <IconLink className="h-[18px] w-[18px] text-[#31AFC4]" />
+                    </div>
+                  </Link>
+                </TableCell>
+                <TableCell>
+                  <Link href={applicant.portfolio_website} target="_blank">
+                    <div className="flex justify-center">
+                      <IconGithub className="h-[18px] w-[18px] text-[#31AFC4]" />
+                    </div>
+                  </Link>
+                </TableCell>
                 <TableCell className="h-full w-full">
                   <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 ">
                     {/* Render Svg components only on the client-side  */}
