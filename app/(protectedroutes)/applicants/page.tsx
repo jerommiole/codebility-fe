@@ -1,26 +1,86 @@
 import React from "react"
-
 import H1 from "@/Components/shared/dashboard/H1"
-import { SvgGithub } from "@/public/assets/icons"
 import { Checkbox } from "Components/ui/checkbox"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "Components/ui/table"
 import axios from "axios"
 import Link from "next/link"
-import { IconEmail, IconGithub, IconLink } from "@/public/assets/svgs"
+
+// Importing SVG icons for various tech stacks
+import {
+  IconAWS,
+  IconAngular,
+  IconApache,
+  IconBootstrap,
+  IconCSS,
+  IconDjango,
+  IconEmail,
+  IconExpress,
+  IconFirebase,
+  IconGithub,
+  IconHTML,
+  IconJQuery,
+  IconJS,
+  IconJava,
+  IconKotlin,
+  IconLink,
+  IconMaterialUI,
+  IconMongoDB,
+  IconMySQL,
+  IconNodeJS,
+  IconOracle,
+  IconPostgreSQL,
+  IconPython,
+  IconReact,
+  IconRuby,
+  IconShadcn,
+  IconSolidity,
+  IconSwift,
+  IconTS,
+  IconVue,
+} from "@/public/assets/svgs"
 import { User, TechStackIcons } from "@/types"
 
-// TODO:
-// - destructure the props
-// import { User } from "@/types"
-// import TechSatckIcons from "@/components/techStackIcons"
+// Mapping of tech stack names to respective SVG icons
+const techStackIcons: TechStackIcons = {
+  Angular: <IconAngular />,
+  Apache: <IconApache />,
+  AWS: <IconAWS />,
+  Bootstrap: <IconBootstrap />,
+  CSS: <IconCSS />,
+  Django: <IconDjango />,
+  Express: <IconExpress />,
+  Firebase: <IconFirebase />,
+  Html: <IconHTML />,
+  Java: <IconJava />,
+  Javascript: <IconJS />,
+  Jquery: <IconJQuery />,
+  Kotlin: <IconKotlin />,
+  Github: <IconGithub />,
+  Mongodb: <IconMongoDB />,
+  Mui: <IconMaterialUI />,
+  Mysql: <IconMySQL />,
+  Node: <IconNodeJS />,
+  Oracle: <IconOracle />,
+  Postgresql: <IconPostgreSQL />,
+  Python: <IconPython />,
+  React: <IconReact />,
+  Ruby: <IconRuby />,
+  Shadcnui: <IconShadcn />,
+  Solidity: <IconSolidity />,
+  Swift: <IconSwift />,
+  Typescript: <IconTS />,
+  Vue: <IconVue />,
+}
 
+// Function to fetch applicants data asynchronously
 const getApplicants = async () => {
   const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/users/applicant")
-
   return res.data.data
 }
 
+// Main component to display list of applicants
 const ApplicantsPage = async () => {
+  // Fetching applicants data
   const applicants = await getApplicants()
 
   return (
@@ -32,6 +92,7 @@ const ApplicantsPage = async () => {
         </TableCaption>
         <TableHeader>
           <TableRow>
+            {/* Table headers */}
             <TableHead></TableHead>
             <TableHead className="min-w-[150px] text-center">Name</TableHead>
             <TableHead>Gmail</TableHead>
@@ -46,11 +107,13 @@ const ApplicantsPage = async () => {
           {applicants.length > 0 &&
             applicants.map(({ id, name, email_address, github_link, portfolio_website, tech_stacks }: User) => (
               <TableRow key={id}>
+                {/* Table cells for each applicant */}
                 <TableCell>
                   <Checkbox />
                 </TableCell>
                 <TableCell>{name}</TableCell>
                 <TableCell className="text-center">
+                  {/* Link to email address */}
                   <Link href={`mailto:${email_address}`}>
                     <div className="flex justify-center">
                       <IconEmail className="h-[18px] w-[18px] text-[#31AFC4]" />
@@ -58,6 +121,7 @@ const ApplicantsPage = async () => {
                   </Link>
                 </TableCell>
                 <TableCell>
+                  {/* Link to Github profile */}
                   {github_link && (
                     <Link href={github_link} target="_blank">
                       <div className="flex justify-center">
@@ -67,6 +131,7 @@ const ApplicantsPage = async () => {
                   )}
                 </TableCell>
                 <TableCell>
+                  {/* Link to portfolio website */}
                   {portfolio_website && (
                     <Link href={portfolio_website} target="_blank">
                       <div className="flex justify-center">
@@ -76,17 +141,14 @@ const ApplicantsPage = async () => {
                   )}
                 </TableCell>
                 <TableCell className="h-full w-full">
+                  {/* Displaying tech stack icons */}
                   <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 ">
                     {/* Render Svg components only on the client-side  */}
-                    {tech_stacks?.map((techstack: string) => (
-                      // <div key={techstack}>{techStackIcons[techstack]}</div>
-                      <div key={techstack}>
-                        <SvgGithub />
-                      </div>
-                    ))}
+                    {tech_stacks?.map((techstack: string) => <div key={techstack}>{techStackIcons[techstack]}</div>)}
                   </div>
                 </TableCell>
                 <TableCell className="text-center"></TableCell>
+                {/* Buttons for approval */}
                 <TableCell className="">
                   <div className="flex h-full w-full items-center justify-center gap-4">
                     <button className="hover:underline">Accept</button>
