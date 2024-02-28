@@ -13,17 +13,17 @@ const page = () => {
   return (
     <div className="flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:p-0">
       <div>
-        <Card className="flex w-auto flex-col items-center justify-between overflow-hidden border dark:bg-[#0E0E0E] md:flex-row">
+        <Card className="flex w-auto flex-col items-center justify-between overflow-hidden border md:flex-row">
           <div className="px-[2.50rem] py-[1.75rem] sm:pl-12">
             <h1 className="text-2xl font-semibold">Summary Of Rendered Time</h1>
             <p className="text-[#8E8E8E] ">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
           </div>
-          <Card className="mx-3 my-5 mr-3 flex flex-col bg-[#131212] px-12 py-4 sm:px-[4rem] md:flex-row lg:gap-24 lg:px-[6rem] ">
+          <Card className="mx-3 my-5 mr-3 flex flex-col px-12 py-4 sm:px-[4rem] md:flex-row lg:gap-24 lg:px-[6rem] ">
             <div className="space-y-5">
               <div className="flex items-center justify-center gap-3 border-l-2 border-[#02FFE2] px-8 py-2 ">
-                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#1A1A1A] ">
+                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#EAEAEA] ">
                   <Image src={icon1} alt="" />
                 </div>
                 <div className="flex flex-col items-start leading-5">
@@ -32,7 +32,7 @@ const page = () => {
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 border-l-2 border-[#9747FF] px-8 py-2 ">
-                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#1A1A1A] ">
+                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#EAEAEA] ">
                   <Image src={icon2} alt="" />
                 </div>
                 <div className="flex flex-col items-start leading-5">
@@ -44,7 +44,7 @@ const page = () => {
             {/*  */}
             <div className="space-y-5 tablet:mt-5">
               <div className="flex items-center justify-center gap-3 border-l-2 border-[#C108FE] px-8 py-2 ">
-                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#1A1A1A] ">
+                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#EAEAEA] ">
                   <Image src={icon3} alt="" />
                 </div>
                 <div className="flex flex-col items-start leading-5">
@@ -53,7 +53,7 @@ const page = () => {
                 </div>
               </div>
               <div className="flex items-center justify-center gap-3 border-l-2 border-[#6A78F2] px-8 py-2 ">
-                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#1A1A1A] ">
+                <div className="flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-[#EAEAEA] ">
                   <Image src={icon4} alt="" />
                 </div>
                 <div className="flex flex-col items-start leading-5">

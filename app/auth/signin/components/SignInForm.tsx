@@ -1,12 +1,10 @@
 "use client"
-import facebook from "@/public/assets/icons/icon-facebook.svg"
-import google from "@/public/assets/icons/icon-google.svg"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import SignInInputs from "Components/SigninInputs"
 import { Button } from "Components/ui/button"
 import { SignInValidation } from "lib/validations/auth"
 import { signIn } from "next-auth/react"
-import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
@@ -100,33 +98,6 @@ const SignInForm = () => {
           >
             Sign In
           </Button>
-          <div className="inline-flex w-full items-center justify-center">
-            <hr className="my-2 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600" />
-            <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xs font-medium text-gray-900 dark:bg-background dark:text-white">
-              OR
-            </span>
-          </div>
-          <div className="flex justify-evenly gap-2">
-            <div
-              onClick={googleAuth}
-              className="flex flex-1 cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700"
-            >
-              <div className="flex items-center gap-2">
-                <div className="relative h-6 w-6">
-                  <Image src={google} alt="google-logo" fill className="object-cover" />
-                </div>
-                <p className="hidden text-sm lg:block">Sign in with Google</p>
-              </div>
-            </div>
-            <div className="flex flex-1 cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
-              <div className="flex items-center gap-2">
-                <div className="relative h-6 w-6">
-                  <Image src={facebook} alt="facebook-logo" fill className="object-cover" />
-                </div>
-                <p className="hidden text-sm lg:block">Sign in with Facebook</p>
-              </div>
-            </div>
-          </div>
         </form>
       </div>
     </div>
