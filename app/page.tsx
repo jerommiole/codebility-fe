@@ -42,7 +42,7 @@ export default function Web() {
           <About />
           <Codevs />
           <Services />
-          <WeLeverage />
+          {/* <WeLeverage /> */}
           <MissionVision />
           <WhyChoose />
           <Footer />

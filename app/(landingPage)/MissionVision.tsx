@@ -1,34 +1,35 @@
-import { SectionWrapper, H1, Paragraph } from '@/Components/landingPage'
-import MissionVisionImage from '@/public/assets/icons/MissionVision.svg'
+import { SectionWrapper, H1, Paragraph } from "@/Components/landingPage"
+import missionVisionImage from "@/public/assets/images/mission-vision-image.png"
 import Image from "next/image"
 
 const MissionVision = () => {
   return (
-    <SectionWrapper style={{ background: 'radial-gradient(circle at center,rgba(255, 255, 255, 0.2) 0%, transparent 50%)' }}>
-      <div className="flex flex-col lg:flex-row gap-14 lg:gap-0">
-        <div className="flex flex-col gap-4 basis-[45%] text-end pr-6 xl:pr-[initial] relative top-12">
-          <H1 className="text-primaryColor text-5xl lg:text-6xl !font-extrabold">
-            Mission
-          </H1>
-          <Paragraph>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+    <SectionWrapper className="lg:bg-gradient-radial">
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-6">
+        <div className="my-auto flex basis-[50%] flex-col gap-4 text-center lg:basis-[25%] lg:text-end">
+          <H1 className="text-primaryColor">Mission</H1>
+          <Paragraph className="lg:max-w-auto mx-auto max-w-[400px]">
+            At Codebility, we ignite a passion for technology, offering immersive programs in Web Development, Mobile
+            Development, UI/UX Design, and Digital Marketing.
           </Paragraph>
-          <p className="text-primaryColor">
-            Lorem Ipsum
-          </p>
+          <Paragraph className="lg:max-w-auto mx-auto max-w-[400px]">
+            {" "}
+            Beyond imparting skills, we believe in the transformative power of coding as a tool for a brighter future.
+            Join us in sculpting your path as tomorrow's digital architect.
+          </Paragraph>
         </div>
-        <div className="flex basis-[100%] items-center justify-center w-full h-full">
-          <Image src={MissionVisionImage} alt='missionvision-image'/>
+        <div className="hidden items-center justify-center lg:flex lg:basis-[50%]">
+          <Image src={missionVisionImage} alt="Codebility Devices" width={700} height={466} />
         </div>
-        <div className="flex flex-col gap-4 text-start basis-[45%] relative -top-12 lg:top-12 pl-6 xl:pl-[initial]">
-          <p className="text-primaryColor">
-            Lorem Ipsum
-          </p>
-          <H1 className="text-primaryColor text-5xl lg:text-6xl !font-extrabold">
-            Vision
-          </H1>
-          <Paragraph className="text-start">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        <div className="my-auto flex basis-[50%] flex-col gap-4 text-center lg:basis-[25%] lg:text-start">
+          <H1 className="text-primaryColor">Vision</H1>
+          <Paragraph className="lg:max-w-auto mx-auto max-w-[400px] lg:text-start">
+            Codebility envisions a world where coding unleashes innovation. We aspire to be a global hub, nurturing a
+            community proficient in Web, Mobile, UI/UX, and Digital Marketing.
+          </Paragraph>
+          <Paragraph className="lg:max-w-auto mx-auto max-w-[400px] lg:text-start">
+            Our goal is to empower learners, shaping them into accomplished digital architects who drive the future of
+            the tech industry.
           </Paragraph>
         </div>
       </div>
