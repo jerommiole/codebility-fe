@@ -11,18 +11,18 @@ const WhyChooseUs = () => {
   return (
     <div id="join">
       <SectionWrapper>
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-0 lg:gap-20">
           <motion.div
             variants={fadeInOutDownToUp}
             initial="hidden"
             whileInView="visible"
             className="flex flex-col gap-4 lg:flex-row"
           >
-            <div className="basis-1/2">
+            <div className="basis-1/2 text-center lg:text-left">
               <H2 className="text-primaryColor">Why Choose Us?</H2>
             </div>
             <div className="basis-1/2">
-              <div className="max-w-[500px] ">
+              <div className="mx-auto max-w-[500px] text-center lg:text-left">
                 <IntroText>
                   At Codebility, we lead in digital trends, driven by innovation and passion. With a deep understanding
                   of the digital landscape, we empower individuals and businesses, effortlessly turning challenges into
