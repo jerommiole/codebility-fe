@@ -365,3 +365,8 @@ body {
 
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#C108FE", endColorstr="#020617", GradientType=1);
 }
+
+/* Mission Vision bg */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+}

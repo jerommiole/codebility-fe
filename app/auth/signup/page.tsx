@@ -22,18 +22,6 @@ const SignUp = () => {
             className="object-cover"
           />
         </div>
-        <div className="z-10 ml-20 mt-32">
-          <p>
-            Nisi lacus sed viverra tellus in hac habitasse platea dictumst Nisi lacus sed viverra tellus in hac
-            habitasse platea
-          </p>
-        </div>
-        <div className="z-10 flex flex-col">
-          <div className="mb-32 ml-20 flex flex-col">
-            <h1 className="font-semibold text-white md:text-2xl lg:text-4xl">Lorem ipsum dolor sit amet</h1>
-            <p className="mt-5 text-base">Nisi lacus sed viverra tellus in hac habitasse platea dictumst</p>
-          </div>
-        </div>
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
         <div className="h-full px-8">

@@ -299,30 +299,6 @@ const AuthForm = () => {
               </>
             )}
           </div>
-          <div className="inline-flex w-full items-center justify-center">
-            <hr className="my-4 h-[2px] w-full border-0 bg-gray-200 dark:bg-gray-600 sm:my-8" />
-            <span className="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xs font-medium text-gray-900 dark:bg-background dark:text-white">
-              OR
-            </span>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
-              <div className="flex items-center gap-2">
-                <div className="relative h-4 w-4">
-                  <Image src={googleIcon} alt="facebook-logo" fill className="object-cover" />
-                </div>
-                <p className="hidden sm:block">Google</p>
-              </div>
-            </div>
-            <div className="flex cursor-pointer items-center justify-center rounded-md border p-2 hover:bg-gray-700">
-              <div className="flex items-center gap-2">
-                <div className="relative h-4 w-4">
-                  <Image src={facebookIcon} alt="facebook-logo" fill className="object-cover" />
-                </div>
-                <p className="hidden sm:block">Facebook</p>
-              </div>
-            </div>
-          </div>
         </form>
       </div>
     </div>
