@@ -2,38 +2,12 @@
 
 import { Button } from "Components/ui/button"
 import { motion } from "framer-motion"
-import { Iceland, Inter, Rowdies } from "next/font/google"
+import { Inter, Rowdies } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
 import personBG from "@/public/assets/images/hero-blindfoldedman.png"
+import SocialIcons from "@/Components/shared/SocialIcons"
 
-const socials = [
-  {
-    socialUrl: "#facebook",
-    alt: "facebook",
-    icon: "ri_facebook-fill.svg",
-  },
-  {
-    socialUrl: "#twitter",
-    alt: "twitter",
-    icon: "mdi_twitter.svg",
-  },
-  {
-    socialUrl: "https://github.com/Zeff01/codebility-fe/tree/main",
-    alt: "github",
-    icon: "mdi_github.svg",
-  },
-  {
-    socialUrl: "#linkedin",
-    alt: "linkedin",
-    icon: "mdi_linkedin.svg",
-  },
-  {
-    socialUrl: "#slack",
-    alt: "slack",
-    icon: "ri_slack-fill.svg",
-  },
-]
 const inter = Inter({
   weight: "400",
   subsets: ["latin"],
@@ -43,35 +17,6 @@ const rowdies = Rowdies({
   subsets: ["latin"],
 })
 
-const iceland = Iceland({
-  weight: "400",
-  subsets: ["latin"],
-})
-
-const SocialContainer = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
-const variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-}
 const Hero = () => {
   return (
     <motion.div
@@ -157,32 +102,7 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        <motion.div
-          className="flex gap-5 pt-16 md:mt-16"
-          variants={SocialContainer}
-          initial="hidden"
-          whileInView="visible"
-        >
-          {socials.map((social, i) => (
-            <Link key={`socials-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
-              <motion.div
-                whileHover={{ scale: 1.5, rotate: 360 }}
-                transition={{
-                  duration: 0.5,
-                  ease: [0, 0.71, 0.2, 1.01],
-                }}
-                whileTap={{
-                  scale: 0.8,
-                  rotate: -90,
-                  borderRadius: "100%",
-                }}
-                variants={item}
-              >
-                <Image src={social.icon} alt={social.alt} width={30} height={30} />
-              </motion.div>
-            </Link>
-          ))}
-        </motion.div>
+        <SocialIcons />
       </div>
     </motion.div>
   )
