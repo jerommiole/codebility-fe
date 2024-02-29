@@ -2,7 +2,7 @@ import Title from "Components/Title"
 import Calendar from "./components/Calendar"
 import TimeTracker from "./components/TimeTracker"
 import TodoList from "./components/TodoList/TodoList"
-import { H1 } from "@/Components/landingPage"
+import H1 from "@/Components/shared/dashboard/H1"
 
 export default function DashboardPage() {
   return (

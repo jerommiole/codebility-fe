@@ -1,40 +1,48 @@
-import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "Components/logos"
+import Box from "@/Components/shared/dashboard/Box"
 import Avatar from "Components/ui/avatar"
 import Image from "next/image"
+import photo from "@/public/assets/images/default-avatar-male.png"
+import Link from "next/link"
 
 const TimeTracker = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center rounded-lg border bg-card-client px-5 py-[37px] dark:border-none md:flex-row lg:flex-col lg:px-[37px] xl:flex-row">
-      <p className="absolute right-5 top-5 text-xs text-muted-foreground">9:24 PM</p>
-      <p className="absolute bottom-5 right-5 mt-2 cursor-pointer text-xs hover:underline">View Logs</p>
-
-      <div className="flex flex-col items-center gap-3">
-        <p className="text-sm">Hello!</p>
-        <h2 className="text-lg font-bold">Mr. Lorem Ipsum!</h2>
-        {/* imgBgColor must follow tailwind coloring system. bg-{color you want}-{shade} */}
-        <Avatar className={`h-24 w-24 bg-blue-900 lg:h-36 lg:w-36 `}>
-          <Image alt="dp" fill={true} src="/hero.png" />
-        </Avatar>
-        <p className="text-sm md:mt-5">"Mr. Lorem Ipsum"</p>
-        <h2 className="text-lg ">loremIpsum@gmail.com</h2>
-      </div>
-      <div className="mt-12 flex flex-1 flex-col items-center gap-2 md:ml-10 md:mt-0 lg:ml-0 xl:ml-10">
-        <h1 className="self-center text-2xl font-semibold">Time Tracker</h1>
-        <p className="mt-2  text-center text-text4">Monday</p>
-        <p className="text-sm text-gray-500 ">November 25, 2023</p>
-        <div className="mt-4 h-[130px] w-[230px] overflow-hidden rounded-lg border">
-          <div className="flex h-[30px] items-center  justify-center bg-gray-300">
-            <p className="text-xs text-gray-500 ">FE-FIX THE BUTTON</p>
-          </div>
-          <div className="relative h-full w-full  bg-gray-200 pt-4">
-            <p className="text-center text-5xl font-bold tracking-widest">01:23</p>
-            <p className="absolute bottom-10 left-14 text-sm text-gray-500">Hour</p>
-            <p className="absolute bottom-10 right-14 text-sm text-gray-500">Minutes</p>
-          </div>
+    <Box>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="mx-auto flex flex-col items-center gap-2">
+          <p className="text-sm">Hello!</p>
+          <p className="text-lg font-semibold">Mr. Lorem Ipsum!</p>
+          <Avatar className={`h-24 w-24 bg-blue-100`}>
+            <Image alt="Avatar" src={photo} width={96} height={96} />
+          </Avatar>
+          <p className="text-lg">loremIpsum@gmail.com</p>
         </div>
-        <p className="mt-2 text-[#02FFE2] cursor-pointer">Start</p>
+        <div className="flex flex-col items-center gap-2">
+          <p className="font-semibold">Time Tracker</p>
+          <p className="text-sm">November 25, 2023, Monday</p>
+
+          <div className="flex flex-col">
+            <div className="flex min-w-[250px] justify-center rounded-t border">
+              <div className="flex flex-col items-center">
+                <p className="p-3 text-xs uppercase">Fe-fix the button</p>
+              </div>
+            </div>
+            <div className="flex min-w-[250px] justify-center rounded-b border-b border-l border-r">
+              <div className="flex flex-col gap-2 p-3">
+                <p className="text-5xl font-bold">01:23</p>
+                <div className="flex justify-between gap-2">
+                  <p>Hour</p>
+                  <p>Minutes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Link href="#" className="text-teal">
+            Start
+          </Link>
+        </div>
       </div>
-    </div>
+    </Box>
   )
 }
 

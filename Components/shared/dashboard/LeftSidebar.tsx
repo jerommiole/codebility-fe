@@ -11,8 +11,8 @@ const LeftSidebar = () => {
   const pathname = usePathname()
 
   return (
-    <section className="max-lg:hidden background-light900_dark200 sticky left-0 top-0 z-20 flex h-screen flex-col gap-14 overflow-y-auto border-r p-6">
-      <div className="max-lg:hidden flex justify-stretch gap-4">
+    <section className="light-border shadow-light-300 background-light900_dark200 sticky left-0 top-0 z-20 flex h-screen flex-col gap-14 overflow-y-auto border-r p-6 dark:shadow-none max-lg:hidden">
+      <div className="flex justify-stretch gap-4 max-lg:hidden">
         <div className={`transition-all ${!isToggleOpen ? "flex-0" : "flex-1"} flex overflow-hidden`}>
           <Link href="/">
             <Image
@@ -42,7 +42,7 @@ const LeftSidebar = () => {
         />
       </div>
 
-      <div className="max-lg:hidden flex flex-1 flex-col gap-4">
+      <div className="flex flex-1 flex-col gap-4 max-lg:hidden">
         {sidebarLinks.map((item) => {
           const isActive = (pathname.includes(item.route) && item.route.length > 1) || pathname === item.route
 
