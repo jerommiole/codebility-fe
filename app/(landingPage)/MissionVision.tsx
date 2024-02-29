@@ -4,7 +4,7 @@ import Image from "next/image"
 
 const MissionVision = () => {
   return (
-    <SectionWrapper className="lg:bg-gradient-radial">
+    <SectionWrapper>
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-6">
         <div className="my-auto flex basis-[50%] flex-col gap-4 text-center lg:basis-[25%] lg:text-end">
           <H1 className="text-primaryColor">Mission</H1>
@@ -13,7 +13,6 @@ const MissionVision = () => {
             Development, UI/UX Design, and Digital Marketing.
           </Paragraph>
           <Paragraph className="lg:max-w-auto mx-auto max-w-[400px]">
-            {" "}
             Beyond imparting skills, we believe in the transformative power of coding as a tool for a brighter future.
             Join us in sculpting your path as tomorrow's digital architect.
           </Paragraph>

@@ -1,13 +1,13 @@
 import { create } from "zustand"
 
 interface PostStore {
-  activeNav: Boolean
+  isToggleOpen: Boolean
   toggleNav: () => void
   closeNav: () => void
 }
 
 export const useNavStore = create<PostStore>((set) => ({
-  activeNav: false,
-  toggleNav: () => set((state) => ({ activeNav: !state.activeNav })),
-  closeNav: () => set((state) => ({ activeNav: false })),
+  isToggleOpen: false,
+  toggleNav: () => set((state) => ({ isToggleOpen: !state.isToggleOpen })),
+  closeNav: () => set((state) => ({ isToggleOpen: false })),
 }))

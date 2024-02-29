@@ -30,34 +30,10 @@ const Hero = () => {
       <div>
         <Image src={personBG} alt="person" className="absolute bottom-0  right-56 h-[80%] w-auto opacity-50 " />
       </div>
-      <div className="wrapper">
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
-        <div>
-          <span className="dot"></span>
-        </div>
+      <div className="heroBubble">
+        {Array.from({ length: 8 }, (_, index) => (
+          <div key={index} />
+        ))}
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex h-full -translate-y-24 flex-col items-center justify-center">

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -33,6 +34,34 @@ module.exports = {
         stiglitz: "rgba(50,50,93,0.25) 0px 6px 12px -2px, rgba(0,0,0,0.3) 0px 3px 7px -3px",
       },
       colors: {
+        primary: {
+          500: "#2986ff",
+          100: "#c4deff",
+        },
+        blue: {
+          500: "#583DFF",
+          100: "#6A78F2",
+        },
+        violet: "#C108FE",
+        teal: "#02FFE2",
+        white: "#F4F4F4",
+
+        dark: {
+          100: "#000000",
+          200: "#0F1117",
+          300: "#151821",
+          400: "#212734",
+          500: "#101012",
+        },
+        light: {
+          900: "#FFFFFF",
+          800: "#F4F6F8",
+          850: "#FDFDFD",
+          700: "#DCE3F1",
+          500: "#7B8EC8",
+          400: "#858EAD",
+        },
+
         primaryColor: "#D9D9D9",
         secondaryColor: "#8E8E8E",
         inputColor: "#282828",
@@ -108,6 +137,9 @@ module.exports = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      screens: {
+        xs: "420px",
       },
       keyframes: {
         "accordion-down": {

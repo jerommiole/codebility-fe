@@ -8,7 +8,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sh
 import { Button } from "Components/ui/button"
 import { Inter, Rowdies, Iceland } from "next/font/google"
 import { motion } from "framer-motion"
-import logo from "@/public/assets/images/codebility-logo-blue-transparent.png"
 
 const links = [
   {
@@ -79,7 +78,7 @@ const Navbar = () => {
             <div className="hidden lg:flex">
               <Link href="/">
                 <motion.div variants={item}>
-                  <Image src={logo} alt="CodebilityLogo" width={130} height={35} />
+                  <Image src="/assets/svgs/codebility-blue.svg" alt="CodebilityLogo" width={147} height={30} />
                 </motion.div>
               </Link>
             </div>
