@@ -45,7 +45,7 @@ module.exports = {
         violet: "#C108FE",
         teal: "#02FFE2",
         white: "#F4F4F4",
-
+        black: "0E0E0E",
         dark: {
           100: "#000000",
           200: "#0F1117",
