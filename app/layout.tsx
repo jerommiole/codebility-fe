@@ -1,39 +1,28 @@
-import "styles/tailwind.css"
+import "./globals.css"
 
-import { ThemeProvider } from "../Components/theme-provider"
-import { ThemeModeToggle } from "../Components/thememodetoggle"
+import { ThemeProvider } from "@/context/ThemeProvider"
+import { ModalProvider } from "Components/providers/modal-provider"
 import { Outfit } from "next/font/google"
 import AuthContext from "./context/AuthContext"
-import { ModalProvider } from "Components/providers/modal-provider"
-import Navbar from "./(landingPage)/Navbar"
-import { SessionProvider } from "next-auth/react"
 import ToasterContext from "./context/ToasterContext"
 export const metadata = {
   title: "Codebility",
-  description: "Lorem Ipsum",
+  description:
+    "Unlock the world of coding with Codebility - where passion meets innovation. Dive into immersive programs covering Web Development, Mobile Development, UI/UX Design, and Digital Marketing. Transform your skills with real-world standards. Join us in crafting a brighter future as tomorrow's digital architect.",
 }
 
 const outfit = Outfit({
   subsets: ["latin"],
-  // variable: "--font-outfit",
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={outfit.className} suppressHydrationWarning>
+    <html lang="en" className={outfit.className}>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          // forcedTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <AuthContext>
             <ToasterContext />
             <ModalProvider />
-
-            {/* <ThemeModeToggle /> */}
             {children}
           </AuthContext>
         </ThemeProvider>

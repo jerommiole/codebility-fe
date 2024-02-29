@@ -26,3 +26,21 @@ export interface User {
   projects?: any[]
   clientId?: string
 }
+
+export interface LeftSidebar {
+  imgURL: string
+  route: string
+  label: string
+}
+
+export interface SocialIcons {
+  imgURL: string
+  route: string
+  label: string
+}
+
+export interface Theme {
+  value: string
+  label: string
+  icon: string
+}

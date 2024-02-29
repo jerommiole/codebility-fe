@@ -1,15 +1,14 @@
 import { socialIcons } from "@/constants"
 import { motion } from "framer-motion"
-import { SocialContainer, item } from "../FramerAnimation/Framer"
+import Image from "next/image"
 import Link from "next/link"
-
-import React from "react"
+import { SocialContainer, item } from "../FramerAnimation/Framer"
 
 const SocialIcons = () => {
   return (
     <motion.div className="flex gap-5" variants={SocialContainer} initial="hidden" whileInView="visible">
       {socialIcons.map((social, i) => (
-        <Link key={`socialIcons-${i}`} href={social.socialUrl} target="_blank" rel="noopener noreferrer">
+        <Link key={`socialIcons-${i}`} href={social.route} target="_blank" rel="noopener noreferrer">
           <motion.div
             whileHover={{ scale: 1.5, rotate: 360 }}
             transition={{
@@ -23,7 +22,7 @@ const SocialIcons = () => {
             }}
             variants={item}
           >
-            {social.icon}
+            <Image src={social.imgURL} alt={social.label} width={20} height={20} />
           </motion.div>
         </Link>
       ))}
