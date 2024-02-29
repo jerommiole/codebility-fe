@@ -102,12 +102,6 @@
     transform: rotateY(180deg);
   }
 
-  .blinds {
-    @apply fixed left-0 top-0 z-40 h-screen w-0 transition-opacity duration-500;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(2px);
-  }
-
   .toggle-logo-btn {
     @apply h-[40px] w-[30px] cursor-pointer transition-all;
   }
