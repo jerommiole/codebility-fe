@@ -103,7 +103,7 @@ const Navbar = () => {
 
             <div className="font-inter hidden items-center gap-4 text-base lg:flex">
               <motion.div variants={item}>
-                <Link href="/auth/signin" className="rounded-full bg-white px-5 py-2 text-black">
+                <Link href="/auth/signin" className="text-black-500 rounded-full bg-white px-5 py-2">
                   Login
                 </Link>
               </motion.div>
@@ -142,7 +142,7 @@ const Navbar = () => {
                     <div>
                       <Link href="/auth/signin">Login</Link>
                     </div>
-                    <div className="my-5 rounded-full bg-white px-5 py-1 text-black">
+                    <div className="text-black-500 my-5 rounded-full bg-white px-5 py-1">
                       <Link href="/auth/signup">Sign Up</Link>
                     </div>
                   </div>

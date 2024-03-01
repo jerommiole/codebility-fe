@@ -18,7 +18,7 @@
   }
 
   .card-wrapper {
-    @apply dark:dark-gradient shadow-light-100 bg-light-900 dark:shadow-dark-100;
+    @apply dark:dark-gradient bg-light-900 shadow-light-100 dark:shadow-dark-100;
   }
 
   .btn {
@@ -269,7 +269,7 @@ body {
   }
 }
 
-.heroBubble div {
+.hero-bubble div {
   height: 60px;
   width: 60px;
   border-radius: 50px;
@@ -279,7 +279,7 @@ body {
   animation: 3s ease infinite;
 }
 
-.heroBubble div:nth-child(1) {
+.hero-bubble div:nth-child(1) {
   box-shadow: inset 0 0 10px 1px #02ffe2;
 
   top: 20%;
@@ -287,49 +287,49 @@ body {
   animation: animate 8s ease infinite;
 }
 
-.heroBubble div:nth-child(2) {
+.hero-bubble div:nth-child(2) {
   box-shadow: inset 0 0 10px 1px #c108fe;
   top: 60%;
   left: 80%;
   animation: animate 10s linear infinite;
 }
 
-.heroBubble div:nth-child(3) {
+.hero-bubble div:nth-child(3) {
   box-shadow: inset 0 0 10px 1px #6a78f2;
   top: 40%;
   left: 40%;
   animation: animate 3s ease infinite;
 }
 
-.heroBubble div:nth-child(4) {
+.hero-bubble div:nth-child(4) {
   box-shadow: inset 0 0 10px 1px #d9d9d9;
   top: 66%;
   left: 30%;
   animation: animate 7s linear infinite;
 }
 
-.heroBubble div:nth-child(5) {
+.hero-bubble div:nth-child(5) {
   box-shadow: inset 0 0 10px 1px #02ffe2;
   top: 90%;
   left: 10%;
   animation: animate 9s ease infinite;
 }
 
-.heroBubble div:nth-child(6) {
+.hero-bubble div:nth-child(6) {
   box-shadow: inset 0 0 10px 1px #6a78f2;
   top: 30%;
   left: 60%;
   animation: animate 5s linear infinite;
 }
 
-.heroBubble div:nth-child(7) {
+.hero-bubble div:nth-child(7) {
   box-shadow: inset 0 0 10px 1px #c108fe;
   top: 70%;
   left: 20%;
   animation: animate 8s ease infinite;
 }
 
-.heroBubble div:nth-child(8) {
+.hero-bubble div:nth-child(8) {
   box-shadow: inset 0 0 10px 1px #d9d9d9;
   top: 75%;
   left: 60%;
@@ -347,7 +347,7 @@ body {
 }
 
 /* Gradient for Hero */
-.GradientHero {
+.hero-gradient {
   background: hsla(285, 99%, 51%, 1);
 
   background: radial-gradient(circle, hsla(285, 99%, 51%, 1) 0%, hsla(229, 84%, 5%, 1) 100%);

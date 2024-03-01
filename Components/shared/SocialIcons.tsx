@@ -6,7 +6,7 @@ import { SocialContainer, item } from "../FramerAnimation/Framer"
 
 const SocialIcons = () => {
   return (
-    <motion.div className="flex gap-5" variants={SocialContainer} initial="hidden" whileInView="visible">
+    <motion.div className="flex justify-center gap-5" variants={SocialContainer} initial="hidden" whileInView="visible">
       {socialIcons.map((social, i) => (
         <Link key={`socialIcons-${i}`} href={social.route} target="_blank" rel="noopener noreferrer">
           <motion.div

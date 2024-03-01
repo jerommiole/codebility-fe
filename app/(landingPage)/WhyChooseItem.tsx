@@ -11,13 +11,13 @@ interface ItemProps {
 
 const WhyChooseItem = ({ title, itemNumber, description, subTitle }: ItemProps) => {
   return (
-    <div className="mx-auto flex w-full flex-col gap-2 rounded-lg bg-[#0D0D0D] p-4 lg:flex-row lg:bg-transparent">
+    <div className="bg-black-500 mx-auto flex w-full flex-col gap-2 rounded-lg p-4 lg:flex-row lg:bg-transparent">
       <div className="m-auto flex basis-2/5 pl-5">
         <motion.h3
           variants={fadeInOutLeftToRight}
           initial="hidden"
           whileInView="visible"
-          className="max-w-auto m-auto text-left text-2xl font-semibold text-primaryColor lg:max-w-[200px]  lg:text-3xl"
+          className="max-w-auto m-auto text-left text-2xl font-semibold text-white lg:max-w-[200px] lg:text-3xl"
         >
           {title}
         </motion.h3>
@@ -30,7 +30,7 @@ const WhyChooseItem = ({ title, itemNumber, description, subTitle }: ItemProps) 
             whileInView="visible"
             className="mx-auto flex lg:items-center"
           >
-            <p className="text-3xl font-semibold text-primaryColor">0{itemNumber}</p>
+            <p className="text-3xl font-semibold text-white">0{itemNumber}</p>
           </motion.div>
           <motion.div
             variants={fadeInOutRightToLeft}
@@ -38,7 +38,7 @@ const WhyChooseItem = ({ title, itemNumber, description, subTitle }: ItemProps) 
             whileInView="visible"
             className="flex flex-1 flex-col justify-center gap-1 p-1 text-center lg:text-left"
           >
-            <p className="text-md font-bold text-darkBlueBgColor">{subTitle}</p>
+            <p className="text-md font-bold text-white">{subTitle}</p>
             <p className="mr-2 text-sm text-secondaryColor">{description}</p>
           </motion.div>
         </div>

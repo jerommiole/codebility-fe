@@ -37,7 +37,8 @@ const Codevs = () => {
   console.log(data)
 
   return (
-    <div className="bg-[#0B0B0C]">
+    <div className="bg-black-500">
+      <div id="codevs"></div>
       <SectionWrapper>
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-6">

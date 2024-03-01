@@ -11,7 +11,7 @@ import MobileNav from "./MobileNav"
 const Navbar = () => {
   return (
     <>
-      <nav className="light-border background-light900_dark200 fixed top-0 z-10 w-full border-b">
+      <nav className="light-border background-lightbox_darkbox fixed top-0 z-10 w-full border-b">
         <div className="flex px-8 py-3">
           <div className="flex flex-1 justify-end gap-6">
             <div>Bell</div>

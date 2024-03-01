@@ -10,6 +10,7 @@ import getDay from "date-fns/getDay"
 import enUS from "date-fns/locale/en-US"
 
 import "react-big-calendar/lib/css/react-big-calendar.css"
+import Box from "@/Components/shared/dashboard/Box"
 
 const locales = {
   "en-US": enUS,
@@ -63,24 +64,26 @@ const Calendar = () => {
   const [date, setDate] = useState(new Date())
 
   return (
-    <div className="w-full rounded-lg border p-4">
-      <h2 className="mb-6 text-center text-2xl md:text-left">Schedule Your Calendar</h2>
-      <EventCalendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 400, width: "100%" }}
-        views={["month", "week", "day", "agenda"]} // Use string literals directly
-        defaultView={view}
-        view={view} // Include the view prop
-        date={date} // Include the date prop
-        onView={(view) => setView(view as View)}
-        onNavigate={(date) => {
-          setDate(new Date(date))
-        }}
-      />
-    </div>
+    <Box>
+      <div className="border-lg flex flex-col gap-2">
+        <p className="text-black-500 mb-6 text-center text-2xl md:text-left">Schedule Your Calendar</p>
+        <EventCalendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 400, width: "100%" }}
+          views={["month", "week", "day", "agenda"]} // Use string literals directly
+          defaultView={view}
+          view={view} // Include the view prop
+          date={date} // Include the date prop
+          onView={(view) => setView(view as View)}
+          onNavigate={(date) => {
+            setDate(new Date(date))
+          }}
+        />
+      </div>
+    </Box>
   )
 }
 

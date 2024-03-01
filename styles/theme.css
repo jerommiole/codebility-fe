@@ -38,6 +38,15 @@
   .background-light800_dark300 {
     @apply bg-light-800 dark:bg-dark-300 !important;
   }
+  .background-lightbox_darkbox {
+    @apply bg-[#FCFCFC] dark:bg-[#181818];
+  }
+  .background-lightsection_darksection {
+    @apply bg-[#F4F4F4] dark:bg-[#0E0E0E];
+  }
+  .background-lightsmallbox_darksmallbox {
+    @apply bg-[#EBEBEB] dark:bg-[#242424];
+  }
 
   .text-dark100_light900 {
     @apply text-dark-100 dark:text-light-900 !important;
