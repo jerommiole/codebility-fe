@@ -1,51 +1,63 @@
-import { interns } from "../data"
+import axios from "axios"
 import InternCard from "./InternCard"
+import { User } from "@/types"
 
 interface InternProps {
   isSearching: string
   byCategory: string
 }
 
-const Intern = ({ isSearching, byCategory }: InternProps) => {
-  const filteredData = interns.filter((intern) => {
-    if (isSearching) {
-      switch (isSearching.toLowerCase()) {
-        case "fs":
-          return [intern.position].some((pos) => pos === "Full Stack Developer")
-        case "fe":
-          return [intern.position].some((pos) => pos === "Frontend Developer")
-        case "be":
-          return [intern.position].some((pos) => pos === "Backend Developer")
-        case "md":
-          return [intern.position].some((pos) => pos === "Mobile Developer")
-        default:
-          return (
-            intern.name.toLowerCase().includes(isSearching.toLowerCase()) ||
-            [intern.position].some((pos) => pos.toLowerCase().includes(isSearching.toLowerCase()))
-          )
-      }
-    } else if (byCategory) {
-      if (byCategory === "All") {
-        return intern
-      } else {
-        return intern.position.includes(byCategory)
-      }
-    } else {
-      return intern
-    }
-  })
+// Function to fetch Interns data asynchronously
+const getInterns = async () => {
+  const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/users")
+  return res.data.data
+}
+
+const Intern = async ({ isSearching, byCategory }: InternProps) => {
+  // Explicitly type interns as an array of User objects
+  const interns: User[] = await getInterns()
+
+  if (!interns || !Array.isArray(interns)) {
+    return null
+  }
+
+  // const filteredData = interns.filter((intern: User) => {
+  //   // Check if the intern's position matches the search criteria
+  //   if (isSearching) {
+  //     switch (isSearching.toLowerCase()) {
+  //       case "fs":
+  //       case "Front End Developer":
+  //       case "be":
+  //       case "md":
+  //         return intern.position && intern.position.includes(isSearching)
+  //       default:
+  //         return (
+  //           intern.name.toLowerCase().includes(isSearching.toLowerCase()) ||
+  //           (intern.position && intern.position.some((pos) => pos.toLowerCase().includes(isSearching.toLowerCase())))
+  //         )
+  //     }
+  //   }
+  //   // Check if the intern's position matches the selected category
+  //   else if (byCategory) {
+  //     if (byCategory === "All") {
+  //       return true
+  //     } else {
+  //       return intern.position && intern.position.includes(byCategory)
+  //     }
+  //   }
+  //   // If no search criteria or category is provided, return true for all interns
+  //   else {
+  //     return true
+  //   }
+  // })
 
   return (
     <>
       <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-5">
-        {filteredData.map((intern) => (
+        {interns.map((intern) => (
           <InternCard
             key={intern.id}
-            image={intern.imageUrl}
-            name={intern.name}
-            position={intern.position}
-            roles={intern.position}
-            bgColor={intern.backgroundColor}
+            user={intern} // Pass user data to InternCard
           />
         ))}
       </div>

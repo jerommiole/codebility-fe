@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { positionTitles } from "../data"
 import Image from "next/image"
+import { IconFilter } from "@/public/assets/svgs"
 
 const Filter = () => {
   const [filterToggle, setFilterToggle] = useState(false)
@@ -12,8 +13,10 @@ const Filter = () => {
 
   return (
     <div title="Filter" onClick={handelFilterToggle} className="md:relative md:flex md:cursor-pointer md:gap-4">
-      <p className="text-sm dark:text-primaryColor">Filter</p>
-      <Image src="/filter.svg" alt="filter" width={20} height={20} className="h-auto w-auto" />
+      <div className="flex items-center gap-4">
+        <p className="text-sm dark:text-primaryColor">Filter</p>
+        <IconFilter />
+      </div>
 
       {filterToggle && (
         <div className="absolute right-16 top-6 z-40 flex h-96 w-44 flex-col gap-1 overflow-y-auto rounded-xl bg-slate-50 p-3 text-xs dark:bg-[#0E0E0E]">
