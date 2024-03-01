@@ -45,7 +45,11 @@ module.exports = {
         violet: "#C108FE",
         teal: "#02FFE2",
         white: "#F4F4F4",
-        black: "0E0E0E",
+        black: {
+          500: "#0E0E0E",
+          400: "#030303",
+          100: "#181818",
+        },
         dark: {
           100: "#000000",
           200: "#0F1117",
@@ -70,25 +74,6 @@ module.exports = {
         gray01: "#DCDCDC",
         gray02: "#1F1F1F",
         gray03: "#2E2E2E",
-
-        // Interns Page
-        tealColor: "#02FFE2",
-        lightPinkColor: "#FDB7D0",
-        darkBlueColor: "#6A78F2",
-        magentaColor: "#C108FE",
-        darkBlueBgColor: "#6A78F2",
-        redBgColor: "#FF0000",
-        greenBgColor: "#02FFE2",
-        violetBgColor: "#C108FE",
-        // Co Devs
-        greenColor: "#07AC50",
-        redColor: "#D40000",
-        yellowColor: "#FFC107",
-        blueColor: "#066EBD",
-        skyBlueColor: "#61DAFB",
-        orangeColor: "#E76F00",
-        // Resume Page
-        blackBgColor: "#0E0E0E",
 
         text1: "rgba(var(--text-color-1))",
         text2: "hsl(var(--text-color-2))",

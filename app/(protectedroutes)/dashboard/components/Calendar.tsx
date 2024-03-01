@@ -66,7 +66,7 @@ const Calendar = () => {
   return (
     <Box>
       <div className="border-lg flex flex-col gap-2">
-        <p className="mb-6 text-center text-2xl text-black md:text-left">Schedule Your Calendar</p>
+        <p className="text-black-500 mb-6 text-center text-2xl md:text-left">Schedule Your Calendar</p>
         <EventCalendar
           localizer={localizer}
           events={events}

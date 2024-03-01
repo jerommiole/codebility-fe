@@ -26,7 +26,7 @@ export default function Web() {
   }, [])
 
   return (
-    <div className="relative flex h-screen w-full flex-col overflow-x-hidden bg-black">
+    <div className="bg-black-400 relative flex h-screen w-full flex-col overflow-x-hidden">
       {isLoading ? (
         <div className="flex h-screen flex-col items-center justify-center gap-10 ">
           <Loader />
