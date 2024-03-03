@@ -28,9 +28,9 @@ const CodevsCard = ({ users }: { users: any }) => {
               }
               width={100}
               height={100}
-              className="rounded-lg bg-[#1e1b4b] bg-cover"
+              className="rounded-lg bg-blue-500 bg-cover"
             />
-            <p className="pt-3 font-semibold text-darkBlueColor">{user.name}</p>
+            <p className="pt-3 font-semibold text-white">{user.name}</p>
           </Link>
           <p className="text-[#8E8E8E]">{user.position}</p>
           <div className="flex flex-row justify-center gap-2">
