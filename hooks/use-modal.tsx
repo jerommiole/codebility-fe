@@ -1,15 +1,6 @@
 import { create } from "zustand"
 
 import Image, { StaticImageData } from "next/image"
-export type ModalType =
-  | "companyProfile"
-  | "termsAndCondition"
-  | "privacyPolicy"
-  | "techStackModal"
-  | "scheduleModal"
-  | "addTodoModal"
-  | "viewTodoModal"
-  | "editTodoModal"
 
 interface ModalData {
   image?: string | StaticImageData
@@ -29,6 +20,16 @@ interface ModalData {
   }[]
   footerText?: string
 }
+
+export type ModalType =
+  | "companyProfile"
+  | "termsAndCondition"
+  | "privacyPolicy"
+  | "techStackModal"
+  | "scheduleModal"
+  | "todoAddModal"
+  | "todoViewModal"
+  | "todoEditModal"
 
 interface ModalStore {
   type: ModalType | null

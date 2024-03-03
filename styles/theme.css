@@ -48,6 +48,10 @@
     @apply bg-[#EBEBEB] dark:bg-[#242424];
   }
 
+  .border-light_dark {
+    @apply border-[#EBEBEB] dark:border-[#242424];
+  }
+
   .text-dark100_light900 {
     @apply text-dark-100 dark:text-light-900 !important;
   }
