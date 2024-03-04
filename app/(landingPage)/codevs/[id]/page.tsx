@@ -1,6 +1,5 @@
 "use client"
 
-import H1 from "@/Components/landingPage/H1"
 import imgCodebilityThumb from "@/public/assets/images/bio-project-thumb.png"
 import { User } from "@/types"
 import CodevHeading from "Components/landingPage/CodevHeading"
@@ -10,7 +9,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { useEffect, useState } from "react"
-import { skillData, skillList, workExperienceData } from "../constant"
+import { workExperienceData } from "../constant"
+import { H1, Paragraph } from "@/Components/landingPage"
 
 const CodevBioPage = ({ params }: { params: { id: string } }) => {
   const id = params.id
@@ -62,23 +62,23 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <div className="bg-[#0B0B0C]">
+      <div className="bg-black-400">
         <SectionWrapper>
           <div className="flex flex-col gap-20">
             <div className="text-center">
-              <H1 className="text-primaryColor">Biography</H1>
+              <H1>Biography</H1>
             </div>
 
-            <div className="flex flex-col gap-20 bg-[#121212] p-10">
+            <div className="flex flex-col gap-20 bg-black-500 p-10">
               <div className="flex flex-col gap-6 lg:flex-row">
                 <div className="order-3 my-auto flex basis-2/5 flex-col text-primaryColor lg:order-1">
                   <p className="text-center text-lg font-semibold md:text-3xl lg:text-left">
                     {name && name.length > 0 ? name : "Null"}
                   </p>
-                  <p className="text-center text-lg text-[#8E8E8E] lg:text-left">
+                  <p className="text-center text-lg text-secondaryColor lg:text-left">
                     {position && position[0] ? position : "Null"}
                   </p>
-                  <p className="text-center text-lg text-[#8E8E8E] lg:text-left">
+                  <p className="text-center text-lg text-secondaryColor lg:text-left">
                     {address && address ? address : "Null"}
                   </p>
                   <div className="mt-2 flex flex-row justify-center gap-2 lg:justify-start">
@@ -117,7 +117,6 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       src={image_icon ?? "/sampleProfile/profile.png"}
                       width={200}
                       height={200}
-                      // className="rounded-lg bg-[#1e1b4b] bg-cover"
                       className="h-[80px] w-[80px] rounded-lg bg-[#1e1b4b] bg-cover object-contain md:h-[96px] md:w-[96px] lg:h-[180px] lg:w-[180px]"
                     />
                   </div>
@@ -134,7 +133,7 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                 </div>
               </div>
               <div className="flex flex-col gap-6 lg:flex-row">
-                <div className="flex basis-2/5 flex-col gap-4 text-[#8E8E8E]">
+                <div className="flex basis-2/5 flex-col gap-4 text-secondaryColor">
                   <div>
                     <CodevHeading>About me</CodevHeading>
                     <p className="text-sm">
@@ -151,9 +150,23 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                     </p>
                     <p>{education}</p>
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <CodevHeading>Skills</CodevHeading>
-                    <ul>{tech_stacks?.map((skill, i) => <li key={`skill-${i}`}>{skill}</li>)}</ul>
+                    <div className="flex flex-wrap gap-2">
+                      {tech_stacks &&
+                        tech_stacks.map((stack: any, i: any) => (
+                          <div key={i} className="flex items-center">
+                            <Image
+                              src={`/assets/svgs/icon-${stack}.svg`}
+                              alt={stack + " icon"}
+                              width={20}
+                              height={20}
+                              title={stack}
+                              className="transition duration-300 hover:-translate-y-0.5"
+                            />
+                          </div>
+                        ))}
+                    </div>
                   </div>
                 </div>
 
@@ -161,37 +174,40 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                   <CodevHeading>Work Experience</CodevHeading>
 
                   {workExperienceData.map((item, i) => (
-                    <div key={`skill-${i}`} className="border-tealColor relative border-l pb-6 pl-10">
-                      <div className="bg-tealColor absolute -left-[4px] bottom-0 top-0 h-2 w-2 animate-ping rounded-full" />
-                      <div className="bg-tealColor absolute -left-[4px] bottom-0 top-0 h-2 w-2 rounded-full " />
+                    <div key={`skill-${i}`} className="relative border-l border-teal pb-6 pl-10">
+                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 animate-ping rounded-full bg-teal" />
+                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 rounded-full bg-teal " />
 
-                      <div className="flex flex-col gap-4 border-b border-[#1C1C1C] pb-6">
+                      <div className="flex flex-col gap-4 border-b border-black-100 pb-6 text-secondaryColor">
                         <div>
-                          <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">{item.position}</p>
-                          <p className="text-sm text-[#8E8E8E] lg:text-lg">{item.company}</p>
-                          <p className="text-xs text-[#8E8E8E] lg:text-sm">
+                          <p className="text-lg font-bold lg:text-xl">{item.position}</p>
+                          <p className="text-sm lg:text-lg">{item.company}</p>
+                          <p className="text-xs lg:text-sm">
                             {item.fromYear} - {item.toYear}
                           </p>
-                          <p className="text-xs text-[#8E8E8E] lg:text-sm">{item.location}</p>
+
+                          <p className="text-xs lg:text-sm">{item.location}</p>
                         </div>
 
-                        <ul className="pl-4 text-[#8E8E8E]">
+                        <ul className="pl-4">
                           {item.tasks?.map((task: any, i: any) => (
                             <li className="list-disc text-xs lg:text-sm" key={i}>
                               {task}
                             </li>
                           ))}
                         </ul>
-                        <div className="flex gap-2">
-                          {item.technologies?.map((task: any, i: any) => (
-                            <Image
-                              src={`/techStack/${task}.png`}
-                              alt={task + " icon"}
-                              width={20}
-                              height={20}
-                              title={task}
-                              className="cursor-pointer object-contain"
-                            />
+                        <div className="flex flex-wrap gap-2">
+                          {item.technologies?.map((tech: any, i: any) => (
+                            <div key={i} className="flex items-center">
+                              <Image
+                                src={`/assets/svgs/icon-${tech}.svg`}
+                                alt={tech + " icon"}
+                                width={20}
+                                height={20}
+                                title={tech}
+                                className="transition duration-300 hover:-translate-y-0.5"
+                              />
+                            </div>
                           ))}
                         </div>
                       </div>
@@ -212,10 +228,10 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       className="h-full w-full rounded-lg bg-cover object-contain"
                     />
                   </div>
-                  <div className="my-auto flex flex-col gap-2 text-[#8E8E8E]">
+                  <div className="my-auto flex flex-col gap-2 text-secondaryColor">
                     <div>
-                      <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">CODEBILITY </p>
-                      <p className="text-xs text-[#8E8E8E] lg:text-sm">2023 - 2024</p>
+                      <p className="text-lg font-bold text-secondaryColor lg:text-xl">CODEBILITY </p>
+                      <p className="text-xs text-secondaryColor lg:text-sm">2023 - 2024</p>
                     </div>
                     <p className="text-xs lg:text-sm">
                       At Codebility, we undertook a dynamic and comprehensive project to design and develop a
@@ -224,19 +240,39 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       online presence, enabling efficient content management and easy navigation for both visitors and
                       administrators.
                     </p>
-                    <ul className="my-1 flex w-full items-center gap-3">
-                      {skillData.map((skill, i) => (
-                        <li key={`skill-${i}`}>
-                          <Image
-                            src={skillList[skill?.name]?.icon!}
-                            alt={skill.name}
-                            width={20}
-                            height={20}
-                            className=" transition duration-300 hover:-translate-y-0.5"
-                          />
-                        </li>
-                      ))}
-                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-angular.svg"
+                          alt="Angular icon"
+                          width={20}
+                          height={20}
+                          title="angular"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-react.svg"
+                          alt="React icon"
+                          width={20}
+                          height={20}
+                          title="react"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-typescript.svg"
+                          alt="TypeScript icon"
+                          width={20}
+                          height={20}
+                          title="typescript"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -253,10 +289,10 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       className="h-full w-full rounded-lg bg-cover object-contain"
                     />
                   </div>
-                  <div className="my-auto flex flex-col gap-2 text-[#8E8E8E]">
+                  <div className="my-auto flex flex-col gap-2 text-secondaryColor">
                     <div>
-                      <p className="text-lg font-bold text-[#8E8E8E] lg:text-xl">CODEBILITY </p>
-                      <p className="text-xs text-[#8E8E8E] lg:text-sm">2023 - 2024</p>
+                      <p className="text-lg font-bold text-secondaryColor lg:text-xl">CODEBILITY </p>
+                      <p className="text-xs text-secondaryColor lg:text-sm">2023 - 2024</p>
                     </div>
                     <p className="text-xs lg:text-sm">
                       At Codebility, we undertook a dynamic and comprehensive project to design and develop a
@@ -265,22 +301,48 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       online presence, enabling efficient content management and easy navigation for both visitors and
                       administrators.
                     </p>
-                    <ul className="my-1 flex w-full items-center gap-3">
-                      {skillData.map((skill, i) => (
-                        <li key={`skill-${i}`}>
-                          <Image
-                            src={skillList[skill?.name]?.icon!}
-                            alt={skill.name}
-                            width={20}
-                            height={20}
-                            className=" transition duration-300 hover:-translate-y-0.5"
-                          />
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-angular.svg"
+                          alt="Angular icon"
+                          width={20}
+                          height={20}
+                          title="Angular"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-react.svg"
+                          alt="React icon"
+                          width={20}
+                          height={20}
+                          title="React"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <Image
+                          src="/assets/svgs/icon-typescript.svg"
+                          alt="TypeScript icon"
+                          width={20}
+                          height={20}
+                          title="TypeScript"
+                          className="transition duration-300 hover:-translate-y-0.5"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-4">
+              <Link href="/">
+                <Image src="/assets/svgs/codebility-white.svg" alt="CodebilityLogo" width={147} height={30} />
+              </Link>
+              <Paragraph>© 2024 CODEBILITY. All Right Reserved</Paragraph>
             </div>
           </div>
         </SectionWrapper>

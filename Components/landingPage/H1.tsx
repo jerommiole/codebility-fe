@@ -6,11 +6,7 @@ interface H1 {
 }
 
 const H1: React.FC<H1> = ({ children, className }) => {
-  return (
-    <h1 className={`text-dark100_light900 mb-4 text-2xl font-semibold uppercase md:text-5xl ${className}`}>
-      {children}
-    </h1>
-  )
+  return <h1 className={`mb-4 text-2xl font-semibold uppercase text-white md:text-5xl ${className}`}>{children}</h1>
 }
 
 export default H1
