@@ -8,6 +8,7 @@ import useGoogleAuthCookie from "hooks/use-cookie"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import SignUpButton from "./components/signInFooter"
+import codebilityLogoBlue from "@/public/assets/images/codebility-logo-blue-transparent.png"
 
 function Sign() {
   const session = useSession()
@@ -39,7 +40,7 @@ function Sign() {
   // if (session?.status === "unauthenticated")
   // TODO:
   return (
-    <div className="flex h-screen py-4 sm:py-0">
+    <div className="flex h-screen bg-black-500 py-4 text-primaryColor sm:py-0">
       <div className="flex flex-1 flex-col overflow-auto">
         <div className="h-full px-8">
           <div className="flex h-full flex-col sm:mx-auto sm:max-w-[40rem] sm:py-10">
@@ -47,7 +48,7 @@ function Sign() {
               <Image
                 className="cursor-pointer object-cover"
                 onClick={() => router.push("/")}
-                src="/codebilityLogoBlue.png"
+                src={codebilityLogoBlue}
                 fill
                 alt="codebilityLogoBlue"
               />
