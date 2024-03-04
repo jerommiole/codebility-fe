@@ -7,6 +7,7 @@ import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from ".
 
 import SocialIcons from "@/Components/shared/SocialIcons"
 import { IconEmail, IconMapPin, IconTelephone } from "@/public/assets/svgs"
+import codebilityLogoWhite from "@/public/assets/images/codebility-logo-white-transparent.png"
 
 const footerLinks = [
   {
@@ -83,7 +84,7 @@ const Footer = () => {
           >
             <div>
               <Link href="/">
-                <Image src="/companyLogo.png" alt="Codebility" width={250} height={30} />
+                <Image src={codebilityLogoWhite} alt="Codebility" width={250} height={30} />
               </Link>
             </div>
           </motion.div>
@@ -115,7 +116,7 @@ const Footer = () => {
                 <Link
                   href={footerLink.footerUrl}
                   key={index}
-                  className="text-base font-light text-secondaryColor duration-100 hover:scale-105 hover:text-tealColor"
+                  className="hover:text-tealColor text-base font-light text-secondaryColor duration-100 hover:scale-105"
                 >
                   {footerLink.name}
                 </Link>
