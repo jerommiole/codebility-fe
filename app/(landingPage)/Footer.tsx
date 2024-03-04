@@ -83,7 +83,7 @@ const Footer = () => {
           >
             <div>
               <Link href="/">
-                <Image src="/companyLogo.png" alt="Codebility" width={250} height={30} />
+                <Image src="/assets/svgs/codebility-white.svg" alt="Codebility" width={250} height={30} />
               </Link>
             </div>
           </motion.div>
@@ -115,7 +115,7 @@ const Footer = () => {
                 <Link
                   href={footerLink.footerUrl}
                   key={index}
-                  className="text-base font-light text-secondaryColor duration-100 hover:scale-105 hover:text-tealColor"
+                  className="hover:text-tealColor text-base font-light text-secondaryColor duration-100 hover:scale-105"
                 >
                   {footerLink.name}
                 </Link>
