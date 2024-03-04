@@ -103,7 +103,7 @@ const Navbar = () => {
 
             <div className="font-inter hidden items-center gap-4 text-base lg:flex">
               <motion.div variants={item}>
-                <Link href="/auth/signin" className="text-black-500 rounded-full bg-white px-5 py-2">
+                <Link href="/auth/signin" className="rounded-full bg-white px-5 py-2 text-black-500">
                   Login
                 </Link>
               </motion.div>
@@ -142,7 +142,7 @@ const Navbar = () => {
                     <div>
                       <Link href="/auth/signin">Login</Link>
                     </div>
-                    <div className="text-black-500 my-5 rounded-full bg-white px-5 py-1">
+                    <div className="my-5 rounded-full bg-white px-5 py-1 text-black-500">
                       <Link href="/auth/signup">Sign Up</Link>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ const Navbar = () => {
             </Sheet>
             <div className="block lg:hidden">
               <Link href="/">
-                <Image src="/codebilitylogo.svg" alt="CodebilityLogo" width={110} height={49} />
+                <Image src="/assets/svgs/codebility-blue.svg" alt="CodebilityLogo" width={110} height={49} />
               </Link>
             </div>
           </div>
