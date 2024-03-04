@@ -32,7 +32,7 @@ export const sidebarLinks: LeftSidebar[] = [
   { route: "/dashboard", imgURL: "/assets/svgs/icon-dashboard.svg", label: "Dashboard" },
   { route: "/time-tracker", imgURL: "/assets/svgs/icon-time-tracker.svg", label: "Time Tracker" },
   { route: "/todo", imgURL: "/assets/svgs/icon-todo.svg", label: "To Do" },
-  { route: "/projects-completed", imgURL: "/assets/svgs/icon-projects-completed.svg", label: "Projects Completed" },
+  { route: "/projects", imgURL: "/assets/svgs/icon-projects.svg", label: "Projects" },
   { route: "/orgchart", imgURL: "/assets/svgs/icon-org-chart.svg", label: "Org Chart" },
   { route: "/clients", imgURL: "/assets/svgs/icon-clients.svg", label: "Clients" },
   { route: "/interns", imgURL: "/assets/svgs/icon-interns.svg", label: "Interns" },

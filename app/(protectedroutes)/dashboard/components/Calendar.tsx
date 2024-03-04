@@ -64,9 +64,9 @@ const Calendar = () => {
   const [date, setDate] = useState(new Date())
 
   return (
-    <Box>
+    <div className="bg-light-300 rounded-lg p-6">
       <div className="border-lg flex flex-col gap-2">
-        <p className="text-black-500 mb-6 text-center text-2xl md:text-left">Schedule Your Calendar</p>
+        <p className="mb-6 text-center text-2xl text-black-500 md:text-left">Schedule Your Calendar</p>
         <EventCalendar
           localizer={localizer}
           events={events}
@@ -83,7 +83,7 @@ const Calendar = () => {
           }}
         />
       </div>
-    </Box>
+    </div>
   )
 }
 

@@ -1,5 +1,4 @@
 import Image from "next/image"
-import { roleMappings } from "../data"
 import Avatar from "Components/ui/avatar"
 import Hero from "@/public/assets/images/default-avatar-male.png"
 
@@ -21,7 +20,7 @@ const InternCard = ({ image, name, position, roles, bgColor }: InternCardProps) 
           </Avatar>
         </div>
         <div className="flex flex-col text-center">
-          <p className="font-semibold text-darkBlueColor">{name}</p>
+          <p className="text-darkBlueColor font-semibold">{name}</p>
           <p className="text-sm dark:text-secondaryColor">{position}</p>
         </div>
       </div>

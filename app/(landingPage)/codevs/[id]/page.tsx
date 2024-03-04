@@ -1,9 +1,9 @@
 "use client"
 
+import H1 from "@/Components/landingPage/H1"
 import imgCodebilityThumb from "@/public/assets/images/bio-project-thumb.png"
 import { User } from "@/types"
 import CodevHeading from "Components/landingPage/CodevHeading"
-import H1 from "@/Components/landingPage/H1"
 import SectionWrapper from "Components/landingPage/SectionWrapper"
 import axios from "axios"
 import Image from "next/image"
@@ -12,8 +12,8 @@ import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgL
 import { useEffect, useState } from "react"
 import { skillData, skillList, workExperienceData } from "../constant"
 
-const CodevBioPage = ({ params }: { params: { slug: string } }) => {
-  const id = params.slug
+const CodevBioPage = ({ params }: { params: { id: string } }) => {
+  const id = params.id
   const [data, setData] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -161,9 +161,9 @@ const CodevBioPage = ({ params }: { params: { slug: string } }) => {
                   <CodevHeading>Work Experience</CodevHeading>
 
                   {workExperienceData.map((item, i) => (
-                    <div key={`skill-${i}`} className="relative border-l border-tealColor pb-6 pl-10">
-                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 animate-ping rounded-full bg-tealColor" />
-                      <div className="absolute -left-[4px] bottom-0 top-0 h-2 w-2 rounded-full bg-tealColor " />
+                    <div key={`skill-${i}`} className="border-tealColor relative border-l pb-6 pl-10">
+                      <div className="bg-tealColor absolute -left-[4px] bottom-0 top-0 h-2 w-2 animate-ping rounded-full" />
+                      <div className="bg-tealColor absolute -left-[4px] bottom-0 top-0 h-2 w-2 rounded-full " />
 
                       <div className="flex flex-col gap-4 border-b border-[#1C1C1C] pb-6">
                         <div>
