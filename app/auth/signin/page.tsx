@@ -5,6 +5,7 @@ import AuthForm from "./SigninForm"
 import useGoogleAuthCookie from "hooks/use-cookie"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+
 import Link from "next/link"
 import Image from "next/image"
 import SigninFooter from "../SigninFooter"
@@ -38,6 +39,21 @@ const Sign = () => {
   //   )
   // if (session?.status === "unauthenticated")
   // TODO:
+
+  return (
+    <div className="flex h-screen bg-black-500 py-4 text-primaryColor sm:py-0">
+      <div className="flex flex-1 flex-col overflow-auto">
+        <div className="h-full px-8">
+          <div className="flex h-full flex-col sm:mx-auto sm:max-w-[40rem] sm:py-10">
+            <div className="relative -ml-1 h-10 w-[12rem]">
+              <Image
+                className="cursor-pointer object-cover"
+                onClick={() => router.push("/")}
+                src={codebilityLogoBlue}
+                fill
+                alt="codebilityLogoBlue"
+              />
+            </div>
 
   return (
     <div className="flex h-screen flex-col bg-black-400 text-white lg:flex-row">
