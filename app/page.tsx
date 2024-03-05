@@ -9,7 +9,7 @@ import Navbar from "./(landingPage)/Navbar"
 import Services from "./(landingPage)/Services"
 import WhyChoose from "./(landingPage)/WhyChoose"
 import Codevs from "./(landingPage)/codevs/page"
-import PageLoader from "@/Components/PageLoader"
+import PageLoader from "Components/PageLoader"
 
 export default function Web() {
   const [isLoading, setIsLoading] = useState(true)
