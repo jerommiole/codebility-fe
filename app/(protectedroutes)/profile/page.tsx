@@ -1,8 +1,5 @@
-
-
 "use client"
 
-import H1 from "@/Components/landingPage/H1"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs/tabs"
 import ProfileInfo from "./components/ProfileInfo"
 import { IconClients, IconBell, IconApplicant2, IconBox, IconBoxLine } from "@/public/assets/svgs"
@@ -10,7 +7,7 @@ import Notifications from "./components/Notifications"
 import Settings from "./components/Settings"
 import ActivityLog from "./components/ActivityLog"
 import About from "./components/About"
->>>>>>> main
+import H1 from "@/Components/shared/dashboard/H1"
 
 const ProfilePage = () => {
   return (
