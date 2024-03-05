@@ -9,7 +9,7 @@ import {
   UseFormRegister,
   UseFormSetValue,
 } from "react-hook-form"
-import { EyeCloseSVG, EyeSVG } from "./logos"
+import { EyeCloseSVG, EyeSVG } from "../../../Components/logos"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { SignUpValidation, SignInValidation } from "lib/validations/auth"
 import { z } from "zod"
@@ -61,22 +61,26 @@ const SignUpInputs = ({
   emailAlreadyExist,
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const [showPassword, setShowPassword] = useState(false)
   const [emailExist, setEmailExist] = useState(false)
+
   const newVal = useMemo(() => {
     return values
   }, [values])
+
   useEffect(() => {
     if (inputRef.current && readonly) {
       inputRef.current.value = newVal ?? ""
       setValue(id, newVal ?? "")
     }
   }, [newVal])
+
   useEffect(() => {
     if (emailAlreadyExist) {
       setEmailExist(true)
     }
   }, [emailAlreadyExist])
-  const [showPassword, setShowPassword] = useState(false)
+
   return (
     <div className="flex flex-col" onClick={onClick}>
       <label

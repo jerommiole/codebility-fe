@@ -2,7 +2,7 @@ import { socialIcons } from "@/constants"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { SocialContainer, item } from "../FramerAnimation/Framer"
+import { SocialContainer, item } from "../../FramerAnimation/Framer"
 
 const SocialIcons = () => {
   return (
@@ -22,7 +22,7 @@ const SocialIcons = () => {
             }}
             variants={item}
           >
-            <Image src={social.imgURL} alt={social.label} width={20} height={20} />
+            <Image src={social.imgURL} alt={social.label} width={20} height={20} className="h-auto w-auto" />
           </motion.div>
         </Link>
       ))}

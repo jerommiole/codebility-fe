@@ -340,3 +340,5 @@ export const SvgDownload = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+// to be delete

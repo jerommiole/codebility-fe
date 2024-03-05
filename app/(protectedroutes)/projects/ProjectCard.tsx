@@ -5,7 +5,7 @@ import Link from "next/link"
 import defaultImageThumb from "@/public/assets/images/thumb-apexpoint.png"
 import Box from "@/Components/shared/dashboard/Box"
 import { Button } from "@/Components/ui/button"
-import { Paragraph } from "@/Components/landingPage"
+import { Paragraph } from "@/Components/shared/home"
 import { IconGithub, IconLink } from "@/public/assets/svgs"
 
 const ProjectCard = ({ projects }: { projects: any }) => {

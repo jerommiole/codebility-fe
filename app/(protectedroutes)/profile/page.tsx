@@ -1,6 +1,6 @@
 "use client"
 
-import H1 from "@/Components/landingPage/H1"
+import H1 from "@/Components/shared/home/H1"
 import { Input } from "@/Components/ui/input"
 import Image from "next/image"
 import avatar from "@/public/assets/images/default-avatar-male.png"

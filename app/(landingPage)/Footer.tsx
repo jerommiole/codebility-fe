@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from "../../Components/FramerAnimation/Framer"
+import { fadeInOutDownToUp, fadeInOutLeftToRight, fadeInOutRightToLeft } from "@/Components/FramerAnimation/Framer"
 
-import SocialIcons from "@/Components/shared/SocialIcons"
+import SocialIcons from "@/Components/shared/home/SocialIcons"
 import { IconEmail, IconMapPin, IconTelephone } from "@/public/assets/svgs"
 
 const footerLinks = [
@@ -53,19 +53,19 @@ const Footer = () => {
         {/* TOP */}
         <div className="grid w-full max-w-7xl grid-cols-1 place-items-center gap-16 px-10 lg:mx-10 lg:grid-cols-3 xl:mx-auto ">
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="flex gap-4">
-            <IconMapPin className="my-auto justify-center text-3xl text-[#9747FF]" />
+            <IconMapPin className="my-auto justify-center text-3xl text-violet" />
             <p className="text-sm">With our global team operating remotely from all corners of the world</p>
           </motion.div>
 
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="flex gap-4">
-            <IconTelephone className="my-auto justify-center text-4xl text-[#9747FF]" />
+            <IconTelephone className="my-auto justify-center text-4xl text-violet" />
             <p className="text-sm">
               Connect with Codebility’s friendly team for efficient and swift responses to all your inquiries.
             </p>
           </motion.div>
 
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="flex gap-4">
-            <IconEmail className="my-auto justify-center text-5xl text-[#9747FF]" />
+            <IconEmail className="my-auto justify-center text-5xl text-violet" />
             <p className="text-sm">
               Drop a line to Codebility’s inbox for direct, thoughtful communication with our dedicated support team.
             </p>
@@ -83,7 +83,13 @@ const Footer = () => {
           >
             <div>
               <Link href="/">
-                <Image src="/assets/svgs/codebility-white.svg" alt="Codebility" width={250} height={30} />
+                <Image
+                  src="/assets/svgs/codebility-white.svg"
+                  alt="Codebility"
+                  width={250}
+                  height={30}
+                  className="h-auto w-auto"
+                />
               </Link>
             </div>
           </motion.div>

@@ -1,8 +1,8 @@
 "use client"
 
+import { Button } from "@/Components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
-import SignInInputs from "Components/SigninInputs"
-import { Button } from "Components/ui/button"
+import SignInInputs from "@/app/auth/signin/SigninInputs"
 import { SignInValidation } from "lib/validations/auth"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -28,9 +28,9 @@ const SignInForm = () => {
     resolver: zodResolver(SignInValidation),
   })
 
-  const googleAuth = () => {
-    window.open(`${process.env.NEXT_PUBLIC_BASE_API}/auth/google`, "_self")
-  }
+  // const googleAuth = () => {
+  //   window.open(`${process.env.NEXT_PUBLIC_BASE_API}/auth/google`, "_self")
+  // }
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)
@@ -52,31 +52,32 @@ const SignInForm = () => {
     }
   }
 
-  const socialAction = async (action: string) => {
-    setIsLoading(true)
+  // const socialAction = async (action: string) => {
+  //   setIsLoading(true)
 
-    signIn(action, { redirect: false })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error("Invalid Credentials")
-        }
+  //   signIn(action, { redirect: false })
+  //     .then((callback) => {
+  //       if (callback?.error) {
+  //         toast.error("Invalid Credentials")
+  //       }
 
-        if (callback?.ok && !callback?.error) {
-          toast.success("Logged In!")
-        }
-      })
-      .finally(() => setIsLoading(false))
-  }
+  //       if (callback?.ok && !callback?.error) {
+  //         toast.success("Logged In!")
+  //       }
+  //     })
+  //     .finally(() => setIsLoading(false))
+  // }
 
   return (
-    <div className="relative flex flex-1 flex-col items-center justify-center">
-      <div className="w-full">
-        <h2 className="text-md mb-5 sm:text-xl">Sign in</h2>
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+    <div className="flex flex-col gap-4">
+      <p className="text-lg lg:text-2xl">Sign in</p>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-8">
           <SignInInputs
             id="email"
             label="Email"
-            placeholder="LoremIpsum@gmail.com"
+            placeholder="Email"
             register={register}
             errors={errors}
             disabled={isLoading}
@@ -85,21 +86,17 @@ const SignInForm = () => {
           <SignInInputs
             id="password"
             label="Password"
-            placeholder="********************"
+            placeholder="Password"
             register={register}
             errors={errors}
             disabled={isLoading}
             type="password"
           />
-          <Button
-            type="submit"
-            className="sm:text-md mt-4 bg-[#6a78f2] p-5 text-sm font-bold text-white hover:bg-[#3c448b]"
-            disabled={isLoading}
-          >
+          <Button type="submit" variant="default" className="text-lg" disabled={isLoading}>
             Sign In
           </Button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }

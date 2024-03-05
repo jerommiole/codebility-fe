@@ -1,6 +1,6 @@
 "use client"
 
-import { Paragraph } from "@/Components/landingPage"
+import { Paragraph } from "@/Components/shared/home"
 import Box from "@/Components/shared/dashboard/Box"
 import H1 from "@/Components/shared/dashboard/H1"
 import { IconGithub, IconLink } from "@/public/assets/svgs"

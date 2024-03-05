@@ -2,15 +2,16 @@
 
 import imgCodebilityThumb from "@/public/assets/images/bio-project-thumb.png"
 import { User } from "@/types"
-import CodevHeading from "Components/landingPage/CodevHeading"
-import SectionWrapper from "Components/landingPage/SectionWrapper"
+import CodevHeading from "@/Components/shared/home/CodevHeading"
+import SectionWrapper from "@/Components/shared/home/SectionWrapper"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { SvgCodebilityIconBlack, SvgDownload, SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { useEffect, useState } from "react"
 import { workExperienceData } from "../constant"
-import { H1, Paragraph } from "@/Components/landingPage"
+import { H1, Paragraph } from "@/Components/shared/home"
+import Navbar from "../../Navbar"
 
 const CodevBioPage = ({ params }: { params: { id: string } }) => {
   const id = params.id

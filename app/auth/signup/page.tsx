@@ -4,58 +4,48 @@ import Image from "next/image"
 import SignUpForm from "./components/SignUpForm"
 import { useRouter } from "next/navigation"
 import { useModal } from "hooks/use-modal"
+import SigninFooter from "../SigninFooter"
+import Link from "next/link"
 
 const SignUp = () => {
   const router = useRouter()
   const { onOpen } = useModal()
+
   return (
-    <div className="flex h-screen w-full py-4 sm:py-0">
-      <div className="relative hidden flex-1 justify-between md:flex md:flex-col">
-        <div className="absolute inset-0">
-          <Image
-            src="/signup-splash.png"
-            sizes="100%"
-            priority
-            quality={80}
-            alt="splash-signup"
-            fill
-            className="object-cover"
-          />
-        </div>
+    <div className="flex h-screen flex-col bg-black-400 text-white lg:flex-row">
+      <div className="relative hidden basis-[50%] lg:flex">
+        <Image
+          src="/assets/images/blindfoldedman-full.jpg"
+          priority
+          quality={100}
+          alt="blindedfolded"
+          width={1080}
+          height={675}
+          className="w-full object-cover object-right opacity-45"
+        />
       </div>
-      <div className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-        <div className="h-full px-8">
-          <div className="flex h-full flex-col sm:mx-auto sm:max-w-[40rem] sm:py-10">
-            <div className="relative -ml-2 h-10 w-[12rem]">
-              <Image
-                className="cursor-pointer object-cover"
-                onClick={() => router.push("/")}
-                fill
-                src="/codebilityLogoBlue.png"
-                alt="codebilityLogoBlue"
-              />
-            </div>
-            <p className="text-base">Nisi lacus sed viverra tellus in hac habitasse platea dictumst</p>
-            <SignUpForm />
-            <div className="mb-10 text-center text-sm">
-              Have An Account?{" "}
-              <span
-                onClick={() => router.push("/auth/signin")}
-                className="cursor-pointer text-blue-500 hover:underline"
-              >
-                Sign In
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span onClick={() => onOpen("privacyPolicy")} className="cursor-pointer text-sm hover:underline">
-                Privacy Policy
-              </span>
-              <span onClick={() => onOpen("termsAndCondition")} className="cursor-pointer text-sm hover:underline">
-                Terms and Conditions
-              </span>
-            </div>
-          </div>
-        </div>
+      <div className="flex basis-[50%] flex-col justify-between gap-6 p-10">
+        <Link href="/">
+          <Image
+            className="h-[45px] w-[200px] cursor-pointer object-cover"
+            src="/assets/svgs/codebility-blue.svg"
+            width={200}
+            height={45}
+            alt="Codebility Logo"
+          />
+        </Link>
+        <p className="text-2xl">Pioneering Passion, Crafting Futures</p>
+
+        <SignUpForm />
+
+        <p className="md:text-md text-center text-sm lg:text-lg">
+          Have An Account?{" "}
+          <Link href="/auth/signin" className="text-blue-100 hover:underline">
+            Sign In
+          </Link>
+        </p>
+
+        <SigninFooter />
       </div>
     </div>
   )

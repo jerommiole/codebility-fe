@@ -1,4 +1,4 @@
-import { SectionWrapper, H1, Paragraph } from "@/Components/landingPage"
+import { SectionWrapper, H2, Paragraph } from "@/Components/shared/home"
 import missionVisionImage from "@/public/assets/images/mission-vision-image.png"
 import Image from "next/image"
 
@@ -7,7 +7,7 @@ const MissionVision = () => {
     <SectionWrapper>
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-6">
         <div className="my-auto flex basis-[50%] flex-col gap-4 text-center lg:basis-[25%] lg:text-end">
-          <H1 className="text-primaryColor">Mission</H1>
+          <H2 className="text-primaryColor">Mission</H2>
           <Paragraph className="lg:max-w-auto mx-auto max-w-[400px]">
             At Codebility, we ignite a passion for technology, offering immersive programs in Web Development, Mobile
             Development, UI/UX Design, and Digital Marketing.
@@ -21,7 +21,7 @@ const MissionVision = () => {
           <Image src={missionVisionImage} alt="Codebility Devices" width={700} height={466} />
         </div>
         <div className="my-auto flex basis-[50%] flex-col gap-4 text-center lg:basis-[25%] lg:text-start">
-          <H1 className="text-primaryColor">Vision</H1>
+          <H2 className="text-primaryColor">Vision</H2>
           <Paragraph className="lg:max-w-auto mx-auto max-w-[400px] lg:text-start">
             Codebility envisions a world where coding unleashes innovation. We aspire to be a global hub, nurturing a
             community proficient in Web, Mobile, UI/UX, and Digital Marketing.

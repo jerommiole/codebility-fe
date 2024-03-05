@@ -3,153 +3,8 @@ import { useModal } from "hooks/use-modal"
 import { useTechStackStore } from "hooks/use-techstack"
 import Image from "next/image"
 import { Tech } from "hooks/use-techstack"
-
-import {
-  angular,
-  apache,
-  aws,
-  css,
-  bootstrap,
-  django,
-  express,
-  firebase,
-  html,
-  java,
-  javascript,
-  jquery,
-  kotlin,
-  mdi_github,
-  mongodb,
-  mui,
-  mysql,
-  node,
-  oracle,
-  postgresql,
-  python,
-  react,
-  ruby,
-  shadcnui,
-  solidity,
-  swift,
-  typescript,
-  vue,
-} from "public/techStack"
 import { Button } from "Components/ui/button"
-
-const techstack = [
-  {
-    name: "Angular",
-    icon: angular,
-  },
-  {
-    name: "Apache",
-    icon: apache,
-  },
-  {
-    name: "AWS",
-    icon: aws,
-  },
-  {
-    name: "Bootstrap",
-    icon: bootstrap,
-  },
-  {
-    name: "CSS",
-    icon: css,
-  },
-  {
-    name: "Django",
-    icon: django,
-  },
-  {
-    name: "Express",
-    icon: express,
-  },
-  {
-    name: "Firebase",
-    icon: firebase,
-  },
-  {
-    name: "Html",
-    icon: html,
-  },
-  {
-    name: "Java",
-    icon: java,
-  },
-  {
-    name: "Javascript",
-    icon: javascript,
-  },
-  {
-    name: "Jquery",
-    icon: jquery,
-  },
-  {
-    name: "Kotlin",
-    icon: kotlin,
-  },
-  {
-    name: "Github",
-    icon: mdi_github,
-  },
-  {
-    name: "Mongodb",
-    icon: mongodb,
-  },
-  {
-    name: "Mui",
-    icon: mui,
-  },
-  {
-    name: "Mysql",
-    icon: mysql,
-  },
-  {
-    name: "Node",
-    icon: node,
-  },
-  {
-    name: "Oracle",
-    icon: oracle,
-  },
-  {
-    name: "Postgresql",
-    icon: postgresql,
-  },
-  {
-    name: "Python",
-    icon: python,
-  },
-  {
-    name: "React",
-    icon: react,
-  },
-  {
-    name: "Ruby",
-    icon: ruby,
-  },
-  {
-    name: "Shadcnui",
-    icon: shadcnui,
-  },
-  {
-    name: "Solidity",
-    icon: solidity,
-  },
-  {
-    name: "Swift",
-    icon: swift,
-  },
-  {
-    name: "Typescript",
-    icon: typescript,
-  },
-  {
-    name: "Vue",
-    icon: vue,
-  },
-]
+import { techstacks } from "@/constants"
 
 const TechStackModal = () => {
   const { isOpen, onClose, type } = useModal()
@@ -173,12 +28,9 @@ const TechStackModal = () => {
             <p className="mb-4 text-xl md:text-4xl">TechStack</p>
           </DialogTitle>
         </DialogHeader>
-        {/* <div className="flex gap-2 py-2">
-          <p>Filter</p>
-          <Image src="/filter.png" alt="filter-icon" height={24} width={24} />
-        </div> */}
-        <div className="grid w-full grid-cols-4 gap-2 sm:w-auto">
-          {techstack?.map((tech, i) => (
+
+        <div className="grid w-full grid-cols-3 gap-2 sm:w-auto">
+          {techstacks?.map((tech, i) => (
             <div
               className={`flex cursor-pointer items-center justify-center rounded-md border py-1 sm:justify-normal sm:p-2 sm:hover:bg-gray-500/40 ${
                 checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-gray-500/40"
@@ -187,7 +39,13 @@ const TechStackModal = () => {
               onClick={() => addRemoveStack({ name: tech.name, icon: tech.icon, index: i })}
             >
               <div className="relative h-5 w-5 sm:h-6 sm:w-6">
-                <Image src={tech.icon} alt={`${tech.name}-icon`} fill className="object-cover" />
+                <Image
+                  src={tech.alias ? `/assets/svgs/icon-${tech.alias}.svg` : `/assets/svgs/icon-${tech.name}.svg`}
+                  alt={`${tech.name} icon`}
+                  fill
+                  title={tech.name}
+                  className="object-cover"
+                />
               </div>
               <p className="hidden pl-4 sm:block">{tech.name}</p>
             </div>

@@ -1,26 +1,26 @@
 "use client"
 
-import Image from "next/image"
-import AuthForm from "./components/SignInForm"
+import AuthForm from "./SigninForm"
 
-import loginImageBackground from "@/public/assets/images/blindfoldedman-full.jpg"
 import useGoogleAuthCookie from "hooks/use-cookie"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import SignUpButton from "./components/signInFooter"
+import Link from "next/link"
+import Image from "next/image"
+import SigninFooter from "../SigninFooter"
 
-function Sign() {
-  const session = useSession()
-  const router = useRouter()
-  const googleAuthCredentials = useGoogleAuthCookie()
+const Sign = () => {
+  // const session = useSession()
+  // const router = useRouter()
+  // const googleAuthCredentials = useGoogleAuthCookie()
   // useEffect(() => {
   //   console.log(session)
   //   if (session?.status === "authenticated" || googleAuthCredentials?.status === "authenticated") {
   //     router.push("/dashboard")
   //   }
   // }, [session?.status, googleAuthCredentials?.status, router])
-  // TODO:
 
+  // TODO:
   // if (
   //   session?.status === "loading" ||
   //   session?.status === "authenticated" ||
@@ -38,41 +38,45 @@ function Sign() {
   //   )
   // if (session?.status === "unauthenticated")
   // TODO:
-  return (
-    <div className="flex h-screen py-4 sm:py-0">
-      <div className="flex flex-1 flex-col overflow-auto">
-        <div className="h-full px-8">
-          <div className="flex h-full flex-col sm:mx-auto sm:max-w-[40rem] sm:py-10">
-            <div className="relative -ml-1 h-10 w-[12rem]">
-              <Image
-                className="cursor-pointer object-cover"
-                onClick={() => router.push("/")}
-                src="/codebilityLogoBlue.png"
-                fill
-                alt="codebilityLogoBlue"
-              />
-            </div>
 
-            <p className="my-2 text-2xl  sm:my-5">Pioneering Passion, Crafting Futures</p>
-            <div className=" flex flex-1 flex-col justify-center">
-              <AuthForm />
-            </div>
-            <SignUpButton />
-          </div>
+  return (
+    <div className="flex h-screen flex-col bg-black-400 text-white lg:flex-row">
+      <div className="flex basis-[50%] flex-col justify-between gap-6 p-10">
+        <Link href="/">
+          <Image
+            className="h-[45px] w-[200px] cursor-pointer object-cover"
+            src="/assets/svgs/codebility-blue.svg"
+            width={200}
+            height={45}
+            alt="Codebility Logo"
+          />
+        </Link>
+        <p className="text-2xl">Pioneering Passion, Crafting Futures</p>
+
+        <AuthForm />
+
+        <div className="flex flex-col gap-4 lg:gap-10">
+          <p className="md:text-md text-center text-sm lg:text-lg">
+            Don't have an account?{" "}
+            <Link href="/auth/signup" className="text-blue-100 hover:underline">
+              Sign Up
+            </Link>
+          </p>
+
+          <SigninFooter />
         </div>
       </div>
-      <div className="relative hidden flex-1 justify-between md:flex md:flex-col">
-        <div className="absolute inset-0 ">
-          <Image
-            src={loginImageBackground}
-            sizes="100%"
-            priority
-            quality={80}
-            alt="splash-signin"
-            fill
-            className="object-cover"
-          />
-        </div>
+
+      <div className="relative hidden basis-[50%] lg:flex">
+        <Image
+          src="/assets/images/blindfoldedman-full.jpg"
+          priority
+          quality={100}
+          alt="blindedfolded"
+          width={1080}
+          height={675}
+          className="w-full object-cover object-left opacity-45"
+        />
       </div>
     </div>
   )

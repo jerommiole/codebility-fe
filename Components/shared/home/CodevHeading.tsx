@@ -5,7 +5,7 @@ interface CodevHeading {
 }
 
 const CodevHeading: React.FC<CodevHeading> = ({ children }) => {
-  return <p className="mb-4 text-lg text-[#31AFC4]">{children}</p>
+  return <p className="mb-4 text-lg text-teal">{children}</p>
 }
 
 export default CodevHeading

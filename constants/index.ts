@@ -1,5 +1,27 @@
 import { LeftSidebar, SocialIcons, Theme } from "@/types"
 
+export const navLinks = [
+  {
+    name: "Home",
+    href: "#home",
+  },
+  {
+    name: "About",
+    href: "#about",
+  },
+  {
+    name: "Co-Devs",
+    href: "#codevs",
+  },
+  {
+    name: "Services",
+    href: "#services",
+  },
+  {
+    name: "Why Choose Us?",
+    href: "#join",
+  },
+]
 export const socialIcons: SocialIcons[] = [
   {
     route: "#facebook",
@@ -43,4 +65,70 @@ export const themes: Theme[] = [
   { value: "light", label: "Light", icon: "/assets/svgs/icon-sun.svg" },
   { value: "dark", label: "Dark", icon: "/assets/svgs/icon-moon.svg" },
   { value: "system", label: "System", icon: "/assets/svgs/icon-eclipse.svg" },
+]
+
+import {
+  IconCSharp,
+  IconCSS,
+  IconDjango,
+  IconFigma,
+  IconFirebase,
+  IconHTML,
+  IconJava,
+  IconJavaScript,
+  IconJQuery,
+  IconKotlin,
+  IconAngular,
+  IconAWS,
+  IconBootstrap,
+  IconC,
+  IconCPlusPlus,
+  IconPostgreSQL,
+  IconPython,
+  IconReact,
+  IconReactNative,
+  IconRuby,
+  IconSolidity,
+  IconSwift,
+  IconTailwind,
+  IconTypeScript,
+  IconVue,
+  IconMongoDB,
+  IconMySQL,
+  IconNextJS,
+  IconNodeJS,
+  IconPHP,
+} from "@/public/assets/svgs"
+
+export const techstacks = [
+  { name: "Angular", icon: IconAngular },
+  { name: "AWS", icon: IconAWS },
+  { name: "Bootstrap", icon: IconBootstrap },
+  { name: "C", icon: IconC },
+  { name: "C++", alias: "cplus-plus", icon: IconCPlusPlus },
+  { name: "CSharp", icon: IconCSharp },
+  { name: "CSS", icon: IconCSS },
+  { name: "Django", icon: IconDjango },
+  { name: "Figma", icon: IconFigma },
+  { name: "Firebase", icon: IconFirebase },
+  { name: "HTML", icon: IconHTML },
+  { name: "Java", icon: IconJava },
+  { name: "JavaScript", icon: IconJavaScript },
+  { name: "JQuery", icon: IconJQuery },
+  { name: "Kotlin", icon: IconKotlin },
+  { name: "MongoDB", icon: IconMongoDB },
+  { name: "MySQL", icon: IconMySQL },
+  { name: "NextJS", icon: IconNextJS },
+  { name: "NodeJS", icon: IconNodeJS },
+  { name: "PHP", icon: IconPHP },
+  { name: "PostgreSQL", icon: IconPostgreSQL },
+  { name: "Python", icon: IconPython },
+  { name: "React", icon: IconReact },
+  { name: "ReactNative", alias: "react-native", icon: IconReactNative },
+  { name: "Ruby", icon: IconRuby },
+  { name: "Solidity", icon: IconSolidity },
+  { name: "Swift", icon: IconSwift },
+  { name: "Tailwind", icon: IconTailwind },
+  { name: "TypeScript", icon: IconTypeScript },
+  { name: "Vue", icon: IconVue },
 ]
