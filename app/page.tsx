@@ -36,7 +36,7 @@ export default function Web() {
         </div>
       ) : (
         <>
-          <div className="relative flex h-screen w-full flex-col overflow-x-hidden bg-black-400">
+          <div className="relative flex w-full flex-col overflow-x-hidden overflow-y-hidden bg-black-400">
             <Navbar />
             <Hero />
             <About />
