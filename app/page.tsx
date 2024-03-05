@@ -1,15 +1,15 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Loader from "@/Components/Loader"
 import About from "./(landingPage)/About"
 import Footer from "./(landingPage)/Footer"
 import Hero from "./(landingPage)/Hero"
+import MissionVision from "./(landingPage)/MissionVision"
 import Navbar from "./(landingPage)/Navbar"
 import Services from "./(landingPage)/Services"
-import MissionVision from "./(landingPage)/MissionVision"
 import WhyChoose from "./(landingPage)/WhyChoose"
 import Codevs from "./(landingPage)/codevs/page"
+import PageLoader from "Components/PageLoader"
 
 export default function Web() {
   const [isLoading, setIsLoading] = useState(true)
@@ -28,7 +28,7 @@ export default function Web() {
     <>
       {isLoading ? (
         <div className="flex h-screen flex-col items-center justify-center gap-10 bg-black-400">
-          <Loader />
+          <PageLoader />
           <div className="flex items-center justify-center gap-5">
             <div className="text-primaryColor">Please Wait</div>
             <div className="dots translate-y-1"></div>

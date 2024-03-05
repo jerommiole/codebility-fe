@@ -22,6 +22,7 @@ const Navbar = () => {
     console.log(window.scrollY)
   }
 
+  window.addEventListener("scroll", changeBG)
   window.addEventListener("scroll", changeColor)
 
   return (

@@ -4,8 +4,8 @@
 import Avatar from "Components/ui/avatar"
 import Hero from "@/public/assets/images/bio-project-thumb.png"
 import Image, { StaticImageData } from "next/image"
-import { CallSVG, EmailSVG, LocationSVG, LinkedinSVG } from "Components/logos"
 import { useModal } from "hooks/use-modal"
+import { IconEmail, IconLinkedIn, IconMapPin, IconTelephone } from "@/public/assets/svgs"
 
 interface Description {
   label: string
@@ -89,19 +89,19 @@ const ClientCards = ({
         </p>
         <div className="sm: mt-10 grid grid-cols-2 gap-2">
           <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
-            <CallSVG className="text-text4 dark:text-primary" />
+            <IconTelephone className="text-text4 dark:text-primary" />
             <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{phonenumber || "+63238729789"}</p>
           </div>
           <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
-            <LinkedinSVG className="text-text4 dark:text-primary" />
+            <IconLinkedIn className="text-text4 dark:text-primary" />
             <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{linkedin || "Lorem"}</p>
           </div>
           <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
-            <EmailSVG className="text-text4 dark:text-primary" />
+            <IconEmail className="text-text4 dark:text-primary" />
             <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{email || "lorem@gmail.com"}</p>
           </div>
           <div className="flex items-center rounded-md border bg-muted px-5 py-[18px] dark:border-none dark:bg-muted">
-            <LocationSVG className="text-text4 dark:text-primary" />
+            <IconMapPin className="text-text4 dark:text-primary" />
             <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{address || "Philippines"}</p>
           </div>
         </div>

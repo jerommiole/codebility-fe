@@ -9,11 +9,11 @@ import {
   UseFormRegister,
   UseFormSetValue,
 } from "react-hook-form"
-import { EyeCloseSVG, EyeSVG } from "../../../Components/logos"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { SignUpValidation, SignInValidation } from "lib/validations/auth"
 import { z } from "zod"
 import { cn } from "lib/utils"
+import { IconEye, IconEyeClose } from "@/public/assets/svgs"
 
 type Inputs = z.infer<typeof SignUpValidation>
 
@@ -140,9 +140,9 @@ const SignUpInputs = ({
         {type === "password" && (
           <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6">
             {showPassword ? (
-              <EyeCloseSVG onClick={() => setShowPassword((prev) => !prev)} className="text-[#9747ff]" />
+              <IconEyeClose onClick={() => setShowPassword((prev) => !prev)} className="text-[#9747ff]" />
             ) : (
-              <EyeSVG onClick={() => setShowPassword((prev) => !prev)} className="" />
+              <IconEye onClick={() => setShowPassword((prev) => !prev)} className="" />
             )}
           </div>
         )}

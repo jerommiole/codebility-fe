@@ -1,11 +1,11 @@
 "use client"
 
+import { IconEye, IconEyeClose } from "@/public/assets/svgs"
 import clsx from "clsx"
 import { SignInValidation } from "lib/validations/auth"
 import { useState } from "react"
 import { FieldErrors, UseFormRegister } from "react-hook-form"
 import { z } from "zod"
-import { EyeCloseSVG, EyeSVG } from "../../../Components/logos"
 
 type Inputs = z.infer<typeof SignInValidation>
 
@@ -64,9 +64,9 @@ const SignInInputs = ({
         {type === "password" && (
           <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6 sm:w-8">
             {showPassword ? (
-              <EyeCloseSVG onClick={() => setShowPassword((prev) => !prev)} className="text-violet" />
+              <IconEyeClose onClick={() => setShowPassword((prev) => !prev)} className="text-2xl invert" />
             ) : (
-              <EyeSVG onClick={() => setShowPassword((prev) => !prev)} className="" />
+              <IconEye onClick={() => setShowPassword((prev) => !prev)} className="text-2xl invert" />
             )}
           </div>
         )}

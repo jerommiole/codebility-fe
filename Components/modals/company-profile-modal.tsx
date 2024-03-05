@@ -1,11 +1,11 @@
 "use client"
 
-import { CallSVG, EmailSVG, LinkedinSVG, LocationSVG } from "Components/logos"
 import Avatar from "Components/ui/avatar"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import Image from "next/image"
 import Hero from "@/public/assets/images/bio-project-thumb.png"
+import { IconEmail, IconLinkedIn, IconMapPin, IconTelephone } from "@/public/assets/svgs"
 
 const CompanyProfileModal = () => {
   const { isOpen, onClose, type, data } = useModal()
@@ -37,19 +37,19 @@ const CompanyProfileModal = () => {
           <div className="mx-auto mt-4 flex max-w-[25rem] flex-col gap-5 sm:max-w-[34rem] sm:flex-row">
             <div className="flex flex-col gap-2 sm:w-[20rem]">
               <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-gray-800/30">
-                <CallSVG className="text-text4 dark:text-primary" />
+                <IconTelephone className="text-text4 dark:text-primary" />
                 <p className="ml-[15px] text-xs lg:ml-2">{data?.phonenumber}</p>
               </div>
               <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-gray-800/30">
-                <EmailSVG className="text-text4 dark:text-primary" />
+                <IconEmail className="text-text4 dark:text-primary" />
                 <p className="ml-[15px] overflow-hidden text-ellipsis text-xs lg:ml-2">{data?.email}</p>
               </div>
               <div className="flex items-center rounded-md border bg-muted py-[18px] pl-4 dark:border-none dark:bg-gray-800/30">
-                <LinkedinSVG className="text-text4 dark:text-primary" />
+                <IconLinkedIn className="text-text4 dark:text-primary" />
                 <p className="ml-[15px] text-xs lg:ml-2">{data?.linkedin}</p>
               </div>
               <div className="flex items-center rounded-md border py-[18px] pl-4 dark:border-none dark:bg-gray-800/30">
-                <LocationSVG className="text-text4 dark:text-primary" />
+                <IconMapPin className="text-text4 dark:text-primary" />
                 <p className="ml-[15px] text-ellipsis text-xs lg:ml-2">{data?.address}</p>
               </div>
             </div>
