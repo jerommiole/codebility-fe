@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative -mt-20 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat"
     >
       <div className="flex flex-col gap-3 text-center text-white">
         <p className="text-xs md:text-sm lg:text-lg">Unlocking Potential: Code is a Universal Language</p>
