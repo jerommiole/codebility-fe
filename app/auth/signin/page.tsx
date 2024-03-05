@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import SigninFooter from "../SigninFooter"
+import { LogoCodebilityBlue } from "@/public/assets/svgs"
 
 const Sign = () => {
   // const session = useSession()
@@ -43,13 +44,7 @@ const Sign = () => {
     <div className="flex h-screen flex-col bg-black-400 text-white lg:flex-row">
       <div className="flex basis-[50%] flex-col justify-between gap-6 p-10">
         <Link href="/">
-          <Image
-            className="h-[45px] w-[200px] cursor-pointer object-cover"
-            src="/assets/svgs/codebility-blue.svg"
-            width={200}
-            height={45}
-            alt="Codebility Logo"
-          />
+          <Image src="/assets/svgs/codebility-blue.svg" width={300} height={67} alt="Codebility Logo" />
         </Link>
         <p className="text-2xl">Pioneering Passion, Crafting Futures</p>
 
