@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react"
 
-const loader = () => {
-    return (
-        <div className="spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    )
+const Loader = () => {
+  return (
+    <div className="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  )
 }
 
-export default loader
+export default Loader

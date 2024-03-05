@@ -1,7 +1,7 @@
 import { Button } from "Components/ui/button"
 import { Rowdies } from "next/font/google"
 import Link from "next/link"
-import SocialIcons from "@/Components/shared/SocialIcons"
+import SocialIcons from "@/Components/shared/home/SocialIcons"
 
 const rowdies = Rowdies({
   weight: "300",
@@ -10,20 +10,20 @@ const rowdies = Rowdies({
 
 const Hero = () => {
   return (
-    <div
+    <section
       id="home"
       className="relative -mt-20 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat"
     >
       <div className="flex flex-col gap-3 text-center text-white">
-        <p className="text-lg">Unlocking Potential: Code is a Universal Language</p>
-        <h1 className={`text-5xl uppercase md:text-[6rem] ${rowdies.className}`}>Codebility</h1>
-        <p className="text-lg md:text-2xl">“Everyone has the ability to code”</p>
+        <p className="text-xs md:text-sm lg:text-lg">Unlocking Potential: Code is a Universal Language</p>
+        <h1 className={`text-4xl uppercase md:text-6xl lg:text-[6rem] ${rowdies.className}`}>Codebility</h1>
+        <p className="text-xs md:text-sm lg:text-2xl">“Everyone has the ability to code”</p>
 
         <Link href="#codevs">
           <Button className="m-6 h-12 w-44 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br">
-            <div className="bg-black-500 flex h-full w-full items-center justify-center rounded-full text-lg text-white">
+            <span className="flex h-full w-full items-center justify-center rounded-full bg-black-500 text-sm text-white lg:text-lg">
               See Our Codevs
-            </div>
+            </span>
           </Button>
         </Link>
 
@@ -37,7 +37,7 @@ const Hero = () => {
           <div key={index} />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

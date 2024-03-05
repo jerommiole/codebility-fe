@@ -1,16 +1,15 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Loader from "../Components/loader"
+import Loader from "@/Components/Loader"
 import About from "./(landingPage)/About"
 import Footer from "./(landingPage)/Footer"
 import Hero from "./(landingPage)/Hero"
 import Navbar from "./(landingPage)/Navbar"
 import Services from "./(landingPage)/Services"
-import WeLeverage from "./(landingPage)/WeLeverage"
 import MissionVision from "./(landingPage)/MissionVision"
 import WhyChoose from "./(landingPage)/WhyChoose"
-import Codevs from "./(landingPage)/codevs/Codevs"
+import Codevs from "./(landingPage)/codevs/page"
 
 export default function Web() {
   const [isLoading, setIsLoading] = useState(true)
@@ -26,9 +25,9 @@ export default function Web() {
   }, [])
 
   return (
-    <div className="bg-black-400 relative flex h-screen w-full flex-col overflow-x-hidden">
+    <>
       {isLoading ? (
-        <div className="flex h-screen flex-col items-center justify-center gap-10 ">
+        <div className="flex h-screen flex-col items-center justify-center gap-10 bg-black-400">
           <Loader />
           <div className="flex items-center justify-center gap-5">
             <div className="text-primaryColor">Please Wait</div>
@@ -37,17 +36,18 @@ export default function Web() {
         </div>
       ) : (
         <>
-          <Navbar />
-          <Hero />
-          <About />
-          <Codevs />
-          <Services />
-          {/* <WeLeverage /> */}
-          <MissionVision />
-          <WhyChoose />
-          <Footer />
+          <div className="relative flex h-screen w-full flex-col overflow-x-hidden bg-black-400">
+            <Navbar />
+            <Hero />
+            <About />
+            <Codevs />
+            <Services />
+            <MissionVision />
+            <WhyChoose />
+            <Footer />
+          </div>
         </>
       )}
-    </div>
+    </>
   )
 }

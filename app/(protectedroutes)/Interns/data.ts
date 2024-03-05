@@ -1,26 +1,3 @@
-export const positions = [
-  {
-    position: "All",
-    textColor: "dark:text-white",
-  },
-  {
-    position: "Full Stack Developer",
-    textColor: "text-lightPinkColor",
-  },
-  {
-    position: "Backend Developer",
-    textColor: "text-tealColor",
-  },
-  {
-    position: "Frontend Developer",
-    textColor: "text-darkBlueColor",
-  },
-  {
-    position: "UI/UX Designer",
-    textColor: "text-magentaColor",
-  },
-]
-
 export const positionTitles = [
   "All",
   "Full Stack Developer",
@@ -110,19 +87,3 @@ export const interns = [
     backgroundColor: "bg-redBgColor",
   },
 ]
-
-export const roleMappings = {
-  "Full Stack Developer": { abbreviation: "FS", color: "text-lightPinkColor" },
-  "UI/UX Designer": { abbreviation: "UI/UX", color: "text-magentaColor" },
-  "Backend Developer": { abbreviation: "BE", color: "text-tealColor" },
-  "Frontend Developer": { abbreviation: "FE", color: "text-darkBlueColor" },
-  "Video Editor": { abbreviation: "VE", color: "text-greenColor" },
-  "Virtual Assistant": { abbreviation: "VA", color: "text-redColor" },
-  "Shopify Developer": { abbreviation: "SD", color: "text-yellowColor" },
-  "Wordpress Developer": { abbreviation: "WD", color: "text-blueColor" },
-  "Human Resource": { abbreviation: "HR", color: "dark:text-white" },
-  "Project Manager": { abbreviation: "PrM", color: "text-skyBlueColor" },
-  "Social Media Manager": { abbreviation: "SMM", color: "text-orangeColor" },
-  "Fb Ads Specialist": { abbreviation: "Fb Ads", color: "text-secondaryColor" },
-  "Research Auditor": { abbreviation: "RA", color: "dark:text-white" },
-}

@@ -1,5 +1,5 @@
 import { useModal } from "hooks/use-modal"
-import { Paragraph } from "@/Components/landingPage"
+import { Paragraph } from "@/Components/shared/home"
 import Box from "@/Components/shared/dashboard/Box"
 import RenderTeam from "@/Components/shared/dashboard/RenderTeam"
 import RenderTag from "../../../Components/shared/dashboard/RenderTag"

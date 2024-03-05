@@ -1,6 +1,6 @@
 "use client"
 
-import SignInputs from "Components/SignupInputs"
+import SignInputs from "@/app/auth/signup/SignupInputs"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import { useEffect, useState, useRef } from "react"
 import { useSession } from "next-auth/react"

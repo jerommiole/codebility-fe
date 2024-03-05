@@ -1,8 +1,7 @@
 import ClientCard from "./components/ClientCard"
-import Pagination from "Components/Pagination"
-import Title from "Components/Title"
 import H from "@/public/assets/images/bio-project-thumb.png"
 import Action from "./components/Action"
+import H1 from "@/Components/shared/dashboard/H1"
 
 export default async function Clients() {
   const data = [
@@ -31,10 +30,7 @@ export default async function Clients() {
   return (
     <div className="flex w-full flex-col gap-2 overflow-x-hidden p-3 lg:h-full lg:overflow-hidden lg:p-0">
       <div className="flex flex-col lg:flex-row lg:px-10">
-        <Title
-          title="Company Overview"
-          subtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-        />
+        <H1>Company Overview</H1>
         <div className="grid flex-1 grid-cols-2 items-center justify-evenly gap-y-5 p-10 md:flex md:gap-0 lg:p-0">
           {data.map((item, index) => (
             <div key={index} className="flex flex-col items-center gap-2">
@@ -51,7 +47,6 @@ export default async function Clients() {
           <ClientCard image={H} imgBgColor="bg-blue-900" />
         </div>
       </div>
-      <Pagination />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { fadeInOutLeftToRight } from "Components/FramerAnimation/Framer"
-import ButtonLink from "Components/landingPage/ButtonLink"
-import Heading3 from "Components/landingPage/Heading3"
+import ButtonLink from "@/Components/shared/home/ButtonLink"
+import Heading3 from "@/Components/shared/home/Heading3"
 import { motion } from "framer-motion"
 import Link from "next/link"
 

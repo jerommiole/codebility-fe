@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader } from "Components/ui/dialog"
 import { useModal } from "hooks/use-modal"
 import Image from "next/image"
 import { Button } from "../ui/button"
-import { Paragraph } from "../landingPage"
+import { Paragraph } from "../shared/home"
 import RenderTag from "../shared/dashboard/RenderTag"
 import RenderTeam from "../shared/dashboard/RenderTeam"
 

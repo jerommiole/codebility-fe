@@ -1,23 +1,3 @@
-export const skillData = [
-  {
-    name: "angular",
-  },
-  {
-    name: "css",
-  },
-  {
-    name: "firebase",
-  },
-  {
-    name: "bootstrap",
-  },
-  {
-    name: "oracle",
-  },
-  {
-    name: "html",
-  },
-]
 export const workExperienceData = [
   {
     position: "Senior Software Engineer",
@@ -28,12 +8,12 @@ export const workExperienceData = [
     tasks: [
       "Lead a team of developers in building and maintaining scalable web applications.",
       "Collaborate with cross-functional teams to define software requirements and specifications.",
-      "Implement new features and enhancements using React and Node.js.",
+      "Implement new features and enhancements using react and Node.js.",
       "Conduct code reviews and mentor junior team members.",
       "Optimize application performance and troubleshoot issues.",
       "Integrate third-party APIs to enhance functionality.",
     ],
-    technologies: ["React", "JavaScript", "HTML", "CSS", "MongoDB"],
+    technologies: ["angular", "javascript", "typescript", "css", "mongodb"],
   },
   {
     position: "Product Manager",
@@ -49,7 +29,7 @@ export const workExperienceData = [
       "Conduct user interviews and surveys to gather feedback.",
       "Coordinate product launches and marketing efforts.",
     ],
-    technologies: ["React", "JavaScript", "HTML", "CSS", "MongoDB"],
+    technologies: ["react", "javascript", "html", "css", "mongodb"],
   },
   {
     position: "UX/UI Designer",
@@ -64,7 +44,7 @@ export const workExperienceData = [
       "Create design assets, including wireframes, mockups, and style guides.",
       "Stay up-to-date with design trends and tools.",
     ],
-    technologies: ["React", "JavaScript", "HTML", "CSS", "MongoDB"],
+    technologies: ["react", "javascript", "html", "css", "mongodb"],
   },
   {
     position: "Software Engineer Intern",
@@ -78,80 +58,6 @@ export const workExperienceData = [
       "Participated in code reviews and learned best practices in software development.",
       "Gained hands-on experience with technologies such as Java and Spring Framework.",
     ],
-    technologies: ["React", "JavaScript", "HTML", "CSS", "MongoDB"],
+    technologies: ["react", "javascript", "html", "css", "mongodb"],
   },
 ]
-
-interface Social {
-  socialUrl: string
-  alt: string
-  icon: string
-}
-interface Skill {
-  name: string
-  icon: string
-}
-
-export const socialsList: Record<string, Social> = {
-  facebook: {
-    socialUrl: "#facebook",
-    alt: "facebook",
-    icon: "/ri_facebook-fill.svg",
-  },
-  github: {
-    socialUrl: "#github",
-    alt: "github",
-    icon: "/mdi_github.svg",
-  },
-  linkedin: {
-    socialUrl: "#linkedin",
-    alt: "linkedin",
-    icon: "/mdi_linkedin.svg",
-  },
-  whatsapp: {
-    socialUrl: "#whatsapp",
-    alt: "whatsapp",
-    icon: "/social-icon/whatsapp.svg",
-  },
-  skype: {
-    socialUrl: "#skype",
-    alt: "skype",
-    icon: "/social-icon/skype.svg",
-  },
-  telegram: {
-    socialUrl: "#telegram",
-    alt: "telegram",
-    icon: "/social-icon/telegram.svg",
-  },
-}
-
-export const skillList: Record<string, Skill> = {
-  angular: {
-    name: "Angular",
-    icon: "/techStack/angular.png",
-  },
-  css: {
-    name: "CSS",
-    icon: "/techStack/css.png",
-  },
-  github: {
-    name: "Github",
-    icon: "/techStack/mdi_github.png",
-  },
-  firebase: {
-    name: "Firebase",
-    icon: "/techStack/firebase.png",
-  },
-  bootstrap: {
-    name: "Bootstrap",
-    icon: "/techStack/bootstrap.png",
-  },
-  oracle: {
-    name: "Oracle",
-    icon: "/techStack/oracle.png",
-  },
-  html: {
-    name: "HTML",
-    icon: "/techStack/html.png",
-  },
-}

@@ -1,9 +1,9 @@
 "use client"
 
-import Title from "Components/Title"
 import { useState } from "react"
 import FilterInterns from "./components/FilterInterns"
 import InternList from "./components/InternList"
+import H1 from "@/Components/shared/dashboard/H1"
 
 const Interns = () => {
   const [isSearching, setIsSearching] = useState("")
@@ -13,10 +13,7 @@ const Interns = () => {
     <div className="mx-6 flex flex-col gap-10">
       <div className="flex flex-col gap-6 md:flex-row">
         <div className="flex-1">
-          <Title
-            title="Interns"
-            subtitle="Explore opportunities, gain hands-on experience, and contribute to innovative projects. Join us on a journey of learning and collaboration."
-          />
+          <H1>Interns</H1>
         </div>
         <div className="flex flex-1 flex-col justify-center gap-4">
           <div className="flex justify-center md:justify-end">

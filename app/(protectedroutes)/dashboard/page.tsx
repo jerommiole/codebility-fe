@@ -1,4 +1,3 @@
-import Title from "Components/Title"
 import Calendar from "./components/Calendar"
 import TimeTracker from "./components/TimeTracker"
 import TodoList from "./components/TodoList"
