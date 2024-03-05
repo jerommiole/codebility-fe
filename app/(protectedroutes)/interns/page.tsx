@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import FilterInterns from "./components/FilterInterns"
-import InternList from "./components/InternList"
+import FilterInterns from "./FilterInterns"
+import InternList from "./InternList"
 import H1 from "@/Components/shared/dashboard/H1"
 
 const Interns = () => {
