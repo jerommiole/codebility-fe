@@ -11,55 +11,54 @@ import Box from "@/Components/shared/dashboard/Box"
 
 const InternCard = ({ user }: { user: any }) => {
   return (
-    <Box
-      key={user.id}
-      className="flex flex-col items-center gap-2 rounded-lg bg-[#121212] p-4 text-center lg:bg-transparent"
-    >
-      <Link href={`/codevs/${user.id}`}>
-        <Image
-          alt="Avatar"
-          src={
-            user.image_icon
-              ? user.image_icon
-              : user.pronoun === ("male" || "he" || "him" || "his")
-              ? defaultAvatarFemale
-              : defaultAvatarMale
-          }
-          width={100}
-          height={100}
-          className="rounded-lg bg-[#1e1b4b] bg-cover"
-        />
-        <p className="text-darkBlueColor pt-3 font-semibold">{user.name}</p>
-      </Link>
-      <p>{user.position}</p>
-      <div className="flex flex-row justify-center gap-2">
-        {user.email_address && (
-          <Link href={`mailto:${user.email_address}`}>
-            <SvgEmail height={16} className="invert dark:invert-0" />
-          </Link>
-        )}
-        {user.github_link && (
-          <Link href={user.github_link} target="_blank">
-            <IconGithub className="invert dark:invert-0" />
-          </Link>
-        )}
-        {user.linkedin_link && (
-          <Link href={user.linkedin_link} target="_blank">
-            <SvgLinkedin className="invert dark:invert-0" />
-          </Link>
-        )}
-        {user.portfolio_website && (
-          <Link href={user.portfolio_website} target="_blank">
-            <SvgLink className="invert dark:invert-0" />
-          </Link>
-        )}
-      </div>
-      <ButtonLink>
-        <Link className="text-[#31AFC4]" href={`/codevs/${user.id}`}>
-          Read Bio
+    <div key={user.id} className="mx-auto h-full w-full rounded-lg bg-black-100 lg:bg-transparent">
+      <div className="flex flex-col items-center gap-2 rounded-lg p-4 text-center">
+        <Link href={`/codevs/${user.id}`}>
+          <Image
+            alt="Avatar"
+            src={
+              user.image_icon
+                ? user.image_icon
+                : user.pronoun === ("male" || "he" || "him" || "his")
+                ? defaultAvatarFemale
+                : defaultAvatarMale
+            }
+            width={100}
+            height={100}
+            className="rounded-lg bg-blue-500 bg-cover"
+          />
         </Link>
-      </ButtonLink>
-    </Box>
+        <p className="pt-3 font-semibold text-white">{user.name}</p>
+        <p className="text-[#8E8E8E]">{user.position}</p>
+        <div className="flex flex-row justify-center gap-2">
+          {user.email_address && (
+            <Link href={`mailto:${user.email_address}`}>
+              <SvgEmail height={16} />
+            </Link>
+          )}
+          {user.github_link && (
+            <Link href={user.github_link} target="_blank">
+              <IconGithub className="h-[20px] w-[20px] text-white" />
+            </Link>
+          )}
+          {user.linkedin_link && (
+            <Link href={user.linkedin_link} target="_blank">
+              <SvgLinkedin />
+            </Link>
+          )}
+          {user.portfolio_website && (
+            <Link href={user.portfolio_website} target="_blank">
+              <SvgLink />
+            </Link>
+          )}
+        </div>
+        <ButtonLink>
+          <Link className="text-teal" href={`/codevs/${user.id}`}>
+            Read Bio
+          </Link>
+        </ButtonLink>
+      </div>
+    </div>
   )
 }
 

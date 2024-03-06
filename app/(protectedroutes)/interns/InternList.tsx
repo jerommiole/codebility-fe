@@ -52,16 +52,14 @@ const Intern = async ({ isSearching, byCategory }: InternProps) => {
   // })
 
   return (
-    <>
-      <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-5">
-        {interns.map((intern) => (
-          <InternCard
-            key={intern.id}
-            user={intern} // Pass user data to InternCard
-          />
-        ))}
-      </div>
-    </>
+    <div className="grid place-items-center gap-4 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {interns.map((intern) => (
+        <InternCard
+          key={intern.id}
+          user={intern} // Pass user data to InternCard
+        />
+      ))}
+    </div>
   )
 }
 

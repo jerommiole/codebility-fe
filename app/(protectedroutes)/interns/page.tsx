@@ -10,7 +10,7 @@ const Interns = () => {
   const [byCategory, setByCategory] = useState("")
 
   return (
-    <div className="mx-6 flex flex-col gap-10">
+    <div className="mx-auto flex max-w-[1600px] flex-col gap-10">
       <div className="flex flex-col gap-6 md:flex-row">
         <div className="flex-1">
           <H1>Interns</H1>
