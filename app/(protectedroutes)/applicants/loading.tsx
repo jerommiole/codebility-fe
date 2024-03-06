@@ -1,11 +1,6 @@
 import Box from "@/Components/shared/dashboard/Box"
 import H1 from "@/Components/shared/dashboard/H1"
-import { IconEmail, IconGithub, IconLink } from "@/public/assets/svgs"
-import { User } from "@/types"
-import { Checkbox } from "Components/ui/checkbox"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "Components/ui/table"
-import Image from "next/image"
-import Link from "next/link"
 import { Skeleton } from "@/Components/ui/skeleton/skeleton"
 
 const Loading = () => {
