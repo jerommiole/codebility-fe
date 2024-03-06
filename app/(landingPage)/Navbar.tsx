@@ -20,11 +20,6 @@ const Navbar = () => {
     }
   }
 
-  const changeBG = () => {
-    console.log(window.scrollY)
-  }
-
-  window.addEventListener("scroll", changeBG)
   window.addEventListener("scroll", changeColor)
 
   return (
@@ -114,13 +109,21 @@ const Navbar = () => {
                   </div>
                 ))}
               </ul>
-              <div className="font-inter items-center pt-10 text-center text-lg lg:flex">
-                <div className="text-black my-5 rounded-full bg-white px-5 py-1">
-                  <Link href="/auth/signin">Login</Link>
-                </div>
-                <div className="text-black my-5 rounded-full bg-white px-5 py-1">
-                  <Link href="/auth/signup">Sign Up</Link>
-                </div>
+              <div className="font-inter flex flex-col items-center space-y-5 pt-10 text-center text-lg text-white lg:flex">
+                <Link href="/auth/signin">
+                  <Button className="h-12 w-36 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br">
+                    <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
+                      Login
+                    </span>
+                  </Button>
+                </Link>
+                <Link href="/auth/signin">
+                  <Button className="h-12 w-36 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br">
+                    <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
+                      Sign Up
+                    </span>
+                  </Button>
+                </Link>
               </div>
             </SheetHeader>
           </SheetContent>

@@ -34,8 +34,6 @@ const Codevs = () => {
     fetchCoDevsData()
   }, [])
 
-  console.log(data)
-
   return (
     <SectionWrapper id="codevs" className="w-full bg-black-500">
       <div className="flex flex-col gap-8">
