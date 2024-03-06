@@ -156,7 +156,7 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                       tech_stacks.map((stack: any, i: any) => (
                         <div key={i} className="flex items-center">
                           <Image
-                            src={`/assets/svgs/icon-${stack}.svg`}
+                            src={`/assets/svgs/icon-${stack.toLowerCase()}.svg`}
                             alt={stack + " icon"}
                             width={20}
                             height={20}
@@ -199,7 +199,7 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                         {item.technologies?.map((tech: any, i: any) => (
                           <div key={i} className="flex items-center">
                             <Image
-                              src={`/assets/svgs/icon-${tech}.svg`}
+                              src={`/assets/svgs/icon-${tech.toLowerCase()}.svg`}
                               alt={tech + " icon"}
                               width={20}
                               height={20}
