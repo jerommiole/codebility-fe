@@ -113,7 +113,7 @@ const CodevBioPage = ({ params }: { params: { id: string } }) => {
                 <div className="flex justify-center">
                   <Image
                     alt="Avatar"
-                    src={image_icon ?? "/sampleProfile/profile.png"}
+                    src={image_icon ?? "/assets/images/default-avatar-male.png"}
                     width={200}
                     height={200}
                     className="h-[80px] w-[80px] rounded-lg bg-[#1e1b4b] bg-cover object-contain md:h-[96px] md:w-[96px] lg:h-[180px] lg:w-[180px]"
