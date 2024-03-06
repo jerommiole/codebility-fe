@@ -41,7 +41,7 @@ export interface Project {
   clientId: string
 }
 
-export interface Company {
+export interface Client {
   id: string
   company_name: string
   company_logo?: string

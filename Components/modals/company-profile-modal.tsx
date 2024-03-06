@@ -26,7 +26,7 @@ const CompanyProfileModal = () => {
               <Image alt="dp" src={data?.image || Hero} height={80} />
             </Avatar>
             <div className="order-2 col-span-3 ml-2 flex flex-col sm:order-none">
-              <p className="text-xl font-semibold">{data?.company}</p>
+              <p className="text-xl font-semibold">{data?.company_name}</p>
               <p className="mt-1 text-xs font-light text-gray-500">{data?.subtext}</p>
             </div>
             <div className="order-1 place-self-center sm:order-none">
