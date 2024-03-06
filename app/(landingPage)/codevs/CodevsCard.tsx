@@ -11,7 +11,7 @@ import { IconGithub } from "@/public/assets/svgs"
 const CodevsCard = ({ users }: { users: any }) => {
   return (
     <div className="m-auto w-full max-w-5xl">
-      <div className="grid place-items-center gap-2 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid place-items-center gap-4 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {users.map((user: any, index: number) => (
           <div key={user.id} className="mx-auto h-full w-full rounded-lg bg-black-100 lg:bg-transparent">
             <div className="flex flex-col items-center gap-2 rounded-lg p-4 text-center">
