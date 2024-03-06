@@ -9,6 +9,7 @@ interface ModalData {
   time?: string
   date?: string
   company?: string
+  company_name?: string
   subtext?: string
   phonenumber?: string
   linkedin?: string
