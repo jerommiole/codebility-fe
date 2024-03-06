@@ -1,11 +1,11 @@
 import { navLinks } from "@/constants"
 import { Button } from "Components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "Components/ui/sheet"
+import { MenuIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
-import { MenuIcon } from "lucide-react"
+import { useState } from "react"
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -58,8 +58,8 @@ const Navbar = () => {
 
         <div className="font-inter hidden items-center gap-4 text-base lg:flex">
           <Link href="/auth/signin">
-            <Button className="h-10 w-28 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br xl:h-12 xl:w-36">
-              <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
+            <Button className="h-10 w-28 bg-transparent p-0.5 xl:h-12 xl:w-36">
+              <span className="flex h-full w-full items-center justify-center rounded-full bg-transparent text-sm text-white lg:text-lg">
                 Login
               </span>
             </Button>
@@ -101,7 +101,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         href={link.href}
-                        className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100 hover:border-primary hover:text-primary"
+                        className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100"
                       >
                         {link.name}
                       </Link>
@@ -109,10 +109,10 @@ const Navbar = () => {
                   </div>
                 ))}
               </ul>
-              <div className="font-inter flex flex-col items-center space-y-5 pt-10 text-center text-lg text-white lg:flex">
+              <div className="font-inter flex flex-col items-center space-y-5 pt-10 text-center text-base text-white lg:flex">
                 <Link href="/auth/signin">
-                  <Button className="h-12 w-36 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br">
-                    <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
+                  <Button className="h-10 w-28 bg-transparent p-0.5 xl:h-12 xl:w-36">
+                    <span className="flex h-full w-full items-center justify-center rounded-full bg-transparent text-sm text-white lg:text-lg">
                       Login
                     </span>
                   </Button>
