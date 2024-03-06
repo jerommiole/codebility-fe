@@ -40,7 +40,11 @@ const TechStackModal = () => {
             >
               <div className="relative h-5 w-5 sm:h-6 sm:w-6">
                 <Image
-                  src={tech.alias ? `/assets/svgs/icon-${tech.alias}.svg` : `/assets/svgs/icon-${tech.name}.svg`}
+                  src={
+                    tech.alias
+                      ? `/assets/svgs/icon-${tech.alias.toLowerCase()}.svg`
+                      : `/assets/svgs/icon-${tech.name.toLowerCase()}.svg`
+                  }
                   alt={`${tech.name} icon`}
                   fill
                   title={tech.name}
@@ -57,13 +61,13 @@ const TechStackModal = () => {
               clearStack()
               onClose()
             }}
-            className="flex-1 bg-[#743bc7] text-sm text-foreground hover:bg-[#743bc7]/50"
+            className="flex-1 bg-blue-500 text-sm text-foreground text-white hover:bg-blue-500/50"
           >
             Cancel
           </Button>
           <Button
             onClick={() => onClose()}
-            className="flex-1 bg-[#6876f5] text-sm text-foreground hover:bg-[#6876f5]/50"
+            className="flex-1 bg-blue-100 text-sm text-foreground text-white hover:bg-blue-100/50"
           >
             Ok
           </Button>
