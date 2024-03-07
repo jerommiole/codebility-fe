@@ -32,7 +32,7 @@ const CodevsCard = ({ users }: { users: any }) => {
               </Link>
               <p className="pt-3 font-semibold text-white">{user.name}</p>
               <p className="text-[#8E8E8E]">{user.position}</p>
-              <div className="flex flex-row justify-center gap-2">
+              <div className="flex flex-row items-center justify-center gap-2">
                 {user.email_address && (
                   <Link href={`mailto:${user.email_address}`}>
                     <SvgEmail height={16} />
