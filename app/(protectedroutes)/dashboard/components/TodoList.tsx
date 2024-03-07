@@ -1,5 +1,3 @@
-"use client"
-
 import Todo from "./Todo"
 import Box from "@/Components/shared/dashboard/Box"
 import Button from "@/Components/shared/dashboard/Button"
