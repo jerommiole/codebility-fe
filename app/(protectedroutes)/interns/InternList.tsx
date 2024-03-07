@@ -52,7 +52,7 @@ const Intern = async ({ isSearching, byCategory }: InternProps) => {
   // })
 
   return (
-    <div className="grid place-items-center gap-4 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid place-items-center gap-4 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4">
       {interns.map((intern) => (
         <InternCard
           key={intern.id}
