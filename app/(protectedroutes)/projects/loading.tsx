@@ -7,7 +7,7 @@ const Loading = () => {
     <div>
       <H1>Projects</H1>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {Array(3)
+        {Array(6)
           .fill(null)
           .map((value, index) => (
             <Box key={index} className="flex flex-col gap-2 border">
