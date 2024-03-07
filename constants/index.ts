@@ -10,7 +10,7 @@ export const navLinks = [
     href: "#about",
   },
   {
-    name: "Co-Devs",
+    name: "CoDevs",
     href: "#codevs",
   },
   {
