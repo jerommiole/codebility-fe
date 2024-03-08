@@ -41,13 +41,17 @@
     background: linear-gradient(129deg, #2986ff 0%, #6babff 100%);
   }
 
+  .tab-gradient {
+    background: linear-gradient(129deg, var(--violet-color) 0%, var(--teal-color) 100%);
+  }
+
   .dark-gradient {
     background: linear-gradient(232deg, rgba(23, 28, 35, 0.41) 0%, rgba(19, 22, 28, 0.7) 100%);
   }
 
-  .tab {
+  /* .tab {
     @apply data-[state=active]:bg-primary-100 data-[state=active]:text-primary-500 min-h-full bg-light-800 text-light-500 dark:bg-dark-400 dark:data-[state=active]:bg-dark-300 !important;
-  }
+  } */
 }
 
 @layer base {

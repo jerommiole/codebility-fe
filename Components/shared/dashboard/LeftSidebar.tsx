@@ -11,7 +11,7 @@ const LeftSidebar = () => {
   const pathname = usePathname()
 
   return (
-    <section className="light-border shadow-light-300 background-lightbox_darkbox sticky left-0 top-0 z-20 flex h-screen flex-col gap-14 overflow-y-auto border-r p-6 dark:shadow-none max-lg:hidden">
+    <section className="light-border background-lightbox_darkbox sticky left-0 top-0 z-20 flex h-screen flex-col gap-14 overflow-y-auto border-r p-6 shadow-light-300 dark:shadow-none max-lg:hidden">
       <div className="flex justify-stretch gap-4 max-lg:hidden">
         <div className={`transition-all ${!isToggleOpen ? "flex-0" : "flex-1"} flex overflow-hidden`}>
           <Link href="/">

@@ -67,6 +67,34 @@ export const themes: Theme[] = [
   { value: "system", label: "System", icon: "/assets/svgs/icon-eclipse.svg" },
 ]
 
+export const profileTabsLinks = [
+  {
+    value: "profile-info",
+    icon: "clients",
+    label: "Profile Info",
+  },
+  {
+    value: "notifications",
+    icon: "bell",
+    label: "Notifications",
+  },
+  {
+    value: "settings",
+    icon: "box",
+    label: "Settings",
+  },
+  {
+    value: "activity-log",
+    icon: "box-line",
+    label: "Activity Log",
+  },
+  {
+    value: "about",
+    icon: "applicant2",
+    label: "About",
+  },
+]
+
 import {
   IconCSharp,
   IconCSS,
