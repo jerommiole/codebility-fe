@@ -7,7 +7,7 @@ import { Checkbox } from "Components/ui/checkbox"
 const TimeTrackerTable = () => {
   return (
     <Box>
-      <H1>Time Log  </H1>
+      <H1>Time Log </H1>
       <Table> 
         <TableHeader>
           <TableRow>
@@ -24,13 +24,13 @@ const TimeTrackerTable = () => {
             .map((value, index) => (
               <TableRow>
                 <TableCell>
-                  <Checkbox className="bg-violet" />
+                  <Checkbox className="bg-violet"/>
                 </TableCell>
                 <TableCell >11/28/23</TableCell>
                 <TableCell className="text-teal">Jira Ticket</TableCell>
                 <TableCell className="text-teal"> 12:34 P - 00:06 P</TableCell>
                 <TableCell className="text-teal">00H 00m</TableCell>
-                <TableCell>Edit</TableCell>
+                <TableCell>Edit</TableCell> 
               </TableRow>
             ))}
         </TableBody>
