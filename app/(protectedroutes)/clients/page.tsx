@@ -9,7 +9,7 @@ import ClientCard from "./ClientCard"
 import BoxInset from "@/Components/shared/dashboard/BoxInset"
 
 const Clients = () => {
-  const [data, setData] = useState<any[]>([])
+  const [clients, setClient] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -19,16 +19,15 @@ const Clients = () => {
         if (!response) {
           throw new Error("Failed to fetch data from the server.")
         }
-        setData(response.data.data)
-        setIsLoading(false)
+        setClient(response.data.data)
       } catch (error) {
         console.error(error)
       } finally {
-        setTimeout(() => {
-          setIsLoading(false)
-        }, 1000)
+        setIsLoading(false)
       }
     }
+
+    setIsLoading(true)
     fetchProjectsData()
   }, [])
 
@@ -59,7 +58,7 @@ const Clients = () => {
         </div>
       </Box>
 
-      <ClientCard clients={data} />
+      <ClientCard clients={clients} />
     </div>
   )
 }
