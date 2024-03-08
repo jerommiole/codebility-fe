@@ -7,8 +7,17 @@ import defaultAvatarMale from "public/assets/images/default-avatar-male.png"
 import defaultAvatarFemale from "public/assets/images/default-avatar-female.png"
 import { SvgEmail, SvgGithub, SvgLink, SvgLinkedin } from "public/assets/icons"
 import { IconGithub } from "@/public/assets/svgs"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-const CodevsCard = ({ users }: { users: any }) => {
+const getCoDevData = async () => {
+  const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/users")
+  return res.data.data
+}
+
+const CodevsCard = async () => {
+  const users = await getCoDevData()
+
   return (
     <div className="m-auto w-full max-w-5xl">
       <div className="grid place-items-center gap-4 xs:grid-cols-2 sm:place-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">

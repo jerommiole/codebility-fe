@@ -4,36 +4,13 @@ import H2 from "@/Components/shared/home/H2"
 import Heading3 from "@/Components/shared/home/Heading3"
 import IntroText from "@/Components/shared/home/IntroText"
 import SectionWrapper from "@/Components/shared/home/SectionWrapper"
-import axios from "axios"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { Suspense } from "react"
 import { fadeInOutDownToUp } from "@/Components/FramerAnimation/Framer"
 import CodevsCard from "./CodevsCard"
+import { UsersSkeleton } from "@/Components/ui/skeleton/UsersSkeleton"
 
 const Codevs = () => {
-  const [data, setData] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchCoDevsData = async () => {
-      try {
-        const response = await axios("https://codebility-be.onrender.com/api/v1/production/users")
-        if (!response) {
-          throw new Error("Failed to fetch data from the server.")
-        }
-        setData(response.data.data)
-        setIsLoading(false)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setTimeout(() => {
-          setIsLoading(false)
-        }, 1000)
-      }
-    }
-    fetchCoDevsData()
-  }, [])
-
   return (
     <SectionWrapper id="codevs" className="w-full bg-black-500">
       <div className="flex flex-col gap-8">
@@ -55,14 +32,9 @@ const Codevs = () => {
             </IntroText>
           </motion.div>
         </div>
-
-        {isLoading ? (
-          <div className="flex h-screen items-center justify-center">
-            <div className="CodevsSpinner"></div>
-          </div>
-        ) : (
-          <CodevsCard users={data} />
-        )}
+        <Suspense fallback={<UsersSkeleton />}>
+          <CodevsCard />
+        </Suspense>
       </div>
     </SectionWrapper>
   )
