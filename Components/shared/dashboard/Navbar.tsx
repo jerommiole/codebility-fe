@@ -7,14 +7,15 @@ import avatar from "@/public/assets/images/default-avatar-male.png"
 import Link from "next/link"
 import Theme from "./Theme"
 import MobileNav from "./MobileNav"
+import { IconBell } from "@/public/assets/svgs"
 
 const Navbar = () => {
   return (
     <>
       <nav className="light-border background-lightbox_darkbox fixed top-0 z-10 w-full border-b">
         <div className="flex px-8 py-3">
-          <div className="flex flex-1 justify-end gap-6">
-            <div>Bell</div>
+          <div className="flex flex-1 items-center justify-end gap-6">
+            <IconBell className="invert dark:invert-0"/>
             <Theme />
             <div className="flex gap-1">
               <Link href="/profile">
