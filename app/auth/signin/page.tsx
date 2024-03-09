@@ -41,7 +41,7 @@ const Sign = () => {
   // TODO:
 
   return (
-    <div className="flex flex-col bg-black-400 text-white lg:flex-row">
+    <div className="flex min-h-screen flex-col bg-black-400 text-white lg:flex-row">
       <div className="flex basis-[50%] flex-col justify-between gap-6 p-10">
         <Link href="/">
           <Image src="/assets/svgs/codebility-blue.svg" width={300} height={67} alt="Codebility Logo" />
