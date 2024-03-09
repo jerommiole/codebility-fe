@@ -64,9 +64,9 @@ const SignInInputs = ({
         {type === "password" && (
           <div className="absolute right-4 top-[50%] w-6 -translate-y-[50%] cursor-pointer sm:right-6 sm:w-8">
             {showPassword ? (
-              <IconEyeClose onClick={() => setShowPassword((prev) => !prev)} className="text-2xl invert" />
+              <IconEyeClose onClick={() => setShowPassword((prev) => !prev)} className="text-2xl" />
             ) : (
-              <IconEye onClick={() => setShowPassword((prev) => !prev)} className="text-2xl invert" />
+              <IconEye onClick={() => setShowPassword((prev) => !prev)} className="text-2xl" />
             )}
           </div>
         )}
