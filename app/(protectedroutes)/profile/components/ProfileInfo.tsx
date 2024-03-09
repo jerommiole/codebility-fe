@@ -22,7 +22,7 @@ const ProfileInfo = () => {
     <div className="flex flex-col gap-6">
       <Box className="relative flex flex-col gap-2">
         <Link href={`#`}>
-          <IconEdit className="w-15 h-15 absolute right-6 top-6" onClick={handleEditClick} />
+          <IconEdit className="w-15 h-15 absolute right-6 top-6 invert dark:invert-0" onClick={handleEditClick} />
         </Link>
         <p className="text-2xl">Profile Info</p>
         <Paragraph>Manage your account information</Paragraph>
@@ -64,14 +64,14 @@ const ProfileInfo = () => {
 
       <Box className="relative">
         <Link href={`#`}>
-          <IconEdit className="w-15 h-15 absolute right-6 top-6" />
+          <IconEdit className="w-15 h-15 absolute right-6 top-6 invert dark:invert-0" />
         </Link>
         <p className="text-2xl">About</p>
       </Box>
 
       <Box className="relative">
         <Link href={`#`}>
-          <IconEdit className="w-15 h-15 absolute right-6 top-6" />
+          <IconEdit className="w-15 h-15 absolute right-6 top-6 invert dark:invert-0" />
         </Link>
         <p className="text-2xl">Contact Info</p>
         <div className="flex flex-col">
@@ -89,13 +89,13 @@ const ProfileInfo = () => {
 
       <Box className="relative">
         <Link href={`#`}>
-          <IconEdit className="w-15 h-15 absolute right-6 top-6" />
+          <IconEdit className="w-15 h-15 absolute right-6 top-6 invert dark:invert-0" />
         </Link>
         <p className="text-2xl">Experience</p>
       </Box>
       <Box className="relative">
         <Link href={`#`}>
-          <IconEdit className="w-15 h-15 absolute right-6 top-6" />
+          <IconEdit className="w-15 h-15 absolute right-6 top-6 invert dark:invert-0" />
         </Link>
         <p className="text-2xl">Skills</p>
       </Box>
