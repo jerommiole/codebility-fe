@@ -34,10 +34,11 @@ module.exports = {
         stiglitz: "rgba(50,50,93,0.25) 0px 6px 12px -2px, rgba(0,0,0,0.3) 0px 3px 7px -3px",
       },
       colors: {
-        primary: {
-          500: "#2986ff",
-          100: "#c4deff",
-        },
+        primary: "#0E0E0E",
+        secondary: "#8E8E8E",
+        gray: "#898989",
+        lightgray: "#DBDBDB",
+        darkgray: "#2E2E2E",
         blue: {
           500: "#583DFF",
           100: "#6A78F2",
@@ -72,7 +73,6 @@ module.exports = {
         inputColor: "#282828",
         backgroundColor: "#030303",
         footerColor: "#0A0A0A",
-        gray01: "#DCDCDC",
         gray02: "#1F1F1F",
         gray03: "#2E2E2E",
 
