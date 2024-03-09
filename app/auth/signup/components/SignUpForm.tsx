@@ -115,7 +115,7 @@ const AuthForm = () => {
     reset()
     setCurrentStep(1)
     toast.success("Account Created")
-    router.push("/auth/signin")
+    router.push("/dashboard")
     return null
   }
 
