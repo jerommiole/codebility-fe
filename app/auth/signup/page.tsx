@@ -12,7 +12,7 @@ const SignUp = () => {
   const { onOpen } = useModal()
 
   return (
-    <div className="flex flex-col bg-black-400 text-white lg:flex-row">
+    <div className="flex min-h-screen flex-col bg-black-400 text-white lg:flex-row">
       <div className="relative hidden basis-[50%] lg:flex">
         <Image
           src="/assets/images/blindfoldedman-full.jpg"
