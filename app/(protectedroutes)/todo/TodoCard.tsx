@@ -40,10 +40,6 @@ const TodoCard = ({ todo }: TodoCardProps) => {
           </div>
         </div>
       </Box>
-
-      <Box className="cursor-pointer border hover:border-violet" onClick={() => onOpen("todoAddModal")}>
-        <div className="flex h-full w-full items-center justify-center gap-2">Add New Task</div>
-      </Box>
     </>
   )
 }
