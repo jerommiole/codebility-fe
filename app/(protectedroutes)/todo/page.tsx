@@ -3,6 +3,8 @@
 import H1 from "@/Components/shared/dashboard/H1"
 import TodoCard from "./TodoCard"
 import axios from "axios"
+import { Box } from "@/Components/shared/dashboard"
+import { useModal } from "@/hooks/use-modal"
 
 interface Tag {
   tag: string
@@ -31,6 +33,9 @@ const getTodos = async () => {
 }
 
 const TodoPage = async () => {
+  const { onOpen } = useModal()
+
+
   const todos = await getTodos()
 
   console.log(todos)
@@ -42,6 +47,9 @@ const TodoPage = async () => {
         {todos.map((todo: TodoItem) => {
           return <TodoCard todo={todo} />
         })}
+        <Box className="cursor-pointer border hover:border-violet" onClick={() => onOpen("todoAddModal")}>
+          <div className="flex h-full w-full items-center justify-center gap-2">Add New Task</div>
+        </Box>
       </div>
     </div>
   )
