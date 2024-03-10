@@ -32,8 +32,8 @@ const TechStackModal = () => {
         <div className="grid w-full grid-cols-3 gap-2 sm:w-auto">
           {techstacks?.map((tech, i) => (
             <div
-              className={`flex cursor-pointer items-center justify-center rounded-md border py-1 sm:justify-normal sm:p-2 sm:hover:bg-gray-500/40 ${
-                checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-gray-500/40"
+              className={`flex cursor-pointer items-center justify-center rounded-md border py-1 text-white sm:justify-normal sm:p-2 sm:hover:bg-dark-400 ${
+                checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-dark-400 text-white"
               }`}
               key={`tech-item-${i}`}
               onClick={() => addRemoveStack({ name: tech.name, icon: tech.icon, index: i })}
