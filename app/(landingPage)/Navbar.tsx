@@ -64,7 +64,7 @@ const Navbar = () => {
               </span>
             </Button>
           </Link>
-          <Link href="/auth/signin">
+          <Link href="/auth/signup">
             <Button className="h-10 w-28 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br xl:h-12 xl:w-36">
               <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
                 Sign Up
@@ -91,7 +91,7 @@ const Navbar = () => {
               <MenuIcon className="text-gray-300" />
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex h-screen flex-col items-center justify-center bg-black-100">
+          <SheetContent className="flex h-screen flex-col items-center justify-center bg-black-100 text-white">
             <SheetHeader>
               <ul className={`space-y-14 text-center `}>
                 {navLinks.map((link, idx) => (
@@ -101,7 +101,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         href={link.href}
-                        className="border-b-2 border-transparent text-lg font-semibold text-gray-50 transition duration-100"
+                        className="transform-all duration-200 hover:scale-105 hover:text-teal hover:underline"
                       >
                         {link.name}
                       </Link>
@@ -109,17 +109,17 @@ const Navbar = () => {
                   </div>
                 ))}
               </ul>
-              <div className="font-inter flex flex-col items-center space-y-5 pt-10 text-center text-base text-white lg:flex">
+              <div className="font-inter flex flex-col items-center space-y-5 pt-10 text-center text-base lg:flex">
                 <Link href="/auth/signin">
                   <Button className="h-10 w-28 bg-transparent p-0.5 xl:h-12 xl:w-36">
-                    <span className="flex h-full w-full items-center justify-center rounded-full bg-transparent text-sm text-white lg:text-lg">
+                    <span className="flex h-full w-full items-center justify-center rounded-full bg-transparent text-sm duration-200 hover:scale-105 lg:text-lg">
                       Login
                     </span>
                   </Button>
                 </Link>
-                <Link href="/auth/signin">
+                <Link href="/auth/signup">
                   <Button className="h-12 w-36 rounded-full bg-gradient-to-r from-teal via-blue-100 to-violet p-0.5 hover:bg-gradient-to-br">
-                    <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm text-white lg:text-lg">
+                    <span className="flex h-full w-full items-center justify-center rounded-full bg-black-100 text-sm lg:text-lg">
                       Sign Up
                     </span>
                   </Button>
