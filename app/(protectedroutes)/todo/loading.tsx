@@ -10,7 +10,7 @@ const Loading = () => {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {Array(6)
           .fill(null)
-          .map(value => (
+          .map((value) => (
             <Box>
               <div className="flex h-full flex-col justify-between">
                 <div className="relative flex flex-col gap-1">

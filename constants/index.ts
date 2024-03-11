@@ -67,6 +67,8 @@ export const themes: Theme[] = [
   { value: "system", label: "System", icon: "/assets/svgs/icon-eclipse.svg" },
 ]
 
+export const todoPrioLevels = ["1 Highest", "2 Critical", "3 High", "4 Medium", "5 Low"]
+
 export const profileTabsLinks = [
   {
     value: "profile-info",
