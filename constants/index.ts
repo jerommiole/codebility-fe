@@ -3,23 +3,23 @@ import { LeftSidebar, SocialIcons, Theme } from "@/types"
 export const navLinks = [
   {
     name: "Home",
-    href: "#home",
+    href: "/#home",
   },
   {
     name: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     name: "CoDevs",
-    href: "#codevs",
+    href: "/#codevs",
   },
   {
     name: "Services",
-    href: "#services",
+    href: "/#services",
   },
   {
     name: "Why Choose Us?",
-    href: "#join",
+    href: "/#join",
   },
 ]
 export const socialIcons: SocialIcons[] = [
