@@ -7,6 +7,9 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import ClientCard from "./ClientCard"
 import BoxInset from "@/Components/shared/dashboard/BoxInset"
+import { Search } from "lucide-react"
+import { IconAdd, IconFilter } from "@/public/assets/svgs"
+import { Button } from "@/Components/ui/button"
 
 const Clients = () => {
   const [clients, setClient] = useState([])
@@ -33,7 +36,32 @@ const Clients = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <H1>Clients</H1>
+      <div className="flex flex-row justify-between gap-4">
+        <H1>Clients</H1>
+        <div className="flex items-center gap-4">
+          {/* Input Hollow for Search */}
+          <Search className="mr-3 cursor-pointer text-xs invert-0 dark:invert md:hidden" />
+          <div className="relative hidden md:block lg:w-60">
+            <Search className="absolute left-2 top-2.5 text-gray invert-0 dark:invert" size={20} />
+            <input
+              type="text"
+              className="border-gray-100 h-10 w-full rounded-lg border bg-transparent py-1.5 ps-10 text-gray focus:outline-none"
+              placeholder="Search projects..."
+            />
+          </div>
+          {/* Select Filter */}
+          <IconFilter className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden" />
+          <Button className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex">
+            <IconFilter className="mr-3 invert dark:invert-0" />
+            Filter
+          </Button>
+          <IconAdd className="cursor-pointer text-xl invert dark:invert-0 xs:text-2xl md:hidden" />
+          <Button variant="default" className="hidden w-[130px] items-center md:flex">
+            <IconAdd className="mr-2" />
+            Add Company
+          </Button>
+        </div>
+      </div>
       <Box>
         <div className="flex flex-col gap-7 lg:flex-row">
           <div className="flex basis-[60%] flex-col justify-center gap-2">

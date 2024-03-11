@@ -6,7 +6,6 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Button } from "@/Components/ui/button"
 import { IconAdd, IconFilter } from "@/public/assets/svgs"
-import Input from "@/Components/ui/forms/input"
 import { Search } from "lucide-react"
 
 const getProjects = async () => {
