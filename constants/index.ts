@@ -59,6 +59,7 @@ export const sidebarLinks: LeftSidebar[] = [
   { route: "/clients", imgURL: "/assets/svgs/icon-clients.svg", label: "Clients" },
   { route: "/interns", imgURL: "/assets/svgs/icon-interns.svg", label: "Interns" },
   { route: "/applicants", imgURL: "/assets/svgs/icon-applicant.svg", label: "Applicants" },
+  { route: "/kanban", imgURL: "/assets/svgs/icon-kanban.svg", label: "Kanban" },
 ]
 
 export const themes: Theme[] = [
