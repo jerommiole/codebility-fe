@@ -21,11 +21,11 @@ const TechStackModal = () => {
     <Dialog open={isModalOpen}>
       <DialogContent
         hasButton
-        className="h-[30rem] max-w-md overflow-y-auto py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16"
+        className="h-[30rem] max-w-md overflow-y-auto bg-black-100 py-8 sm:h-auto sm:max-w-2xl sm:px-12 sm:py-16"
       >
         <DialogHeader className="">
           <DialogTitle className="text-center">
-            <p className="mb-4 text-xl md:text-4xl">TechStack</p>
+            <p className="mb-4 text-xl text-white md:text-4xl">TechStack</p>
           </DialogTitle>
         </DialogHeader>
 
