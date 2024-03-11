@@ -1,7 +1,7 @@
 import Image from "next/image"
 import React from "react"
 
-const page = () => {
+const Terms = () => {
   return (
     <section className="h-screen w-screen overflow-y-auto bg-backgroundColor text-primaryColor">
       <div className="px-8 py-8 sm:px-[95px] sm:pt-[61px]">
@@ -108,4 +108,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Terms
