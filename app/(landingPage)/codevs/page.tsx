@@ -16,7 +16,7 @@ const Codevs = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-6">
           <motion.div variants={fadeInOutDownToUp} initial="hidden" whileInView="visible" className="mx-auto">
-            <H2 className="text-primaryColor">Who Are We?</H2>
+            <H2 className="text-primaryColor">Codevs</H2>
           </motion.div>
           <motion.div
             variants={fadeInOutDownToUp}
