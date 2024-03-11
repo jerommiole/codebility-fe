@@ -91,7 +91,7 @@ const Navbar = () => {
               <MenuIcon className="text-gray-300" />
             </Button>
           </SheetTrigger>
-          <SheetContent className="flex h-screen flex-col items-center justify-center bg-black-100 text-white">
+          <SheetContent className="flex h-screen flex-col items-center justify-center bg-dark-100 text-white">
             <SheetHeader>
               <ul className={`space-y-14 text-center `}>
                 {navLinks.map((link, idx) => (
