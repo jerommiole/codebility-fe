@@ -41,7 +41,7 @@ const Projects = async () => {
           <IconAdd className="cursor-pointer text-xl invert dark:invert-0 xs:text-2xl md:hidden" />
           <Button variant="default" className="hidden w-[130px] items-center md:flex">
             <IconAdd className="mr-2" />
-            Add To do
+            Add Project
           </Button>
         </div>
       </div>
