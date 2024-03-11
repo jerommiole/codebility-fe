@@ -27,9 +27,7 @@ const TodoViewModal = () => {
             <p className="absolute right-0 top-0  text-xs">11/28/23</p>
             <p className="text-lg font-semibold">Title</p>
             <p>Project Name</p>
-            <p className="text-sm">
-              Priority Level: <span>High</span>
-            </p>
+            <p className="text-sm">Priority Level: High</p>
             <Paragraph>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut ipsum
               minima impedit.

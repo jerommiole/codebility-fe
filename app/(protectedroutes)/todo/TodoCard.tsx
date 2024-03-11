@@ -3,17 +3,16 @@ import { Paragraph } from "@/Components/shared/home"
 import Box from "@/Components/shared/dashboard/Box"
 import RenderTeam from "@/Components/shared/dashboard/RenderTeam"
 import RenderTag from "../../../Components/shared/dashboard/RenderTag"
-
-import { TodoItem } from "./page" // Import the TodoItem interface
+import { Todo } from "@/types"
 
 interface TodoCardProps {
-  todo: TodoItem
+  todo: Todo
 }
 
 const TodoCard = ({ todo }: TodoCardProps) => {
   const { onOpen } = useModal()
 
-  const { created_at, title, prio_level, full_description } = todo;
+  const { created_at, title, prio_level, full_description } = todo
 
   const formattedDate = new Date(created_at).toLocaleDateString("en-US", {
     year: "numeric",
@@ -29,9 +28,7 @@ const TodoCard = ({ todo }: TodoCardProps) => {
             <p className="absolute right-0 top-0  text-xs">{formattedDate}</p>
             <p className="text-lg font-semibold">Title</p>
             <p>{title}</p>
-            <p className="text-sm">
-              Priority Level: <span>{prio_level}</span>
-            </p>
+            <p className="text-sm">Priority Level: {prio_level}</p>
             <Paragraph>{full_description}</Paragraph>
           </div>
           <div className="flex flex-row justify-between gap-2">

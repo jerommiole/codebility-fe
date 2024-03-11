@@ -1,7 +1,3 @@
-export interface TechStackIcons {
-  [key: string]: React.ReactNode
-}
-
 export interface User {
   id: string
   name: string
@@ -25,20 +21,10 @@ export interface User {
   updated_at?: string
   schedule?: string
   position?: string[]
-  roleType: "MENTOR"
-  userType: "ADMIN"
+  roleType?: string
+  userType?: string
   projects?: any[]
   clientId?: string
-}
-
-export interface Project {
-  id: string
-  project_name: string
-  github_link?: string | URL
-  createdAt: string
-  updatedAt: string
-  users: User[]
-  clientId: string
 }
 
 export interface Client {
@@ -54,6 +40,37 @@ export interface Client {
   created_at: string
   updated_at: string
   projects: Project[]
+}
+
+export interface Project {
+  id: string
+  project_name: string
+  github_link?: string | URL
+  createdAt: string
+  updatedAt: string
+  users: User[]
+  clientId: string
+}
+
+export interface Todo {
+  id: string
+  title: string
+  subheader: string
+  full_description: string
+  userTodoId: string | null
+  projectId: string | null
+  prio_level: string
+  github_link: string
+  created_at: string
+  updated_at: string
+  tagId: string[]
+  tags: Tag[]
+  userTodo: any
+  projects: any
+}
+
+export interface Tag {
+  tag: string
 }
 
 export interface LeftSidebar {
@@ -72,4 +89,8 @@ export interface Theme {
   value: string
   label: string
   icon: string
+}
+
+export interface TechStackIcons {
+  [key: string]: React.ReactNode
 }

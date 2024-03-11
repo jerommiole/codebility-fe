@@ -9,11 +9,9 @@ interface Props {
 
 const RenderTeam = ({ imgURL }: Props) => {
   return (
-    <>
-      <Avatar className={`h-[30px] w-[30px] rounded-full bg-blue-100`}>
-        <Image alt="Avatar" src={imgURL ? defaultAvatarFemale : defaultAvatarMale} width={30} height={30} />
-      </Avatar>
-    </>
+    <div className="m-1 inline-flex h-[30px] w-[30px] items-center rounded-full bg-blue-600">
+      <Image alt="avatar" src={imgURL ? defaultAvatarFemale : defaultAvatarMale} width={30} height={30} />
+    </div>
   )
 }
 
