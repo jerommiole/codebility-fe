@@ -48,16 +48,16 @@ const CompanyEditModal = () => {
                 <Label className="text-base">Company Info</Label>
                 <div className="w-full items-center gap-6 md:flex">
                   <div className="w-full space-y-2">
-                    <Label>Name</Label>
+                    <Label className="text-gray">Name</Label>
                     <Input className="" placeholder="Company Name" value="Lorem Ipsum" />
                   </div>
                   <div className="w-full space-y-2">
-                    <Label>Working Hours</Label>
+                    <Label className="text-gray">Working Hours</Label>
                     <Input className="" placeholder="08:00am - 05:00pm" value="08:00am - 05:00pm" />
                   </div>
                 </div>
                 <div className="mt-2 w-full space-y-2">
-                  <Label>History</Label>
+                  <Label className="text-gray">History</Label>
                   <Input
                     className=""
                     placeholder="History"
@@ -70,21 +70,21 @@ const CompanyEditModal = () => {
                 <Label className="text-base">Company Contact Details</Label>
                 <div className="w-full items-center gap-6 md:flex">
                   <div className="w-full space-y-2">
-                    <Label>Email</Label>
+                    <Label className="text-gray">Email</Label>
                     <Input className="" placeholder="Email" />
                   </div>
                   <div className="w-full space-y-2">
-                    <Label>Telephone</Label>
+                    <Label className="text-gray">Telephone</Label>
                     <Input className="" placeholder="+639" />
                   </div>
                 </div>
                 <div className="w-full items-center gap-6 md:flex">
                   <div className="w-full space-y-2">
-                    <Label>Address</Label>
+                    <Label className="text-gray">Address</Label>
                     <Input className="" placeholder="Address" />
                   </div>
                   <div className="w-full space-y-2">
-                    <Label>Linkedin</Label>
+                    <Label className="text-gray">Linkedin</Label>
                     <Input className="" placeholder="Linkedin" />
                   </div>
                 </div>
