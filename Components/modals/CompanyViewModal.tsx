@@ -23,9 +23,7 @@ const CompanyViewModal = () => {
                   <Image src="/assets/svgs/icon-kanban.svg" width={80} height={80} alt="logo" />
                 </div>
                 <div className="flex h-full flex-col justify-between gap-2">
-                  <p className="text-center text-xl font-semibold uppercase" onClick={() => onOpen("companyEditModal")}>
-                    Company Name
-                  </p>
+                  <p className="text-center text-xl font-semibold uppercase">Company Name</p>
                   <div className="flex items-center gap-4 text-xs text-gray">
                     <IconEmail className="invert dark:invert-0" />
                     admin@gmail.com
