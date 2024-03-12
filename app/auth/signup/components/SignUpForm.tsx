@@ -114,8 +114,8 @@ const AuthForm = () => {
     clearStack()
     reset()
     setCurrentStep(1)
-    toast.success("Account Created")
-    router.push("/dashboard")
+    toast.success("Your account has been successfully created")
+    router.push("/success")
     return null
   }
 
