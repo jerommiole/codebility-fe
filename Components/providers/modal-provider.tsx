@@ -9,9 +9,9 @@ import CompanyTermsConditionModal from "Components/modals/company-terms-conditio
 import ScheduleModal from "Components/modals/schedule-modal"
 import TechStackModal from "Components/modals/techstack-modal"
 import { useEffect, useState } from "react"
-import CompanyAddModal from "../modals/company-add-modal"
-import CompanyEditModal from "../modals/company-edit-modal"
-import CompanyViewModal from "../modals/company-view-modal"
+import CompanyAddModal from "../modals/CompanyAddModal"
+import CompanyEditModal from "../modals/CompanyEditModal"
+import CompanyViewModal from "../modals/CompanyViewModal"
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false)
