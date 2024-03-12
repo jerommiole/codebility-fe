@@ -43,7 +43,7 @@ const Clients = () => {
         <H1>Clients</H1>
         <div className="flex items-center gap-4">
           {/* Input Hollow for Search */}
-          {/* <Search className="mr-3 cursor-pointer text-xs invert-0 dark:invert md:hidden" /> */}
+          <Search className="mr-3 cursor-pointer text-xs invert-0 dark:invert md:hidden" />
           <div className="relative hidden md:block lg:w-60">
             <Search className="absolute left-2 top-2.5 text-gray invert-0 dark:invert" size={20} />
             <input
@@ -53,7 +53,7 @@ const Clients = () => {
             />
           </div>
           {/* Select Filter */}
-          {/* <IconFilter className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden" /> */}
+          <IconFilter className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden" />
           <Button className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex">
             <IconFilter className="mr-3 invert dark:invert-0" />
             Filter
