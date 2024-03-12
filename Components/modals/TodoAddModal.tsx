@@ -18,15 +18,36 @@ import {
   SelectItem,
 } from "@radix-ui/react-select"
 import { IconDropdown } from "@/public/assets/svgs"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { todoPrioLevels } from "@/constants"
-
-const projects = ["Apexpoint", "FormApp", "Tap-up"]
+import { Project } from "@/types"
+import axios from "axios"
 
 const TodoAddModal = () => {
   const { isOpen, onClose, type } = useModal()
+  const [projects, setProjects] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(false)
   const [selectedProject, setSelectedProject] = useState<string | null>(null)
   const [selectedPrioLevel, setSelectedPrioLevel] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchProjectsData = async () => {
+      try {
+        const response = await axios("https://codebility-be.onrender.com/api/v1/production/projects")
+        if (!response) {
+          throw new Error("Failed to fetch data from the server.")
+        }
+        setProjects(response.data.data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    setIsLoading(true)
+    fetchProjectsData()
+  }, [])
 
   const isModalOpen = isOpen && type === "todoAddModal"
 
@@ -58,12 +79,13 @@ const TodoAddModal = () => {
                 <SelectContent className="border-light_dark rounded-md border bg-[#FFF] dark:bg-black-100">
                   <SelectGroup>
                     <SelectLabel className="px-3 py-2 text-xs text-gray">Projects</SelectLabel>
-                    {projects.map((project) => (
+                    {projects.map(({ id, project_name }: Project) => (
                       <SelectItem
+                        key={id}
                         className="w-[345px] cursor-default px-3 py-2 text-sm hover:bg-blue-100"
-                        value={project}
+                        value={project_name}
                       >
-                        {project}
+                        {project_name}
                       </SelectItem>
                     ))}
                   </SelectGroup>
