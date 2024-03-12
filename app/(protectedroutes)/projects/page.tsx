@@ -7,14 +7,27 @@ import axios from "axios"
 import { Button } from "@/Components/ui/button"
 import { IconAdd, IconFilter } from "@/public/assets/svgs"
 import { Search } from "lucide-react"
+import { useModal } from "@/hooks/use-modal"
+import Loading from "./loading"
 
 const getProjects = async () => {
   const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/projects")
   return res.data.data
 }
 
-const Projects = async () => {
-  const projects = await getProjects()
+const Projects = () => {
+  const [projects, setProjects] = useState([])
+
+  const { onOpen } = useModal()
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getProjects()
+      setProjects(projects)
+    }
+
+    fetchProjects()
+  }, [])
 
   return (
     <div className="flex flex-col gap-4">
@@ -32,19 +45,25 @@ const Projects = async () => {
             />
           </div>
           {/* Select Filter */}
-          <IconFilter className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden" />
-          <Button className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex">
+          <IconFilter
+            className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden"
+            onClick={() => onOpen("projectEditModal")}
+          />
+          <Button
+            className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex"
+            onClick={() => onOpen("projectEditModal")}
+          >
             <IconFilter className="mr-3 invert dark:invert-0" />
             Filter
           </Button>
-          <IconAdd className="cursor-pointer text-xl invert dark:invert-0 xs:text-2xl md:hidden" />
-          <Button variant="default" className="hidden w-[130px] items-center md:flex">
+          <Button variant="default" className="w-[130px] items-center" onClick={() => onOpen("projectAddModal")}>
             <IconAdd className="mr-2" />
             Add Project
           </Button>
         </div>
       </div>
-      <ProjectCard projects={projects} />
+      {projects.length === 0 && <Loading />}
+      {projects.length > 0 && <ProjectCard projects={projects} />}
     </div>
   )
 }

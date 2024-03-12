@@ -31,6 +31,8 @@ export type ModalType =
   | "todoAddModal"
   | "todoViewModal"
   | "todoEditModal"
+  | "projectAddModal"
+  | "projectEditModal"
 
 interface ModalStore {
   type: ModalType | null
