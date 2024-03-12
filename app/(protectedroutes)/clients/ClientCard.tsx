@@ -39,9 +39,10 @@ const ClientCards = ({ clients }: { clients: Client[] }) => {
             <div className="flex justify-end">
               <Button
                 className="link mt-2"
-                onClick={() => {
-                  onOpen("companyProfile", client)
-                }}
+                // onClick={() => {
+                //   onOpen("companyProfile", client)
+                // }}
+                onClick={() => onOpen("companyViewModal")}
               >
                 Learn More
               </Button>

@@ -9,6 +9,9 @@ import CompanyTermsConditionModal from "Components/modals/company-terms-conditio
 import ScheduleModal from "Components/modals/schedule-modal"
 import TechStackModal from "Components/modals/techstack-modal"
 import { useEffect, useState } from "react"
+import CompanyAddModal from "../modals/company-add-modal"
+import CompanyEditModal from "../modals/company-edit-modal"
+import CompanyViewModal from "../modals/company-view-modal"
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false)
@@ -29,6 +32,9 @@ export const ModalProvider = () => {
       <TodoAddModal />
       <TodoViewModal />
       <TodoEditModal />
+      <CompanyAddModal />
+      <CompanyEditModal />
+      <CompanyViewModal />
     </>
   )
 }
