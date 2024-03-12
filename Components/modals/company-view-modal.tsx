@@ -20,8 +20,8 @@ const CompanyViewModal = () => {
             <p className="absolute right-0 top-0  cursor-pointer text-xs" onClick={() => onOpen("companyEditModal")}>
               Edit
             </p>
-            <div className="md:p-5 space-y-8">
-              <div className="flex flex-col items-center gap-4 md:flex-row">
+            <div className="space-y-8 md:p-5">
+              <div className="flex flex-col items-center gap-8 md:gap-10 md:flex-row">
                 <div className="flex h-40 w-40 items-center justify-center rounded-full bg-gray">
                   <Image src="/assets/svgs/icon-kanban.svg" width={80} height={80} alt="logo" />
                 </div>
