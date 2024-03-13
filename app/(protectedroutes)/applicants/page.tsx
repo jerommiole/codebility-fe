@@ -75,14 +75,16 @@ const ApplicantsPage = async () => {
                     {tech_stacks &&
                       tech_stacks.map((stack: any, i: any) => (
                         <div key={i} className="flex items-center">
-                          <Image
-                            src={`/assets/svgs/icon-${stack}.svg`}
-                            alt={stack + " icon"}
-                            width={20}
-                            height={20}
-                            title={stack}
-                            className="h-auto w-auto transition duration-300 hover:-translate-y-0.5"
-                          />
+                          {stack && (
+                            <Image
+                              src={`/assets/svgs/icon-${stack.toLowerCase()}.svg`}
+                              alt={`${stack} icon`}
+                              width={20}
+                              height={20}
+                              title={stack}
+                              className="h-auto w-auto transition duration-300 hover:-translate-y-0.5"
+                            />
+                          )}
                         </div>
                       ))}
                   </div>

@@ -30,28 +30,28 @@ const TechStackModal = () => {
         </DialogHeader>
 
         <div className="grid w-full grid-cols-3 gap-2 sm:w-auto">
-          {techstacks?.map((tech, i) => (
+          {techstacks?.map((stack, i) => (
             <div
               className={`flex cursor-pointer items-center justify-center rounded-md border py-1 text-white sm:justify-normal sm:p-2 sm:hover:bg-dark-400 ${
-                checkArray({ name: tech.name, icon: tech.icon, index: i }) && "bg-dark-400 text-white"
+                checkArray({ name: stack.name, icon: stack.icon, index: i }) && "bg-dark-400 text-white"
               }`}
-              key={`tech-item-${i}`}
-              onClick={() => addRemoveStack({ name: tech.name, icon: tech.icon, index: i })}
+              key={`stack-item-${i}`}
+              onClick={() => addRemoveStack({ name: stack.name, icon: stack.icon, index: i })}
             >
               <div className="relative h-5 w-5 sm:h-6 sm:w-6">
                 <Image
                   src={
-                    tech.alias
-                      ? `/assets/svgs/icon-${tech.alias.toLowerCase()}.svg`
-                      : `/assets/svgs/icon-${tech.name.toLowerCase()}.svg`
+                    stack.alias
+                      ? `/assets/svgs/icon-${stack.alias.toLowerCase()}.svg`
+                      : `/assets/svgs/icon-${stack.name.toLowerCase()}.svg`
                   }
-                  alt={`${tech.name} icon`}
+                  alt={`${stack.name} icon`}
                   fill
-                  title={tech.name}
+                  title={stack.name}
                   className="object-cover"
                 />
               </div>
-              <p className="hidden pl-4 sm:block">{tech.name}</p>
+              <p className="hidden pl-4 sm:block">{stack.name}</p>
             </div>
           ))}
         </div>
