@@ -8,14 +8,14 @@ type cookieState = {
   data: any | null
 }
 
-function useGoogleAuthCookie() {
+function useAuthCookie(cookieName?: string) {
   const [cookie, setCookie] = useState<cookieState>({
     status: "loading",
     data: null,
   })
   useEffect(() => {
     async function newC() {
-      const cookies = await getCookies()
+      const cookies = await getCookies(cookieName || "codebility-auth")
       if (!cookies) {
         setCookie((prev) => ({
           ...prev,
@@ -35,4 +35,4 @@ function useGoogleAuthCookie() {
   return cookie
 }
 
-export default useGoogleAuthCookie
+export default useAuthCookie

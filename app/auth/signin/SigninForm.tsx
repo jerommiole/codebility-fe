@@ -4,12 +4,12 @@ import { Button } from "@/Components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import SignInInputs from "@/app/auth/signin/SigninInputs"
 import { SignInValidation } from "lib/validations/auth"
-import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { z } from "zod"
+import { loginUserAction } from "@/app/actions/loginUser"
 
 type Inputs = z.infer<typeof SignInValidation>
 
@@ -34,16 +34,13 @@ const SignInForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true)
-    const result = await signIn("credentials", {
-      redirect: false,
-      ...data,
-    })
+    const result = await loginUserAction(data)
     if (!result || result.status === 500) {
       toast.error("Something went wrong")
       setIsLoading(false)
       return null
     }
-    if (!result?.ok) {
+    if (!result?.success) {
       setIsLoading(false)
       toast.error("Invalid Credentials")
     } else {
