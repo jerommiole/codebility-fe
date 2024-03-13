@@ -29,8 +29,8 @@ const CompanyAddModal = () => {
               <Label className="text-base">Logo</Label>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray md:h-20 md:w-20">
-                <Image src="/assets/svgs/icon-kanban.svg" width={30} height={30} alt="logo" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-dark-400 md:h-20 md:w-20">
+                <Image src="/assets/svgs/icon-company.svg" width={30} height={30} alt="logo" />
               </div>
               <div className="flex flex-col justify-center gap-2">
                 <p className="text-xs text-gray">Image size 100 x 100 px</p>

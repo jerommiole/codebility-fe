@@ -19,7 +19,7 @@ const CompanyEditModal = () => {
         className="flex h-[32rem] w-[90%] max-w-3xl flex-col gap-6 overflow-x-auto overflow-y-auto lg:h-auto"
       >
         <DialogHeader className="relative">
-          <DialogTitle className="mb-2 text-left text-xl">Update Company</DialogTitle>
+          <DialogTitle className="mb-2 text-left text-xl">Edit Company</DialogTitle>
         </DialogHeader>
 
         <div>
@@ -28,8 +28,8 @@ const CompanyEditModal = () => {
               <Label className="text-base">Logo</Label>
             </div>
             <div className="flex gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gray md:h-20 md:w-20">
-                <Image src="/assets/svgs/icon-kanban.svg" width={30} height={30} alt="logo" />
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-dark-400 md:h-20 md:w-20">
+                <Image src="/assets/svgs/icon-company.svg" width={30} height={30} alt="logo" />
               </div>
               <div className="flex flex-col justify-center gap-2">
                 <p className="text-xs text-gray">Image size 100 x 100 px</p>
@@ -98,7 +98,7 @@ const CompanyEditModal = () => {
             Cancel
           </Button>
           <Button variant="default" className="order-1 w-full sm:order-2 sm:w-[130px]">
-            Save
+            Update
           </Button>
         </DialogFooter>
       </DialogContent>

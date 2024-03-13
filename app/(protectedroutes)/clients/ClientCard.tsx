@@ -24,7 +24,7 @@ const ClientCards = ({ clients }: { clients: Client[] }) => {
             <div className="relative my-auto h-[120px] w-[120px] rounded-full bg-dark-400 p-6">
               <Image
                 alt="Thumbnail"
-                src="/assets/svgs/icon-kanban.svg" //need to update backend with real images data
+                src="/assets/svgs/icon-company.svg" //need to update backend with real images data
                 width={100}
                 height={100}
                 className="mb-2 h-full w-full rounded-lg bg-cover object-contain"

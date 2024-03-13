@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogFooter } from "../ui/dialog"
 import { Button } from "../ui/button"
 import { useModal } from "@/hooks/use-modal"
 import Image from "next/image"
-import { IconEmail, IconLinkedIn, IconMapPin, IconTelephone } from "@/public/assets/svgs"
+import { IconBullet, IconEmail, IconLinkedIn, IconMapPin, IconTelephone } from "@/public/assets/svgs"
 import { Label } from "../ui/label"
 
 const CompanyViewModal = () => {
@@ -20,7 +20,7 @@ const CompanyViewModal = () => {
             <div className="space-y-8 md:p-5">
               <div className="flex flex-col items-center gap-8 md:h-40 md:flex-row md:gap-10">
                 <div className="flex h-40 w-40 items-center justify-center rounded-full bg-gray">
-                  <Image src="/assets/svgs/icon-kanban.svg" width={80} height={80} alt="logo" />
+                  <Image src="/assets/svgs/icon-company.svg" width={80} height={80} alt="logo" />
                 </div>
                 <div className="flex h-full flex-col justify-between gap-2">
                   <p className="text-center text-xl font-semibold uppercase">Company Name</p>
@@ -50,21 +50,21 @@ const CompanyViewModal = () => {
                 <Label className="text-gray">History</Label>
 
                 <div className="flex gap-2">
-                  <IconMapPin className="invert dark:invert-0" />
+                  <IconBullet className="invert dark:invert-0" />
                   <Paragraph className="dark:text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut
                     ipsum minima impedit.
                   </Paragraph>
                 </div>
                 <div className="flex gap-2">
-                  <IconMapPin className="invert dark:invert-0" />
+                  <IconBullet className="invert dark:invert-0" />
                   <Paragraph className="dark:text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut
                     ipsum minima impedit.
                   </Paragraph>
                 </div>
                 <div className="flex gap-2">
-                  <IconMapPin className="invert dark:invert-0" />
+                  <IconBullet className="invert dark:invert-0" />
                   <Paragraph className="dark:text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde accusantium ipsa voluptatibus, ut
                     ipsum minima impedit.
