@@ -2,14 +2,14 @@ import { Button } from "@/Components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
-const ThankYouPage = () => {
+const NotFoundPage = () => {
   return (
     <section className="flex h-screen w-screen items-center justify-center overflow-hidden bg-backgroundColor text-primaryColor">
       <div className="flex flex-col gap-8 text-center lg:gap-10">
         <Link href="/">
           <Image
             className="mx-auto h-auto w-[250px] md:w-[350px] lg:w-[400px]"
-            src="/assets/svgs/codebility-teal.svg"
+            src="/assets/svgs/codebility-dark-blue.svg"
             alt="Codebility Logo"
             priority
             width={400}
@@ -17,13 +17,10 @@ const ThankYouPage = () => {
           />
         </Link>
 
-        <p className="text-lg md:text-3xl lg:text-4xl">You have successfully signed up!</p>
-        <div>
-          <p className="mx-auto text-xs text-gray md:text-lg lg:max-w-[500px] lg:text-lg">
-            Please wait for approval as an intern.
-          </p>
-          <p className="mx-auto text-xs text-gray md:text-lg lg:max-w-[500px] lg:text-lg">
-            You will receive an email notification with the status.
+        <div className="flex flex-col gap-2">
+          <p className="text-3xl md:text-6xl lg:text-7xl text-white font-bold">404</p>
+          <p className="mx-auto text-sm text-white md:text-xl lg:max-w-[500px] lg:text-2xl font-bold uppercase">
+            Page Not Found
           </p>
         </div>
 
@@ -48,4 +45,4 @@ const ThankYouPage = () => {
   )
 }
 
-export default ThankYouPage
+export default NotFoundPage
