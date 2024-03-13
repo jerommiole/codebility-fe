@@ -10,10 +10,13 @@ import BoxInset from "@/Components/shared/dashboard/BoxInset"
 import { Search } from "lucide-react"
 import { IconAdd, IconFilter } from "@/public/assets/svgs"
 import { Button } from "@/Components/ui/button"
+import { useModal } from "@/hooks/use-modal"
 
 const Clients = () => {
   const [clients, setClient] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+  const { onOpen } = useModal()
 
   useEffect(() => {
     const fetchProjectsData = async () => {
@@ -55,8 +58,8 @@ const Clients = () => {
             <IconFilter className="mr-3 invert dark:invert-0" />
             Filter
           </Button>
-          <IconAdd className="cursor-pointer text-xl invert dark:invert-0 xs:text-2xl md:hidden" />
-          <Button variant="default" className="hidden w-[130px] items-center md:flex">
+          {/* <IconAdd className="cursor-pointer text-xl invert dark:invert-0 xs:text-2xl md:hidden" /> */}
+          <Button variant="default" className="w-[130px] items-center" onClick={() => onOpen("companyAddModal")}>
             <IconAdd className="mr-2" />
             Add Company
           </Button>

@@ -8,6 +8,7 @@ import { useModal } from "@/hooks/use-modal"
 import { Button } from "@/Components/ui/button"
 import { IconAdd, IconFilter } from "@/public/assets/svgs"
 import { Todo } from "@/types"
+import Loading from "./loading"
 
 const getTodos = async () => {
   const res = await axios.get("https://codebility-be.onrender.com/api/v1/production/todos")
@@ -40,11 +41,14 @@ const TodoPage = () => {
           </Button>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {todos.map((todo: Todo) => {
-          return <TodoCard key={todo.id} todo={todo} />
-        })}
-      </div>
+      {todos.length === 0 && <Loading />}
+      {todos.length > 0 && (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {todos.map((todo: Todo) => {
+            return <TodoCard key={todo.id} todo={todo} />
+          })}
+        </div>
+      )}
     </div>
   )
 }

@@ -7,45 +7,70 @@ import { Button } from "@/Components/ui/button"
 import { useModal } from "hooks/use-modal"
 import Image from "next/image"
 import { Client } from "@/types"
+import { IconEmail, IconLinkedIn, IconMapPin, IconTelephone } from "@/public/assets/svgs"
+import { SvgCodebilityIconBlack } from "@/public/assets/icons"
 
 const ClientCards = ({ clients }: { clients: Client[] }) => {
   const { onOpen } = useModal()
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-      {clients.map((client: Client) => (
-        <Box key={client.id} className="flex gap-6 lg:flex-col xl:flex-row">
-          <div className="flex">
-            <div className="relative my-auto h-[120px] w-[120px] rounded-full bg-white p-6">
+      {clients.map(({ id, company_name, location, email, contact_number, linkedin_link }: Client) => (
+        <Box key={id} className="relative flex flex-col gap-6 p-5 ">
+          <div className="invisible absolute right-10 top-2 md:visible lg:invisible xl:visible">
+            <SvgCodebilityIconBlack className="text-gray" />
+          </div>
+          <div className="flex justify-center md:justify-start lg:justify-center xl:justify-start">
+            <div className="relative my-auto h-[120px] w-[120px] rounded-full bg-dark-400 p-6">
               <Image
                 alt="Thumbnail"
-                src={"/assets/svgs/icon-codebility.svg"} //need to update backend with real images data
+                src="/assets/svgs/icon-company.svg" //need to update backend with real images data
                 width={100}
                 height={100}
                 className="mb-2 h-full w-full rounded-lg bg-cover object-contain"
               />
             </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-lg font-semibold uppercase">{client.company_name}</p>
-            <Paragraph>{client.company_hist}</Paragraph>
-            <div className="grid gap-2 lg:grid-cols-1 xl:grid-cols-2">
-              <BoxInset icon="telephone" label={client.contact_number} iconClassName="invert dark:invert-0" />
-              <BoxInset icon="linkedin" label={client.linkedin_link} iconClassName="invert dark:invert-0" />
-              <BoxInset icon="email" label={client.email} iconClassName="invert dark:invert-0" />
-              <BoxInset icon="map-pin" label={client.location} iconClassName="invert dark:invert-0" />
+          <div className="relative flex h-full flex-col items-center justify-between gap-4 md:items-start lg:items-center xl:items-start">
+            <p className="text-center font-semibold uppercase md:text-start md:text-xl lg:text-center xl:text-start ">
+              {company_name}
+            </p>
+            <div className="space-y-4 text-xs md:w-full lg:w-auto xl:w-full">
+              <div className="flex items-center gap-4 text-gray">
+                <IconMapPin className="invert dark:invert-0" />
+                {location}
+              </div>
+              <div className="flex items-center gap-4 text-gray">
+                <IconEmail className="invert dark:invert-0" />
+                {email}
+              </div>
+              <div className="flex items-center gap-4 text-gray">
+                <IconLinkedIn className="invert dark:invert-0" />
+                {linkedin_link}
+              </div>
+              <div className="flex w-full items-start justify-between gap-10">
+                <div className="flex items-center gap-4 text-gray">
+                  <IconTelephone className="invert dark:invert-0" />
+                  {contact_number}
+                </div>
+                <Button
+                  variant="hollow"
+                  className="hidden transform border-gray text-gray md:block lg:hidden xl:block"
+                  onClick={() => onOpen("companyViewModal")}
+                >
+                  Learn More
+                </Button>
+              </div>
             </div>
-
-            <div className="flex justify-end">
-              <Button
-                className="link mt-2"
-                onClick={() => {
-                  onOpen("companyProfile", client)
-                }}
-              >
-                Learn More
-              </Button>
-            </div>
+          </div>
+          <div className="mt-4 flex justify-end md:hidden lg:flex xl:hidden">
+            <Button
+              variant="hollow"
+              className="transform border-gray text-gray"
+              onClick={() => onOpen("companyViewModal")}
+            >
+              Learn More
+            </Button>
           </div>
         </Box>
       ))}

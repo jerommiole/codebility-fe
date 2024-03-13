@@ -29,6 +29,25 @@ const TodoAddModal = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [selectedProject, setSelectedProject] = useState<string | null>(null)
   const [selectedPrioLevel, setSelectedPrioLevel] = useState<string | null>(null)
+  const [inputTag, setInputTag] = useState<string>("")
+  const [tags, setTags] = useState<string[]>([])
+
+  const handleAddTag = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && inputTag.trim() !== "") {
+      setTags((prevArray) => [...prevArray, inputTag.trim()])
+      setInputTag("")
+    }
+  }
+
+  // const removeTag = (index: number) => {
+  //   setTags((prevTags) => prevTags.filter((_, i) => i !== index))
+  // }
+
+  const handleClose = () => {
+    setInputTag("")
+    setTags([])
+    onClose()
+  }
 
   useEffect(() => {
     const fetchProjectsData = async () => {
@@ -136,11 +155,15 @@ const TodoAddModal = () => {
           <div className="flex basis-[50%] flex-col gap-4">
             <div>
               <Label htmlFor="tags">Tags *</Label>
-              <Input id="tags" placeholder="Add a tags..." />
-              <RenderTag />
-              <RenderTag />
-              <RenderTag />
-              <RenderTag />
+              <Input
+                id="tags"
+                type="text"
+                value={inputTag}
+                onChange={(e) => setInputTag(e.target.value)}
+                onKeyPress={handleAddTag}
+                placeholder="Add a tags..."
+              />
+              {tags && tags.map((tag) => <RenderTag name={tag} />)}
               <p className="text-xs text-gray">
                 Add a tag to describe what task is about. You need to press enter to add a tag.
               </p>
@@ -158,7 +181,7 @@ const TodoAddModal = () => {
         </div>
 
         <DialogFooter className="flex flex-col gap-2 lg:flex-row">
-          <Button variant="hollow" className="order-2 w-full sm:order-1 sm:w-[130px]" onClick={() => onClose()}>
+          <Button variant="hollow" className="order-2 w-full sm:order-1 sm:w-[130px]" onClick={handleClose}>
             Cancel
           </Button>
           <Button variant="default" className="order-1 w-full sm:order-2 sm:w-[130px]">
