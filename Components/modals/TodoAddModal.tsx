@@ -44,6 +44,7 @@ const TodoAddModal = () => {
   // }
 
   const handleClose = () => {
+    setInputTag("")
     setTags([])
     onClose()
   }
@@ -162,7 +163,7 @@ const TodoAddModal = () => {
                 onKeyPress={handleAddTag}
                 placeholder="Add a tags..."
               />
-              {tags && tags.map((tag) => <RenderTag name={tag}  />)}
+              {tags && tags.map((tag) => <RenderTag name={tag} />)}
               <p className="text-xs text-gray">
                 Add a tag to describe what task is about. You need to press enter to add a tag.
               </p>
