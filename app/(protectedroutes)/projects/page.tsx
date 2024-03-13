@@ -49,10 +49,7 @@ const Projects = () => {
             className="mr-3 cursor-pointer invert dark:invert-0 xs:text-xl md:hidden"
             onClick={() => onOpen("projectEditModal")}
           />
-          <Button
-            className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex"
-            onClick={() => onOpen("projectEditModal")}
-          >
+          <Button className="text-dark border-gray-100 text-gray-100 hidden w-24 items-center border bg-transparent text-gray md:flex">
             <IconFilter className="mr-3 invert dark:invert-0" />
             Filter
           </Button>

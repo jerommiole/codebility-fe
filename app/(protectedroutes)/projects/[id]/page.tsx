@@ -11,11 +11,15 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import defaultAvatarMale from "public/assets/images/default-avatar-male.png"
 import defaultAvatarFemale from "public/assets/images/default-avatar-female.png"
+import { Button } from "@/Components/ui/button"
+import { useModal } from "@/hooks/use-modal"
 
 const ProjectPage = ({ params }: { params: { id: string } }) => {
   const id = params.id
   const [project, setProject] = useState<Project | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+
+  const { onOpen } = useModal()
 
   const { project_name, github_link, createdAt, users, clientId } = project || {}
 
@@ -49,6 +53,9 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
             className="mb-2 h-full w-full rounded-lg bg-cover object-contain"
           />
           <H1 className="uppercase">{project_name} APEXPOINT</H1>
+          <Button variant="default" onClick={() => onOpen("projectEditModal")}>
+            Edit
+          </Button>
           <div className="flex justify-center gap-2 lg:justify-start">
             <Link href={github_link ?? "https://github.com/"} target="_blank">
               <IconGithub className="h-18 w-18 invert dark:invert-0" />
@@ -73,14 +80,14 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
                       src={user.image_icon || defaultAvatarMale}
                       width={100}
                       height={100}
-                      className="h-[100px] w-[100px] rounded-full bg-blue-500 bg-cover"
+                      className="h-[50px] w-[50px] rounded-full bg-blue-500 bg-cover md:h-[100px] md:w-[100px]"
                     />
                     <p className="pt-3 font-semibold">{user.name}</p>
                   </Link>
                   <Paragraph>{user.position}</Paragraph>
                 </div>
               ))}
-
+            {/* 
             <Link href="/codevs/65c53f7588b5ce680ecc2575" target="_blank">
               <Image
                 alt="Avatar"
@@ -102,7 +109,7 @@ const ProjectPage = ({ params }: { params: { id: string } }) => {
               />
               <p className="pt-3 font-semibold ">Name</p>
               <Paragraph>FE Developer</Paragraph>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

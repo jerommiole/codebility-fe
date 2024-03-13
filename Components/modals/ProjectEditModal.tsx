@@ -20,7 +20,7 @@ const ProjectEditModal = () => {
         className="flex h-[32rem] w-[90%] max-w-lg flex-col gap-6 overflow-x-auto overflow-y-auto lg:h-auto"
       >
         <DialogHeader className="relative">
-          <DialogTitle className="mb-2 text-left text-xl">Update Project</DialogTitle>
+          <DialogTitle className="mb-2 text-left text-xl">Edit Project</DialogTitle>
         </DialogHeader>
 
         <div>
