@@ -11,6 +11,9 @@ import TechStackModal from "Components/modals/techstack-modal"
 import { useEffect, useState } from "react"
 import ProjectAddModal from "../modals/ProjectAddModal"
 import ProjectEditModal from "../modals/ProjectEditModal"
+import CompanyAddModal from "../modals/CompanyAddModal"
+import CompanyEditModal from "../modals/CompanyEditModal"
+import CompanyViewModal from "../modals/CompanyViewModal"
 
 export const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false)
@@ -33,6 +36,9 @@ export const ModalProvider = () => {
       <TodoEditModal />
       <ProjectAddModal />
       <ProjectEditModal />
+      <CompanyAddModal />
+      <CompanyEditModal />
+      <CompanyViewModal />
     </>
   )
 }
