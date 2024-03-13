@@ -10,7 +10,7 @@ const RenderTag = ({ name, className }: Props) => {
     <div
       className={`m-1 inline-flex items-center rounded-md bg-blue-600 px-2 py-1 text-[10px] uppercase text-white ${className}`}
     >
-      {name} Sample
+      {name}
     </div>
   )
 }
