@@ -54,20 +54,20 @@ const TodoCard = ({ todo }: TodoCardProps) => {
             <p className="text-lg font-semibold text-violet">#01</p>
             <p>{title}</p>
             <p className="text-sm">{subheader}</p>
-            <Paragraph className="mt-2">{full_description}</Paragraph>
+            <Paragraph>{full_description}</Paragraph>
             <div className="flex items-center gap-2 text-xs text-gray">
               Project: <p className="text-sm uppercase text-dark-100 dark:text-white">{projects?.project_name}</p>
             </div>
-            <div className="mt-2 flex items-center gap-2 text-xs text-gray">
+            <div className="mt-1 flex items-center gap-2 text-xs text-gray">
               Duration Hours: <p className="text-sm uppercase text-dark-100 dark:text-white">2.0</p>
             </div>
           </div>
-          <div className="mt-2">
+          <div className="mt-1">
             {tags.map(({ tag }, i) => (
               <RenderTag key={i} name={tag} />
             ))}
           </div>
-          <div className="mt-2">
+          <div className="mt-1">
             {tagId.map((id) => (
               <RenderTeam key={id} />
             ))}
