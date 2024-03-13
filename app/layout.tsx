@@ -3,7 +3,6 @@ import "./globals.css"
 import { ThemeProvider } from "@/context/ThemeProvider"
 import { ModalProvider } from "Components/providers/modal-provider"
 import { Outfit } from "next/font/google"
-import AuthContext from "./context/AuthContext"
 import ToasterContext from "./context/ToasterContext"
 export const metadata = {
   title: "Codebility",
@@ -20,11 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={outfit.className}>
       <body>
         <ThemeProvider>
-          <AuthContext>
-            <ToasterContext />
-            <ModalProvider />
-            {children}
-          </AuthContext>
+          <ToasterContext />
+          <ModalProvider />
+          {children}
         </ThemeProvider>
       </body>
     </html>

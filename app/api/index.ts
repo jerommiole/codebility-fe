@@ -11,6 +11,17 @@ export async function saveUserData(email: string, updatedData: any) {
   })
 }
 
+export async function getUserDataById(id: string) {
+  try {
+    const response = await fetch(`${API.CODEVS}/${id}`, {
+      method: "GET",
+    })
+    return response.json()
+  } catch (e: any) {
+    return new NextResponse("INTERNAL_SERVER_ERROR", { status: 500 })
+  }
+}
+
 export async function loginUser(credentials: any) {
   const restructuredObject = {
     email_address: credentials.email,

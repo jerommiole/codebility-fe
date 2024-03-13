@@ -1,12 +1,11 @@
 "use server"
 import { cookies } from "next/headers"
-import { getServerSession } from "next-auth"
 import { jwtDecode } from "jwt-decode"
 
-export async function getCookies() {
+export async function getCookies(cookieName: string) {
   const allCookies = await cookies()
-  const googleAuthCookie = allCookies.get("x-auth-cookie")
-  if (!googleAuthCookie) return null
+  const authCookie = allCookies.get(cookieName)
+  if (!authCookie) return null
 
-  return jwtDecode(googleAuthCookie?.value as string)
+  return jwtDecode(authCookie?.value as string)
 }
